@@ -1,0 +1,33 @@
+.links line {
+	stroke: #999;
+	stroke-opacity: 0.6;
+}
+
+.nodes circle {
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+.semorg-network text {
+	font-size:10px;
+}
+
+.gnode {
+	cursor:pointer;
+}
+
+.network-tooltip {
+	position: absolute;
+	text-align: center;
+	width: 150px;
+	padding: 8px;
+	margin-top: -20px;
+	font: 10px sans-serif;
+	background: #000;
+	color:#fff;
+	opacity:.8;
+	pointer-events: none;
+	border-radius:2px;
+}
+
+

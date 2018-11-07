@@ -1,0 +1,35 @@
+.semorg-circles {
+	width:600px;
+	margin:auto;
+}
+
+circle {
+	fill: rgb(31, 119, 180);
+	fill-opacity: .25;
+	stroke: rgb(31, 119, 180);
+	stroke-width: 1px;
+}
+
+.leaf circle {
+	fill: #ff7f0e;
+	fill: rgb(31, 119, 180);
+	fill-opacity: 1;
+	fill-opacity: .25;
+}
+
+text {
+	font: 10px sans-serif;
+	text-anchor: middle;
+	opacity:.6;
+}
+
+text.member {
+	fill: rgb(31, 119, 180);
+	font: 12px sans-serif;
+	opacity:1;
+	display:none;
+}
+
+.role {
+	cursor: pointer;
+}

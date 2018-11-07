@@ -1,0 +1,150 @@
+/* SIGNATURES */
+
+.semorg-signatures {
+	text-align:center;
+	margin-top:50px;
+}
+
+.semorg-signature {
+	margin-top:100px;
+	border-top:1px solid #ccc;
+	width:45%;
+	display:inline-block;
+	margin-right:2%;
+	margin-left:2%;
+}
+
+
+/* HEADER */
+.semorg-header {
+	text-align:center;
+	margin-bottom:50px;
+}
+
+.semorg-header-logo {
+	margin-bottom:50px;
+}
+
+.semorg-header-logo img {
+	width:100px;
+	height:125px;
+}
+
+
+/* FOOTER */
+.semorg-footer {
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%
+}
+
+
+/* SHOWEDIT */
+.semorg-showedit {
+	border:1px solid transparent !important;
+	vertical-align:middle !important;
+	width:50px;
+	background:none !important;
+}
+
+/* AGENDA */
+.semorg-agenda-heading {
+	margin-top:30px;
+}
+
+.semorg-agenda-details {
+	margin-top:-5px;
+	margin-bottom:10px;
+	font-style:italic;
+}
+
+.semorg-agenda-detail + .semorg-agenda-detail:before {
+	content:",";
+	padding-right: 4px;
+}
+
+.semorg-agenda-proposal-heading-text {
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+/* TOGGLE */
+.semorg-toggle {
+	margin-bottom:10px;
+}
+.semorg-toggle-toggle {
+	display:none;
+}
+
+.semorg-process-step {
+	background:#ddf;
+	width:500px;
+	text-align:center;
+	margin:auto;
+	padding-left:15px;
+	padding-right:15px;
+}
+.semorg-process-step:first-of-type {
+	padding-top:15px;
+}
+.semorg-process-step + .semorg-process-step:before {
+	width:0;
+	height:0;
+	border-left:250px solid #ddf;
+	border-right:250px solid #ddf;
+	border-top:10px solid white;
+	content:"";
+	display:block;
+	padding-bottom:15px;
+	margin-left:-15px;
+}
+.semorg-process-step:nth-last-of-type(n+2):after {
+	width:0;
+	height:0;
+	border-left:250px solid white;
+	border-right:250px solid white;
+	border-top:10px solid #ddf;
+	content:"";
+	display:block;
+	margin-top:15px;
+	margin-left:-15px;
+}
+.semorg-process-step:last-of-type {
+	padding-bottom:15px;
+}
+
+/* timeline */
+.semorg-timeline {
+	position:absolute;
+	top:10%;
+	left:0;
+	height:80%;
+	width:100%;
+	background-color:#90c6e066;
+	padding:0 5px;
+	border-radius:2px;
+}
+.semorg-timeline small {
+	vertical-align:top;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:inline-block;
+	width:100%;
+}
+
+/* links */
+.semorg-user-create-link {
+	font-style:italic;
+	font-size:small;
+}
+
+/* forms */
+.ui-datepicker-trigger {
+	width:30px;
+	padding:0;
+}
+.ui-datepicker-trigger img {
+	margin-left:-5px;
+}

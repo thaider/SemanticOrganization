@@ -1,0 +1,74 @@
+{
+	"name": "Semantic Organization",
+	"version": "0.0.1",
+	"author": [
+		"Tobias Haider"
+	],
+	"descriptionmsg": "semorg-desc",
+	"license-name": "GPL-3.0",
+	"requires": {
+		"MediaWiki": ">= 1.28.0"
+	},
+	"type": "semantic",
+	"url": "https://www.mediawiki.org/wiki/Extension:SemanticOrganization",
+	"AutoloadClasses": {
+		"SemanticOrganizationHooks": "SemanticOrganization.hooks.php",
+		"SemanticOrganizationProperties": "SemanticOrganization.properties.php"
+	},
+	"ExtensionMessagesFiles": {
+		"SemanticOrganizationAlias": "SemanticOrganization.i18n.alias.php"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "SemanticOrganization/modules"
+	},
+	"ResourceModules": {
+		"ext.semorg": {
+			"position": "top",
+			"scripts": [
+				"ext.semorg.js" 
+			],
+			"styles": {
+				"ext.semorg.less": { "media": "all" },
+				"ext.semorg-print.less": { "media": "print" }
+			}
+		},
+		"ext.network": {
+			"position": "top",
+			"scripts": [
+				"d3.min.js",
+				"ext.semorg.network.js" 
+			],
+			"styles": [
+				"ext.semorg.network.css"
+			]
+		},
+		"ext.circles": {
+			"position": "top",
+			"scripts": [
+				"d3.min.js",
+				"ext.semorg.circles.js" 
+			],
+			"styles": [
+				"ext.semorg.circles.css"
+			]
+		}
+	},
+	"Hooks": {
+		"smwInitProperties": [
+			"SemanticOrganizationProperties::onsmwInitProperties"
+		],
+		"ParserFirstCallInit": [
+			"SemanticOrganizationHooks::onParserFirstCallInit"
+		],
+		"BeforePageDisplay": [
+			"SemanticOrganizationHooks::onBeforePageDisplay"
+		]
+	},
+	"MessagesDirs": {
+		"SemanticOrganization": [
+			"i18n"
+		]
+	},
+	"manifest_version": 2
+}
