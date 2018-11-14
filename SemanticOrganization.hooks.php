@@ -374,13 +374,13 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $formoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->inContentLanguage()->text();
+			return wfMessage( 'semorg-form-notemplate' )->text();
 		}
 		$template = $formoptions['template'];
 
 		// welche Elemente wurden gesetzt?
 		if( !isset( $formoptions['elements'] ) ) {
-			return wfMessage( 'semorg-form-noelements' )->inContentLanguage()->text();
+			return wfMessage( 'semorg-form-noelements' )->text();
 		}
 		$elements = explode( ',', $formoptions['elements'] );
 
@@ -388,19 +388,19 @@ class SemanticOrganizationHooks {
 
 		// Form-Info
 		$info = '';
-		if( !wfMessage( 'semorg-form-' . $for_template . '-info' )->inContentLanguage()->isDisabled() ) {
-			$info .= '|' . wfMessage( 'semorg-form-' . $for_template . '-info' )->inContentLanguage()->text();
+		if( !wfMessage( 'semorg-form-' . $for_template . '-info' )->isDisabled() ) {
+			$info .= '|' . wfMessage( 'semorg-form-' . $for_template . '-info' )->text();
 		}
 		foreach( ['edit-title','create-title'] as $formparameter ) {
-			if( !wfMessage( 'semorg-form-' . $for_template . '-' . $formparameter )->inContentLanguage()->isDisabled() ) {
-				$info .= '|' . str_replace('-',' ',$formparameter) . '=' . wfMessage( 'semorg-form-' . $for_template . '-' . $formparameter )->inContentLanguage()->text();
+			if( !wfMessage( 'semorg-form-' . $for_template . '-' . $formparameter )->isDisabled() ) {
+				$info .= '|' . str_replace('-',' ',$formparameter) . '=' . wfMessage( 'semorg-form-' . $for_template . '-' . $formparameter )->text();
 			}
 		}
 		if( $template == 'person' ) {
 			$info .= '|page name=<semorg-person[firstname]> <semorg-person[lastname]>';
 		}
-		if( !wfMessage( 'semorg-form-' . $template . '-page-name' )->inContentLanguage()->isDisabled() ) {
-			$info .= '|page name=' . wfMessage( 'semorg-form-' . $for_template . '-page-name' )->inContentLanguage()->text();
+		if( !wfMessage( 'semorg-form-' . $template . '-page-name' )->isDisabled() ) {
+			$info .= '|page name=' . wfMessage( 'semorg-form-' . $for_template . '-page-name' )->text();
 		}
 		if( $info != '' && !( isset( $formoptions['noinfo'] ) ) ) {
 			$form .= '<nowiki>{{{info' . $info . '}}}</nowiki>';
@@ -408,8 +408,8 @@ class SemanticOrganizationHooks {
 
 		// Template-Info
 		$templateinfo = 'semorg-' . $for_template;
-		if( !wfMessage( 'semorg-form-' . $for_template . '-parameters' )->inContentLanguage()->isDisabled() ) {
-			$templateinfo .= '|' . wfMessage( 'semorg-form-' . $for_template . '-parameters' )->inContentLanguage()->text();
+		if( !wfMessage( 'semorg-form-' . $for_template . '-parameters' )->isDisabled() ) {
+			$templateinfo .= '|' . wfMessage( 'semorg-form-' . $for_template . '-parameters' )->text();
 		}
 		if( isset( $formoptions['embed in field'] ) ) {
 			$templateinfo .= '|embed in field=' . $formoptions['embed in field'];
@@ -449,7 +449,7 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $fieldoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->inContentLanguage()->text();
+			return wfMessage( 'semorg-form-notemplate' )->text();
 		}
 		$template = $fieldoptions['template'];
 
@@ -471,7 +471,7 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $fieldoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->inContentLanguage()->text();
+			return wfMessage( 'semorg-form-notemplate' )->text();
 		}
 		$template = $fieldoptions['template'];
 
@@ -489,7 +489,7 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $fieldoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->inContentLanguage()->text();
+			return wfMessage( 'semorg-form-notemplate' )->text();
 		}
 		$template = $fieldoptions['template'];
 
@@ -510,17 +510,17 @@ class SemanticOrganizationHooks {
 		$field = $element;
 
 		/* Construct the field */
-		if( !wfMessage($fullelement . '-parameters')->inContentLanguage()->isDisabled() ) {
-			$field .= '|' . wfMessage($fullelement . '-parameters')->inContentLanguage()->text();
+		if( !wfMessage($fullelement . '-parameters')->isDisabled() ) {
+			$field .= '|' . wfMessage($fullelement . '-parameters')->text();
 		}
 		$field = '{{{field|' . $field . '}}}';
 
 		/* Text before and after the field */
-		if( !wfMessage($fullelement . '-prefix')->inContentLanguage()->isDisabled() ) {
-			$field = wfMessage($fullelement . '-prefix')->inContentLanguage()->text() . $field;
+		if( !wfMessage($fullelement . '-prefix')->isDisabled() ) {
+			$field = wfMessage($fullelement . '-prefix')->text() . $field;
 		}
-		if( !wfMessage($fullelement . '-suffix')->inContentLanguage()->isDisabled() ) {
-			$field .= wfMessage($fullelement . '-suffix')->inContentLanguage()->text();
+		if( !wfMessage($fullelement . '-suffix')->isDisabled() ) {
+			$field .= wfMessage($fullelement . '-suffix')->text();
 		}
 
 		return '<nowiki>' . $field . '</nowiki>';
@@ -536,19 +536,19 @@ class SemanticOrganizationHooks {
 		$help = '';
 
 		/* get the heading if it exists */
-		if( !wfMessage($fullelement . '-name')->inContentLanguage()->isDisabled() ) {
-			$heading = wfMessage($fullelement . '-name')->inContentLanguage()->text();
+		if( !wfMessage($fullelement . '-name')->isDisabled() ) {
+			$heading = wfMessage($fullelement . '-name')->text();
 		}
 
 		/* get the help message if it exists */
-		if( !wfMessage($fullelement . '-help')->inContentLanguage()->isDisabled() ) {
-			$help = wfMessage($fullelement . '-help')->inContentLanguage()->text();
+		if( !wfMessage($fullelement . '-help')->isDisabled() ) {
+			$help = wfMessage($fullelement . '-help')->text();
 			$help = '<div class="help-block">' . $help . '</div>';
 		}
 
 		/* is this a single field or a group of fields? */
-		if( !wfMessage($fullelement . '-fields')->inContentLanguage()->isDisabled() ) {
-			$fields = explode( ',', wfMessage($fullelement . '-fields')->inContentLanguage()->text() );
+		if( !wfMessage($fullelement . '-fields')->isDisabled() ) {
+			$fields = explode( ',', wfMessage($fullelement . '-fields')->text() );
 			foreach( $fields as &$field ) {
 				$field = trim( $field );
 				$field = self::getField( $template, $field );
@@ -558,7 +558,7 @@ class SemanticOrganizationHooks {
 			$items = self::getField( $template, $element );
 
 			/* is it a hidden field? */
-			if( !wfMessage($fullelement . '-parameters')->inContentLanguage()->isDisabled() && wfMessage($fullelement . '-parameters')->inContentLanguage()->text() == 'hidden' ) {
+			if( !wfMessage($fullelement . '-parameters')->isDisabled() && wfMessage($fullelement . '-parameters')->text() == 'hidden' ) {
 				return $items;
 			}
 		}
