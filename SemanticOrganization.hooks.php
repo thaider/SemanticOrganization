@@ -513,6 +513,16 @@ class SemanticOrganizationHooks {
 		if( !wfMessage($fullelement . '-parameters')->isDisabled() ) {
 			$field .= '|' . wfMessage($fullelement . '-parameters')->text();
 		}
+		foreach( [
+			'placeholder',
+			'input-type',
+			'values',
+			'mapping-template'
+		] as $parameter ) {
+			if( !wfMessage($fullelement . '-' . $parameter)->isDisabled() ) {
+				$field .= '|' . str_replace('-', ' ', $parameter) . '=' . wfMessage($fullelement . '-' . $parameter)->text();
+			}
+		}
 		$field = '{{{field|' . $field . '}}}';
 
 		/* Text before and after the field */
