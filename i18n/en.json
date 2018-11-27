@@ -689,7 +689,7 @@
 	"semorg-formlink-role-link-text": "Rolle erstellen",
 	"semorg-form-role-template": "role",
 	"semorg-form-role-rows": "name, group, tasks, holders",
-	"semorg-list-role-headers": "role-name, role-group",
+	"semorg-list-role-headers": "role-name, role-hours, role-tasks, role-group, role-holders",
 	"semorg-field-role-name-name": "Name", 
 	"semorg-field-role-name-parameters": "",
 	"semorg-field-role-group-name": "Gremium", 
@@ -698,6 +698,7 @@
 	"semorg-field-role-tasks-parameters": "holds template",
 	"semorg-field-role-holders-name": "InhaberInnen",
 	"semorg-field-role-holders-parameters": "holds template",
+	"semorg-field-role-hours-name": "<abbr title='Stundenaufwand (h/Jahr)'>h</abbr>",
 
 	"semorg-form-role-task-add-button-text": "Aufgabe hinzufügen",
 	"semorg-form-role-task-template": "role-task",

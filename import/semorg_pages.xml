@@ -2264,28 +2264,28 @@ add the following to [[{{FULLPAGENAME}}s]]
     <ns>10</ns>
     <id>443</id>
     <revision>
-      <id>1421</id>
-      <parentid>1409</parentid>
-      <timestamp>2018-11-22T21:11:14Z</timestamp>
+      <id>1425</id>
+      <parentid>1421</parentid>
+      <timestamp>2018-11-23T10:52:11Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="423">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-role-category}}]]{{DISPLAYTITLE:{{{name|}}}}}{{#semorg-set:role 
+      <text xml:space="preserve" bytes="444">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-role-category}}]]{{DISPLAYTITLE:{{{name|}}}}}{{#semorg-set:role 
   |name={{{name|}}} 
   |group={{{group|}}}
 }}
 
 {{#semorg-table:role 
   |name={{{name|}}} 
-  |group=[[{{{group|}}}]]
+  |group={{#if:{{{group|}}}|[[{{{group|}}}]]}}
   |tasks=&lt;table class=&quot;table table-bordered table-condensed&quot;&gt;&lt;tr&gt;&lt;th&gt;Aufgabe&lt;/th&gt;&lt;th&gt;Aufwand&lt;/th&gt;&lt;tr&gt;{{{tasks|}}}&lt;/table&gt;
   |holders={{{holders|}}}
 }}
 &lt;/includeonly&gt;</text>
-      <sha1>oilh8dwvfxwnvisty96umxlfvakn7sa</sha1>
+      <sha1>i1xqkkm16y0bbver3s03c7cfl38ee40</sha1>
     </revision>
   </page>
   <page>
@@ -2293,24 +2293,26 @@ add the following to [[{{FULLPAGENAME}}s]]
     <ns>10</ns>
     <id>444</id>
     <revision>
-      <id>1321</id>
-      <timestamp>2018-11-22T14:11:26Z</timestamp>
+      <id>1434</id>
+      <parentid>1433</parentid>
+      <timestamp>2018-11-27T16:32:35Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt; &lt;td&gt;{{{?target|}}}&lt;/td&gt;  &lt;td&gt;{{{?name|}}}&lt;/td&gt;  &lt;td&gt;{{{?group|}}}&lt;/td&gt; {{semorg-showedit   |target={{{?target|}}} }}...&quot;</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="194">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
-&lt;td&gt;{{{?target|}}}&lt;/td&gt; 
-&lt;td&gt;{{{?name|}}}&lt;/td&gt; 
-&lt;td&gt;{{{?group|}}}&lt;/td&gt;
+      <text xml:space="preserve" bytes="481">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}|{{{?name|}}}]]&lt;/td&gt;
+&lt;td&gt;{{#ask:[[semorg-role-task-role::{{{?target|}}}]]|?Semorg-role-task-hours|format=sum}}&lt;/td&gt;
+&lt;td&gt;{{#ask:[[semorg-role-task-role::{{{?target|}}}]]|mainlabel=-|?Semorg-role-task-name=}}&lt;/td&gt;
+&lt;td&gt;{{{?group|}}}&lt;/td&gt; 
+&lt;td&gt;{{#ask:[[semorg-role-holder-role::{{{?target|}}}]]|mainlabel=-|?Semorg-role-holder-holder=}}&lt;/td&gt;
 {{semorg-showedit
   |target={{{?target|}}}
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>nldt5jdnvjgvk9w10tlf39n8zmyjinb</sha1>
+      <sha1>ilkw2dau76727cz9nkskwe7e35rg4bf</sha1>
     </revision>
   </page>
   <page>
@@ -2318,9 +2320,9 @@ add the following to [[{{FULLPAGENAME}}s]]
     <ns>10</ns>
     <id>447</id>
     <revision>
-      <id>1404</id>
-      <parentid>1399</parentid>
-      <timestamp>2018-11-22T20:37:42Z</timestamp>
+      <id>1431</id>
+      <parentid>1404</parentid>
+      <timestamp>2018-11-27T16:28:09Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
@@ -2328,7 +2330,7 @@ add the following to [[{{FULLPAGENAME}}s]]
       <model>wikitext</model>
       <format>text/x-wiki</format>
       <text xml:space="preserve" bytes="418">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#subobject:
-  |semorg-role-task-role={{RULLPAGENAME}} 
+  |semorg-role-task-role={{FULLPAGENAME}} 
   |semorg-role-task-name={{{name|}}} 
   |semorg-role-task-description={{{description|}}} 
   |semorg-role-task-hours={{{hours|}}} 
@@ -2342,7 +2344,7 @@ add the following to [[{{FULLPAGENAME}}s]]
   |{{{hours|}}} h/Jahr
 }}&lt;/td&gt;
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>mlcw07ubq1h0zpjwdkv2rtdt55jfegv</sha1>
+      <sha1>9skk7p7szdo05x9hpzdivq7b4c88p9d</sha1>
     </revision>
   </page>
   <page>
