@@ -729,7 +729,7 @@
 	"semorg-field-role-holder-role-name": "Rolle", 
 	"semorg-field-role-holder-role-parameters": "",
 	"semorg-field-role-holder-holder-name": "Holder", 
-	"semorg-field-role-holder-holder-parameters": "values from category=Semorg-person|input type=dropdown|mapping property=Semorg-person-name",
+	"semorg-field-role-holder-holder-parameters": "values from category=Semorg-person-user|input type=dropdown|mapping property=Semorg-person-name",
 	"semorg-field-role-holder-start-date-name": "from", 
 	"semorg-field-role-holder-start-date-prefix": "von ", 
 	"semorg-field-role-holder-start-date-input-type": "datepicker",

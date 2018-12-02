@@ -350,12 +350,14 @@ class SemanticOrganizationHooks {
 		  |query=' . $query . '[[Semorg-meeting-date::>{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
+		  |sort=Semorg-meeting-date
 		}}';
 		$meetings .= '<div class="h3">{{int:semorg-list-meeting-past-heading}}</div>';
 		$meetings .= '{{#semorg-list:meeting
 		  |query=' . $query . '[[Semorg-meeting-date::<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
+		  |sort=Semorg-meeting-date
 		  |order=desc
 		  |default={{int:semorg-list-meeting-default-past}}
 		}}';
