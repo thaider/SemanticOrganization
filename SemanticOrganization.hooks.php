@@ -84,9 +84,13 @@ class SemanticOrganizationHooks {
 			$table .= '<tr>';
 			$table .= '<th>{{semorg-field-name|' . $fullelement . '}}</th>';
 			if( is_array( $value ) ) {
-				$table .= '<td>' . implode( ', ', $value ) . '</td>';
+				$table .= '<td>
+' . implode( ', ', $value ) . '
+					</td>';
 			} else {
-				$table .= '<td>' . $value . '</td>';
+				$table .= '<td>
+' . $value . '
+					</td>';
 			}
  			$table .= '</tr>';
 		}
@@ -130,7 +134,8 @@ class SemanticOrganizationHooks {
 			'tooltip' => 'tooltip',
 			'popup' => 'popup',
 			'new window' => 'new-window',
-			'query string' => 'query-string'
+			'query string' => 'query-string',
+			'returnto' => 'returnto'
 		];
 		foreach( $messages as $option => $message_key ) {
 			if( isset( $options[$option] ) ) {
@@ -165,7 +170,8 @@ class SemanticOrganizationHooks {
 			'autocomplete on category' => 'autocomplete-on-category',
 			'autocomplete on namespace' => 'autocomplete-on-namespace',
 			'placeholder' => 'placeholder',
-			'popup' => 'popup'
+			'popup' => 'popup',
+			'returnto' => 'returnto'
 		];
 		foreach( $messages as $option => $message_key ) {
 			if( isset( $options[$option] ) ) {
@@ -272,6 +278,12 @@ class SemanticOrganizationHooks {
 			$row_template = $formoptions['row template'];
 		}
 
+		$headers = $template;
+		// if a message for the custom headers is defined for the row-template, use custom headers
+		if( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
+			$headers = $row_template;
+		}
+
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
 
 		$query = '{{#ask:';
@@ -302,7 +314,7 @@ class SemanticOrganizationHooks {
 
 		$query .= '|link=none|named args=yes|format=template';
 		$query .= '|template=semorg-' . $row_template . '-row';
-		$query .= '|intro={{semorg-list-intro|columns={{int:semorg-list-' . $row_template . '-headers}}}}';
+		$query .= '|intro={{semorg-list-intro|columns={{int:semorg-list-' . $headers . '-headers}}}}';
 		$query .= '|outro={{semorg-list-outro}}';
 
 		// Parameters for sorting, ordering, default (queries without results)

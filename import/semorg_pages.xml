@@ -2729,18 +2729,16 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>63</id>
     <revision>
-      <id>183</id>
-      <parentid>182</parentid>
-      <timestamp>2018-06-22T13:41:31Z</timestamp>
+      <id>1485</id>
+      <parentid>1475</parentid>
+      <timestamp>2018-12-11T14:44:23Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1218">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:semorg-gdpr-processing]]{{#semorg-set:gdpr-processing
+      <text xml:space="preserve" bytes="1331">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:semorg-gdpr-processing]]{{#semorg-set:gdpr-processing
   |name={{{name|}}}
   |purpose={{{purpose|}}}
   |legal-basis={{{legal-basis|}}}
@@ -2750,13 +2748,13 @@ Dies ist die Vorlage „{{PAGENAME}}“.
   |documents={{{documents|}}}
   |measures={{{measures|}}}
   |access={{{access|}}}
-}}{{DISPLAYTITLE:Datenanwendung {{{name|}}}}}
+}}{{DISPLAYTITLE:{{int:semorg-gdpr-processing-displaytitle|{{{name|}}}}}}}
 
-{{semorg-breadcrumbs|active={{{name|}}}|crumbs=[[Verfahrensverzeichnis]]}}
+{{semorg-breadcrumbs|active={{{name|}}}|crumbs=[[{{int:semorg-gdpr-processing-page-name}}|{{int:semorg-gdpr-processing-page-link-text}}]]}}
 
 {{#semorg-table:gdpr-processing
   |purpose={{{purpose|}}}
-  |legal-basis={{{legal-basis|}}}
+  |legal-basis={{semorg-mapping-gdpr-processing-legal-basis|{{{legal-basis|}}}}}
   |application={{{application|}}}
   |department={{#if:{{{department|}}}|[[{{{department}}}]]}}
   |responsible={{#if:{{{responsible|}}}|[[{{{responsible}}}|{{#show:{{{responsible}}}|?semorg-person-name}}]]}}
@@ -2765,18 +2763,18 @@ Dies ist die Vorlage „{{PAGENAME}}“.
   |access={{{access|}}}
 }}
 
-=== Personen- und Datenkategorien ===
+&lt;h3&gt;{{int:semorg-list-gdpr-affected-overview-heading}}&lt;/h3&gt;
 
-{{#formlink:form=semorg-gdpr-affected
-  |link text=&lt;span class=&quot;btn btn-default btn-xs&quot;&gt;Betroffenenkategorie erstellen&lt;/span&gt;
+{{#semorg-formlink:gdpr-affected
+  |query string=semorg-gdpr-affected[processing]={{FULLPAGENAME}}
   |returnto={{FULLPAGENAME}}
-  |query=semorg-gdpr-affected[processing]={{FULLPAGENAME}}
 }}
 
-{{semorg-gdpr-affected-list|processing={{FULLPAGENAME}}}}
-
+{{#semorg-list:gdpr-affected
+  |query=[[semorg-gdpr-affected-processing::{{FULLPAGENAME}}]]
+}}
 &lt;/includeonly&gt;</text>
-      <sha1>2ah13t1m6qoph0065di0aix2b8scngu</sha1>
+      <sha1>3j29dtulmj2cncozkkbavbdm4f74rmq</sha1>
     </revision>
   </page>
   <page>
@@ -2784,36 +2782,33 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>65</id>
     <revision>
-      <id>187</id>
-      <parentid>186</parentid>
-      <timestamp>2018-06-22T13:41:31Z</timestamp>
+      <id>1478</id>
+      <parentid>1476</parentid>
+      <timestamp>2018-12-11T14:28:01Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="678">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:semorg-gdpr-affected]]{{#semorg-set:gdpr-affected
+      <text xml:space="preserve" bytes="727">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:semorg-gdpr-affected]]{{#semorg-set:gdpr-affected
   |name={{{name|}}}
   |processing={{{processing|}}}
-}}{{DISPLAYTITLE:Betroffenenkategorie {{{name|}}}}}
+}}{{DISPLAYTITLE:{{int:semorg-gdpr-affected-displaytitle|{{{name|}}}}}}}
 
-{{semorg-breadcrumbs|active={{{name|}}}|crumbs=[[Verfahrensverzeichnis]],[[{{{processing}}}|{{#show:{{{processing}}}|?semorg-gdpr-processing-name}}]]}}
+{{semorg-breadcrumbs|active={{{name|}}}|crumbs=[[{{int:semorg-gdpr-processing-page-name}}|{{int:semorg-gdpr-processing-page-link-text}}]],[[{{{processing}}}|{{#show:{{{processing}}}|?semorg-gdpr-processing-name}}]]}}
 
-=== Datenkategorien ===
+&lt;h3&gt;{{int:semorg-list-gdpr-category-overview-heading}}&lt;/h3&gt;
 
-{{#formlink:form=semorg-gdpr-category
-  |link text=&lt;span class=&quot;btn btn-default btn-xs&quot;&gt;Datenkategorie erstellen&lt;/span&gt;
-  |returnto={{FULLPAGENAME}}
-  |query=semorg-gdpr-category[affected]={{FULLPAGENAME}}
+{{#semorg-formlink:gdpr-category
+  |query string=semorg-gdpr-category[affected]={{FULLPAGENAME}}
 }}
 
-{{semorg-gdpr-category-list|affected={{FULLPAGENAME}}}}
-
+{{#semorg-list:gdpr-category
+  |query=[[semorg-gdpr-category-affected::{{FULLPAGENAME}}]]
+}}
 &lt;/includeonly&gt;</text>
-      <sha1>pt9dhgkff6ryaonxhdgvbtvrvs1jtol</sha1>
+      <sha1>45t03ej024skby4bpxlgvmknyoga5xk</sha1>
     </revision>
   </page>
   <page>
@@ -2821,31 +2816,34 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>66</id>
     <revision>
-      <id>189</id>
-      <parentid>188</parentid>
-      <timestamp>2018-06-22T13:41:31Z</timestamp>
+      <id>1467</id>
+      <parentid>1466</parentid>
+      <timestamp>2018-12-11T14:04:21Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="833">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:semorg-gdpr-category]]{{#semorg-set:gdpr-category
+      <text xml:space="preserve" bytes="951">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:semorg-gdpr-category]]{{#semorg-set:gdpr-category
   |name={{{name|}}}
   |affected={{{affected|}}}
   |sensitive={{{sensitive|}}}
   |prosecution={{{prosecution|}}}
   |erase-time={{{erase-time|}}}
-}}{{DISPLAYTITLE:Datenkategorie {{{name|}}}}}
+}}{{DISPLAYTITLE:{{int:semorg-gdpr-affected-displaytitle|{{{name|}}}}}}}
 
-{{semorg-breadcrumbs|active={{{name|}}}|crumbs=[[Verfahrensverzeichnis]],[[{{#show:{{{affected|}}}|?semorg-gdpr-affected-processing|link=none}}|{{#show:{{{affected}}}|?semorg-gdpr-affected-processing.semorg-gdpr-processing-name}}]],[[{{{affected}}}|{{#show:{{{affected}}}|?semorg-gdpr-affected-name}}]]}}
+{{semorg-breadcrumbs|active={{{name|}}}|crumbs=[[{{int:semorg-gdpr-processing-page-name}}|{{int:semorg-gdpr-processing-page-link-text}}]],[[{{#show:{{{affected|}}}|?semorg-gdpr-affected-processing|link=none}}|{{#show:{{{affected}}}|?semorg-gdpr-affected-processing.semorg-gdpr-processing-name}}]],[[{{{affected}}}|{{#show:{{{affected}}}|?semorg-gdpr-affected-name}}]]}}
 
-'''{{{name|}}}''' ist eine Datenkategorie für die {{#show:{{FULLPAGENAME}}|?semorg-gdpr-category-affected}} bei der {{#show:{{FULLPAGENAME}}|?semorg-gdpr-category-affected.semorg-gdpr-affected-processing}}
-
+{{#semorg-table:gdpr-category
+  |name={{{name|}}}
+  |affected=[[{{{affected|}}}|{{#show:{{{affected|}}}|?semorg-gdpr-affected-name}}]]
+  |sensitive={{{sensitive|}}}
+  |prosecution={{{prosecution|}}}
+  |erase-time={{{erase-time|}}}
+}}
 &lt;/includeonly&gt;</text>
-      <sha1>oc788pnxej0996tbuz4jh38zhii7iug</sha1>
+      <sha1>mns0shzq22qgu6zvodfi4ndysxylbwu</sha1>
     </revision>
   </page>
   <page>
@@ -3136,23 +3134,21 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>85</id>
     <revision>
-      <id>227</id>
-      <parentid>226</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
+      <id>1499</id>
+      <parentid>227</parentid>
+      <timestamp>2018-12-11T23:08:33Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="420">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;td class=&quot;semorg-showedit&quot;&gt;[[{{{target|}}}|&lt;span class=&quot;fa fa-search&quot; title=&quot;{{int:semorg-tooltip-view}}&quot; data-toggle=&quot;tooltip&quot;&gt;&lt;/span&gt;]]&amp;nbsp;{{#formlink:form={{{form|}}}
+      <text xml:space="preserve" bytes="304">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;td class=&quot;semorg-showedit&quot;&gt;{{#formlink:form={{{form|}}}
   |target={{{target|}}}
   |query string=returnto={{FULLPAGENAMEE}}
   |link text=&lt;span class=&quot;fa fa-pencil&quot; title=&quot;{{int:semorg-tooltip-edit}}&quot; data-toggle=&quot;tooltip&quot;&gt;&lt;/span&gt;
 }}&lt;/td&gt;&lt;/includeonly&gt;</text>
-      <sha1>2eow6mpzfc4lx96o1kkml402u27qfxw</sha1>
+      <sha1>ix0ymubdtl7b9wc2siqcs2p3w1eqz00</sha1>
     </revision>
   </page>
   <page>
@@ -3248,137 +3244,34 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     </revision>
   </page>
   <page>
-    <title>Template:Semorg-gdpr-processing-list</title>
-    <ns>10</ns>
-    <id>91</id>
-    <revision>
-      <id>239</id>
-      <parentid>238</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
-      <contributor>
-        <username>Admin</username>
-        <id>1</id>
-      </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="879">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#ask:[[Kategorie:semorg-gdpr-processing]]
-  |mainlabel=page
-  |?semorg-gdpr-processing-name=name
-  |?semorg-gdpr-processing-purpose=purpose
-  |?semorg-gdpr-processing-legal-basis=legal-basis
-  |?semorg-gdpr-processing-application=application
-  |?semorg-gdpr-processing-department=department
-  |?semorg-gdpr-processing-responsible=responsible
-  |?semorg-gdpr-processing-responsible.semorg-person-name=responsible.name
-  |?semorg-gdpr-processing-documents=documents
-  |?semorg-gdpr-processing-measures=measures
-  |?semorg-gdpr-processing-access=access
-  |link=none
-  |named args=yes
-  |format=template
-  |template=semorg-gdpr-processing-row
-  |intro={{semorg-list-intro|columns=gdpr-processing,gdpr-processing-legal-basis,gdpr-processing-department,gdpr-processing-responsible}}
-  |outro={{semorg-list-outro}}
-}}&lt;/includeonly&gt;</text>
-      <sha1>7va7qgowbpzthnr4whxxotmrxyzug8h</sha1>
-    </revision>
-  </page>
-  <page>
     <title>Template:Semorg-gdpr-processing-row</title>
     <ns>10</ns>
     <id>92</id>
     <revision>
-      <id>241</id>
-      <parentid>240</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
+      <id>1444</id>
+      <parentid>1442</parentid>
+      <timestamp>2018-12-11T08:56:25Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="341">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
-&lt;td&gt;[[{{{?page|}}}|{{{?name|}}}]]&lt;/td&gt;
-&lt;td&gt;{{{?legal-basis|}}}&lt;/td&gt;
-&lt;td&gt;{{{?department|}}}&lt;/td&gt;
+      <text xml:space="preserve" bytes="390">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}|{{{?name|}}}]]&lt;/td&gt;
+&lt;td&gt;{{semorg-mapping-gdpr-processing-legal-basis|{{{?legal-basis|}}}}}&lt;/td&gt;
+&lt;td&gt;{{#if:{{{?department|}}}
+  |[[{{{?department|}}}]]
+}}&lt;/td&gt;
 &lt;td&gt;{{#if:{{{?responsible|}}}
-  | [[{{{?responsible|}}}|{{{?responsible.name|}}}]]
+  | {{semorg-person-link|{{{?responsible|}}}}}
  }}
 &lt;/td&gt;
 {{semorg-showedit
-  |form=semorg-gdpr-processing
-  |target={{{?page|}}}
+  |target={{{?target|}}}
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>r1gz5z51jgyjzu53pjinmo8ol9gcp6n</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>Template:Semorg-gdpr-category-list</title>
-    <ns>10</ns>
-    <id>93</id>
-    <revision>
-      <id>243</id>
-      <parentid>242</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
-      <contributor>
-        <username>Admin</username>
-        <id>1</id>
-      </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="653">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#ask:[[Category:semorg-gdpr-category]][[semorg-gdpr-category-affected::{{{affected|+}}}]]
-  |mainlabel=page
-  |?semorg-gdpr-category-name=name
-  |?semorg-gdpr-category-affected=affected
-  |?semorg-gdpr-category-sensitive#ja,=sensitive
-  |?semorg-gdpr-category-prosecution#ja,=prosecution
-  |?semorg-gdpr-category-erase-time=erase-time
-  |link=none
-  |named args=yes
-  |format=template
-  |template=semorg-gdpr-category-row
-  |intro={{semorg-list-intro|columns=gdpr-category,gdpr-category-sensitive,gdpr-category-prosecution,gdpr-category-erase-time}}
-  |outro={{semorg-list-outro}}
-}}
-&lt;/includeonly&gt;</text>
-      <sha1>3zn3w4capui14m0y30lx1rhor8vql34</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>Template:Semorg-gdpr-affected-list</title>
-    <ns>10</ns>
-    <id>94</id>
-    <revision>
-      <id>245</id>
-      <parentid>244</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
-      <contributor>
-        <username>Admin</username>
-        <id>1</id>
-      </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="460">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#ask:[[Kategorie:semorg-gdpr-affected]][[semorg-gdpr-affected-processing::{{{processing|+}}}]]
-  |mainlabel=page
-  |?semorg-gdpr-affected-name=name
-  |?semorg-gpdr-affected-processing=processing
-  |link=none
-  |named args=yes
-  |format=template
-  |template=semorg-gdpr-affected-row
-  |intro={{semorg-list-intro|columns=gdpr-affected,gdpr-affected-category}}
-  |outro={{semorg-list-outro}}
-}}&lt;/includeonly&gt;</text>
-      <sha1>qcwtf931rnny97up75a3r7yy5rqpw6o</sha1>
+      <sha1>rt805ttj15dt47iow1xnm6c4fmvln77</sha1>
     </revision>
   </page>
   <page>
@@ -3386,33 +3279,31 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>95</id>
     <revision>
-      <id>247</id>
-      <parentid>246</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
+      <id>1486</id>
+      <parentid>1479</parentid>
+      <timestamp>2018-12-11T14:48:04Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="457">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
-&lt;td&gt;[[{{{?page|}}}|{{{?name|}}}]]&lt;/td&gt;
+      <text xml:space="preserve" bytes="393">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}|{{{?name|}}}]]&lt;/td&gt;
 &lt;td&gt;
-{{semorg-gdpr-category-list|affected={{{?page|}}}}}
-{{#formlink:form=semorg-gdpr-category
-  |link text=&lt;span class=&quot;btn btn-default btn-xs&quot;&gt;Datenkategorie erstellen&lt;/span&gt;
+{{#semorg-list:gdpr-category
+  |query=[[semorg-gdpr-category-affected::{{{?target|}}}]]
+}}
+{{#semorg-formlink:gdpr-category
+  |query string=semorg-gdpr-category[affected]={{{?target|}}}
   |returnto={{FULLPAGENAME}}
-  |query=semorg-gdpr-category[affected]={{{?page|}}}
 }}
 &lt;/td&gt;
 {{semorg-showedit
-  |form=semorg-gdpr-affected
-  |target={{{?page|}}}
+  |target={{{?target|}}}
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>9vx3c6vy0nrkiai5fmyvhkoshnxl3bo</sha1>
+      <sha1>gfsqcvduk9zltoe0i0p13itys7t3x3w</sha1>
     </revision>
   </page>
   <page>
@@ -3420,25 +3311,25 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>96</id>
     <revision>
-      <id>249</id>
-      <parentid>248</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
+      <id>1480</id>
+      <parentid>249</parentid>
+      <timestamp>2018-12-11T14:31:59Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="984">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;
+      <text xml:space="preserve" bytes="1067">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;
 &lt;div class=&quot;panel panel-default&quot;&gt;
 &lt;div class=&quot;panel-heading&quot;&gt;
 &lt;h4 class=&quot;panel-title&quot;&gt;[[{{{?page|}}}|{{{?name|}}}]] &lt;div class=&quot;pull-right&quot;&gt;{{semorg-edit|target={{{?page|}}}}}&lt;/div&gt;&lt;/h4&gt;
 &lt;/div&gt;
 {{#semorg-table:gdpr-processing
   |purpose={{{?purpose|}}}
-  |legal-basis={{{?legal-basis|}}}
+  |legal-basis={{#if:{{{?legal-basis|}}}
+    |{{semorg-mapping-gdpr-processing-legal-basis|{{{?legal-basis|}}}}}
+  }}
   |application={{{?application|}}}
   |department={{#if:{{{?department|}}}|[[{{{?department}}}]]}}
   |responsible={{#if:{{{?responsible|}}}|[[{{{?responsible}}}|{{#show:{{{?responsible}}}|?semorg-person-name}}]]}}
@@ -3458,7 +3349,7 @@ Dies ist die Vorlage „{{PAGENAME}}“.
 {{semorg-gdpr-affected-list|processing={{{?page|}}}}}
 &lt;/div&gt;--&gt;
 &lt;/includeonly&gt;</text>
-      <sha1>mkjljittrxnzr8xbcljv2zqa4jpvh0a</sha1>
+      <sha1>342wsjv53bvud6ay0kmbxpbgas72799</sha1>
     </revision>
   </page>
   <page>
@@ -3988,28 +3879,25 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>122</id>
     <revision>
-      <id>301</id>
-      <parentid>300</parentid>
-      <timestamp>2018-06-22T13:41:34Z</timestamp>
+      <id>1477</id>
+      <parentid>301</parentid>
+      <timestamp>2018-12-11T14:27:04Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="273">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
-&lt;td&gt;[[{{{?page|}}}|{{{?name|}}}]]&lt;/td&gt;
+      <text xml:space="preserve" bytes="248">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}|{{{?name|}}}]]&lt;/td&gt;
 &lt;td&gt;{{{?sensitive|}}}&lt;/td&gt;
 &lt;td&gt;{{{?prosecution|}}}&lt;/td&gt;
 &lt;td&gt;{{{?erase-time|}}}&lt;/td&gt;
 {{semorg-showedit
-  |form=semorg-gdpr-category
-  |target={{{?page|}}}
+  |target={{{?target|}}}
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>mvkmts6a91mu8465jaie6ysd3g6ueyx</sha1>
+      <sha1>7pzvd50p16ewwzgoa46qj12uhhxy80q</sha1>
     </revision>
   </page>
   <page>
@@ -4760,28 +4648,26 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>106</ns>
     <id>222</id>
     <revision>
-      <id>736</id>
-      <parentid>648</parentid>
-      <timestamp>2018-10-09T19:48:23Z</timestamp>
+      <id>1461</id>
+      <parentid>1460</parentid>
+      <timestamp>2018-12-11T13:51:05Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="344">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
-  |create title=BetroffenenCategory erstellen
-  |edit title=BetroffenenCategory bearbeiten
-  |page name=&lt;semorg-gdpr-affected[processing]&gt;/BetroffenenCategory/&lt;unique number;start=1&gt;
+      <text xml:space="preserve" bytes="391">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+  |create title={{int:semorg-form-gdpr-affected-create-title}}
+  |edit title={{int:semorg-form-gdpr-affected-edit-title}}
+  |page name=&lt;semorg-gdpr-affected[processing]&gt;/{{int:semorg-form-gdpr-affected-page-name}}/&lt;unique number;start=1&gt;
 }}}
-{{#semorg-form:
-  |template=gdpr-affected
-  |elements=name,processing
-  |noinfo
-}}&lt;/includeonly&gt;</text>
-      <sha1>ikrncey120b8bxeusggwf2jy32d9ap0</sha1>
+
+{{semorg-form-template|gdpr-affected}}
+ 
+{{semorg-form-standard-inputs}}
+&lt;/includeonly&gt;</text>
+      <sha1>epho9lee0kcau2ci05ak9veouloc1iv</sha1>
     </revision>
   </page>
   <page>
@@ -4789,28 +4675,26 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>106</ns>
     <id>223</id>
     <revision>
-      <id>738</id>
-      <parentid>650</parentid>
-      <timestamp>2018-10-09T19:48:23Z</timestamp>
+      <id>1462</id>
+      <parentid>738</parentid>
+      <timestamp>2018-12-11T13:51:14Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="355">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
-  |create title=DatenCategory erstellen
-  |edit title=DatenCategory bearbeiten
-  |page name=&lt;semorg-gdpr-category[affected]&gt;/DatenCategory/&lt;unique number;start=1&gt;
+      <text xml:space="preserve" bytes="389">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+  |create title={{int:semorg-form-gdpr-category-create-title}}
+  |edit title={{int:semorg-form-gdpr-category-edit-title}}
+  |page name=&lt;semorg-gdpr-category[affected]&gt;/{{int:semorg-form-gdpr-category-page-name}}/&lt;unique number;start=1&gt;
 }}}
-{{#semorg-form:
-  |template=gdpr-category
-  |elements=name,affected,sensitive,prosecution,erase-time
-  |noinfo
-}}&lt;/includeonly&gt;</text>
-      <sha1>alyorrkltn166rofaamw8h7qq1mpuxt</sha1>
+
+{{semorg-form-template|gdpr-category}}
+ 
+{{semorg-form-standard-inputs}}
+&lt;/includeonly&gt;</text>
+      <sha1>7n28bk7ik9tj6ajdvmgq693a9ttvhlx</sha1>
     </revision>
   </page>
   <page>
@@ -5554,6 +5438,35 @@ Dies ist die Vorlage „{{PAGENAME}}“.
 {{semorg-form-standard-inputs}}
 &lt;/includeonly&gt;</text>
       <sha1>7kck4poou4i58xbr2akvmax1ds58fb7</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-test-row</title>
+    <ns>10</ns>
+    <id>457</id>
+    <revision>
+      <id>1492</id>
+      <timestamp>2018-12-11T16:58:52Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt; &lt;td&gt;[[{{{?target|}}}]]&lt;/td&gt;  &lt;td&gt;{{{?description|}}}&lt;/td&gt;  &lt;td&gt;{{semorg-person-link|{{{?host|}}}}} {{{?email|}}}&lt;/td&gt;...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="392">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}]]&lt;/td&gt; 
+&lt;td&gt;{{{?description|}}}&lt;/td&gt; 
+&lt;td&gt;{{semorg-person-link|{{{?host|}}}}} {{{?email|}}}&lt;/td&gt;
+&lt;td&gt;{{#ask:[[semorg-group-member-group::{{{?target|+}}}]][[semorg-group-member-open-end::true]]
+  |mainlabel=-
+  |?semorg-group-member-member=
+}}&lt;/td&gt;
+{{semorg-showedit
+  |target={{{?target|}}}
+}}
+&lt;/tr&gt;&lt;/includeonly&gt;</text>
+      <sha1>rwki9uh7x11nai3robguk2os11p5hpy</sha1>
     </revision>
   </page>
 </mediawiki>
