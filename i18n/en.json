@@ -447,7 +447,7 @@
 	"semorg-form-gdpr-affected-template": "gdpr-affected",
 	"semorg-form-gdpr-affected-rows": "name, processing",
 	"semorg-list-gdpr-affected-headers": "gdpr-affected-name, gdpr-affected-category",
-	"semorg-field-gdpr-affected-name": "Category of individuals",
+	"semorg-field-gdpr-affected-name-name": "Category of individuals",
 	"semorg-field-gdpr-affected-name-parameters": "",
 	"semorg-field-gdpr-affected-processing-name": "",
 	"semorg-field-gdpr-affected-processing-parameters": "hidden",
