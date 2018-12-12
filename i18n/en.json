@@ -464,7 +464,7 @@
 	"semorg-form-gdpr-category-template": "gdpr-category",
 	"semorg-form-gdpr-category-rows": "name, affected, sensitive, prosecution, erase-time",
 	"semorg-list-gdpr-category-headers": "gdpr-category-name, gdpr-category-sensitive, gdpr-category-prosecution, gdpr-category-erase-time",
-	"semorg-field-gdpr-category-name": "Category of personal data",
+	"semorg-field-gdpr-category-name-name": "Category of personal data",
 	"semorg-field-gdpr-category-name-parameters": "",
 	"semorg-field-gdpr-category-affected-name": "Category of individuals",
 	"semorg-field-gdpr-category-affected-parameters": "hidden",
