@@ -30,7 +30,8 @@ class SemanticOrganizationHooks {
 			'user-create' => 'renderUserCreateLink',
 			'formlink' => 'renderFormlink',
 			'forminput' => 'renderForminput',
-			'meetings' => 'renderMeetings'
+			'meetings' => 'renderMeetings',
+			'properties' => 'renderProperties'
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -236,6 +237,18 @@ class SemanticOrganizationHooks {
 
 		return [ $set, 'noparse' => false ];
 
+	}
+
+
+	/**
+	 * Show list of properties
+	 */
+	static function renderProperties( &$parser ) {
+		$template = func_get_args()[1];
+		$property_array = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
+		$properties = implode( ', ', array_keys( $property_array ));
+
+		return [ $properties, 'noparse' => false ];
 	}
 
 

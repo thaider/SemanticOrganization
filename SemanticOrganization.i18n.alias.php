@@ -34,4 +34,5 @@ $magicWords['en'] = array(
 	'semorg-formlink' => array( 0, 'semorg-formlink' ),
 	'semorg-forminput' => array( 0, 'semorg-forminput' ),
 	'semorg-meetings' => array( 0, 'semorg-meetings' ),
+	'semorg-properties' => array( 0, 'semorg-properties' ),
 );

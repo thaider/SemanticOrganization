@@ -375,6 +375,7 @@
 	"semorg-field-generator-template-name-name": "Name des Vorlage", 
 	"semorg-field-generator-template-id-name": "ID der Vorlage", 
 	"semorg-field-generator-page-name-name": "automatischer Seitenname", 
+	"semorg-field-generator-properties-name": "Attribute", 
 
 	"semorg-form-department-create-title": "Geschäftsfeld erstellen",
 	"semorg-form-department-edit-title": "Geschäftsfeld bearbeiten",
