@@ -2480,26 +2480,24 @@ add the following to [[{{FULLPAGENAME}}s]]
     <ns>10</ns>
     <id>87</id>
     <revision>
-      <id>231</id>
-      <parentid>230</parentid>
-      <timestamp>2018-06-22T13:41:32Z</timestamp>
+      <id>1541</id>
+      <parentid>231</parentid>
+      <timestamp>2018-12-19T11:21:51Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="259">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;table class=&quot;table table-condensed table-bordered sortable&quot;&gt;
+      <text xml:space="preserve" bytes="272">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;table class=&quot;table table-condensed table-bordered sortable&quot;&gt;
 &lt;tr&gt;{{#arraymap:{{{columns|}}}
   |,
   |xxx
   |&lt;th&gt;{{int:semorg-field-xxx-name}}&lt;/th&gt;
   |
-}}&lt;th class=&quot;semorg-showedit&quot;&gt;&lt;/th&gt;
+}}&lt;th class=&quot;semorg-showedit hidden-print&quot;&gt;&lt;/th&gt;
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>2mdhii9d0hc2ffc1wno7j50omxlbu0z</sha1>
+      <sha1>ign125wfz3h4ythc8tw1bmn2jbx1gty</sha1>
     </revision>
   </page>
   <page>
@@ -3134,21 +3132,21 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>85</id>
     <revision>
-      <id>1499</id>
-      <parentid>227</parentid>
-      <timestamp>2018-12-11T23:08:33Z</timestamp>
+      <id>1540</id>
+      <parentid>1499</parentid>
+      <timestamp>2018-12-19T11:20:18Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="304">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;td class=&quot;semorg-showedit&quot;&gt;{{#formlink:form={{{form|}}}
+      <text xml:space="preserve" bytes="317">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;td class=&quot;semorg-showedit hidden-print&quot;&gt;{{#formlink:form={{{form|}}}
   |target={{{target|}}}
   |query string=returnto={{FULLPAGENAMEE}}
   |link text=&lt;span class=&quot;fa fa-pencil&quot; title=&quot;{{int:semorg-tooltip-edit}}&quot; data-toggle=&quot;tooltip&quot;&gt;&lt;/span&gt;
 }}&lt;/td&gt;&lt;/includeonly&gt;</text>
-      <sha1>ix0ymubdtl7b9wc2siqcs2p3w1eqz00</sha1>
+      <sha1>2r26avfwpskztfp781slmfupt4k9b6u</sha1>
     </revision>
   </page>
   <page>
@@ -5352,15 +5350,13 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>254</id>
     <revision>
-      <id>776</id>
-      <parentid>775</parentid>
-      <timestamp>2018-10-09T19:48:25Z</timestamp>
+      <id>1519</id>
+      <parentid>776</parentid>
+      <timestamp>2018-12-19T10:24:43Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
       <text xml:space="preserve" bytes="449">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
@@ -5368,12 +5364,12 @@ Dies ist die Vorlage „{{PAGENAME}}“.
 &lt;td&gt;[[{{{?sender|}}}|{{#show:{{{?sender|}}}|?semorg-person-name}}]]&lt;/td&gt; 
 &lt;td&gt;[[{{{?recipient|}}}|{{#show:{{{?recipient|}}}|?semorg-person-name}}]]&lt;/td&gt;
 &lt;td style=&quot;text-align:right;&quot;&gt;{{{?amount|}}} €&lt;/td&gt;
-&lt;td&gt;{{{?details|}}}&lt;/td&gt; 
+&lt;td&gt;{{{?subject|}}}&lt;/td&gt; 
 {{semorg-showedit
   |target={{{?target|}}}
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>anc2y4aty6avcd95msif1s8u2prwh6n</sha1>
+      <sha1>7bdtkwjxgpfg0dgkne6jhlerpxjm6t4</sha1>
     </revision>
   </page>
   <page>
@@ -5381,34 +5377,37 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>255</id>
     <revision>
-      <id>778</id>
-      <parentid>777</parentid>
-      <timestamp>2018-10-09T19:48:25Z</timestamp>
+      <id>1523</id>
+      <parentid>1521</parentid>
+      <timestamp>2018-12-19T10:48:24Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>1 revision imported</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="425">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-transfer-category}}]]{{#semorg-set:transfer 
+      <text xml:space="preserve" bytes="662">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-transfer-category}}]]{{#semorg-set:transfer 
   |sender={{{sender|}}} 
   |amount={{{amount|}}} 
   |date={{{date|}}} 
+  |subject={{{subject|}}}
   |details={{{details|}}} 
   |recipient={{{recipient|}}}
+  |list={{{list|}}}
+  |listed={{#if:{{{list|}}}|true|false}}
 }}
 
 {{#semorg-table:transfer 
-  |sender={{{sender|}}} 
+  |sender={{semorg-person-link|{{{sender|}}}}}
+  |recipient={{semorg-person-link|{{{recipient|}}}}}
+  |date={{#timel:{{int:semorg-date-long}}|{{{date|}}}}}
   |amount={{{amount|}}} 
-  |date={{{date|}}} 
+  |subject={{{subject|}}}
   |details={{{details|}}} 
-  |recipient={{{recipient|}}}
+  |list={{#if:{{{list|}}}|[[{{{list|}}}]]}}
 }}
 &lt;/includeonly&gt;</text>
-      <sha1>rzo4l5yrx3z6dcy7k6k9pxr4rxyr8yn</sha1>
+      <sha1>3pg7duyzsbu2ea47otuia8dv7ev60c3</sha1>
     </revision>
   </page>
   <page>
@@ -5467,6 +5466,178 @@ Dies ist die Vorlage „{{PAGENAME}}“.
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
       <sha1>rwki9uh7x11nai3robguk2os11p5hpy</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-generator-row</title>
+    <ns>10</ns>
+    <id>458</id>
+    <revision>
+      <id>1503</id>
+      <parentid>1502</parentid>
+      <timestamp>2018-12-12T11:29:28Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="238">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}]]&lt;/td&gt; 
+&lt;td&gt;{{{?template-name|}}}&lt;/td&gt; 
+&lt;td&gt;{{#semorg-properties:{{{?template-name|}}}}}&lt;/td&gt;
+{{semorg-showedit
+  |target={{{?target|}}}
+}}
+&lt;/tr&gt;&lt;/includeonly&gt;</text>
+      <sha1>btbosk8qu860ec7pb5rf570q7tfklwl</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Form:Semorg-transfer-list</title>
+    <ns>106</ns>
+    <id>461</id>
+    <revision>
+      <id>1507</id>
+      <timestamp>2018-12-19T10:17:31Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info    |create title={{int:semorg-form-transfer-list-create-title}}    |edit title={{int:semorg-form-transfer-list-edi...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="359">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+   |create title={{int:semorg-form-transfer-list-create-title}}
+   |edit title={{int:semorg-form-transfer-list-edit-title}}
+   |page name={{int:semorg-form-transfer-list-page-name}}/&lt;unique number;start=1&gt;
+}}}
+
+{{semorg-form-template|transfer-list}}
+ 
+{{semorg-form-standard-inputs}}
+&lt;/includeonly&gt;</text>
+      <sha1>sypss9smtt82qgj574cstok9lyg7mqs</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-transfer-list</title>
+    <ns>10</ns>
+    <id>462</id>
+    <revision>
+      <id>1542</id>
+      <parentid>1539</parentid>
+      <timestamp>2018-12-19T11:23:11Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="841">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-transfer-list-category}}]]{{#semorg-set:transfer-list 
+  |date={{{date|}}}
+}}{{DISPLAYTITLE:{{int:semorg-transfer-list-displaytitle|{{{date|}}}}}}}
+
+&lt;div class=&quot;hidden-print&quot;&gt;
+{{#semorg-table:transfer-list 
+  |date={{#timel:{{int:semorg-date-long}}|{{{date|}}}}}
+}}
+&lt;/div&gt;
+
+&lt;h3 class=&quot;hidden-print&quot;&gt;{{int:semorg-list-transfer-list-listed-heading}}&lt;/h3&gt;
+
+{{#semorg-list:transfer
+  |query=[[semorg-transfer-list::{{FULLPAGENAME}}]]
+  |default={{int:semorg-list-transfer-list-listed-default}}
+}}
+
+&lt;div class=&quot;hidden-print&quot;&gt;
+&lt;h3&gt;{{int:semorg-list-transfer-list-unlisted-heading}}&lt;/h3&gt;
+
+{{#semorg-list:transfer
+  |query=[[semorg-transfer-listed::false]]
+  |default={{int:semorg-list-transfer-list-unlisted-default}}
+  |row template=transfer-add
+}}
+&lt;/div&gt;
+&lt;/includeonly&gt;</text>
+      <sha1>9i0xxcyssl7bjbsnisef95tdgbmpn13</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-transfer-list-row</title>
+    <ns>10</ns>
+    <id>463</id>
+    <revision>
+      <id>1544</id>
+      <parentid>1509</parentid>
+      <timestamp>2018-12-19T11:32:30Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="174">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}]]&lt;/td&gt; 
+&lt;td&gt;{{{?date|}}}&lt;/td&gt;
+{{semorg-showedit
+  |target={{{?target|}}}
+}}
+&lt;/tr&gt;&lt;/includeonly&gt;</text>
+      <sha1>tezekpl54kgv33qbskugg1t3kgcsij3</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Category:Semorg-transfer-list</title>
+    <ns>14</ns>
+    <id>460</id>
+    <revision>
+      <id>1506</id>
+      <timestamp>2018-12-19T10:17:16Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;{{semorg-category}}&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="19">{{semorg-category}}</text>
+      <sha1>jz2j11lmt680mu9dhmbh5m0x9gvpwm5</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-transfer-add-row</title>
+    <ns>10</ns>
+    <id>468</id>
+    <revision>
+      <id>1534</id>
+      <parentid>1533</parentid>
+      <timestamp>2018-12-19T11:09:21Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="677">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td&gt;[[{{{?target|}}}|Umbuchung vom {{#timel:{{int:semorg-date-short}}|{{{?date|}}}}}]]&lt;/td&gt; 
+&lt;td&gt;[[{{{?sender|}}}|{{#show:{{{?sender|}}}|?semorg-person-name}}]]&lt;/td&gt; 
+&lt;td&gt;[[{{{?recipient|}}}|{{#show:{{{?recipient|}}}|?semorg-person-name}}]]&lt;/td&gt;
+&lt;td style=&quot;text-align:right;&quot;&gt;{{{?amount|}}} €&lt;/td&gt;
+&lt;td&gt;{{{?subject|}}}&lt;/td&gt; 
+&lt;td&gt;{{#autoedit:form=semorg-transfer
+  |target={{{?target|}}}
+  |link text=in Liste aufnehmen
+  |summary=in Umbuchungsliste {{FULLPAGENAME}} aufgenommen 
+  |query string=semorg-transfer[list]={{FULLPAGENAMEE}}
+  |reload
+}}&lt;/td&gt;
+{{semorg-showedit
+  |target={{{?target|}}}
+}}
+&lt;/tr&gt;&lt;/includeonly&gt;</text>
+      <sha1>aafzg486j2rlvggp0c1gdkrdtzja8w2</sha1>
     </revision>
   </page>
 </mediawiki>
