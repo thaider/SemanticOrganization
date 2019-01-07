@@ -4,6 +4,7 @@
  */
 class SemanticOrganizationProperties {
 	static $properties = [
+		"account" => [ "id" => "AC","fields" => ["account-number" => [ "id" => "NU","type" => "num" ],"account-name" => [ "id" => "NA","type" => "txt" ], ] ],
 		"agenda" => [ "id" => "AG","fields" => ["meeting" => [ "id" => "ME","type" => "wpg" ],"description" => [ "id" => "DE","type" => "txt" ],"title" => [ "id" => "TT","type" => "txt" ],"proposal" => [ "id" => "PR","type" => "txt" ],"person" => [ "id" => "PE","type" => "wpg" ],"tag" => [ "id" => "TA","type" => "txt" ],"type" => [ "id" => "TY","type" => "txt" ],"time" => [ "id" => "TI","type" => "num" ],"priority" => [ "id" => "PR","type" => "txt" ], ] ],
 		"department" => [ "id" => "DE","fields" => ["name" => [ "id" => "NA","type" => "txt" ], ] ],
 		"gdpr-affected" => [ "id" => "GA","fields" => ["name" => [ "id" => "NA","type" => "txt" ],"processing" => [ "id" => "PR","type" => "wpg" ], ] ],
@@ -14,8 +15,7 @@ class SemanticOrganizationProperties {
 		"generator-field" => [ "id" => "GF","fields" => ["template" => [ "id" => "TE","type" => "wpg" ],"prefix" => [ "id" => "PR","type" => "txt" ],"id" => [ "id" => "ID","type" => "txt" ],"suffix" => [ "id" => "SU","type" => "txt" ],"property-id" => [ "id" => "PID","type" => "txt" ],"fields" => [ "id" => "FI","type" => "txt" ],"name" => [ "id" => "NA","type" => "txt" ],"help" => [ "id" => "HE","type" => "txt" ],"parameters" => [ "id" => "PA","type" => "txt" ],"type" => [ "id" => "TY","type" => "txt" ], ] ],
 		"group" => [ "id" => "G","fields" => ["name" => [ "id" => "NA","type" => "txt" ],"description" => [ "id" => "DE","type" => "txt" ],"permanent" => [ "id" => "PM","type" => "boo" ],"active" => [ "id" => "AC","type" => "boo" ],"host" => [ "id" => "HO","type" => "wpg" ], ] ],
 		"group-member" => [ "id" => "GM","fields" => ["group" => [ "id" => "GR","type" => "wpg" ],"member" => [ "id" => "ME","type" => "wpg" ],"start-date" => [ "id" => "SD","type" => "dat" ],"end-date" => [ "id" => "ED","type" => "dat" ],"open-end" => [ "id" => "OE","type" => "boo" ], ] ],
-		"invoice" => [ "id" => "IN","fields" => ["recipient" => [ "id" => "RE","type" => "txt" ],"project" => [ "id" => "PJ","type" => "wpg" ],"amount-net" => [ "id" => "AN","type" => "num" ],"issuer" => [ "id" => "IS","type" => "wpg" ],"storno" => [ "id" => "ST","type" => "boo" ],"due-date" => [ "id" => "DD","type" => "dat" ],"number" => [ "id" => "NU","type" => "txt" ],"payment-date" => [ "id" => "PD","type" => "dat" ],"date" => [ "id" => "DT","type" => "dat" ],"description" => [ "id" => "DS","type" => "txt" ],"year" => [ "id" => "YE","type" => "num" ],"department" => [ "id" => "DE","type" => "wpg" ],"amount-gross" => [ "id" => "AG","type" => "num" ], ] ],
-		"invoices" => [ "id" => "IS","fields" => ["year" => [ "id" => "YE","type" => "num" ], ] ],
+		"invoice" => [ "id" => "IN","fields" => ["recipient" => [ "id" => "RE","type" => "txt" ],"project" => [ "id" => "PJ","type" => "wpg" ],"amount-net" => [ "id" => "AN","type" => "num" ],"issuer" => [ "id" => "IS","type" => "wpg" ],"storno" => [ "id" => "ST","type" => "boo" ],"due-date" => [ "id" => "DD","type" => "dat" ],"number" => [ "id" => "NU","type" => "txt" ],"reminder-1-date" => [ "id" => "R1","type" => "dat" ],"payment-date" => [ "id" => "PD","type" => "dat" ],"date" => [ "id" => "DT","type" => "dat" ],"collection-date" => [ "id" => "CD","type" => "dat" ],"description" => [ "id" => "DS","type" => "txt" ],"year" => [ "id" => "YE","type" => "num" ],"reminder-2-date" => [ "id" => "R2","type" => "dat" ],"department" => [ "id" => "DE","type" => "wpg" ],"amount-gross" => [ "id" => "AG","type" => "num" ], ] ],
 		"meeting" => [ "id" => "M","fields" => ["group" => [ "id" => "GR","type" => "wpg" ],"guest" => [ "id" => "GU","type" => "wpg" ],"participant" => [ "id" => "PA","type" => "wpg" ],"project" => [ "id" => "PR","type" => "wpg" ],"excused" => [ "id" => "EX","type" => "wpg" ],"department" => [ "id" => "DE","type" => "wpg" ],"secretary" => [ "id" => "SE","type" => "wpg" ],"date" => [ "id" => "DT","type" => "dat" ],"moderator" => [ "id" => "MO","type" => "wpg" ],"time" => [ "id" => "TI","type" => "txt" ],"overview" => [ "id" => "OV","type" => "txt" ],"location" => [ "id" => "LO","type" => "txt" ], ] ],
 		"meeting-department" => [ "id" => "","fields" => [ ] ],
 		"meeting-group" => [ "id" => "","fields" => [ ] ],
@@ -38,7 +38,7 @@ class SemanticOrganizationProperties {
 		"transfer-list" => [ "id" => "TL","fields" => ["date" => [ "id" => "DT","type" => "dat" ], ] ],
 		"vacation" => [ "id" => "VA","fields" => ["person" => [ "id" => "PE","type" => "wpg" ],"start-date" => [ "id" => "SD","type" => "dat" ],"end-date" => [ "id" => "ED","type" => "dat" ],"note" => [ "id" => "NO","type" => "txt" ], ] ],
 		"working-time" => [ "id" => "WT","fields" => ["person" => [ "id" => "PE","type" => "wpg" ],"day" => [ "id" => "DA","type" => "num" ],"time" => [ "id" => "TI","type" => "txt" ],"note" => [ "id" => "NO","type" => "txt" ], ] ],
-	];
+	];	
 
 	public static function registerProperty( $id, $typeid, $label ) {
 		if ( class_exists( 'SMWDIProperty' ) ) {

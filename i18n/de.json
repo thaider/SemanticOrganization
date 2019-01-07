@@ -294,6 +294,12 @@
 	"semorg-field-gdpr-recipient-name-name": "Empfänger",
 	"semorg-field-gdpr-recipient-third-country-name": "Drittstaat",
 
+	"semorg-invoice-displaytitle": "Ausgangsrechnung #$1 $2",
+	"semorg-form-invoice-create-title": "Ausgangsrechnung erstellen",
+	"semorg-form-invoice-edit-title": "Ausgangsrechnung bearbeiten", 
+	"semorg-form-invoice-page-name": "Ausgangsrechnungen",
+	"semorg-formlink-invoice-link-text": "Ausgangsrechnung erstellen",
+	"semorg-field-invoice-invoice-name": "Rechnung",
 	"semorg-field-invoice-recipient-name": "Empfänger",
 	"semorg-field-invoice-issuer-name": "Aussteller",
 	"semorg-field-invoice-number-name": "Rechnungsnummer",
@@ -307,8 +313,14 @@
 	"semorg-field-invoice-department-name": "Geschäftsfeld",
 	"semorg-field-invoice-project-name": "Projekt",
 	"semorg-field-invoice-storno-name": "storniert",
+	"semorg-field-invoice-reminder-1-date-name": "Datum der ersten Mahnung", 
+	"semorg-field-invoice-reminder-2-date-name": "Datum der zweiten Mahnung", 
+	"semorg-field-invoice-collection-date-name": "Inkasso-Datum", 
 
-	"semorg-field-invoices-year-name": "Jahr",
+	"semorg-invoice-year-displaytitle": "Ausgangsrechnungen $1",
+	"semorg-field-invoice-year-year-name": "Jahr",
+	"semorg-field-invoice-year-year-parameters": "input type=text|size=4|default={{CURRENTYEAR}}",
+	"semorg-field-invoice-year-year-help": "Leer lassen für das aktuelle Jahr.",
 
 	"semorg-field-process-description-name": "Beschreibung",
 	"semorg-field-process-owner-name": "Prozessverantwortung",
