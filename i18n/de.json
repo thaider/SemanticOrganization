@@ -393,5 +393,18 @@
 	"semorg-form-department-edit-title": "Geschäftsfeld bearbeiten",
 	"semorg-form-department-page-name": "Geschäftsfelder",
 	"semorg-formlink-department-link-text": "Geschäftsfeld erstellen",
-	"semorg-field-department-name-name": "Name"
+	"semorg-field-department-name-name": "Name",
+
+	"semorg-form-account-create-title": "Kostenstelle erstellen",
+	"semorg-form-account-edit-title": "Kostenstelle bearbeiten", 
+	"semorg-form-account-page-name": "Kostenstelle",
+	"semorg-formlink-account-link-text": "Kostenstelle erstellen",
+	"semorg-field-account-account-name": "Kostenstelle", 
+	"semorg-field-account-account-number-name": "Kostenstellen-Nummer", 
+	"semorg-field-account-account-name-name": "Kostenstellen-Bezeichnung", 
+
+	"semorg-form-account-special-create-title": "Kostenstelle erstellen",
+	"semorg-form-account-special-edit-title": "Kostenstelle bearbeiten", 
+	"semorg-form-account-special-page-name": "Kostenstelle",
+	"semorg-formlink-account-special-link-text": "Kostenstelle erstellen"
 }

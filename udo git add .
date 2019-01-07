@@ -1,0 +1,62 @@
+[1mdiff --git a/i18n/de.json b/i18n/de.json[m
+[1mindex 84a9cd8..77e4b50 100644[m
+[1m--- a/i18n/de.json[m
+[1m+++ b/i18n/de.json[m
+[36m@@ -393,5 +393,18 @@[m
+ 	"semorg-form-department-edit-title": "Geschäftsfeld bearbeiten",[m
+ 	"semorg-form-department-page-name": "Geschäftsfelder",[m
+ 	"semorg-formlink-department-link-text": "Geschäftsfeld erstellen",[m
+[31m-	"semorg-field-department-name-name": "Name"[m
+[32m+[m	[32m"semorg-field-department-name-name": "Name",[m
+[32m+[m
+[32m+[m	[32m"semorg-form-account-create-title": "Kostenstelle erstellen",[m
+[32m+[m	[32m"semorg-form-account-edit-title": "Kostenstelle bearbeiten",[m[41m [m
+[32m+[m	[32m"semorg-form-account-page-name": "Kostenstelle",[m
+[32m+[m	[32m"semorg-formlink-account-link-text": "Kostenstelle erstellen",[m
+[32m+[m	[32m"semorg-field-account-account-name": "Kostenstelle",[m[41m [m
+[32m+[m	[32m"semorg-field-account-account-number-name": "Kostenstellen-Nummer",[m[41m [m
+[32m+[m	[32m"semorg-field-account-account-name-name": "Kostenstellen-Bezeichnung",[m[41m [m
+[32m+[m
+[32m+[m	[32m"semorg-form-account-special-create-title": "Kostenstelle erstellen",[m
+[32m+[m	[32m"semorg-form-account-special-edit-title": "Kostenstelle bearbeiten",[m[41m [m
+[32m+[m	[32m"semorg-form-account-special-page-name": "Kostenstelle",[m
+[32m+[m	[32m"semorg-formlink-account-special-link-text": "Kostenstelle erstellen"[m
+ }[m
+[1mdiff --git a/i18n/en.json b/i18n/en.json[m
+[1mindex fd550c7..4f8a50c 100644[m
+[1m--- a/i18n/en.json[m
+[1m+++ b/i18n/en.json[m
+[36m@@ -645,7 +645,7 @@[m
+ 	"semorg-list-transfer-add-headers": "transfer, transfer-sender, transfer-recipient, transfer-amount, transfer-subject, transfer-add",[m
+ 	"semorg-field-transfer-name":"Transfer",[m
+ 	"semorg-field-transfer-sender-name": "Sender", [m
+[31m-	"semorg-field-transfer-sender-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",[m
+[32m+[m	[32m"semorg-field-transfer-sender-parameters": "input type=combobox|values from category=semorg-account|mapping template=semorg-mapping-account",[m
+ 	"semorg-field-transfer-amount-name": "Amount", [m
+ 	"semorg-field-transfer-amount-parameters": "size=10", [m
+ 	"semorg-field-transfer-amount-suffix": "&nbsp;€",[m
+[36m@@ -656,7 +656,7 @@[m
+ 	"semorg-field-transfer-details-name": "Notes", [m
+ 	"semorg-field-transfer-details-parameters": "input type=textarea|autogrow|rows=1|cols=60",[m
+ 	"semorg-field-transfer-recipient-name": "Recipient", [m
+[31m-	"semorg-field-transfer-recipient-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",[m
+[32m+[m	[32m"semorg-field-transfer-recipient-parameters": "input type=combobox|values from category=semorg-account|mapping template=semorg-mapping-account",[m
+ 	"semorg-field-transfer-list-name": "Umbuchungsliste", [m
+ 	"semorg-field-transfer-list-parameters": "hidden", [m
+ 	"semorg-field-transfer-add-name": "listen",[m
+[36m@@ -817,6 +817,7 @@[m
+ 	"semorg-formlink-account-link-text": "Kostenstelle erstellen",[m
+ 	"semorg-form-account-template": "account",[m
+ 	"semorg-form-account-rows": "account-number,account-name",[m
+[32m+[m	[32m"semorg-form-account-page-name": "Account Nr",[m
+ 	"semorg-list-account-headers": "account-account,account-account-number,account-account-name",[m
+ 	"semorg-form-account-template": "account",[m
+ 	"semorg-field-account-account-name": "Account", [m
+[36m@@ -830,6 +831,7 @@[m
+ 	"semorg-account-special-form": "semorg-account-special",[m
+ 	"semorg-form-account-special-create-title": "Kostenstelle erstellen",[m
+ 	"semorg-form-account-special-edit-title": "Kostenstelle bearbeiten", [m
+[32m+[m	[32m"semorg-form-account-special-page-name": "Account Nr",[m
+ 	"semorg-formlink-account-special-link-text": "Kostenstelle erstellen",[m
+ 	"semorg-form-account-special-template": "account-special",[m
+ 	"semorg-form-account-special-rows": "account-number,account-name",[m
