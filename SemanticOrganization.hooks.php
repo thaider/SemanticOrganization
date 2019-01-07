@@ -287,6 +287,9 @@ class SemanticOrganizationHooks {
 		}
 
 		$row_template = $template;
+		if( wfMessage('semorg-list-' . $template . '-row-template' )->exists() ) {
+			$row_template = wfMessage('semorg-list-' . $template . '-row-template' )->text();
+		}
 		if( isset( $formoptions['row template'] ) ) {
 			$row_template = $formoptions['row template'];
 		}
