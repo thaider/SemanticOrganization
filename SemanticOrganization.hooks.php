@@ -5,7 +5,7 @@
 class SemanticOrganizationHooks {
 
 	static $options;
-	static $listvalues = array( 'email', 'homepage', 'workphone' );
+	static $listvalues = array( 'email', 'homepage', 'workphone', 'tag' );
 
 	/**
 	 * Setup
