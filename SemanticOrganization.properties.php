@@ -5,7 +5,9 @@
 class SemanticOrganizationProperties {
 	static $properties = [
 		"account" => [ "id" => "AC","fields" => ["account-number" => [ "id" => "NU","type" => "num" ],"account-name" => [ "id" => "NA","type" => "txt" ], ] ],
+		"account-special" => [ "id" => "AS","fields" => [ ] ],
 		"agenda" => [ "id" => "AG","fields" => ["meeting" => [ "id" => "ME","type" => "wpg" ],"description" => [ "id" => "DE","type" => "txt" ],"title" => [ "id" => "TT","type" => "txt" ],"proposal" => [ "id" => "PR","type" => "txt" ],"person" => [ "id" => "PE","type" => "wpg" ],"tag" => [ "id" => "TA","type" => "txt" ],"type" => [ "id" => "TY","type" => "txt" ],"time" => [ "id" => "TI","type" => "num" ],"priority" => [ "id" => "PR","type" => "txt" ], ] ],
+		"contact" => [ "id" => "CO","fields" => ["participant" => [ "id" => "PA","type" => "wpg" ],"subject" => [ "id" => "SU","type" => "txt" ],"contact" => [ "id" => "CO","type" => "wpg" ],"details" => [ "id" => "DE","type" => "txt" ],"type" => [ "id" => "TY","type" => "txt" ],"location" => [ "id" => "LO","type" => "txt" ],"time" => [ "id" => "TI","type" => "txt" ],"date" => [ "id" => "DA","type" => "dat" ], ] ],
 		"department" => [ "id" => "DE","fields" => ["name" => [ "id" => "NA","type" => "txt" ], ] ],
 		"gdpr-affected" => [ "id" => "GA","fields" => ["name" => [ "id" => "NA","type" => "txt" ],"processing" => [ "id" => "PR","type" => "wpg" ], ] ],
 		"gdpr-category" => [ "id" => "GC","fields" => ["name" => [ "id" => "NA","type" => "txt" ],"affected" => [ "id" => "AF","type" => "wpg" ],"sensitive" => [ "id" => "SE","type" => "boo" ],"prosecution" => [ "id" => "PR","type" => "boo" ],"erase-time" => [ "id" => "ET","type" => "txt" ], ] ],
@@ -38,7 +40,7 @@ class SemanticOrganizationProperties {
 		"transfer-list" => [ "id" => "TL","fields" => ["date" => [ "id" => "DT","type" => "dat" ], ] ],
 		"vacation" => [ "id" => "VA","fields" => ["person" => [ "id" => "PE","type" => "wpg" ],"start-date" => [ "id" => "SD","type" => "dat" ],"end-date" => [ "id" => "ED","type" => "dat" ],"note" => [ "id" => "NO","type" => "txt" ], ] ],
 		"working-time" => [ "id" => "WT","fields" => ["person" => [ "id" => "PE","type" => "wpg" ],"day" => [ "id" => "DA","type" => "num" ],"time" => [ "id" => "TI","type" => "txt" ],"note" => [ "id" => "NO","type" => "txt" ], ] ],
-	];	
+	];
 
 	public static function registerProperty( $id, $typeid, $label ) {
 		if ( class_exists( 'SMWDIProperty' ) ) {

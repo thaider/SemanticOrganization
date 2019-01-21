@@ -77,6 +77,11 @@
 	"semorg-value-gdpr-processing-legal-basis-vital-interests": "lebenswichtig",
 	"semorg-value-gdpr-processing-legal-basis-public-task": "öffentliches Interesse",
 	"semorg-value-gdpr-processing-legal-basis-legitimate-interest": "berechtigtes Interesse",
+	"semorg-value-contact-type-email" : "Email",
+	"semorg-value-contact-type-phone": "Telefon",
+	"semorg-value-contact-type-social-media": "Social Media",
+	"semorg-value-contact-type-personal": "Persönliches Treffen",
+	"semorg-value-contact-type-unknown": "Kontakt",
 
 	"semorg-form-person-edit-title": "Person bearbeiten",
 	"semorg-form-person-create-title": "Person erstellen",
@@ -406,5 +411,20 @@
 	"semorg-form-account-special-create-title": "Kostenstelle erstellen",
 	"semorg-form-account-special-edit-title": "Kostenstelle bearbeiten", 
 	"semorg-form-account-special-page-name": "Kostenstelle",
-	"semorg-formlink-account-special-link-text": "Kostenstelle erstellen"
+	"semorg-formlink-account-special-link-text": "Kostenstelle erstellen",
+
+	"semorg-contact-displaytitle": "$1 vom {{#timel:j. F Y|$2}}",
+	"semorg-form-contact-create-title": "Kontakt erstellen",
+	"semorg-form-contact-edit-title": "Kontakt bearbeiten", 
+	"semorg-form-contact-page-name": "Kontakthistorie",
+	"semorg-formlink-contact-link-text": "Kontakt erstellen",
+	"semorg-list-contact-heading": "Kontakthistorie",
+	"semorg-field-contact-participant-name": "Interne TeilnehmerInnen", 
+	"semorg-field-contact-subject-name": "Betreff", 
+	"semorg-field-contact-contact-name": "Externe TeilnehmerInnen", 
+	"semorg-field-contact-details-name": "Details", 
+	"semorg-field-contact-type-name": "Typ", 
+	"semorg-field-contact-location-name": "Ort", 
+	"semorg-field-contact-time-name": "Zeit", 
+	"semorg-field-contact-date-name": "Datum"
 }

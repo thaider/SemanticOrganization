@@ -246,7 +246,7 @@ class SemanticOrganizationHooks {
 	static function renderProperties( &$parser ) {
 		$template = func_get_args()[1];
 		$property_array = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
-		$properties = implode( ', ', array_keys( $property_array ));
+		$properties = is_array( $property_array ) ? implode( ', ', array_keys( $property_array )) : '';
 
 		return [ $properties, 'noparse' => false ];
 	}
