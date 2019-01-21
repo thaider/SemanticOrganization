@@ -294,10 +294,13 @@ class SemanticOrganizationHooks {
 			$row_template = $formoptions['row template'];
 		}
 
-		$headers = $template;
 		// if a message for the custom headers is defined for the row-template, use custom headers
-		if( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
-			$headers = $row_template;
+		if( isset( $formoptions['headers'] ) ) {
+			$headers = $formoptions['headers'];
+		} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
+			$headers = wfMessage('semorg-list-' . $row_template . '-headers' )->text();
+		} else {
+			$headers = wfMessage('semorg-list-' . $template . '-headers' )->text();
 		}
 
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
@@ -330,7 +333,7 @@ class SemanticOrganizationHooks {
 
 		$query .= '|link=none|named args=yes|format=template';
 		$query .= '|template=semorg-' . $row_template . '-row';
-		$query .= '|intro={{semorg-list-intro|columns={{int:semorg-list-' . $headers . '-headers}}}}';
+		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '}}';
 		$query .= '|outro={{semorg-list-outro}}';
 
 		// Parameters for sorting, ordering, default (queries without results)
