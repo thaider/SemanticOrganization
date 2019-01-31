@@ -376,7 +376,7 @@
 	"semorg-membership-payment-form": "semorg-membership-payment",
 	"semorg-form-membership-payment-template": "membership-payment",
 	"semorg-form-membership-payment-page-name": "Payment",
-	"semmrg-form-membership-payment-create-title": "Create membership payment",
+	"semorg-form-membership-payment-create-title": "Create membership payment",
 	"semorg-form-membership-payment-edit-title": "Edit membership payment",
 	"semorg-form-membership-payment-rows": "ref, date, member, amount",
 	"semorg-formlink-membership-payment-link-text": "Create membership payment",
