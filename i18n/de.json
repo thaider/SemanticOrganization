@@ -234,6 +234,10 @@
 	"semorg-field-membership-due-date-name": "zu zahlen bis",
 	"semorg-field-membership-pay-date-name": "gezahlt am",
 
+	"semorg-form-membership-payment-page-name": "Zahlung",
+	"semmrg-form-membership-payment-create-title": "Ein-/Auszahlung von Geschäftsanteilen erstellen",
+	"semorg-form-membership-payment-edit-title": "Ein-/Auszahlung vog Geschäftsanteilen bearbeiten",
+	"semorg-formlink-membership-payment-link-text": "Ein-/Auszahlung von Geschäftsanteilen erstellen",
 	"semorg-field-membership-payment-amount-name": "Betrag",
 	"semorg-field-membership-payment-amount-help": "Für eine Auszahlung einen negativen Betrag eingeben.",
 	"semorg-field-membership-payment-date-name": "Datum",
@@ -377,6 +381,7 @@
 	"semorg-form-transfer-edit-title": "Umbuchung bearbeiten",
 	"semorg-form-transfer-page-name": "Umbuchung",
 	"semorg-formlink-transfer-link-text": "Umbuchung erstellen",
+	"semorg-formlink-transfer-for-list-link-text": "Umbuchung für diese Liste erstellen",
 	"semorg-field-transfer-name":"Umbuchung",
 	"semorg-field-transfer-sender-name": "Von", 
 	"semorg-field-transfer-amount-name": "Betrag", 
