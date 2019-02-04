@@ -318,6 +318,7 @@
 	"semorg-field-file-link-parameters": "",
 	"semorg-field-file-link-help": "Text for linking to the file.",
 
+	"semorg-agenda-template": "agenda",
 	"semorg-form-agenda-label": "Agenda/Minutes",
 	"semorg-form-agenda-add-button-text": "Add agenda item",
 	"semorg-form-agenda-rows": "title,details,description,proposal,tag",
