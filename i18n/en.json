@@ -7,6 +7,8 @@
 	"semorg-print-header": "",
 	"semorg-print-footer": "",
 
+	"semorg-filterbox-title": "Filter",
+
 	"semorg-up-to-date-warning": "<b>Warning!</b> This page is automatically created based on the current version of the form. The version shown might differ from the real content (as printed and signed)!",
 
 	"semorg-share-value": "100",
@@ -665,6 +667,8 @@
 	"semorg-field-transfer-amount-suffix": "&nbsp;€",
 	"semorg-field-transfer-date-name": "Date", 
 	"semorg-field-transfer-date-parameters": "input type=datepicker|size=10",
+	"semorg-field-transfer-year-name": "Year", 
+	"semorg-field-transfer-year-parameters": "",
 	"semorg-field-transfer-subject-name": "Betreff", 
 	"semorg-field-transfer-subject-parameters": "",
 	"semorg-field-transfer-details-name": "Notes", 

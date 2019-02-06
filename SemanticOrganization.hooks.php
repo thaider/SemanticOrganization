@@ -31,7 +31,8 @@ class SemanticOrganizationHooks {
 			'formlink' => 'renderFormlink',
 			'forminput' => 'renderForminput',
 			'meetings' => 'renderMeetings',
-			'properties' => 'renderProperties'
+			'properties' => 'renderProperties',
+			'values' => 'renderValues'
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -311,6 +312,47 @@ class SemanticOrganizationHooks {
 		// Custom query parameters
 		if( isset( $formoptions['query'] ) ) {
 			$query .= $formoptions['query'];
+		}
+
+		// Filter links
+		if( isset( $formoptions['filter links'] ) ) {
+			$filter_links_values = [];
+			$filter_links = explode( ',', $formoptions['filter links'] );
+			$filters_implicit = $filter_links;
+			foreach( $filter_links as $filter ) {
+				$filter = explode( '=', $filter );
+				$filter_property = $filter[0];
+				$filter_values = array_unique( explode( ',', self::getValues( $parser, $filter_property ) ) );
+				sort( $filter_values );
+				$filter_links_values[$filter_property] = $filter_values;
+			}
+			$query = self::getFilterbox( $filter_links_values ) . $query;
+		}
+
+		// Filters
+		if( isset( $formoptions['filters'] ) || isset( $formoptions['filter links'] ) ) {
+			$filters = [];
+			if( isset( $formoptions['filters'] ) ) {
+				$filters = explode(',', $formoptions['filters']);
+			}
+			if( isset( $filters_implicit ) ) {
+				$filters = array_merge( $filters, $filters_implicit );
+			}
+			$request = $parser->getUser()->getRequest();
+			foreach( $filters as $filter ) {
+				$filter_value = false;
+				$filter = explode( '=', $filter );
+				$filter_property = $filter[0];
+
+				if( $request->getCheck( $filter_property ) ) {
+					$filter_value = $request->getText( $filter_property );
+				} elseif( isset( $filter[1] ) ) {
+					$filter_value = $filter[1];
+				}
+				if( $filter_value !== false ) {
+					$query .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
+				}
+			}
 		}
 
 		// Fields
@@ -956,6 +998,53 @@ class SemanticOrganizationHooks {
 		$out = '<div id="' . $id . '" class="semorg-circles"><svg width="600" height="600"></svg></div>';
 		$out .= '<script>var ' . $id . '=' . json_encode( $hierarchy ) . ';</script>';
 		return array( $out, 'noparse' => true, 'isHTML' => true );
+	}
+
+	/**
+	 * Render all values for a specific property
+	 */
+	static function renderValues( &$parser ) {
+		$property = func_get_args()[1];
+		return self::getValues( $parser, $property );
+	}
+
+
+	/**
+	 * Get all values for a specific property
+	 *
+	 * @param Parser $parser Parser
+	 * @param string $property Name of the property
+	 *
+	 * @return string Comma-separated list of values
+	 */
+	static function getValues( $parser, $property ) {
+		$query = '{{#ask: [[semorg-' . $property . '::+]] |mainlabel=- |headers=hide |?semorg-' . $property . '# }}';
+		$values = $parser->recursiveTagParse( $query );
+		return $values;
+	}
+
+
+	/**
+	 * Create filterbox
+	 *
+	 * @param Array $filter_links_values List of filters and their values
+	 *
+	 * @return string HTML code for filterbox
+	 */
+	static function getFilterbox( $filter_links_values ) {
+		$filterbox = '';
+		foreach( $filter_links_values as $filter_property => $values ) {
+			$filterbox .= '<div class="semorg-filterbox-filter">';
+			$filterbox .= '<span class="semorg-filterbox-filter-name">' . wfMessage( 'semorg-field-' . $filter_property . '-name' ) . ': </span>';
+			foreach( $values as &$value ) {
+				$value = '<span class="semorg-filterbox-filter-value">[{{fullurl:{{FULLPAGENAMEE}}|' . $filter_property . '=' . urlencode( $value ) . '}} ' . $value . ']</span>';
+			}
+			$filterbox .= implode( ' · ', $values );
+			$filterbox .= '</div>';
+		}
+		$filterbox_title = '<div class="semorg-filterbox-title">' . wfMessage( 'semorg-filterbox-title' ) . '</div>';
+		$filterbox = '<div class="semorg-filterbox">' . $filterbox_title . $filterbox . '</div>';
+		return $filterbox;
 	}
 
 

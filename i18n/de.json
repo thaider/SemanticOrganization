@@ -1,6 +1,8 @@
 {
 	"semorg-desc": "Unterstützung für die Selbstorganisation",
 
+	"semorg-filterbox-title": "Filter",
+
 	"semorg-up-to-date-warning": "<b>Achtung!</b> Diese Seite wird automatisiert auf der Grundlage der aktuell geltenden Fassung des zugrundeliegenden Formulars erstellt. Die hier angezeigte Version kann daher vom tatsächlichen Inhalt des Dokuments (wie ausgedruckt und unterfertigt) abweichen!",
 
 	"semorg-tooltip-view": "ansehen",
@@ -387,6 +389,7 @@
 	"semorg-field-transfer-amount-name": "Betrag", 
 	"semorg-field-transfer-amount-suffix": "&nbsp;€",
 	"semorg-field-transfer-date-name": "Datum", 
+	"semorg-field-transfer-year-name": "Jahr", 
 	"semorg-field-transfer-details-name": "Anmerkungen", 
 	"semorg-field-transfer-recipient-name": "An", 
 
