@@ -427,7 +427,7 @@ class SemanticOrganizationHooks {
 		$query .= '|outro={{semorg-list-outro}}';
 
 		// Parameters for sorting, ordering, searchlabel, default (queries without results)
-		foreach( ['sort', 'order', 'default', 'limit', 'searchlabel' ] as $parameter ) {
+		foreach( ['sort', 'order', 'default', 'limit' ] as $parameter ) {
 			$parameters[$parameter] = '';
 
 			// @todo: use global setting instead or make it configurable via message?
@@ -445,6 +445,8 @@ class SemanticOrganizationHooks {
 				$query .= '|' . $parameter . '=' . $parameters[$parameter];
 			}
 		}
+
+		$query .= '|searchlabel=' . ( $formoptions['searchlabel'] ?? '' );
 
 		$query .= '}}';
 		return [ $query, 'noparse' => false ];
