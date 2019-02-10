@@ -32,7 +32,8 @@ class SemanticOrganizationHooks {
 			'forminput' => 'renderForminput',
 			'meetings' => 'renderMeetings',
 			'properties' => 'renderProperties',
-			'values' => 'renderValues'
+			'values' => 'renderValues',
+			'tabs' => 'renderTabs'
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -276,6 +277,53 @@ class SemanticOrganizationHooks {
 
 
 	/**
+	 * Tabs anzeigen
+	 */
+	static function renderTabs( &$parser ) {
+		$template = func_get_args()[1];
+		$taboptions = self::extractOptions( array_slice(func_get_args(), 2) );
+		$tablinks = '';
+		$tabcontents = '';
+
+		$first = true;
+		$stacked = false;
+		$type = $taboptions['type'] ?? 'tabs';
+		$class = 'nav nav-' . $type;
+		if( isset( $taboptions['class'] ) ) {
+			$class .= ' ' . $taboptions['class'];
+		}
+		if( isset( $taboptions['stacked'] ) ) {
+			$type = 'pills';
+			$class .= ' nav-stacked';
+			$stacked = true;
+			$stack_width = is_numeric( $taboptions['stacked'] ) ? $taboptions['stacked'] : '3';
+		}
+
+		foreach( $taboptions as $id => $content ) {
+			if( substr( $id, 0, 1 ) === '?' ) {
+				$id = substr( $id, 1 );
+				$tabbtn = '<btn data-toggle="tab" class="">#' . $id . '|' . wfMessage( 'semorg-tab-' . $template . '-' . $id ) . '</btn>';
+				$tablinks .= '<li' . ($first ? ' class="active"' : '') . '>' . $tabbtn . '</li>';
+
+				if( $content === true ) {
+					$content = '{{semorg-' . $template . '-' . $id . '-tab}}';
+				}
+				$tabcontents .= '<div id="' . $id . '" class="tab-pane fade' . ($first ? ' active in' : '' ) . '">' . $content . '</div>'; 
+				$first = false;
+			}
+		}
+		$tablinks = '<ul class="' . $class . '">' . $tablinks . '</ul>';
+		$tabcontents = '<div class="tab-content">' . $tabcontents . '</div>';
+		if( $stacked ) {
+			$tabs = '<div class="container-fluid"><div class="row"><div class="col-md-' . $stack_width . '">' . $tablinks . '</div><div class="col-md-' . ( 12-$stack_width ) . '">' . $tabcontents . '</div></div></div>';
+		} else {
+			$tabs = $tablinks . $tabcontents;
+		}
+		return [ $tabs, 'noparse' => false ];
+	}
+
+
+	/**
 	 * Liste anzeigen
 	 */
 	static function renderList( &$parser ) {
@@ -378,8 +426,8 @@ class SemanticOrganizationHooks {
 		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '}}';
 		$query .= '|outro={{semorg-list-outro}}';
 
-		// Parameters for sorting, ordering, default (queries without results)
-		foreach( ['sort', 'order', 'default', 'limit' ] as $parameter ) {
+		// Parameters for sorting, ordering, searchlabel, default (queries without results)
+		foreach( ['sort', 'order', 'default', 'limit', 'searchlabel' ] as $parameter ) {
 			$parameters[$parameter] = '';
 
 			// @todo: use global setting instead or make it configurable via message?

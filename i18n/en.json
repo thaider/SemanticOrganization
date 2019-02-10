@@ -175,6 +175,8 @@
 	"semorg-forminput-person-user-query-string": "namespace=User",
 	"semorg-forminput-person-user-placeholder": "User Name",
 	"semorg-list-person-user-headers": "person-name, person-address",
+	"semorg-tab-person-user-details": "User Details",
+	"semorg-tab-person-user-contact": "Contact History",
 
 	"semorg-person-contact-template": "semorg-person-contact",
 	"semorg-person-contact-category": "semorg-person-contact",
