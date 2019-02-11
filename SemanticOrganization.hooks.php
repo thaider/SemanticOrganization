@@ -470,7 +470,7 @@ class SemanticOrganizationHooks {
 		$meetings .= '<div class="h3">{{int:semorg-list-meeting-current-heading}}</div>';
 
 		$meetings .= '{{#semorg-list:meeting
-		  |query=' . $query . '[[Semorg-meeting-date::>{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
+		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
@@ -718,7 +718,7 @@ class SemanticOrganizationHooks {
 		$output = '{{#subobject:';
 		$values = self::extractOptions( array_slice(func_get_args(), 1) );
 		foreach( $values as $key => $value ) {
-			$output .= '|semorg-person-ref-' . $key . '=' . $value . '|+sep=,';
+			$output .= '|semorg-person-ref-' . $key . '=' . ( is_array( $value ) ? implode( ',', $value ) : $value ) . '|+sep=,';
 		}
 		$output .= '}}';
 		$names = explode(' ', $values['name'], 2);
@@ -733,8 +733,8 @@ class SemanticOrganizationHooks {
 		}
 		$listitem .= '</td>';
 		$listitem .= '<td>';
-		if( isset( $values['tag'] ) ) {
-			foreach( explode( ',', $values['tag'] ) as $tag ) {
+		if( isset( $values['tag'] ) && is_array( $values['tag'] ) ) {
+			foreach( $values['tag'] as $tag ) {
 				$listitem .= ' <span class="semorg-person-ref-tag">' . trim( $tag ) . '</span>';
 			}
 		}
