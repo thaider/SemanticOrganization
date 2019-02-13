@@ -370,7 +370,10 @@ class SemanticOrganizationHooks {
 			foreach( $filter_links as $filter ) {
 				$filter = explode( '=', $filter );
 				$filter_property = $filter[0];
-				$filter_values = array_unique( explode( ',', self::getValues( $parser, $filter_property ) ) );
+
+				// get all existing values
+				// @todo: apply query parameters
+				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property ) ) ) );
 				sort( $filter_values );
 				$filter_links_values[$filter_property] = $filter_values;
 			}
@@ -383,6 +386,7 @@ class SemanticOrganizationHooks {
 			if( isset( $formoptions['filters'] ) ) {
 				$filters = explode(',', $formoptions['filters']);
 			}
+			// add filters that have implicitly been set with filter links
 			if( isset( $filters_implicit ) ) {
 				$filters = array_merge( $filters, $filters_implicit );
 			}
@@ -392,8 +396,11 @@ class SemanticOrganizationHooks {
 				$filter = explode( '=', $filter );
 				$filter_property = $filter[0];
 
+				// had the filter been set explicitly in the query string?
 				if( $request->getCheck( $filter_property ) ) {
 					$filter_value = $request->getText( $filter_property );
+
+				// or do we have a default value in the list definition?
 				} elseif( isset( $filter[1] ) ) {
 					$filter_value = $filter[1];
 				}
