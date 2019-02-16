@@ -355,34 +355,23 @@ class SemanticOrganizationHooks {
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
 
 		$query = '{{#ask:';
-		$query .= '[[Category:' . $category . ']]';
+		$query_string = '[[Category:' . $category . ']]';
 
 		// Custom query parameters
 		if( isset( $formoptions['query'] ) ) {
-			$query .= $formoptions['query'];
+			$query_string .= $formoptions['query'];
 		}
 
-		// Filter links
+		// Get implicit filters (filter links)
 		if( isset( $formoptions['filter links'] ) ) {
-			$filter_links_values = [];
 			$filter_links = explode( ',', $formoptions['filter links'] );
 			$filters_implicit = $filter_links;
-			foreach( $filter_links as $filter ) {
-				$filter = explode( '=', $filter );
-				$filter_property = $filter[0];
-
-				// get all existing values
-				// @todo: apply query parameters
-				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property ) ) ) );
-				sort( $filter_values );
-				$filter_links_values[$filter_property] = $filter_values;
-			}
-			$query = self::getFilterbox( $filter_links_values ) . $query;
 		}
 
 		// Filters
 		if( isset( $formoptions['filters'] ) || isset( $formoptions['filter links'] ) ) {
 			$filters = [];
+			$filter_string = '';
 			if( isset( $formoptions['filters'] ) ) {
 				$filters = explode(',', $formoptions['filters']);
 			}
@@ -405,9 +394,27 @@ class SemanticOrganizationHooks {
 					$filter_value = $filter[1];
 				}
 				if( $filter_value !== false ) {
-					$query .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
+					$query_string .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
 				}
 			}
+		}
+		
+		$query .= $query_string;
+
+		// Get implicit filters (filter links)
+		if( isset( $filter_links ) ) {
+			$filter_links_values = [];
+			foreach( $filter_links as $filter ) {
+				$filter = explode( '=', $filter );
+				$filter_property = $filter[0];
+
+				// get all existing values
+				// @todo: apply query parameters
+				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
+				sort( $filter_values );
+				$filter_links_values[$filter_property] = $filter_values;
+			}
+			$query = self::getFilterbox( $filter_links_values ) . $query;
 		}
 
 		// Fields
@@ -1071,11 +1078,13 @@ class SemanticOrganizationHooks {
 	 *
 	 * @param Parser $parser Parser
 	 * @param string $property Name of the property
+	 * @param string $filter_string applied filters
 	 *
 	 * @return string Comma-separated list of values
 	 */
-	static function getValues( $parser, $property ) {
-		$query = '{{#ask: [[semorg-' . $property . '::+]] |mainlabel=- |headers=hide |?semorg-' . $property . '# }}';
+	static function getValues( $parser, $property, $query_string ) {
+		$property_parts = explode( '.', $property );
+		$query = '{{#ask: [[semorg-' . $property_parts[0] . '::+]]' . $query_string . ' |mainlabel=- |headers=hide |?semorg-' . $property . '# }}';
 		$values = $parser->recursiveTagParse( $query );
 		return $values;
 	}
@@ -1092,7 +1101,7 @@ class SemanticOrganizationHooks {
 		$filterbox = '';
 		foreach( $filter_links_values as $filter_property => $values ) {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
-			$filterbox .= '<span class="semorg-filterbox-filter-name">' . wfMessage( 'semorg-field-' . $filter_property . '-name' ) . ': </span>';
+			$filterbox .= '<span class="semorg-filterbox-filter-name">' . wfMessage( 'semorg-field-' . explode( '.', $filter_property )[0] . '-name' ) . ': </span>';
 			foreach( $values as &$value ) {
 				$value = '<span class="semorg-filterbox-filter-value">[{{fullurl:{{FULLPAGENAMEE}}|' . $filter_property . '=' . urlencode( $value ) . '}} ' . $value . ']</span>';
 			}
