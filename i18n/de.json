@@ -257,6 +257,7 @@
 	"semorg-field-salary-rate-name": "Stundensatz",
 
 	"semorg-gdpr-processing-displaytitle": "Datenanwendung $1",
+	"semorg-gdpr-processing-page-name": "Verfahrensverzeichnis",
 	"semorg-gdpr-processing-page-link-text": "Verfahrensverzeichnis",
 	"semorg-form-gdpr-processing-create-title": "Datenanwendung erstellen",
 	"semorg-form-gdpr-processing-edit-title": "Datenanwendung bearbeiten",
