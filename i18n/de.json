@@ -123,6 +123,7 @@
 	"semorg-field-person-membership-name": "Mitgliedschaft",
 	"semorg-field-person-membership-suffix": "&nbsp;Mitgliedschaft aktiv",
 	"semorg-field-person-membership-number-name": "Mitgliedsnummer",
+	"semorg-field-person-vat-number-name": "UID-Nummer", 
 	"semorg-field-person-personnel-name": "Anstellung",
 	"semorg-field-person-personnel-suffix": "&nbsp;Anstellung aktiv",
 	"semorg-field-person-personnel-number-name": "Personalnummer",
@@ -142,6 +143,10 @@
 	"semorg-form-person-contact-create-title": "Person erstellen",
 	"semorg-form-person-contact-edit-title": "Person bearbeiten",
 	"semorg-formlink-person-contact-link-text": "Person erstellen",
+
+	"semorg-form-person-legal-create-title": "Institution erstellen",
+	"semorg-form-person-legal-edit-title": "Institution bearbeiten", 
+	"semorg-formlink-person-legal-link-text": "Institution erstellen",
 
 	"semorg-field-person-ref-person-ref-fields": "name,role,tag",
 	"semorg-field-person-ref-name-name": "Name",
