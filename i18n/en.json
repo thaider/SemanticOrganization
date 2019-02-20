@@ -95,6 +95,7 @@
 	"semorg-value-contact-type-personal": "Personal Meeting",
 	"semorg-value-contact-type-unknown": "Unknown Type",
 
+	"semorg-person-category": "semorg-person",
 	"semorg-field-person-fullname-name": "Name",
 	"semorg-field-person-fullname-fields": "prefix,firstname,lastname,suffix",
 	"semorg-field-person-name-name": "Name",
