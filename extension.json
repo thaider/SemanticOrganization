@@ -23,6 +23,18 @@
 		"remoteExtPath": "SemanticOrganization/modules"
 	},
 	"ResourceModules": {
+		"ext.semorg.tweeki.styles": {
+			"position": "top",
+			"styles": {
+				"tweeki/css/custom.css": {}
+			}
+		},
+		"ext.semorg.tweeki.scripts": {
+			"position": "bottom",
+			"scripts": [
+				"tweeki/js/custom.js"
+			]
+		},
 		"ext.semorg": {
 			"position": "top",
 			"scripts": [
@@ -54,9 +66,15 @@
 			]
 		}
 	},
+	"config": {
+		"SemorgUseCustomTweekiFiles":true
+	},
 	"Hooks": {
 		"smwInitProperties": [
 			"SemanticOrganizationProperties::onsmwInitProperties"
+		],
+		"BeforeInitialize": [
+			"SemanticOrganizationHooks::onBeforeInitialize"
 		],
 		"ParserFirstCallInit": [
 			"SemanticOrganizationHooks::onParserFirstCallInit"

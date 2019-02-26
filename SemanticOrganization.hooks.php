@@ -8,6 +8,18 @@ class SemanticOrganizationHooks {
 	static $listvalues = array( 'email', 'homepage', 'workphone', 'tag' );
 
 	/**
+	 *  Enforce use of Bootstrap 4, apply custom styles
+	 */
+	static function onBeforeInitialize( \Title &$title, \Article &$article = null, \OutputPage &$output, \User &$user, \WebRequest $request, \MediaWiki $mediaWiki ) {
+		$GLOBALS['wgTweekiSkinUseBootstrap4'] = true;
+
+		if( false && $GLOBALS['wgSemorgUseCustomTweekiFiles'] === true ) {
+			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.tweeki.scripts';
+			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.tweeki.styles';
+		}
+	}
+
+	/**
 	 * Setup
 	 */
 	static function onParserFirstCallInit( &$parser ) {
