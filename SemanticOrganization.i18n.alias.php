@@ -37,4 +37,5 @@ $magicWords['en'] = array(
 	'semorg-properties' => array( 0, 'semorg-properties' ),
 	'semorg-values' => array( 0, 'semorg-values' ),
 	'semorg-tabs' => array( 0, 'semorg-tabs' ),
+	'semorg-tabs-card' => array( 0, 'semorg-tabs-card' ),
 );

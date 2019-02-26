@@ -161,6 +161,7 @@
 	"semorg-person-user-template": "semorg-person-user",
 	"semorg-person-user-category": "semorg-person-user",
 	"semorg-person-user-form": "semorg-person-user",
+	"semorg-person-user-page-name": "Users",
 	"semorg-form-person-user-create-title": "Create user",
 	"semorg-form-person-user-edit-title": "Edit user",
 	"semorg-form-person-user-page-name": "User",

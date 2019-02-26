@@ -45,7 +45,8 @@ class SemanticOrganizationHooks {
 			'meetings' => 'renderMeetings',
 			'properties' => 'renderProperties',
 			'values' => 'renderValues',
-			'tabs' => 'renderTabs'
+			'tabs' => 'renderTabs',
+			'tabs-card' => 'renderTabsCard',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -287,51 +288,109 @@ class SemanticOrganizationHooks {
 
 	}
 
+	/**
+	 * Show tabs in card
+	 */
+	static function renderTabsCard( &$parser ) {
+		$template = func_get_args()[1];
+		$taboptions = self::extractOptions( array_slice(func_get_args(), 2) );
+
+		$taboptions['class'] = 'card-header-tabs';
+
+		$heading = $taboptions['heading'] ?? $parser->getTitle()->getText();
+
+		$tabs = self::getTabs( $template, $taboptions );
+
+		$overview_page = wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
+		$header = '<h3>' . $heading . '</h3>[[' . $overview_page . '|zur Übersicht]]';
+		$card = '<div class="card"><div class="card-header">' . $header . $tabs['tablinks'] . '</div><div class="card-body">' . $tabs['tabcontents'] . '</div></div>';
+
+		$card .= '{{#tweekiHide:firstHeading}}';
+
+		return [ $card, 'noparse' => false ];
+	}
+
 
 	/**
-	 * Tabs anzeigen
+	 * Show tabs
 	 */
 	static function renderTabs( &$parser ) {
 		$template = func_get_args()[1];
 		$taboptions = self::extractOptions( array_slice(func_get_args(), 2) );
-		$tablinks = '';
-		$tabcontents = '';
 
-		$first = true;
+		if( isset( $taboptions['stacked'] ) ) {
+			$taboptions['type'] = 'pills';
+			$taboptions['class'] .= ' nav-stacked';
+			$stacked = true;
+			$stack_width = is_numeric( $taboptions['stacked'] ) ? $taboptions['stacked'] : '3';
+		} else {
+			$stacked = false;
+		}
+
+		$tabs = self::getTabs( $template, $taboptions );
+
+		if( $stacked ) {
+			$tabs = '<div class="container-fluid"><div class="row"><div class="col-md-' . $stack_width . '">' . $tabs['tablinks'] . '</div><div class="col-md-' . ( 12-$stack_width ) . '">' . $tabs['tabcontents'] . '</div></div></div>';
+		} else {
+			$tabs = $tabs['tablinks'] . $tabs['tabcontents'];
+		}
+
+		return [ $tabs, 'noparse' => false ];
+	}
+
+
+	static function getTabs( $template, $taboptions ) {
 		$stacked = false;
 		$type = $taboptions['type'] ?? 'tabs';
 		$class = 'nav nav-' . $type;
 		if( isset( $taboptions['class'] ) ) {
 			$class .= ' ' . $taboptions['class'];
 		}
-		if( isset( $taboptions['stacked'] ) ) {
-			$type = 'pills';
-			$class .= ' nav-stacked';
-			$stacked = true;
-			$stack_width = is_numeric( $taboptions['stacked'] ) ? $taboptions['stacked'] : '3';
-		}
+		$tabs = [
+			'tablinks' => self::getTabLinks( $template, $taboptions, $class ),
+			'tabcontents' => self::getTabContents( $template, $taboptions ),
+		];
+		return $tabs;
+	}
 
+
+	static function getTabLinks( $template, $taboptions, $class ) {
+		$first = true;
+
+		$tablinks = '';
 		foreach( $taboptions as $id => $content ) {
 			if( substr( $id, 0, 1 ) === '?' ) {
 				$id = substr( $id, 1 );
-				$tabbtn = '<btn data-toggle="tab" class="">#' . $id . '|' . wfMessage( 'semorg-tab-' . $template . '-' . $id ) . '</btn>';
-				$tablinks .= '<li' . ($first ? ' class="active"' : '') . '>' . $tabbtn . '</li>';
-
-				if( $content === true ) {
-					$content = '{{semorg-' . $template . '-' . $id . '-tab}}';
-				}
-				$tabcontents .= '<div id="' . $id . '" class="tab-pane fade' . ($first ? ' active in' : '' ) . '">' . $content . '</div>'; 
+				$tabbtn = '<btn data-toggle="tab" class="nav-link' . ($first ? ' active' : '') . '" role="tab" id="' . $id . '-label" aria-controls="' . $id . '" aria-selected="' . ($first ? 'true' : 'false') . '">#' . $id . '|' . wfMessage( 'semorg-tab-' . $template . '-' . $id ) . '</btn>';
+				$tablinks .= '<li class="nav-item">' . $tabbtn . '</li>';
 				$first = false;
 			}
 		}
-		$tablinks = '<ul class="' . $class . '">' . $tablinks . '</ul>';
-		$tabcontents = '<div class="tab-content">' . $tabcontents . '</div>';
-		if( $stacked ) {
-			$tabs = '<div class="container-fluid"><div class="row"><div class="col-md-' . $stack_width . '">' . $tablinks . '</div><div class="col-md-' . ( 12-$stack_width ) . '">' . $tabcontents . '</div></div></div>';
-		} else {
-			$tabs = $tablinks . $tabcontents;
+
+		$tablinks = '<ul class="' . $class . '" role="tablist">' . $tablinks . '</ul>';
+
+		return $tablinks;
+	}
+
+
+	static function getTabContents( $template, $taboptions ) {
+		$first = true;
+
+		$tabcontents = '';
+		foreach( $taboptions as $id => $content ) {
+			if( substr( $id, 0, 1 ) === '?' ) {
+				$id = substr( $id, 1 );
+				if( $content === true ) {
+					$content = '{{semorg-' . $template . '-' . $id . '-tab}}';
+				}
+				$tabcontents .= '<div id="' . $id . '" class="tab-pane fade' . ($first ? ' active show' : '' ) . '" role="tabpanel" aria-labelledby="' . $id . '-label">' . $content . '</div>'; 
+				$first = false;
+			}
 		}
-		return [ $tabs, 'noparse' => false ];
+
+		$tabcontents = '<div class="tab-content">' . $tabcontents . '</div>';
+
+		return $tabcontents;
 	}
 
 
