@@ -142,7 +142,13 @@ class SemanticOrganizationHooks {
 		$template = func_get_args()[1];
 		$options = self::extractOptions( array_slice(func_get_args(), 2) );
 
-		$parameters = ['form' => 'semorg-' . $template ];
+		if( wfMessage('semorg-' . $template . '-form')->exists() ) {
+			$form = wfMessage('semorg-' . $template . '-form')->plain();
+		} else {
+			$form = 'semorg-' . $template;
+		}
+
+		$parameters = ['form' => $form ];
 		$messages = [
 			'link text' => 'link-text',
 			'link type' => 'link-type',
@@ -177,7 +183,13 @@ class SemanticOrganizationHooks {
 		$template = func_get_args()[1];
 		$options = self::extractOptions( array_slice(func_get_args(), 2) );
 
-		$parameters = ['form' => 'semorg-' . $template ];
+		if( wfMessage('semorg-' . $template . '-form')->exists() ) {
+			$form = wfMessage('semorg-' . $template . '-form')->plain();
+		} else {
+			$form = 'semorg-' . $template;
+		}
+
+		$parameters = ['form' => $form ];
 		$messages = [
 			'size' => 'size',
 			'default value' => 'default value',
