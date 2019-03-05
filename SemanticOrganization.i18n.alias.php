@@ -38,4 +38,5 @@ $magicWords['en'] = array(
 	'semorg-values' => array( 0, 'semorg-values' ),
 	'semorg-tabs' => array( 0, 'semorg-tabs' ),
 	'semorg-tabs-card' => array( 0, 'semorg-tabs-card' ),
+	'semorg-user' => array( 0, 'semorg-user' ),
 );

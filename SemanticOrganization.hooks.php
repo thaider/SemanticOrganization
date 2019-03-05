@@ -47,6 +47,7 @@ class SemanticOrganizationHooks {
 			'values' => 'renderValues',
 			'tabs' => 'renderTabs',
 			'tabs-card' => 'renderTabsCard',
+			'user' => 'getUser',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -59,6 +60,14 @@ class SemanticOrganizationHooks {
 	 */
 	static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 		$out->addModules( [ 'ext.semorg' ] );
+	}
+
+
+	/**
+	 * Get name of the current user
+	 */
+	static function getUser( &$parser ) {
+		return $parser->getUser()->getUserPage()->getFullText();
 	}
 
 
