@@ -758,10 +758,10 @@ class SemanticOrganizationHooks {
 
 		/* Text before and after the field */
 		if( !wfMessage($fullelement . '-prefix')->isDisabled() ) {
-			$field = wfMessage($fullelement . '-prefix')->text() . $field;
+			$field = '<span class="semorg-field-prefix semorg-field-' . $fullelement . '-prefix">' . wfMessage($fullelement . '-prefix')->text() . '</span>' . $field;
 		}
 		if( !wfMessage($fullelement . '-suffix')->isDisabled() ) {
-			$field .= wfMessage($fullelement . '-suffix')->text();
+			$field .= '<span class="semorg-field-suffix semorg-field-' . $fullelement . '-suffix">' . wfMessage($fullelement . '-suffix')->text() . '</span>';
 		}
 
 		return '<nowiki>' . $field . '</nowiki>';
