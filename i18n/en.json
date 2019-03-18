@@ -8,8 +8,10 @@
 	"semorg-print-footer": "",
 
 	"semorg-filterbox-title": "Filter",
+	"semorg-download-csv-text": "Download as CSV",
 
 	"semorg-up-to-date-warning": "<b>Warning!</b> This page is automatically created based on the current version of the form. The version shown might differ from the real content (as printed and signed)!",
+	"semorg-invoice-storno-warning": "This invoice had been canceled",
 
 	"semorg-share-value": "100",
 
@@ -665,7 +667,7 @@
 	"semorg-formlink-transfer-for-list-link-text": "Create transfer for this list",
 	"semorg-form-transfer-template": "transfer",
 	"semorg-form-transfer-rows": "sender, recipient, amount, date, subject, details, list",
-	"semorg-list-transfer-headers": "transfer, transfer-sender, transfer-recipient, transfer-amount, transfer-subject",
+	"semorg-list-transfer-headers": "transfer-date, transfer-sender, transfer-recipient, transfer-amount, transfer-subject",
 	"semorg-list-transfer-add-headers": "transfer, transfer-sender, transfer-recipient, transfer-amount, transfer-subject, transfer-add",
 	"semorg-field-transfer-name":"Transfer",
 	"semorg-field-transfer-sender-name": "Sender", 

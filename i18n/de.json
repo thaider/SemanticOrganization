@@ -2,8 +2,10 @@
 	"semorg-desc": "Unterstützung für die Selbstorganisation",
 
 	"semorg-filterbox-title": "Filter",
+	"semorg-download-csv-text": "Download als CSV",
 
 	"semorg-up-to-date-warning": "<b>Achtung!</b> Diese Seite wird automatisiert auf der Grundlage der aktuell geltenden Fassung des zugrundeliegenden Formulars erstellt. Die hier angezeigte Version kann daher vom tatsächlichen Inhalt des Dokuments (wie ausgedruckt und unterfertigt) abweichen!",
+	"semorg-invoice-storno-warning": "Diese Rechnung wurde '''storniert'''!",
 
 	"semorg-tooltip-view": "ansehen",
 	"semorg-tooltip-edit": "bearbeiten",

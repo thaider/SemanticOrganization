@@ -48,6 +48,7 @@ class SemanticOrganizationHooks {
 			'tabs' => 'renderTabs',
 			'tabs-card' => 'renderTabsCard',
 			'user' => 'getUser',
+			'true' => 'isTrue',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -68,6 +69,27 @@ class SemanticOrganizationHooks {
 	 */
 	static function getUser( &$parser ) {
 		return $parser->getUser()->getUserPage()->getFullText();
+	}
+
+
+	/**
+	 * Test whether first argument evaluates to Boolean true;
+	 * return second argument if true, third argument if false
+	 */
+	static function isTrue( &$parser ) {
+		$return = '';
+		$true_words = explode( ',', wfMessage( 'Smw true words' )->plain() );
+		$test_word = strtolower( func_get_arg( 1 ) );
+		if( in_array( $test_word, $true_words ) ) {
+			if( func_num_args() > 2 ) {
+				$return = func_get_arg( 2 );
+			}
+		} else {
+			if( func_num_args() > 3 ) {
+				$return = func_get_arg( 3 );
+			}
+		}
+		return $return;
 	}
 
 
@@ -493,6 +515,10 @@ class SemanticOrganizationHooks {
 		
 		$query .= $query_string;
 
+		if( isset( $formoptions['csv'] ) ) {
+			$csv = self::getDownload( $parser, $query_string, $template, $formoptions['csv'] );
+		}
+
 		// Get implicit filters (filter links)
 		if( isset( $filter_links ) ) {
 			$filter_links_values = [];
@@ -526,7 +552,6 @@ class SemanticOrganizationHooks {
 			}
 		}
 
-
 		$query .= '|link=none|named args=yes|format=template';
 		$query .= '|template=semorg-' . $row_template . '-row';
 		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '}}';
@@ -555,7 +580,36 @@ class SemanticOrganizationHooks {
 		$query .= '|searchlabel=' . ( $formoptions['searchlabel'] ?? '' );
 
 		$query .= '}}';
+		if( isset( $csv ) ) {
+			$query .= $csv;
+		}
 		return [ $query, 'noparse' => false ];
+	}
+
+
+	/**
+	 * Get markup for csv download
+	 */
+	static function getDownload( &$parser, $query_string, $template, $csv_fields ) {
+		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
+		$csv = '{{#ask:' . $query_string;
+		$csv .= '|mainlabel=-';
+		foreach( explode( ',', $csv_fields ) as $field ) {
+			$field = trim( $field );
+			if( isset( $fields[$field] ) ) {
+				$title = wfMessage( 'semorg-field-' . $template . '-' . $field . '-name' )->plain();
+				if( $fields[$field]['type'] = 'dat' ) {
+					$csv .= '|?semorg-' . $template . '-' . $field . '#ISO=' . $title;
+				} else {
+					$csv .= '|?semorg-' . $template . '-' . $field . '=' . $title;
+				}
+			}
+		}
+		$csv .= '|format=csv';
+		$csv .= '|sep=;';
+		$csv .= '|searchlabel=' . wfMessage( 'semorg-download-csv-text' )->plain();
+		$csv .= '}}';
+		return $csv;
 	}
 
 
