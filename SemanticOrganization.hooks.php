@@ -13,7 +13,7 @@ class SemanticOrganizationHooks {
 	static function onBeforeInitialize( \Title &$title, \Article &$article = null, \OutputPage &$output, \User &$user, \WebRequest $request, \MediaWiki $mediaWiki ) {
 		$GLOBALS['wgTweekiSkinUseBootstrap4'] = true;
 
-		if( false && $GLOBALS['wgSemorgUseCustomTweekiFiles'] === true ) {
+		if( $GLOBALS['wgSemorgUseCustomTweekiFiles'] !== false ) {
 			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.tweeki.scripts';
 			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.tweeki.styles';
 		}
@@ -345,8 +345,11 @@ class SemanticOrganizationHooks {
 		$tabs = self::getTabs( $template, $taboptions );
 
 		$overview_page = wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
-		$header = '<h3>' . $heading . '</h3>[[' . $overview_page . '|zur Übersicht]]';
-		$card = '<div class="card"><div class="card-header">' . $header . $tabs['tablinks'] . '</div><div class="card-body">' . $tabs['tabcontents'] . '</div></div>';
+		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
+		$badge = '[[' . $overview_page . '|<span class="badge badge-secondary">' . $entity_name . '</span>]]';
+
+		$header = '<h3>' . $heading . '</h3>';
+		$card = $badge . '<div class="card semorg-card"><div class="card-header">' . $header . $tabs['tablinks'] . '</div></div>' . $tabs['tabcontents'];
 
 		$card .= '{{#tweekiHide:firstHeading}}';
 
@@ -808,6 +811,10 @@ class SemanticOrganizationHooks {
 				$field .= '|' . str_replace('-', ' ', $parameter) . '=' . wfMessage($fullelement . '-' . $parameter)->text();
 			}
 		}
+
+		/* Apply standard classes */
+		$field .= '|class=semorg-field ' . $fullelement;
+
 		$field = '<nowiki>{{{field|' . $field . '}}}</nowiki>';
 
 		/* Text before and after the field */

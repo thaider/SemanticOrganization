@@ -26,6 +26,8 @@
 	"semorg-date-short": "y-m-d",
 	"semorg-date-long-noyear": "F j",
 	"semorg-date-short-noyear": "m/d",
+	
+	"semorg-agenda-times": "(Agenda: $1 min total, $2 min $4)",
 
 	"semorg-currency-symbol": "€",
 
@@ -164,6 +166,7 @@
 	"semorg-person-user-category": "semorg-person-user",
 	"semorg-person-user-form": "semorg-person-user",
 	"semorg-person-user-page-name": "Users",
+	"semorg-person-user-entity-name": "User",
 	"semorg-form-person-user-create-title": "Create user",
 	"semorg-form-person-user-edit-title": "Edit user",
 	"semorg-form-person-user-page-name": "User",
@@ -338,7 +341,7 @@
 	"semorg-field-agenda-title-name": "Title",
 	"semorg-field-agenda-title-parameters": "input type=text|size=60",
 	"semorg-field-agenda-details-name": "Details",
-	"semorg-field-agenda-details-fields": "person,type,time,priority",
+	"semorg-field-agenda-details-fields": "person,type,time,priority,start,end,time-real",
 	"semorg-field-agenda-person-name": "Person",
 	"semorg-field-agenda-person-parameters": "input type=dropdown|values from category=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-agenda-person-suffix": "&nbsp;&nbsp;",
@@ -357,6 +360,12 @@
 	"semorg-field-agenda-tag-name": "Tags",
 	"semorg-field-agenda-tag-parameters": "values from property=Semorg-agenda-tag|list|input type=tokens",
 	"semorg-field-agenda-meeting-name": "Meeting",
+	"semorg-field-agenda-start-name": "Start Time",
+	"semorg-field-agenda-start-parameters": "hidden",
+	"semorg-field-agenda-end-name": "End Time",
+	"semorg-field-agenda-end-parameters": "hidden",
+	"semorg-field-agenda-time-real-name": "Time (real)",
+	"semorg-field-agenda-time-real-parameters": "hidden",
 
 	"semorg-membership-entry-template": "semorg-membership-entry",
 	"semorg-membership-entry-category": "semorg-membership-entry",

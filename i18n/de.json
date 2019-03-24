@@ -22,6 +22,8 @@
 	"semorg-help-msg-edit": "Hilfetext bearbeiten",
 	"semorg-help-formatting-button-text": "Formatierungshilfe anzeigen (Popup)",
 	"semorg-help-formatting-heading": "Formatierungshilfe",
+
+	"semorg-agenda-times": "(Agenda: $1 min gesamt, $2 min $4)",
 	
 	"semorg-process-step-done": "<span class='fa fa-check'></span> erledigt am $1",
 	"semorg-process-step-do": "als erledigt markieren",
