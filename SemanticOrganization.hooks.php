@@ -57,7 +57,7 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 * Ressourcen laden
+	 * Load resources
 	 */
 	static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 		$out->addModules( [ 'ext.semorg' ] );
