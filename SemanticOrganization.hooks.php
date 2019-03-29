@@ -1237,7 +1237,7 @@ class SemanticOrganizationHooks {
 	 */
 	static function getValues( $parser, $property, $query_string ) {
 		$property_parts = explode( '.', $property );
-		$query = '{{#ask: [[semorg-' . $property_parts[0] . '::+]]' . $query_string . ' |mainlabel=- |headers=hide |?semorg-' . $property . '# }}';
+		$query = '{{#ask: [[semorg-' . $property_parts[0] . '::+]]' . $query_string . ' |mainlabel=- |headers=hide |limit=1000 |searchlabel= |?semorg-' . $property . '# }}';
 		$values = $parser->recursiveTagParse( $query );
 		return $values;
 	}
