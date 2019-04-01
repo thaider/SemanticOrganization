@@ -143,6 +143,8 @@
 	"semorg-form-person-user-page-name": "Benutzer",
 	"semorg-forminput-person-user-button-text": "Benutzer erstellen",
 	"semorg-forminput-person-user-placeholder": "Benutzername",
+	"semorg-tab-person-user-details": "Benutzerdetails",
+	"semorg-tab-person-user-contact": "Kontaktgeschichte",
 
 	"semorg-form-person-contact-create-title": "Person erstellen",
 	"semorg-form-person-contact-edit-title": "Person bearbeiten",
