@@ -49,6 +49,7 @@ class SemanticOrganizationHooks {
 			'tabs-card' => 'renderTabsCard',
 			'user' => 'getUser',
 			'true' => 'isTrue',
+			'detail' => 'renderDetail',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -330,6 +331,29 @@ class SemanticOrganizationHooks {
 		return [ $set, 'noparse' => false ];
 
 	}
+
+
+	/**
+	 * Show header for detail page
+	 */
+	static function renderDetail( &$parser ) {
+		$template = func_get_args()[1];
+		$taboptions = self::extractOptions( array_slice(func_get_args(), 2) );
+
+		$heading = $taboptions['heading'] ?? $parser->getTitle()->getText();
+
+		$overview_page = wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
+		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
+		$badge = '<div class="semorg-detail-badge">[[' . $overview_page . '|<i class="fa fa-angle-left"></i>]]<span class="semorg-badge">' . strtoupper( $entity_name ) . '</span></div>';
+
+		$header = '<h3 class="semorg-detail-heading">' . $heading . '</h3>';
+		$card = $badge . '<div class="semorg-detail">' . $header . '</div>';
+
+		$card .= '{{#tweekiHide:firstHeading}}';
+
+		return [ $card, 'noparse' => false ];
+	}
+
 
 	/**
 	 * Show tabs in card
