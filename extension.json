@@ -43,7 +43,10 @@
 			"styles": {
 				"ext.semorg.less": { "media": "all" },
 				"ext.semorg-print.less": { "media": "print" }
-			}
+			},
+			"messages": [
+				"semorg-value-agenda-type-3"
+			]
 		},
 		"ext.network": {
 			"position": "top",

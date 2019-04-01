@@ -866,7 +866,7 @@ class SemanticOrganizationHooks {
 		}
 
 		$row = '<th>' . $heading . '</th><td>' . $items . $help . '</td>';
-		return '<tr>' . $row . '</tr>';
+		return '<tr class="semorg-row-' . $template . '-' . $element . '>' . $row . '</tr>';
 	}
 
 

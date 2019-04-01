@@ -14,6 +14,23 @@
 		$(window).trigger('resize');
 	});
 
+	/* toggle resolutions in agendas */
+	$( document ).ready( function() {
+		$( '.semorg-field-agenda-type' ).trigger( 'change' );
+		// needed for Chrome
+		setTimeout( function() { $( '.semorg-field-agenda-type' ).trigger( 'change' ); }, 500 );
+	});
+
+	/* hide resolutions in agendas if they are empty and the type isn't decision */
+	$( document ).on( 'change', '.semorg-field-agenda-type', function(e) {
+		var $resolution = $( this ).parents( '.multipleTemplateInstance' ).find( '.semorg-row-agenda-proposal' );
+		if( $( this ).val() == mw.message( 'semorg-value-agenda-type-3' ).text() || $resolution.find( '.semorg-field-agenda-proposal' ).val() != '') {
+			$resolution.show();
+		} else {
+			$resolution.hide();
+		}
+	});
+
 	$(document).ready( function() {
 		agendaTimerSetup();
 		agendaTimerClock();
