@@ -474,10 +474,6 @@ class SemanticOrganizationHooks {
 		$template = func_get_args()[1];
 		$formoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 		$parameters = [];
-		$category = '{{int:semorg-' . $template . '-category}}';
-		if( isset( $formoptions['category'] ) ) {
-			$category = $formoptions['category'];
-		}
 
 		$row_template = $template;
 		if( wfMessage('semorg-list-' . $template . '-row-template' )->exists() ) {
@@ -498,8 +494,17 @@ class SemanticOrganizationHooks {
 
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
 
-		$query = '{{#ask:';
-		$query_string = '[[Category:' . $category . ']]';
+		$query_string = '';
+
+		if( isset( $formoptions['category'] ) ) {
+			// use custom parameter if it wasn't use to explicitly unset the category
+			if( $formoptions['category'] != '-' ) {
+				$query_string = '[[Category:' . $formoptions['category'] . ']]';
+			}
+		} else {
+			// use standard category as main query parameter
+			$query_string = '[[Category:{{int:semorg-' . $template . '-category}}]]';
+		}
 
 		// Custom query parameters
 		if( isset( $formoptions['query'] ) ) {
@@ -543,7 +548,7 @@ class SemanticOrganizationHooks {
 			}
 		}
 		
-		$query .= $query_string;
+		$query = '{{#ask:' . $query_string;
 
 		if( isset( $formoptions['csv'] ) ) {
 			$csv = self::getDownload( $parser, $query_string, $template, $formoptions['csv'] );
