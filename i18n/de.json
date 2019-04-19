@@ -529,6 +529,7 @@
 	"semorg-field-contact-time-name": "Zeit", 
 	"semorg-field-contact-date-name": "Datum",
 	
+	"semorg-travel-expenses-displaytitle": "Reisekosten für $1",
 	"semorg-form-travel-expenses-create-title": "Reisekosten erstellen",
 	"semorg-form-travel-expenses-edit-title": "Reisekosten bearbeiten", 
 	"semorg-form-travel-expenses-page-name": "Reisekosten",
