@@ -571,8 +571,7 @@
 	"semorg-field-expense-report-year-name": "Jahr", 
 	"semorg-field-expense-report-quarter-year-name": "Quartal",
 	"semorg-field-expense-report-month-year-name": "Monat",
-	"semorg-field-expense-report-expenses-name": "Spesen",
-	"semorg-field-expense-report-total-name": "Summe",
+	"semorg-field-expense-report-total-name": "Summe (brutto)",
 	"semorg-expense-report-displaytitle": "Spesenabrechnung für $1",
 
 	"semorg-form-expense-add-button-text": "Ausgabe hinzufügen",

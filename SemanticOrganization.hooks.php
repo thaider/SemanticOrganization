@@ -908,7 +908,12 @@ class SemanticOrganizationHooks {
 			}
 		}
 
-		$row = '<th>' . $heading . '</th><td>' . $items . $help . '</td>';
+		if( !wfMessage($fullelement . '-name')->exists() || wfMessage($fullelement . '-name')->plain() != '-' ) {
+			$row = '<th>' . $heading . '</th><td>' . $items . $help . '</td>';
+		} else {
+			$row = '<td colspan="2">' . $items . $help . '</td>';
+		}
+			
 		return '<tr class="semorg-row-' . $template . '-' . $element . '>' . $row . '</tr>';
 	}
 
