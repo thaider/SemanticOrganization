@@ -181,23 +181,53 @@
 	font-size:30px;
 	position:absolute;
 	top:10px;
-	left:-40px;
+	left:-30px;
 }
 .semorg-badge {
 	font-size:small;
 	font-weight:bold;
 	color:#555;
 }
-
 .semorg-detail-badge .badge {
 	vertical-align:middle;
 }
 #bodyContent .semorg-detail-heading {
 	margin-top:0;
+	font-size:2rem;
+	margin-bottom:1.5rem;
+}
+
+@media( max-width:620px ) {
+	.semorg-detail {
+		margin-left:30px;
+	}
+}
+
+
+/* detail table */
+.semorg-detail-table p {
+	margin-bottom:0;
 }
 
 
 /* tabs */
 .tab-content {
 	margin-top:15px;
+}
+
+
+/* CORRECTIONS */
+#bodyContent .card-body-table {
+	margin:-1.25em;
+}
+.card-body-table .table {
+	margin-bottom: 0;
+}
+.card-body-table .semorg-showedit {
+	border-top: 1px solid #dee2e6 !important;
+	border-bottom: 1px solid #dee2e6 !important;
+	width:1em;
+}
+.card-body-table th.semorg-showedit {
+	border-bottom-width: 2px !important;
 }

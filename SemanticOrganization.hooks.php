@@ -143,7 +143,7 @@ class SemanticOrganizationHooks {
  			$table .= '</tr>';
 		}
 
-		$table = '<table class="table">' . $table . '</table>';
+		$table = '<table class="table semorg-detail-table">' . $table . '</table>';
 
 		return [ $table, 'noparse' => false ];
 	}
@@ -346,10 +346,13 @@ class SemanticOrganizationHooks {
 		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
 		$badge = '<div class="semorg-detail-badge">[[' . $overview_page . '|<i class="fa fa-angle-left"></i>]]<span class="semorg-badge">' . strtoupper( $entity_name ) . '</span></div>';
 
-		$header = '<h3 class="semorg-detail-heading">' . $heading . '</h3>';
-		$card = $badge . '<div class="semorg-detail">' . $header . '</div>';
+		$header = '<div class="semorg-detail-heading">' . $heading . '</div>';
+		$card = '<div class="semorg-detail">' . $badge . $header . '</div>';
 
 		$card .= '{{#tweekiHide:firstHeading}}';
+		if( isset( $taboptions['heading'] ) ) {
+			$card .= '{{DISPLAYTITLE:' . $taboptions['heading'] . '}}';
+		}
 
 		return [ $card, 'noparse' => false ];
 	}
@@ -585,20 +588,24 @@ class SemanticOrganizationHooks {
 		$query .= '|outro={{semorg-list-outro}}';
 
 		// Parameters for sorting, ordering, searchlabel, default (queries without results)
-		foreach( ['sort', 'order', 'default', 'limit' ] as $parameter ) {
+		foreach( ['sort', 'order', 'default', 'limit', 'userparam' ] as $parameter ) {
 			$parameters[$parameter] = '';
 
+			// set default limit
 			// @todo: use global setting instead or make it configurable via message?
 			if( $parameter == 'limit' ) {
 				$parameters[$parameter] = '1000';
 			}
 
+			// set by a message?
 			if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
 				$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
 			}
+			// explicitly set by parser function parameter?
 			if( isset( $formoptions[$parameter] ) ) {
 				$parameters[$parameter] = $formoptions[$parameter];
 			}
+			// apply if set...
 			if( $parameters[$parameter] != '' ) {
 				$query .= '|' . $parameter . '=' . $parameters[$parameter];
 			}
@@ -647,9 +654,16 @@ class SemanticOrganizationHooks {
 	 */
 	static function renderMeetings( &$parser ) {
 		$template = func_get_args()[1];
-		$query = '[[semorg-meeting-' . $template . '::{{FULLPAGENAME}}]]';
 		$options = self::extractOptions( array_slice(func_get_args(), 2) );
 		
+		$group = '{{FULLPAGENAME}}';
+		if( isset( $options['group'] ) ) {
+			// no specific group
+			if( $options['group'] == '' ) {
+			}
+		}
+		$query = '[[semorg-meeting-' . $template . '::{{FULLPAGENAME}}]]';
+
 		$meetings = '{{#semorg-formlink:meeting-' . $template . '
 		  |query string=semorg-meeting-' . $template . '[' . $template . ']={{FULLPAGENAME}}
 		  |popup=true
@@ -950,7 +964,7 @@ class SemanticOrganizationHooks {
 
 		$tableclass = 'wikitable';
 		if( $skinname == 'tweeki' ) {
-			$tableclass = 'table table-bordered table-condensed';
+			$tableclass = 'table';
 		}
 		return $tableclass;
 	}
@@ -979,9 +993,9 @@ class SemanticOrganizationHooks {
 		}
 
 		$output .= '<table class="' . $tableclass . '">';
-		$output .= '<tr><th colspan="2">' . self::propt('prefix') . ' ' . self::propt('firstname') . ' ' . self::propt('lastname') . ' ' . self::propt('suffix') . '</th></tr>';
+		$output .= '<tr><th>' . wfMessage( 'semorg-field-person-name-name' )->plain() . '</th><td>' . self::propt('prefix') . ' ' . self::propt('firstname') . ' ' . self::propt('lastname') . ' ' . self::propt('suffix') . '</td></tr>';
 		if( isset( self::$options['workstreet'] ) || isset( self::$options['workpostalcode'] ) || isset ( self::$options['worklocality'] ) ) {
-			$output .= '<tr><td><i class="fa fa-home"></i></td><td>' . self::propt('workstreet') . ', ' . self::propt('workpostalcode') . ' ' . self::propt( 'worklocality' ) . '</td></tr>';
+			$output .= '<tr><td><i class="fa fa-home"></i></td><td>' . ( self::propt('workstreet') ? self::propt('workstreet') . ', ' : '' ) . self::propt('workpostalcode') . ' ' . self::propt( 'worklocality' ) . '</td></tr>';
 		}
 		if( isset( self::$options['email'] ) ) {
 			$output .= '<tr><td><i class="fa fa-envelope"></i></td><td>';
@@ -1004,8 +1018,10 @@ class SemanticOrganizationHooks {
 			}
 			$output .= '</td></tr>';
 		}
-		if( isset( self::$options['note'] ) ) {
-			$output .= '<tr><td colspan="2">' . self::$options['note'] . '</td></tr>';
+		foreach( [ 'organization', 'note' ] as $field ) {
+			if( isset( self::$options[$field] ) ) {
+				$output .= '<tr><th>' . wfMessage( 'semorg-field-person-' . $field . '-name' )->plain() . '</th><td>' . self::$options[$field] . '</td></tr>';
+			}
 		}
 		$output .= '</table>';
 		$output .= '<div class="vcard">{{#ask:[[{{FULLPAGENAME}}]]
