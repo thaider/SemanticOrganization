@@ -663,14 +663,15 @@ class SemanticOrganizationHooks {
 		
 		$group = '{{FULLPAGENAME}}';
 		if( isset( $options['group'] ) ) {
-			// no specific group
-			if( $options['group'] == '' ) {
-			}
+			$group = $options['group'];
 		}
-		$query = '[[semorg-meeting-' . $template . '::{{FULLPAGENAME}}]]';
+		$query = '[[semorg-meeting-' . $template . '::' . $group . ']]';
 
-		$meetings = '{{#semorg-formlink:meeting-' . $template . '
-		  |query string=semorg-meeting-' . $template . '[' . $template . ']={{FULLPAGENAME}}
+		$meetings = '{{#semorg-formlink:meeting-' . $template;
+		if( $group != '+' ) {
+			$meetings .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
+		}
+		$meetings .= '
 		  |popup=true
 		}}';
 		$meetings .= '<div class="h3">{{int:semorg-list-meeting-current-heading}}</div>';
