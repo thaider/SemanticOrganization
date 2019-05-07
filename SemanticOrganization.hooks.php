@@ -630,6 +630,8 @@ class SemanticOrganizationHooks {
 
 	/**
 	 * Get markup for csv download
+	 *
+	 * @todo: allow for nested properties
 	 */
 	static function getDownload( &$parser, $query_string, $template, $csv_fields ) {
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
@@ -1317,12 +1319,17 @@ class SemanticOrganizationHooks {
 	 * @param Array $filter_links_values List of filters and their values
 	 *
 	 * @return string HTML code for filterbox
+	 *
+	 * @todo: implement limits and offsetting
 	 */
 	static function getFilterbox( $filter_links_values, $applied_filters ) {
 		$filterbox = '';
 		foreach( $filter_links_values as $filter_property => $values ) {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
-			$filter_name = wfMessage( 'semorg-field-' . str_replace( 'semorg-', '', end( explode( '.', $filter_property ) ) ) . '-name' );
+			$filter_properties = explode( '.', $filter_property );
+			/* allow nested property names (e.g. not only “feature-field“ but also “feature-field.semorg-feature-field”) */
+			$filter_name_msg = 'semorg-field-' . str_replace( 'semorg-', '', end( $filter_properties  ) ) . '-name';
+			$filter_name = wfMessage( $filter_name_msg );
 			$filterbox .= '<span class="semorg-filterbox-filter-name">' . $filter_name . ': </span>';
 			foreach( $values as &$value ) {
 				if( $value != '' ) {
