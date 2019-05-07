@@ -206,7 +206,7 @@
 
 /* detail table */
 .semorg-detail-table p {
-	margin-bottom:0;
+	margin:0;
 }
 
 
@@ -231,11 +231,101 @@
 .card-body-table th.semorg-showedit {
 	border-bottom-width: 2px !important;
 }
+#bodyContent p {
+	max-width:unset;
+}
 
 #bodyContent .multipleTemplateWrapper p {
 	margin:0;
 }
 body .formtable .multipleTemplateWrapper td, 
 body .formtable .multipleTemplateWrapper th {
-	padding:0;
+	padding:3px;
+	border-top:none;
+}
+
+/* combobox in forms */
+#pfForm .ui-widget {
+	display:inline-block;
+}
+/* min-width of comboboxes is to big */
+.select2-choices, .select2-choice {
+	min-width:120px !important;
+}
+
+/* PRINT */
+@media print {
+	body {
+		display:block !important;
+		flex-direction:unset !important;
+	}
+	#sidebar-right {
+		display:none !important;
+	}
+	#contentwrapper .row {
+		display:unset !important;
+		flex-wrap:unset !important;
+	}
+	#maincontentwrapper {
+		flex:unset !important;
+		max-width:unset !important;
+	}
+	.semorg-detail-badge a {
+		display:none;
+	}
+	.with-navbar.with-navbar-fixed {
+		padding-top:0;
+	}
+	#bodyContent p {
+		max-width:unset;
+	}
+	.mw-parser-output a.external.text:after, .mw-parser-output a.external.autonumber:after {
+		content:'';
+	}
+}
+
+
+/* hiding special fields for groups */
+.semorg-group-hidden {
+	display:none;
+}
+
+
+/* meeting-group */
+.semorg-meeting-group-header {
+	text-align:center;
+}
+
+.semorg-signatures {
+	text-align:center;
+	margin-top:100px;
+}
+
+.semorg-signature {
+	margin-top:100px;
+	border-top:1px solid #ccc;
+	width:45%;
+	display:inline-block;
+	margin-right:2%;
+	margin-left:2%;
+}
+
+.semorg-meeting-group-agenda-heading {
+	margin-top:30px;
+	margin-bottom:10px;
+	font-size:18px;
+}
+.semorg-meeting-group-agenda .tweeki-toc li {
+	list-style-type:none;
+}
+.semorg-meeting-group-agenda .tweeki-toc ul {
+	padding-left:0;
+	margin-left:0;
+}
+
+
+/* TEMP */
+/* Löschwarnung verstecken */
+div.mw-warning-with-logexcerpt {
+	display:none;
 }

@@ -497,7 +497,7 @@ class SemanticOrganizationHooks {
 		$query_string = '';
 
 		if( isset( $formoptions['category'] ) ) {
-			// use custom parameter if it wasn't use to explicitly unset the category
+			// use custom parameter if it wasn't used to explicitly unset the category
 			if( $formoptions['category'] != '-' ) {
 				$query_string = '[[Category:' . $formoptions['category'] . ']]';
 			}
@@ -514,10 +514,10 @@ class SemanticOrganizationHooks {
 		// Get implicit filters (filter links)
 		if( isset( $formoptions['filter links'] ) ) {
 			$filter_links = explode( ',', $formoptions['filter links'] );
-			$filters_implicit = $filter_links;
 		}
 
 		// Filters
+		$applied_filters = [];
 		if( isset( $formoptions['filters'] ) || isset( $formoptions['filter links'] ) ) {
 			$filters = [];
 			$filter_string = '';
@@ -525,8 +525,8 @@ class SemanticOrganizationHooks {
 				$filters = explode(',', $formoptions['filters']);
 			}
 			// add filters that have implicitly been set with filter links
-			if( isset( $filters_implicit ) ) {
-				$filters = array_merge( $filters, $filters_implicit );
+			if( isset( $filter_links ) ) {
+				$filters = array_merge( $filters, $filter_links );
 			}
 			$request = $parser->getUser()->getRequest();
 			foreach( $filters as $filter ) {
@@ -542,8 +542,11 @@ class SemanticOrganizationHooks {
 				} elseif( isset( $filter[1] ) ) {
 					$filter_value = $filter[1];
 				}
+
+				// apply filter
 				if( $filter_value !== false ) {
 					$query_string .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
+					$applied_filters[$filter_property] = $filter_value;
 				}
 			}
 		}
@@ -562,12 +565,11 @@ class SemanticOrganizationHooks {
 				$filter_property = $filter[0];
 
 				// get all existing values
-				// @todo: apply query parameters
 				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
 				sort( $filter_values );
 				$filter_links_values[$filter_property] = $filter_values;
 			}
-			$query = self::getFilterbox( $filter_links_values ) . $query;
+			$query = self::getFilterbox( $filter_links_values, $applied_filters ) . $query;
 		}
 
 		// Fields
@@ -856,8 +858,11 @@ class SemanticOrganizationHooks {
 			}
 		}
 
+		/* special class? */
+		$class = !wfMessage($fullelement . '-class')->isDisabled() ? ( ' ' . wfMessage($fullelement . '-class')->text() ) : '';
+
 		/* Apply standard classes */
-		$field .= '|class=semorg-field ' . $fullelement;
+		$field .= '|class=semorg-field ' . $fullelement . $class;
 
 		$field = '<nowiki>{{{field|' . $field . '}}}</nowiki>';
 
@@ -880,6 +885,7 @@ class SemanticOrganizationHooks {
 		$fullelement = 'semorg-field-' . $template . '-' . $element;
 		$heading = '';
 		$help = '';
+		$row_class = '';
 
 		/* get the heading if it exists */
 		if( !wfMessage($fullelement . '-name')->isDisabled() ) {
@@ -889,7 +895,18 @@ class SemanticOrganizationHooks {
 		/* get the help message if it exists */
 		if( !wfMessage($fullelement . '-help')->isDisabled() ) {
 			$help = wfMessage($fullelement . '-help')->text();
-			$help = '<div class="help-block">' . $help . '</div>';
+			$help = '<small class="form-text text-muted">' . $help . '</small>';
+		}
+
+		/* get inline help message if it exists */
+		if( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
+			$help = wfMessage($fullelement . '-help-inline')->text();
+			$help = '<small class="text-muted ml-2">' . $help . '</small>';
+		}
+
+		/* get the row class if it exists */
+		if( !wfMessage($fullelement . '-row-class')->isDisabled() ) {
+			$row_class = wfMessage($fullelement . '-row-class')->text();
 		}
 
 		/* is this a single field or a group of fields? */
@@ -915,7 +932,7 @@ class SemanticOrganizationHooks {
 			$row = '<td colspan="2">' . $items . $help . '</td>';
 		}
 			
-		return '<tr class="semorg-row-' . $template . '-' . $element . '>' . $row . '</tr>';
+		return '<tr class="semorg-row-' . $template . '-' . $element . ' ' . $row_class . '">' . $row . '</tr>';
 	}
 
 
@@ -1301,13 +1318,23 @@ class SemanticOrganizationHooks {
 	 *
 	 * @return string HTML code for filterbox
 	 */
-	static function getFilterbox( $filter_links_values ) {
+	static function getFilterbox( $filter_links_values, $applied_filters ) {
 		$filterbox = '';
 		foreach( $filter_links_values as $filter_property => $values ) {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
-			$filterbox .= '<span class="semorg-filterbox-filter-name">' . wfMessage( 'semorg-field-' . explode( '.', $filter_property )[0] . '-name' ) . ': </span>';
+			$filter_name = wfMessage( 'semorg-field-' . str_replace( 'semorg-', '', end( explode( '.', $filter_property ) ) ) . '-name' );
+			$filterbox .= '<span class="semorg-filterbox-filter-name">' . $filter_name . ': </span>';
 			foreach( $values as &$value ) {
-				$value = '<span class="semorg-filterbox-filter-value">[{{fullurl:{{FULLPAGENAMEE}}|' . $filter_property . '=' . urlencode( $value ) . '}} ' . $value . ']</span>';
+				if( $value != '' ) {
+					if( isset( $applied_filters[$filter_property] ) && $applied_filters[$filter_property] == $value ) {
+						$drop_filter_url = self::getFilterURL( array_diff_key( $applied_filters, [ $filter_property => $value ] ) );
+						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
+						$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $value . ' ' . $drop_filter_link . '</span>';
+					} else {
+						$filter_url = self::getFilterURL( array_merge( $applied_filters, [ $filter_property => $value ] ) );
+						$value = '<span class="semorg-filterbox-filter-value">[' . $filter_url . ' ' . $value . ']</span>';
+					}
+				}
 			}
 			$filterbox .= implode( ' · ', $values );
 			$filterbox .= '</div>';
@@ -1315,6 +1342,23 @@ class SemanticOrganizationHooks {
 		$filterbox_title = '<div class="semorg-filterbox-title">' . wfMessage( 'semorg-filterbox-title' ) . '</div>';
 		$filterbox = '<div class="semorg-filterbox">' . $filterbox_title . $filterbox . '</div>';
 		return $filterbox;
+	}
+
+
+	/**
+	 * Get filter URL
+	 *
+	 * @param Array $filters_to_apply List of filters to apply
+	 *
+	 * @return string Wiki markup for the URL part of the filter link
+	 */
+	static function getFilterURL( $filters_to_apply ) {
+		$query_string = '';
+		foreach( $filters_to_apply as $filter_property => $value ) {
+			$query_string .= $filter_property . '=' . urlencode( $value ) . '&';
+		}
+		$filter_url = '{{fullurl:{{FULLPAGENAMEE}}|' . substr( $query_string, 0, -1 ) . '}}';
+		return $filter_url;
 	}
 
 

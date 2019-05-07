@@ -24,11 +24,24 @@
 	/* hide resolutions in agendas if they are empty and the type isn't decision */
 	$( document ).on( 'change', '.semorg-field-agenda-type', function(e) {
 		var $resolution = $( this ).parents( '.multipleTemplateInstance' ).find( '.semorg-row-agenda-proposal' );
+		var $tag = $( this ).parents( '.multipleTemplateInstance' ).find( '.semorg-row-agenda-tag' );
 		if( $( this ).val() == mw.message( 'semorg-value-agenda-type-3' ).text() || $resolution.find( '.semorg-field-agenda-proposal' ).val() != '') {
 			$resolution.show();
+			$tag.show();
 		} else {
 			$resolution.hide();
+			$tag.hide();
 		}
+	});
+
+	/* toggle fields for special kinds of groups */
+	$( document ).on( 'change', '.semorg-group-select', function(e) {
+		var group = $(this).val().replace(' ','').toLowerCase();
+		$( '.semorg-group-hidden' ).hide();
+		$( '.semorg-' + group + '-show' ).css('display','table-row');
+	});
+	$( document ).ready( function() {
+		setTimeout( function() { $( '.semorg-group-select' ).trigger( 'change' ); }, 500 );
 	});
 
 	$(document).ready( function() {
