@@ -28,7 +28,8 @@
 	"semorg-date-long-noyear": "F j",
 	"semorg-date-short-noyear": "m/d",
 
-	"semorg-quarter": "Q$2/$3",
+	"semorg-quarter": "Q$2/$1",
+	"semorg-month": "$1-$2",
 	
 	"semorg-agenda-times": "(Agenda: $1 min total, $2 min $4)",
 
