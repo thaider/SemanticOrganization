@@ -471,8 +471,13 @@ class SemanticOrganizationHooks {
 	 * Liste anzeigen
 	 */
 	static function renderList( &$parser ) {
+		global $wgSemorgListLimit;
+
+		$list = '';
+		$limit = $wgSemorgListLimit;
 		$template = func_get_args()[1];
 		$formoptions = self::extractOptions( array_slice(func_get_args(), 2) );
+		$request = $parser->getUser()->getRequest();
 		$parameters = [];
 
 		$row_template = $template;
@@ -520,6 +525,7 @@ class SemanticOrganizationHooks {
 		$applied_filters = [];
 		if( isset( $formoptions['filters'] ) || isset( $formoptions['filter links'] ) ) {
 			$filters = [];
+			$filter_defaults = [];
 			$filter_string = '';
 			if( isset( $formoptions['filters'] ) ) {
 				$filters = explode(',', $formoptions['filters']);
@@ -528,7 +534,6 @@ class SemanticOrganizationHooks {
 			if( isset( $filter_links ) ) {
 				$filters = array_merge( $filters, $filter_links );
 			}
-			$request = $parser->getUser()->getRequest();
 			foreach( $filters as $filter ) {
 				$filter_value = false;
 				$filter = explode( '=', $filter );
@@ -543,34 +548,22 @@ class SemanticOrganizationHooks {
 					$filter_value = $filter[1];
 				}
 
+				if( isset( $filter[1] ) && $filter[1] == $filter_value ) {
+					$filter_defaults[$filter_property] = true;
+				}
+
 				// apply filter
-				if( $filter_value !== false ) {
+				if( $filter_value !== false && $filter_value !== '') {
 					$query_string .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
+					$applied_filters[$filter_property] = $filter_value;
+				}
+				if( $filter_value === '') {
 					$applied_filters[$filter_property] = $filter_value;
 				}
 			}
 		}
 		
 		$query = '{{#ask:' . $query_string;
-
-		if( isset( $formoptions['csv'] ) ) {
-			$csv = self::getDownload( $parser, $query_string, $template, $formoptions['csv'] );
-		}
-
-		// Get implicit filters (filter links)
-		if( isset( $filter_links ) ) {
-			$filter_links_values = [];
-			foreach( $filter_links as $filter ) {
-				$filter = explode( '=', $filter );
-				$filter_property = $filter[0];
-
-				// get all existing values
-				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
-				sort( $filter_values );
-				$filter_links_values[$filter_property] = $filter_values;
-			}
-			$query = self::getFilterbox( $filter_links_values, $applied_filters ) . $query;
-		}
 
 		// Fields
 		$query .= '|mainlabel=target';
@@ -619,12 +612,45 @@ class SemanticOrganizationHooks {
 		}
 
 		$query .= '|searchlabel=' . ( $formoptions['searchlabel'] ?? '' );
+		$query .= '|limit=' . $limit;
+		if( $request->getInt( 'page' ) > 1 ) {
+			$query .= '|offset=' . ($request->getInt( 'page' )-1) * $limit;
+		}
 
 		$query .= '}}';
-		if( isset( $csv ) ) {
-			$query .= $csv;
+
+		$list = $parser->recursiveTagParse( $query );
+
+		// Filterbox
+		if( isset( $filter_links ) ) {
+			$filter_links_values = [];
+			foreach( $filter_links as $filter ) {
+				$filter = explode( '=', $filter );
+				$filter_property = $filter[0];
+
+				// get all existing values
+				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
+				sort( $filter_values );
+				$filter_links_values[$filter_property] = $filter_values;
+			}
+			$filterbox = self::getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults );
+			$list = $parser->recursiveTagParse( $filterbox ) . $list;
 		}
-		return [ $query, 'noparse' => false ];
+
+		// pagination
+		$count = (int) $parser->recursiveTagParse( '{{#ask:' . $query_string . '|format=count}}' );
+		$page = 1;
+		if( $request->getInt( 'page' ) > 1 ) {
+			$page = $request->getInt( 'page' );
+		}
+		$list .= self::getPagination( $parser, $filter_links_values, $applied_filters, $count, $limit, $page );
+
+		if( isset( $formoptions['csv'] ) ) {
+			$download = self::getDownload( $parser, $query_string, $template, $formoptions['csv'] );
+			$list .= $parser->recursiveTagParse( $download );
+		}
+
+		return [ $list, 'noparse' => true, 'isHTML' => true ];
 	}
 
 
@@ -650,7 +676,7 @@ class SemanticOrganizationHooks {
 		}
 		$csv .= '|format=csv';
 		$csv .= '|sep=;';
-		$csv .= '|searchlabel=' . wfMessage( 'semorg-download-csv-text' )->plain();
+		$csv .= '|searchlabel=<span class="semorg-csv-download">' . wfMessage( 'semorg-download-csv-text' )->plain() . '</span>';
 		$csv .= '}}';
 		return $csv;
 	}
@@ -1317,12 +1343,14 @@ class SemanticOrganizationHooks {
 	 * Create filterbox
 	 *
 	 * @param Array $filter_links_values List of filters and their values
+	 * @param Array $applied_filters List of applied filters and the applied value
+	 * @param Array $filter_defaults List of filters with default value applied
 	 *
 	 * @return string HTML code for filterbox
 	 *
 	 * @todo: implement limits and offsetting
 	 */
-	static function getFilterbox( $filter_links_values, $applied_filters ) {
+	static function getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults ) {
 		$filterbox = '';
 		foreach( $filter_links_values as $filter_property => $values ) {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
@@ -1334,11 +1362,15 @@ class SemanticOrganizationHooks {
 			foreach( $values as &$value ) {
 				if( $value != '' ) {
 					if( isset( $applied_filters[$filter_property] ) && $applied_filters[$filter_property] == $value ) {
-						$drop_filter_url = self::getFilterURL( array_diff_key( $applied_filters, [ $filter_property => $value ] ) );
+						if( isset( $filter_defaults[$filter_property] ) ) {
+							$drop_filter_url = self::getFilterURL( $parser, array_merge( array_diff_key( $applied_filters, [ $filter_property => $value ] ), [ $filter_property => '' ] ) );
+						} else {
+							$drop_filter_url = self::getFilterURL( $parser, array_diff_key( $applied_filters, [ $filter_property => $value ] ) );
+						}
 						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
 						$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $value . ' ' . $drop_filter_link . '</span>';
 					} else {
-						$filter_url = self::getFilterURL( array_merge( $applied_filters, [ $filter_property => $value ] ) );
+						$filter_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ $filter_property => $value ] ) );
 						$value = '<span class="semorg-filterbox-filter-value">[' . $filter_url . ' ' . $value . ']</span>';
 					}
 				}
@@ -1353,18 +1385,63 @@ class SemanticOrganizationHooks {
 
 
 	/**
+	 * Get pagination
+	 *
+	 * @param Array $filter_links_values List of filters and their values
+	 * @param Array $applied_filters List of applied filters and the applied value
+	 * @param Integer $count Number of rows
+	 * @param Integer $limit Page size
+	 * @param Integer $page Page number
+	 * 
+	 * @return string HTML code for pagination
+	 */
+	static function getPagination( $parser, $filter_links_values, $applied_filters, $count, $limit, $page = 1 ) {
+		$pagination = '';
+
+		$previous_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'page' => $page-1 ] ) );
+		if( $page > 1 ) {
+			$pagination .= '<li class="page-item"><a class="page-link" href="' . $previous_url . '" aria-label="' . wfMessage( 'semorg-pagination-previous-label' ) . '"><span aria-hidden="true">&laquo;</span></a></li>';
+		} else {
+			$pagination .= '<li class="page-item disabled"><a class="page-link" href="' . $previous_url . '" tabindex="-1" aria-disabled="true" aria-label="' . wfMessage( 'semorg-pagination-previous-label' ) . '"><span aria-hidden="true">&laquo;</span></a></li>';
+		}
+
+		for( $i = max( $page-5, 1 ); $i-1 < $count / $limit; $i++ ) {
+			$page_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'page' => $i ] ) );
+			if( $page == $i ) {
+				$pagination .= '<li class="page-item active" aria-current="page"><a class="page-link" href="' . $page_url . '">' . ( $i ) . '<span class="sr-only">(current)</span></a></li>';
+			} else {
+				$pagination .= '<li class="page-item"><a class="page-link" href="' . $page_url . '">' . ( $i ) . '</a></li>';
+			}
+		}
+
+		$next_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'page' => $page+1 ] ) );
+		if( $page < $count / $limit ) {
+			$pagination .= '<li class="page-item"><a class="page-link" href="' . $next_url . '" aria-label="' . wfMessage( 'semorg-pagination-next-label' ) . '"><span aria-hidden="true">&raquo;</span></a></li>';
+		} else {
+			$pagination .= '<li class="page-item disabled"><a class="page-link" href="' . $next_url . '" tabindex="-1" aria-disabled="true" aria-label="' . wfMessage( 'semorg-pagination-next-label' ) . '"><span aria-hidden="true">&raquo;</span></a></li>';
+		}
+
+		$pagination = '<nav aria-label="' . wfMessage( 'semorg-pagination-label' )->text() . '"><ul class="pagination">' . $pagination . '</ul></nav>';
+		$pagination = '<div class="semorg-pagination">' . $pagination . '</div>';
+		return $pagination;
+	}
+
+
+	/**
 	 * Get filter URL
 	 *
 	 * @param Array $filters_to_apply List of filters to apply
 	 *
 	 * @return string Wiki markup for the URL part of the filter link
 	 */
-	static function getFilterURL( $filters_to_apply ) {
+	static function getFilterURL( $parser, $filters_to_apply ) {
 		$query_string = '';
 		foreach( $filters_to_apply as $filter_property => $value ) {
 			$query_string .= $filter_property . '=' . urlencode( $value ) . '&';
 		}
-		$filter_url = '{{fullurl:{{FULLPAGENAMEE}}|' . substr( $query_string, 0, -1 ) . '}}';
+		$query_string = substr( $query_string, 0, -1 );
+		$title = $parser->getTitle();
+		$filter_url = $title->getFullURL( $query_string );
 		return $filter_url;
 	}
 

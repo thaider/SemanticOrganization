@@ -70,7 +70,12 @@
 		}
 	},
 	"config": {
-		"SemorgUseCustomTweekiFiles":true
+		"SemorgUseCustomTweekiFiles": {
+			"value": true
+		},
+		"SemorgListLimit": {
+			"value": 20
+		}
 	},
 	"Hooks": {
 		"smwInitProperties": [

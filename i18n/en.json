@@ -11,6 +11,10 @@
 	"semorg-filterbox-drop-filter": "Drop filter",
 	"semorg-download-csv-text": "Download as CSV",
 
+	"semorg-pagination-label": "Page Navigation",
+	"semorg-pagination-previous-label": "Previous",
+	"semorg-pagination-next-label": "Next",
+
 	"semorg-up-to-date-warning": "<b>Warning!</b> This page is automatically created based on the current version of the form. The version shown might differ from the real content (as printed and signed)!",
 	"semorg-invoice-storno-warning": "This invoice had been canceled",
 

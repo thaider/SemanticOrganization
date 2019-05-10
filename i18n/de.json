@@ -5,6 +5,10 @@
 	"semorg-filterbox-drop-filter": "Filter abwählen",
 	"semorg-download-csv-text": "Download als CSV",
 
+	"semorg-pagination-label": "Seitennavigation",
+	"semorg-pagination-previous-label": "Vorherige",
+	"semorg-pagination-next-label": "Nächste",
+
 	"semorg-up-to-date-warning": "<b>Achtung!</b> Diese Seite wird automatisiert auf der Grundlage der aktuell geltenden Fassung des zugrundeliegenden Formulars erstellt. Die hier angezeigte Version kann daher vom tatsächlichen Inhalt des Dokuments (wie ausgedruckt und unterfertigt) abweichen!",
 	"semorg-invoice-storno-warning": "Diese Rechnung wurde '''storniert'''!",
 
