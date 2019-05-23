@@ -212,7 +212,7 @@
 	"semorg-field-meeting-date-name": "Datum",
 	"semorg-field-meeting-date-suffix": " &nbsp;&nbsp;",
 	"semorg-field-meeting-time-name": "Zeit",
-	"semorg-field-meeting-time-parameters": "input type=text|size=15|placeholder=Uhrzeit",
+	"semorg-field-meeting-time-placeholder": "Uhrzeit",
 	"semorg-field-meeting-location-name": "Ort",
 	"semorg-field-meeting-participant-name": "TeilnehmerInnen",
 	"semorg-field-meeting-excused-name": "entschuldigt",
@@ -565,7 +565,9 @@
 	"semorg-field-contact-type-name": "Typ", 
 	"semorg-field-contact-location-name": "Ort", 
 	"semorg-field-contact-time-name": "Zeit", 
+	"semorg-field-contact-time-placeholder": "Uhrzeit",
 	"semorg-field-contact-date-name": "Datum",
+	"semorg-field-contact-datetime-name": "Datum",
 	
 	"semorg-travel-expenses-displaytitle": "Reisekosten für $1",
 	"semorg-form-travel-expenses-create-title": "Reisekosten erstellen",

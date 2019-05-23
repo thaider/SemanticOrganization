@@ -643,7 +643,9 @@ class SemanticOrganizationHooks {
 		if( $request->getInt( 'page' ) > 1 ) {
 			$page = $request->getInt( 'page' );
 		}
-		$list .= self::getPagination( $parser, $filter_links_values, $applied_filters, $count, $limit, $page );
+		if( $page > 1 || $count > $limit ) {
+			$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
+		}
 
 		if( isset( $formoptions['csv'] ) ) {
 			$download = self::getDownload( $parser, $query_string, $template, $formoptions['csv'] );
@@ -1387,7 +1389,7 @@ class SemanticOrganizationHooks {
 	/**
 	 * Get pagination
 	 *
-	 * @param Array $filter_links_values List of filters and their values
+	 * @param Parser $parser Parser
 	 * @param Array $applied_filters List of applied filters and the applied value
 	 * @param Integer $count Number of rows
 	 * @param Integer $limit Page size
@@ -1395,7 +1397,7 @@ class SemanticOrganizationHooks {
 	 * 
 	 * @return string HTML code for pagination
 	 */
-	static function getPagination( $parser, $filter_links_values, $applied_filters, $count, $limit, $page = 1 ) {
+	static function getPagination( $parser, $applied_filters, $count, $limit, $page = 1 ) {
 		$pagination = '';
 
 		$previous_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'page' => $page-1 ] ) );
@@ -1421,7 +1423,7 @@ class SemanticOrganizationHooks {
 			$pagination .= '<li class="page-item disabled"><a class="page-link" href="' . $next_url . '" tabindex="-1" aria-disabled="true" aria-label="' . wfMessage( 'semorg-pagination-next-label' ) . '"><span aria-hidden="true">&raquo;</span></a></li>';
 		}
 
-		$pagination = '<nav aria-label="' . wfMessage( 'semorg-pagination-label' )->text() . '"><ul class="pagination">' . $pagination . '</ul></nav>';
+		$pagination = '<nav aria-label="' . wfMessage( 'semorg-pagination-label' )->text() . '"><ul class="pagination pagination-sm">' . $pagination . '</ul></nav>';
 		$pagination = '<div class="semorg-pagination">' . $pagination . '</div>';
 		return $pagination;
 	}
