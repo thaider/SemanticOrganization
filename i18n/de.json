@@ -627,5 +627,22 @@
 	"semorg-field-expense-amount-net-placeholder": "Netto", 
 	"semorg-field-expense-account-name": "Kostenstelle", 
 
+	"semorg-task-page-name": "Todos",
+	"semorg-task-entity-name": "Todo",
+	"semorg-form-task-create-title": "Todo erstellen",
+	"semorg-form-task-edit-title": "Todo bearbeiten", 
+	"semorg-form-task-page-name": "Todos",
+	"semorg-formlink-task-link-text": "Todo erstellen",
+	"semorg-field-task-title-name": "Titel", 
+	"semorg-field-task-due-date-name": "Geplant bis", 
+	"semorg-field-task-description-name": "Beschreibung", 
+	"semorg-field-task-done-date-name": "Erledigt am", 
+	"semorg-field-task-done-date-prefix": "&nbsp;&nbsp;'''erledigt am'''&nbsp;",
+	"semorg-field-task-responsible-name": "verantwortlich", 
+	"semorg-field-task-dates-name": "geplant bis", 
+	"semorg-field-task-meeting-name": "Treffen", 
+	"semorg-field-task-group-name": "Gremium", 
+	"semorg-field-task-project-name": "Projekt", 
+
 	"end": "Ende"
 }

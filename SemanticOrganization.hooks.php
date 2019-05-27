@@ -338,9 +338,9 @@ class SemanticOrganizationHooks {
 	 */
 	static function renderDetail( &$parser ) {
 		$template = func_get_args()[1];
-		$taboptions = self::extractOptions( array_slice(func_get_args(), 2) );
+		$detailoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 
-		$heading = $taboptions['heading'] ?? $parser->getTitle()->getText();
+		$heading = $detailoptions['heading'] ?? $parser->getTitle()->getText();
 
 		$overview_page = wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
 		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
@@ -350,8 +350,8 @@ class SemanticOrganizationHooks {
 		$card = '<div class="semorg-detail">' . $badge . $header . '</div>';
 
 		$card .= '{{#tweekiHide:firstHeading}}';
-		if( isset( $taboptions['heading'] ) ) {
-			$card .= '{{DISPLAYTITLE:' . $taboptions['heading'] . '}}';
+		if( isset( $detailoptions['heading'] ) ) {
+			$card .= '{{DISPLAYTITLE:' . $detailoptions['heading'] . '}}';
 		}
 
 		return [ $card, 'noparse' => false ];
