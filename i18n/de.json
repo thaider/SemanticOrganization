@@ -190,11 +190,26 @@
 	"semorg-field-project-title-name": "Titel",
 	"semorg-field-project-run-time-name": "Laufzeit",
 	"semorg-field-project-start-name": "Projektbeginn",
+	"semorg-field-project-start-prefix": "von&nbsp;",
 	"semorg-field-project-end-name": "Projektende",
+	"semorg-field-project-end-prefix": "bis&nbsp;",
 	"semorg-field-project-contact-person-name": "Ansprechperson",
 	"semorg-field-project-desc-name": "Kurzbeschreibung",
 	"semorg-field-project-team-name": "Teammitglieder",
 	"semorg-field-project-budget-name": "Budget",
+
+	"semorg-field-project-team-project-name": "Projekt", 
+	"semorg-field-project-team-team-external-name": "Team (extern)", 
+	"semorg-field-project-team-role-name": "Rolle", 
+	"semorg-field-project-team-role-placeholder": "Rolle im Projekt",
+	"semorg-field-project-team-start-date-name": "Startdatum", 
+	"semorg-field-project-team-end-date-name": "Enddatum", 
+	"semorg-field-project-team-team-name": "Team", 
+	"semorg-field-project-team-team-internal-name": "Team (intern)", 
+
+	"semorg-form-project-team-internal-add-button-text": "Internes Teammitglied hinzufügen",
+
+	"semorg-form-project-team-external-add-button-text": "Externes Teammitglied hinzufügen",
 
 	"semorg-meeting-displaytitle": "$1 vom {{#timel:j. F Y|$2}}",
 	"semorg-formlink-meeting-link-text": "Treffen erstellen",
