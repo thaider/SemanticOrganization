@@ -8,6 +8,9 @@
 	"semorg-print-header": "",
 	"semorg-print-footer": "",
 
+	"semorg-mail-meeting-group-link-text": "Send invitation e-mail",
+	"semorg-mail-meeting-group-subject": "Invitation for $1 on $2, $3",
+
 	"semorg-filterbox-title": "Filter",
 	"semorg-filterbox-drop-filter": "Drop filter",
 	"semorg-download-csv-text": "Download as CSV",
@@ -23,6 +26,7 @@
 
 	"semorg-tooltip-view": "view",
 	"semorg-tooltip-edit": "edit",
+	"semorg-tooltip-edit-mail-template": "Edit e-mail template",
 
 	"semorg-timespan-since": "since {{#time:Y-n-j|$1}}",
 	"semorg-timespan-until": "until {{#time:Y-n-j|$1}}",
@@ -37,6 +41,7 @@
 	"semorg-month": "$1-$2",
 	
 	"semorg-agenda-times": "(Agenda: $1 min total, $2 min $4)",
+	"semorg-agenda-times-planned": "planned",
 
 	"semorg-currency-symbol": "€",
 
@@ -312,7 +317,7 @@
 	"semorg-meeting-template": "semorg-meeting",
 	"semorg-meeting-category": "semorg-meeting",
 	"semorg-meeting-form": "semorg-meeting",
-	"semorg-meeting-displaytitle": "$1 vom {{#timel:j. F Y|$2}}",
+	"semorg-meeting-displaytitle": "$1 on $2",
 	"semorg-formlink-meeting-link-text": "Create meeting",
 	"semorg-form-meeting-edit-title": "Edit meeting",
 	"semorg-form-meeting-create-title": "Create meeting",
@@ -957,7 +962,7 @@
 	"semorg-field-role-name-name": "Name", 
 	"semorg-field-role-name-parameters": "",
 	"semorg-field-role-group-name": "Group", 
-	"semorg-field-role-group-parameters": "input type=dropdown|values from category=semorg-group",
+	"semorg-field-role-group-parameters": "input type=combobox|existing values only|values from category=semorg-group",
 	"semorg-field-role-tasks-name": "Tasks",
 	"semorg-field-role-tasks-parameters": "holds template",
 	"semorg-field-role-holders-name": "Holders",
@@ -976,8 +981,8 @@
 	"semorg-field-role-task-description-parameters": "input type=textarea|rows=1|autogrow|cols=60",
 	"semorg-field-role-task-hours-name": "Expenditure of time", 
 	"semorg-field-role-task-hours-parameters": "size=2", 
-	"semorg-field-role-task-hours-prefix": "ca.", 
-	"semorg-field-role-task-hours-suffix": "hours per year",
+	"semorg-field-role-task-hours-prefix": "ca.&nbsp;", 
+	"semorg-field-role-task-hours-suffix": "&nbsp;hours per year",
 	"semorg-field-role-task-month-name": "Month(s)", 
 	"semorg-field-role-task-month-values": "1,2,3,4,5,6,7,8,9,10,11,12",
 	"semorg-field-role-task-month-input-type": "checkboxes",
@@ -990,7 +995,7 @@
 	"semorg-field-role-holder-role-name": "Role", 
 	"semorg-field-role-holder-role-parameters": "",
 	"semorg-field-role-holder-holder-name": "Holder", 
-	"semorg-field-role-holder-holder-parameters": "values from category=Semorg-person-user|input type=dropdown|mapping property=Semorg-person-name",
+	"semorg-field-role-holder-holder-parameters": "values from category=Semorg-person-user|input type=combobox|existing values only|mapping property=Semorg-person-name",
 	"semorg-field-role-holder-start-date-name": "from", 
 	"semorg-field-role-holder-start-date-prefix": "from ", 
 	"semorg-field-role-holder-start-date-input-type": "datepicker",

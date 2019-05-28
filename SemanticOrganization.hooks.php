@@ -1451,8 +1451,21 @@ class SemanticOrganizationHooks {
 	 * Render documentation for semorg's templates and forms
 	 */
 	static function renderDocumentation( &$parser ) {
+		$documentation = '';
+
 		$title = $parser->getTitle();
-		return array( $title, 'noparse' => true, 'isHTML' => true );
+		$namespace = $title->getNamespace();
+		$name = $title->getText();
+
+		if( $namespace == 10 ) { // templates
+			if( wfMessage( $name . '-template' )->exists() ) {
+				$documentation = '{{semorg-help-template}}';
+			}
+		} elseif( $namespace == 14 ) { // categories
+		} elseif( $namespace == 106 ) { // forms
+		}
+
+		return array( $documentation, 'noparse' => false );
 	}
 
 
