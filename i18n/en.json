@@ -1,5 +1,6 @@
 {
 	"semorg-desc": "Support for self-organizing entities",
+	"semorg-bundle-info": "This page is included in the pages to be distributed together with the '''Semantic Organization''' extension.",
 
 	"semorg-field-documentation-list-header-name": "<list-header>",
 
@@ -741,7 +742,7 @@
 	"semorg-field-group-name-name": "Name", 
 	"semorg-field-group-name-parameters": "input type=text|size=60",
 	"semorg-field-group-description-name": "Description", 
-	"semorg-field-group-description-parameters": "input type=textarea|autogrow|rows=1|columns=80",
+	"semorg-field-group-description-parameters": "input type=textarea|autogrow|rows=1|cols=80",
 	"semorg-field-group-permanent-name": "permanent", 
 	"semorg-field-group-permanent-parameters": "input type=checkbox", 
 	"semorg-field-group-permanent-suffix": " permanent&nbsp;&nbsp;",
@@ -767,7 +768,7 @@
 	"semorg-field-group-member-group-name": "Group", 
 	"semorg-field-group-member-group-parameters": "",
 	"semorg-field-group-member-member-name": "Member", 
-	"semorg-field-group-member-member-parameters": "values from category=Semorg-person-user|input type=dropdown|mapping property=Semorg-person-name",
+	"semorg-field-group-member-member-parameters": "values from category=Semorg-person-user|input type=combobox|mapping property=Semorg-person-name",
 	"semorg-field-group-member-member-suffix": "&nbsp;&nbsp;",
 	"semorg-field-group-member-start-date-name": "Member since", 
 	"semorg-field-group-member-start-date-parameters": "input type=datepicker|size=10", 

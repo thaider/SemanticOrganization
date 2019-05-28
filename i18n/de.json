@@ -1,5 +1,6 @@
 {
 	"semorg-desc": "Unterstützung für die Selbstorganisation",
+	"semorg-bundle-info": "Diese Seite wird auf allen Seiten eingebunden, die gemeinsam mit der '''Semantic Organization'''-Extension verteilt werden sollen.",
 
 	"semorg-filterbox-title": "Filter",
 	"semorg-filterbox-drop-filter": "Filter abwählen",

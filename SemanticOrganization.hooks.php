@@ -50,6 +50,7 @@ class SemanticOrganizationHooks {
 			'user' => 'getUser',
 			'true' => 'isTrue',
 			'detail' => 'renderDetail',
+			'documentation' => 'renderDocumentation',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -1445,6 +1446,15 @@ class SemanticOrganizationHooks {
 		$title = $parser->getTitle();
 		$filter_url = $title->getFullURL( $query_string );
 		return $filter_url;
+	}
+
+
+	/**
+	 * Render documentation for semorg's templates and forms
+	 */
+	static function renderDocumentation( &$parser ) {
+		$title = $parser->getTitle();
+		return array( $title, 'noparse' => true, 'isHTML' => true );
 	}
 
 
