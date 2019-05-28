@@ -12,6 +12,7 @@ class SemanticOrganizationHooks {
 	 */
 	static function onBeforeInitialize( \Title &$title, \Article &$article = null, \OutputPage &$output, \User &$user, \WebRequest $request, \MediaWiki $mediaWiki ) {
 		$GLOBALS['wgTweekiSkinUseBootstrap4'] = true;
+		$GLOBALS['wgTweekiSkinUseExternallinkStyles'] = false;
 
 		if( $GLOBALS['wgSemorgUseCustomTweekiFiles'] !== false ) {
 			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.tweeki.scripts';
