@@ -475,7 +475,6 @@ class SemanticOrganizationHooks {
 		global $wgSemorgListLimit;
 
 		$list = '';
-		$limit = $wgSemorgListLimit;
 		$template = func_get_args()[1];
 		$formoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 		$request = $parser->getUser()->getRequest();
@@ -593,9 +592,8 @@ class SemanticOrganizationHooks {
 			$parameters[$parameter] = '';
 
 			// set default limit
-			// @todo: use global setting instead or make it configurable via message?
 			if( $parameter == 'limit' ) {
-				$parameters[$parameter] = '1000';
+				$parameters[$parameter] = $wgSemorgListLimit;
 			}
 
 			// set by a message?
@@ -612,8 +610,8 @@ class SemanticOrganizationHooks {
 			}
 		}
 
+		$limit = $parameters['limit'];
 		$query .= '|searchlabel=' . ( $formoptions['searchlabel'] ?? '' );
-		$query .= '|limit=' . $limit;
 		if( $request->getInt( 'page' ) > 1 ) {
 			$query .= '|offset=' . ($request->getInt( 'page' )-1) * $limit;
 		}
