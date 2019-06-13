@@ -664,5 +664,25 @@
 	"semorg-field-task-group-name": "Gremium", 
 	"semorg-field-task-project-name": "Projekt", 
 
+	"semorg-manual-page-name": "Anleitungen",
+	"semorg-manual-entity-name": "Anleitung",
+	"semorg-form-manual-create-title": "Anleitung erstellen",
+	"semorg-form-manual-edit-title": "Anleitung bearbeiten", 
+	"semorg-forminput-manual-button-text": "Anleitung erstellen",
+	"semorg-forminput-manual-placeholder": "Name der Anleitung",
+	"semorg-field-manual-title-name": "Titel", 
+	"semorg-field-manual-summary-name": "Zusammenfassung", 
+	"semorg-field-manual-role-name": "Verantwortliche Rolle", 
+
+	"semorg-knowledge-page-name": "Wissensdatenbank",
+	"semorg-knowledge-entity-name": "Wissen",
+	"semorg-form-knowledge-create-title": "Eintrag in Wissensdatenbank erstellen",
+	"semorg-form-knowledge-edit-title": "Eintrag in Wissensdatenbank bearbeiten", 
+	"semorg-forminput-knowledge-button-text": "Eintrag in Wissensdatenbank erstellen",
+	"semorg-forminput-knowledge-placeholder": "Titel des Eintrags",
+	"semorg-field-knowledge-title-name": "Titel", 
+	"semorg-field-knowledge-summary-name": "Zusammenfassung", 
+	"semorg-field-knowledge-role-name": "Verantwortliche Rolle", 
+
 	"end": "Ende"
 }
