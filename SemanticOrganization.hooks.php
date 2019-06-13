@@ -112,8 +112,8 @@ class SemanticOrganizationHooks {
 			return 'parameter <code>toggle-text</code> missing';
 		}
 
-		$originalLink = '<button class="btn btn-default btn-xs semorg-toggle-original">' . $keyvalues['original-text'] . '</button>';
-		$toggleLink = '<button class="btn btn-default btn-xs semorg-toggle-toggle" style="display:none">' . $keyvalues['toggle-text'] . '</button>';
+		$originalLink = '<button class="btn btn-secondary btn-xs semorg-toggle-original">' . $keyvalues['original-text'] . '</button>';
+		$toggleLink = '<button class="btn btn-secondary btn-xs semorg-toggle-toggle" style="display:none">' . $keyvalues['toggle-text'] . '</button>';
 		$toggle = '<div class="semorg-toggle" data-semorg-toggle="' . $keyvalues['class'] . '">' . $originalLink . $toggleLink . '</div>';
 
 		return array( $toggle, 'noparse' => true, 'isHTML' => true );
@@ -477,7 +477,7 @@ class SemanticOrganizationHooks {
 
 		$list = '';
 		$template = func_get_args()[1];
-		$formoptions = self::extractOptions( array_slice(func_get_args(), 2) );
+		$listoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 		$request = $parser->getUser()->getRequest();
 		$parameters = [];
 
@@ -485,13 +485,13 @@ class SemanticOrganizationHooks {
 		if( wfMessage('semorg-list-' . $template . '-row-template' )->exists() ) {
 			$row_template = wfMessage('semorg-list-' . $template . '-row-template' )->text();
 		}
-		if( isset( $formoptions['row template'] ) ) {
-			$row_template = $formoptions['row template'];
+		if( isset( $listoptions['row template'] ) ) {
+			$row_template = $listoptions['row template'];
 		}
 
 		// if a message for the custom headers is defined for the row-template, use custom headers
-		if( isset( $formoptions['headers'] ) ) {
-			$headers = $formoptions['headers'];
+		if( isset( $listoptions['headers'] ) ) {
+			$headers = $listoptions['headers'];
 		} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
 			$headers = wfMessage('semorg-list-' . $row_template . '-headers' )->text();
 		} else {
@@ -502,10 +502,10 @@ class SemanticOrganizationHooks {
 
 		$query_string = '';
 
-		if( isset( $formoptions['category'] ) ) {
+		if( isset( $listoptions['category'] ) ) {
 			// use custom parameter if it wasn't used to explicitly unset the category
-			if( $formoptions['category'] != '-' ) {
-				$query_string = '[[Category:' . $formoptions['category'] . ']]';
+			if( $listoptions['category'] != '-' ) {
+				$query_string = '[[Category:' . $listoptions['category'] . ']]';
 			}
 		} else {
 			// use standard category as main query parameter
@@ -513,23 +513,23 @@ class SemanticOrganizationHooks {
 		}
 
 		// Custom query parameters
-		if( isset( $formoptions['query'] ) ) {
-			$query_string .= $formoptions['query'];
+		if( isset( $listoptions['query'] ) ) {
+			$query_string .= $listoptions['query'];
 		}
 
 		// Get implicit filters (filter links)
-		if( isset( $formoptions['filter links'] ) ) {
-			$filter_links = explode( ',', $formoptions['filter links'] );
+		if( isset( $listoptions['filter links'] ) ) {
+			$filter_links = explode( ',', $listoptions['filter links'] );
 		}
 
 		// Filters
 		$applied_filters = [];
-		if( isset( $formoptions['filters'] ) || isset( $formoptions['filter links'] ) ) {
+		if( isset( $listoptions['filters'] ) || isset( $listoptions['filter links'] ) ) {
 			$filters = [];
 			$filter_defaults = [];
 			$filter_string = '';
-			if( isset( $formoptions['filters'] ) ) {
-				$filters = explode(',', $formoptions['filters']);
+			if( isset( $listoptions['filters'] ) ) {
+				$filters = explode(',', $listoptions['filters']);
 			}
 			// add filters that have implicitly been set with filter links
 			if( isset( $filter_links ) ) {
@@ -577,7 +577,7 @@ class SemanticOrganizationHooks {
 		}
 
 		// Custom fields
-		foreach( $formoptions as $option => $value ) {
+		foreach( $listoptions as $option => $value ) {
 			if( substr( $option, 0, 1 ) === '?' ) {
 				$query .= '|' . $option . '=' . $value;
 			}
@@ -602,8 +602,8 @@ class SemanticOrganizationHooks {
 				$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
 			}
 			// explicitly set by parser function parameter?
-			if( isset( $formoptions[$parameter] ) ) {
-				$parameters[$parameter] = $formoptions[$parameter];
+			if( isset( $listoptions[$parameter] ) ) {
+				$parameters[$parameter] = $listoptions[$parameter];
 			}
 			// apply if set...
 			if( $parameters[$parameter] != '' ) {
@@ -612,7 +612,7 @@ class SemanticOrganizationHooks {
 		}
 
 		$limit = $parameters['limit'];
-		$query .= '|searchlabel=' . ( $formoptions['searchlabel'] ?? '' );
+		$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
 		if( $request->getInt( 'page' ) > 1 ) {
 			$query .= '|offset=' . ($request->getInt( 'page' )-1) * $limit;
 		}
@@ -643,12 +643,14 @@ class SemanticOrganizationHooks {
 		if( $request->getInt( 'page' ) > 1 ) {
 			$page = $request->getInt( 'page' );
 		}
-		if( $page > 1 || $count > $limit ) {
-			$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
+		if( !isset( $listoptions['nopagination'] ) ) {
+			if( $page > 1 || $count > $limit ) {
+				$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
+			}
 		}
 
-		if( isset( $formoptions['csv'] ) ) {
-			$download = self::getDownload( $parser, $query_string, $template, $formoptions['csv'] );
+		if( isset( $listoptions['csv'] ) ) {
+			$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'] );
 			$list .= $parser->recursiveTagParse( $download );
 		}
 
@@ -685,7 +687,7 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 * Link zur Erstellung und Listen von geplanten und vergangenen Treffen anzeigen
+	 * Show a link to create a new meeting and the lists of planned and past meetings
 	 *
 	 * @todo: für Subvarianten von Meetings konfigurierbar machen (Parameter category und row template)
 	 */
@@ -730,8 +732,12 @@ class SemanticOrganizationHooks {
 
 	/**
 	 * Formular anzeigen
+	 *
+	 * @todo: obsolete?
 	 */
 	static function renderForm( &$parser ) {
+		die( 'renderForm is not obsolete' );
+		/*
 		$for_template = func_get_args()[1];
 		$formoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 		$standard_inputs = true;
@@ -801,6 +807,7 @@ class SemanticOrganizationHooks {
 			$form .= '<br><br><nowiki>{{{standard input|save}}} {{{standard input|cancel}}}</nowiki>';
 		}
 		return [ $form, 'noparse' => false ];
+		*/
 	}
 
 
@@ -967,12 +974,16 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 * Handling for the 'semorg-person' parser function
+	 * Handling for the 'semorg-person-ref' parser function
 	 *
 	 * @param Parser $parser
 	 * @return array $output
+	 *
+	 * @todo: obsolete?
 	 */
 	static function renderPersonReference( &$parser ) {
+		die( 'renderPersonReference is not obsolete' );
+		/*
 		$tableclass = self::getTableclass();
 
 		$output = '';
@@ -1009,6 +1020,7 @@ class SemanticOrganizationHooks {
 		$listitem = '<tr>' . $listitem . '</tr>';
 		$output .= $listitem;
 		return [ $output, 'noparse' => false ];
+		*/
 	}
 
 
@@ -1329,11 +1341,11 @@ class SemanticOrganizationHooks {
 	 *
 	 * @param Parser $parser Parser
 	 * @param string $property Name of the property
-	 * @param string $filter_string applied filters
+	 * @param string $query_string Additional query parameters
 	 *
 	 * @return string Comma-separated list of values
 	 */
-	static function getValues( $parser, $property, $query_string ) {
+	static function getValues( $parser, $property, $query_string = '' ) {
 		$property_parts = explode( '.', $property );
 		$query = '{{#ask: [[semorg-' . $property_parts[0] . '::+]]' . $query_string . ' |mainlabel=- |headers=hide |limit=1000 |searchlabel= |?semorg-' . $property . '# }}';
 		$values = $parser->recursiveTagParse( $query );
