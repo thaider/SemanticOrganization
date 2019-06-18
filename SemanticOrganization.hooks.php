@@ -982,8 +982,7 @@ class SemanticOrganizationHooks {
 	 * @todo: obsolete?
 	 */
 	static function renderPersonReference( &$parser ) {
-		die( 'renderPersonReference is not obsolete' );
-		/*
+		//die( 'renderPersonReference is not obsolete' );
 		$tableclass = self::getTableclass();
 
 		$output = '';
@@ -1020,7 +1019,6 @@ class SemanticOrganizationHooks {
 		$listitem = '<tr>' . $listitem . '</tr>';
 		$output .= $listitem;
 		return [ $output, 'noparse' => false ];
-		*/
 	}
 
 
