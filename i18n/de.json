@@ -1,6 +1,6 @@
 {
 	"semorg-desc": "Unterstützung für die Selbstorganisation",
-	"semorg-bundle-info": "Diese Seite wird auf allen Seiten eingebunden, die gemeinsam mit der '''Semantic Organization'''-Extension verteilt werden sollen.",
+	"semorg-bundle-info": "Diese Seite ist Teil der ''Semantic Organization'''-Extension.",
 
 	"semorg-mail-meeting-group-link-text": "Einladungsmail verschicken",
 	"semorg-mail-meeting-group-subject": "Einladung: $1 am $2, $3",
