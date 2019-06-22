@@ -379,7 +379,7 @@
 	"semorg-meeting-group-category": "semorg-meeting-group",
 	"semorg-meeting-group-form": "semorg-meeting-group",
 	"semorg-meeting-group-displaytitle": "$1 on {{#timel:F j, Y|$2}}",
-	"semorg-meeting-group-page-name": "Meetings",
+	"semorg-meeting-group-page-name": "Group Meetings",
 	"semorg-meeting-group-entity-name": "Meeting",
 	"semorg-form-meeting-group-create-title": "Create meeting",
 	"semorg-form-meeting-group-edit-title": "Edit meeting",
