@@ -954,6 +954,14 @@ class SemanticOrganizationHooks {
 				$field = self::getField( $template, $field );
 			}
 			$items = implode( ' ', $fields );
+
+			/* Text before and after the field */
+			if( !wfMessage($fullelement . '-prefix')->isDisabled() ) {
+				$items = '<span class="semorg-field-prefix ' . $fullelement . '-prefix">' . wfMessage($fullelement . '-prefix')->text() . '</span>' . $items;
+			}
+			if( !wfMessage($fullelement . '-suffix')->isDisabled() ) {
+				$items .= '<span class="semorg-field-suffix ' . $fullelement . '-suffix">' . wfMessage($fullelement . '-suffix')->text() . '</span>';
+			}
 		} else {
 			$items = self::getField( $template, $element );
 
