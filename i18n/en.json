@@ -50,7 +50,7 @@
 	"semorg-help-formatting-button-text": "Show formatting help (Popup)",
 	"semorg-help-formatting-heading": "Formatting Help",
 
-	"semorg-msg-edit-tooltip": "Edit value",
+	"semorg-msg-edit-tooltip": "Edit/define value",
 	
 	"semorg-process-step-done": "<span class='fa fa-check'></span> completed $1",
 	"semorg-process-step-do": "mark as completed",

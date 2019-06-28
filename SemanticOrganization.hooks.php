@@ -931,14 +931,14 @@ class SemanticOrganizationHooks {
 
 		/* get the help message if it exists */
 		if( !wfMessage($fullelement . '-help')->isDisabled() ) {
-			$help = wfMessage($fullelement . '-help')->text();
-			$help = '<small class="form-text text-muted">' . $help . '</small>';
+			$help = '{{semorg-msg|field-' . $template . '-' . $element . '-help}}';
+			$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
 		}
 
 		/* get inline help message if it exists */
 		if( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
-			$help = wfMessage($fullelement . '-help-inline')->text();
-			$help = '<small class="text-muted ml-2">' . $help . '</small>';
+			$help = '{{semorg-msg|field-' . $template . '-' . $element . '-help-inline}}';
+			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
 		}
 
 		/* get the row class if it exists */
