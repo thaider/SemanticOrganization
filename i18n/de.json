@@ -321,6 +321,7 @@
 	"semorg-form-membership-decrease-page-name": "Reduktionen",
 	"semorg-form-membership-decrease-edit-title": "Reduktion der Geschäftsanteile bearbeiten",
 	"semorg-form-membership-decrease-create-title": "Reduktion der Geschäftsanteile erstellen",
+	"semorg-field-membership-decrease-due-date-name": "auszuzahlen bis",
 	"semorg-form-membership-exit-page-name": "Austrittserklärung",
 	"semorg-form-membership-exit-edit-title": "Austrittserklärung bearbeiten",
 	"semorg-form-membership-exit-create-title": "Austrittserklärung erstellen",
@@ -358,6 +359,9 @@
 
 	"semorg-form-salary-entry-create-title": "Dienstvertrag erstellen",
 	"semorg-form-salary-entry-edit-title": "Dienstvertrag bearbeiten",
+
+	"semorg-form-salary-change-create-title": "Gehaltsänderung erstellen",
+	"semorg-form-salary-change-edit-title": "Gehaltsänderung bearbeiten",
 
 	"semorg-gdpr-processing-displaytitle": "Datenanwendung $1",
 	"semorg-gdpr-processing-page-name": "Verfahrensverzeichnis",
