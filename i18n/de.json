@@ -160,6 +160,8 @@
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
+	"semorg-person-user-page-name": "Benutzer",
+	"semorg-person-user-entity-name": "Benutzer",
 	"semorg-form-person-user-create-title": "Benutzer erstellen",
 	"semorg-form-person-user-edit-title": "Benutzer bearbeiten",
 	"semorg-form-person-user-page-name": "Benutzer",
