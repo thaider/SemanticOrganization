@@ -42,4 +42,5 @@ $magicWords['en'] = array(
 	'semorg-true' => array( 0, 'semorg-true' ),
 	'semorg-detail' => array( 0, 'semorg-detail' ),
 	'semorg-documentation' => array( 0, 'semorg-documentation' ),
+	'semorg-schedule' => array( 0, 'semorg-schedule' ),
 );

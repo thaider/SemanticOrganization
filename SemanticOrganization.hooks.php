@@ -52,6 +52,7 @@ class SemanticOrganizationHooks {
 			'true' => 'isTrue',
 			'detail' => 'renderDetail',
 			'documentation' => 'renderDocumentation',
+			'schedule' => 'renderSchedule',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -498,6 +499,17 @@ class SemanticOrganizationHooks {
 			$headers = wfMessage('semorg-list-' . $template . '-headers' )->text();
 		}
 
+		if( isset( $listoptions['tableclass'] ) ) {
+			$tableclass = $listoptions['tableclass'];
+		} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-tableclass' )->exists() ) {
+			$tableclass = wfMessage('semorg-list-' . $row_template . '-tableclass' )->text();
+		} elseif( wfMessage('semorg-list-' . $template . '-tableclass' )->exists() ) {
+			$tableclass = wfMessage('semorg-list-' . $template . '-tableclass' )->text();
+		} else {
+			$tableclass = 'table table-sm table-bordered sortable';
+			$tableclass = 'table table-condensed table-sm table-bordered sortable'; // for backwards-compatibility
+		}
+
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
 
 		$query_string = '';
@@ -585,7 +597,7 @@ class SemanticOrganizationHooks {
 
 		$query .= '|link=none|named args=yes|format=template';
 		$query .= '|template=semorg-' . $row_template . '-row';
-		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '}}';
+		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
 		$query .= '|outro={{semorg-list-outro}}';
 
 		// Parameters for sorting, ordering, searchlabel, default (queries without results)
@@ -1485,6 +1497,24 @@ class SemanticOrganizationHooks {
 		}
 
 		return array( $documentation, 'noparse' => false );
+	}
+
+
+	/**
+	 * Render a year's schedule for a task
+	 */
+	static function renderSchedule( &$parser ) {
+		$schedule = '';
+		$months = explode( ',', func_get_args()[1] );
+
+		for( $i = 1; $i <= 12; $i++ ) {
+			$date = new DateTime('1970-' . $i . '-01');
+			$schedule .= '<td class="semorg-month' . ( date('m') == $i ? ' semorg-month-current' : '' ) . '">';
+			$schedule .= in_array( $i, $months ) ? '<span class="semorg-month-full">' . date('M', $date->format('U') ) . '</span>' : '<span class="month-empty">·</span>';
+			$schedule .= '</td>';
+		}
+
+		return array( $schedule, 'noparse' => false );
 	}
 
 
