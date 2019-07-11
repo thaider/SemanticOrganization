@@ -53,6 +53,7 @@ class SemanticOrganizationHooks {
 			'detail' => 'renderDetail',
 			'documentation' => 'renderDocumentation',
 			'schedule' => 'renderSchedule',
+			'dashboard' => 'renderDashboard',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -1515,6 +1516,18 @@ class SemanticOrganizationHooks {
 		}
 
 		return array( $schedule, 'noparse' => false );
+	}
+
+
+	/**
+	 * Render a dashboard element
+	 */
+	static function renderDashboard( &$parser ) {
+		$template = func_get_args()[1];
+		$dashboardoptions = self::extractOptions( array_slice(func_get_args(), 2) );
+
+		$dashboard = '{{semorg-card';
+		return array( $dashboard, 'noparse' => false );
 	}
 
 

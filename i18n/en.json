@@ -51,7 +51,7 @@
 	"semorg-help-formatting-heading": "Formatting Help",
 
 	"semorg-msg-edit-tooltip": "Edit/define value",
-	
+
 	"semorg-process-step-done": "<span class='fa fa-check'></span> completed $1",
 	"semorg-process-step-do": "mark as completed",
 	"semorg-process-step-do-tooltip": "mark as completed",
@@ -303,12 +303,14 @@
 	"semorg-field-project-team-oneliner-external-name": "",
 	"semorg-field-project-team-oneliner-external-fields": "team-external,role",
 
+	"semorg-project-team-internal-template": "semorg-project-team-internal",
 	"semorg-form-project-team-internal-add-button-text": "Add internal team member",
 	"semorg-form-project-team-internal-template": "project-team-internal",
 	"semorg-form-project-team-internal-rows": "oneliner-internal",
 	"semorg-list-project-team-internal-headers": "",
 	"semorg-form-project-team-internal-template": "project-team",
 
+	"semorg-project-team-external-template": "semorg-project-team-external",
 	"semorg-form-project-team-external-add-button-text": "Add external team member",
 	"semorg-form-project-team-external-template": "project-team-external",
 	"semorg-form-project-team-external-rows": "oneliner-external",
