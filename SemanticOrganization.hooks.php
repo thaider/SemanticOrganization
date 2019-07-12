@@ -203,6 +203,16 @@ class SemanticOrganizationHooks {
 			}
 		}
 
+		if( !isset( $parameters['link text'] ) ) {
+			if( wfMessage('semorg-' . $template . '-entity-name' )->exists() ) {
+				$entity_name = wfMessage('semorg-' . $template . '-entity-name')->plain();
+				$parameters['link text'] = wfMessage('semorg-formlink-generic-link-text', $entity_name)->plain();
+			} else {
+				$parameters['link text'] = '';
+			}
+		}
+		$parameters['link text'] = '<span class="btn btn-secondary btn-sm">' . $parameters['link text'] . '</span>';
+
 		$formlink = '{{#formlink:';
 		foreach( $parameters as $parameter => $value ) {
 			$formlink .= '|' . $parameter . '=' . $value;
@@ -728,6 +738,7 @@ class SemanticOrganizationHooks {
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
+		  |default={{int:semorg-list-meeting-default}}
 		}}';
 		$meetings .= '<div class="h3">{{int:semorg-list-meeting-past-heading}}</div>';
 		$meetings .= '{{#semorg-list:meeting
@@ -1523,10 +1534,48 @@ class SemanticOrganizationHooks {
 	 * Render a dashboard element
 	 */
 	static function renderDashboard( &$parser ) {
+		$dashboard = '';
 		$template = func_get_args()[1];
 		$dashboardoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 
-		$dashboard = '{{semorg-card';
+		$title = '';
+		$links = '';
+		if( wfMessage( 'semorg-' . $template . '-page-name' )->exists() ) {
+			$page_name = wfMessage( 'semorg-' . $template . '-page-name' )->text();
+			$title = wfMessage( 'semorg-dashboard-title', $page_name );
+			$links .= '[[' . $page_name . '|<span class="btn btn-sm btn-secondary">' . wfMessage( 'semorg-dashboard-link-all', $page_name ) . '</span>]]';
+		}
+		if( wfMessage( 'semorg-form-' . $template . '-page-name' )->exists() ) {
+			$links .= '{{#semorg-formlink:' . $template . '|returnto={{FULLPAGENAME}}}}';
+		}
+		if( isset( $dashboardoptions['title'] ) ) {
+			$title = $dashboardoptions['title'];
+		}
+		if( isset( $dashboardoptions['links'] ) ) {
+			$links = $dashboardoptions['links'];
+		}
+		$dashboard .= '|title=' . $title;
+		$dashboard .= '|links=' . $links;
+
+		if( isset( $dashboardoptions['tables'] ) ) {
+			$tables = $dashboardoptions['tables'];
+		} else {
+			$tableparameters = '';
+			foreach( $dashboardoptions as $option => $value ) {
+				$tableparameters .= '|' . $option . '=' . $value;
+			}
+			$tables = '{{#semorg-list:' . $template . $tableparameters . '}}';
+		}
+
+		if( $tables != '-' ) {
+			$dashboard .= '|tables=' . $tables;
+		}
+
+		if( isset( $dashboardoptions['body'] ) ) {
+			$dashboard .= '|body=' . $dashboardoptions['body'];
+		}
+
+		$dashboard = '{{semorg-card' . $dashboard . '}}';
 		return array( $dashboard, 'noparse' => false );
 	}
 

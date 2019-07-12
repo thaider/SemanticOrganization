@@ -57,6 +57,9 @@ a.new:hover {
 	width:50px;
 	background:none !important;
 }
+.semorg-showedit .fa {
+	font-size:small;
+}
 
 /* AGENDA */
 .semorg-agenda-heading {
@@ -233,10 +236,15 @@ a.new:hover {
 .card-body-table .table {
 	margin-bottom: 0;
 }
+/*
 .card-body-table .semorg-showedit {
 	border-top: 1px solid #dee2e6 !important;
 	border-bottom: 1px solid #dee2e6 !important;
 	width:1em;
+}
+*/
+.card-body-table .semorg-showedit {
+	max-width:0;
 }
 .card-body-table th.semorg-showedit {
 	border-bottom-width: 2px !important;
@@ -404,9 +412,50 @@ body .formtable td.instanceRemove {
 	background-color: #666;
 }
 
+/* dashboard */
+.semorg-dashboard .card + .card {
+	margin-top:25px;
+}
+.semorg-dashboard .card-header {
+	padding: .75rem .3rem;
+}
+.semorg-dashboard .card-header .card-header-links {
+	font-size:small;
+}
+.semorg-dashboard .card-header .btn-sm {
+	line-height:1;
+}
+.semorg-dashboard .card-header .card-header-links a + a {
+	margin-left:10px;
+}
+.semorg-dashboard .card-body {
+	padding: .75rem .3rem;
+}
+#bodyContent .semorg-dashboard .card-body-table {
+	margin: -.75rem -.3rem;
+}
+
+
+/* tables */
+.table thead th, body .formtable thead th {
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: small;
+	color: #666;
+}
+
 
 /* TEMP */
 /* Löschwarnung verstecken */
 div.mw-warning-with-logexcerpt {
 	display:none;
+}
+
+
+/* TWEEKI */
+.mw-content-ltr ol.breadcrumb, 
+.mw-content-rtl .mw-content-ltr ol.breadcrumb {
+	margin:0;
+	margin-bottom: 1rem;
+	padding:.75rem 1rem;
 }
