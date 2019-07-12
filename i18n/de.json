@@ -592,6 +592,7 @@
 	"semorg-field-contact-time-placeholder": "Uhrzeit",
 	"semorg-field-contact-date-name": "Datum",
 	"semorg-field-contact-datetime-name": "Datum",
+	"semorg-field-contact-ref-name": "Verweis", 
 	
 	"semorg-travel-expenses-displaytitle": "Reisekosten für $1",
 	"semorg-travel-expenses-page-name": "Reisekosten",

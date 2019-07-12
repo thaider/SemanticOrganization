@@ -1064,7 +1064,7 @@
 	"semorg-form-contact-edit-title": "Edit contact", 
 	"semorg-form-contact-page-name": "Contact history",
 	"semorg-form-contact-template": "contact",
-	"semorg-form-contact-rows": "type, datetime, location, participant, contact, subject, details",
+	"semorg-form-contact-rows": "type, datetime, location, participant, contact, subject, details, ref",
 	"semorg-list-contact-headers": "contact-type, contact-subject, contact-date, contact-participant, contact-contact, contact-location",
 	"semorg-list-contact-heading": "Contact History",
 	"semorg-field-contact-participant-name": "Internal Participants", 
@@ -1087,6 +1087,7 @@
 	"semorg-field-contact-datetime-name": "Date",
 	"semorg-field-contact-datetime-fields": "date,time",
 	"semorg-field-contact-ref-name": "Reference", 
+	"semorg-field-contact-ref-parameters": "hidden", 
 
 	"semorg-travel-expenses-template": "semorg-travel-expenses",
 	"semorg-travel-expenses-category": "semorg-travel-expenses",
