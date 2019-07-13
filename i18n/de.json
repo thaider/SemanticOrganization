@@ -15,6 +15,7 @@
 
 	"semorg-up-to-date-warning": "<b>Achtung!</b> Diese Seite wird automatisiert auf der Grundlage der aktuell geltenden Fassung des zugrundeliegenden Formulars erstellt. Die hier angezeigte Version kann daher vom tatsächlichen Inhalt des Dokuments (wie ausgedruckt und unterfertigt) abweichen!",
 	"semorg-invoice-storno-warning": "Diese Rechnung wurde '''storniert'''!",
+	"semorg-transfer-listed-warning": "Diese Umbuchung wurde mit der [[$1|<span class='alert-link'>Umbuchungsliste vom $2</span>]] an die Buchhaltung weitergegeben. Bitte keine Änderungen mehr durchführen.",
 
 	"semorg-tooltip-view": "ansehen",
 	"semorg-tooltip-edit": "bearbeiten",
@@ -515,6 +516,19 @@
 	"semorg-field-transfer-year-name": "Jahr", 
 	"semorg-field-transfer-details-name": "Anmerkungen", 
 	"semorg-field-transfer-recipient-name": "An", 
+
+	"semorg-transfer-list-page-name": "Umbuchungslisten",
+	"semorg-transfer-list-entity-name": "Umbuchungsliste",
+	"semorg-form-transfer-list-create-title": "Umbuchungsliste erstellen",
+	"semorg-form-transfer-list-edit-title": "Umbuchungsliste bearbeiten", 
+	"semorg-form-transfer-list-page-name": "Umbuchungslisten",
+	"semorg-list-transfer-list-listed-heading": "Umbuchungen auf dieser Liste",
+	"semorg-list-transfer-list-unlisted-heading": "Umbuchungen, die noch keiner Liste zugeordnet sind",
+	"semorg-list-transfer-list-listed-default": "noch keine Umbuchungen in diese Liste aufgenommen…",
+	"semorg-list-transfer-list-unlisted-default": "keine Umbuchungen ohne Zuordnung…",
+	"semorg-field-transfer-list-date-name": "Datum", 
+	"semorg-field-transfer-list-count-name": "Anzahl der Umbuchungen", 
+	"semorg-transfer-list-displaytitle": "Umbuchungsliste vom {{#timel:j. F Y|$1}}",
 
 	"semorg-form-generator-create-title": "Generator erstellen",
 	"semorg-form-generator-edit-title": "Generator bearbeiten",
