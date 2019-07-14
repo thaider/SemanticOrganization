@@ -356,7 +356,7 @@ class SemanticOrganizationHooks {
 
 		$heading = $detailoptions['heading'] ?? $parser->getTitle()->getText();
 
-		$overview_page = wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
+		$overview_page = $detailoptions['overview page'] ?? wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
 		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
 		$badge = '<div class="semorg-detail-badge">[[' . $overview_page . '|<i class="fa fa-angle-left"></i>]]<span class="semorg-badge">' . strtoupper( $entity_name ) . '</span></div>';
 
@@ -891,7 +891,9 @@ class SemanticOrganizationHooks {
 		$fieldrows = '';
 		foreach( $elements as $element ) {
 			$element = trim( $element );
-			$fieldrows .= self::getFieldRow( $template, $element );
+			if( $element != '' ) {
+				$fieldrows .= self::getFieldRow( $template, $element );
+			}
 		}
 		return [ $fieldrows, 'noparse' => false ];
 	}

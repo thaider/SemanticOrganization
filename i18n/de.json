@@ -213,6 +213,14 @@
 	"semorg-field-project-team-name": "Teammitglieder",
 	"semorg-field-project-budget-name": "Budget",
 
+	"semorg-project-subpage-page-name": "Projektunterseiten",
+	"semorg-project-subpage-entity-name": "Projektunterseite",
+	"semorg-form-project-subpage-create-title": "Projektunterseite erstellen",
+	"semorg-form-project-subpage-edit-title": "Projektunterseite bearbeiten", 
+	"semorg-forminput-project-subpage-placeholder": "Name der Unterseite",
+	"semorg-field-project-subpage-project-name": "Projekt", 
+	"semorg-field-project-subpage-subpage-name": "Unterseite", 
+
 	"semorg-field-project-team-project-name": "Projekt", 
 	"semorg-field-project-team-team-external-name": "Team (extern)", 
 	"semorg-field-project-team-role-name": "Rolle", 
@@ -468,10 +476,10 @@
 	"semorg-field-working-time-time-name": "Uhrzeit",
 	"semorg-field-working-time-note-name": "Anmerkungen",
 
+	"semorg-vacation-page-name": "Urlaube",
+	"semorg-vacation-entity-name": "Urlaub",
 	"semorg-form-vacation-create-title": "Urlaub erstellen",
 	"semorg-form-vacation-edit-title": "Urlaub bearbeiten",
-	"semorg-form-vacation-page-name": "Urlaube",
-	"semorg-form-vacation-entity-name": "Urlaub",
 	"semorg-field-vacation-person-name": "Name",
 	"semorg-field-vacation-start-date-name": "von",
 	"semorg-field-vacation-end-date-name": "bis",
