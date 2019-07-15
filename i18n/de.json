@@ -253,7 +253,7 @@
 	"semorg-field-meeting-location-name": "Ort",
 	"semorg-field-meeting-participant-name": "TeilnehmerInnen",
 	"semorg-field-meeting-excused-name": "entschuldigt",
-	"semorg-field-meeting-secretary-name": "Protokollführung",
+	"semorg-field-meeting-secretary-name": "Protokoll",
 	"semorg-field-meeting-moderator-name": "Moderation",
 	"semorg-field-meeting-overview-name": "Übersicht",
 	"semorg-field-meeting-overview-help": "Inhaltliche Schwerpunkte des Treffens in Stichworten. (Wird in der Übersicht angezeigt.)",
@@ -478,6 +478,7 @@
 
 	"semorg-vacation-page-name": "Urlaube",
 	"semorg-vacation-entity-name": "Urlaub",
+	"semorg-vacation-dashboard-title": "nächste Urlaube",
 	"semorg-form-vacation-create-title": "Urlaub erstellen",
 	"semorg-form-vacation-edit-title": "Urlaub bearbeiten",
 	"semorg-field-vacation-person-name": "Name",
@@ -565,6 +566,7 @@
 	"semorg-field-role-holders-name": "InhaberInnen",
 	"semorg-field-role-hours-name": "<abbr title='Stundenaufwand (h/Jahr)'>h</abbr>",
 
+	"semorg-role-task-dashboard-title": "Meine Rollen und ihre aktuellen Tasks",
 	"semorg-form-role-task-add-button-text": "Aufgabe hinzufügen",
 	"semorg-field-role-task-role-name": "Rolle", 
 	"semorg-field-role-task-name-name": "Aufgabe", 

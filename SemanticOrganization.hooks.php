@@ -1550,6 +1550,9 @@ class SemanticOrganizationHooks {
 		if( wfMessage( 'semorg-form-' . $template . '-page-name' )->exists() ) {
 			$links .= '{{#semorg-formlink:' . $template . '|returnto={{FULLPAGENAME}}}}';
 		}
+		if( wfMessage( 'semorg-' . $template . '-dashboard-title' )->exists() ) {
+			$title = wfMessage( 'semorg-' . $template . '-dashboard-title' )->text();
+		}
 		if( isset( $dashboardoptions['title'] ) ) {
 			$title = $dashboardoptions['title'];
 		}
