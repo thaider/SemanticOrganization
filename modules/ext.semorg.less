@@ -59,6 +59,10 @@ a.new:hover {
 }
 .semorg-showedit .fa {
 	font-size:small;
+	color:#999;
+}
+.semorg-showedit .fa:hover {
+	color:#333;
 }
 
 /* AGENDA */
@@ -169,9 +173,18 @@ a.new:hover {
 .ui-datepicker-trigger {
 	width:30px;
 	padding:0;
+	background: none;
+	border: none;
+	color: #666;
+	cursor: pointer;
+}
+.ui-datepicker-trigger:before {
+	content: "\f073";
+	font-family: "Font Awesome 5 Free";
 }
 .ui-datepicker-trigger img {
 	margin-left:-5px;
+	display:none;
 }
 
 
