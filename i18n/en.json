@@ -211,6 +211,7 @@
 	"semorg-list-person-user-headers": "person-name, person-address",
 	"semorg-tab-person-user-details": "User Details",
 	"semorg-tab-person-user-contact": "Contact History",
+	"semorg-tab-person-user-roles": "Roles",
 
 	"semorg-person-contact-template": "semorg-person-contact",
 	"semorg-person-contact-category": "semorg-person-contact",
@@ -872,6 +873,8 @@
 	"semorg-field-group-member-end-date-name": "Member until", 
 	"semorg-field-group-member-end-date-parameters": "input type=datepicker|size=10", 
 	"semorg-field-group-member-end-date-prefix": "until&nbsp;",
+	"semorg-tab-group-meetings": "Meetings",
+	"semorg-tab-group-roles": "Roles",
 
 	"semorg-transfer-template": "semorg-transfer",
 	"semorg-transfer-category": "semorg-transfer",

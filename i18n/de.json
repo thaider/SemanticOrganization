@@ -177,6 +177,7 @@
 	"semorg-forminput-person-user-placeholder": "Benutzername",
 	"semorg-tab-person-user-details": "Benutzerdetails",
 	"semorg-tab-person-user-contact": "Kontaktgeschichte",
+	"semorg-tab-person-user-roles": "Rollen",
 
 	"semorg-person-contact-page-name": "Kontakte",
 	"semorg-person-contact-entity-name": "Kontakt",
@@ -338,8 +339,8 @@
 	"semorg-form-membership-exit-edit-title": "Austrittserklärung bearbeiten",
 	"semorg-form-membership-exit-create-title": "Austrittserklärung erstellen",
 
-	"semorg-form-membership-payment-page-name": "Zahlungen",
-	"semorg-form-membership-payment-entity-name": "Zahlung",
+	"semorg-membership-payment-page-name": "Zahlungen",
+	"semorg-membership-payment-entity-name": "Zahlung",
 	"semorg-form-membership-payment-create-title": "Ein-/Auszahlung von Geschäftsanteilen erstellen",
 	"semorg-form-membership-payment-edit-title": "Ein-/Auszahlung vog Geschäftsanteilen bearbeiten",
 	"semorg-field-membership-payment-amount-name": "Betrag",
@@ -501,6 +502,8 @@
 	"semorg-field-group-host-name": "Host", 
 	"semorg-field-group-properties-name": "Eigenschaften", 
 	"semorg-field-group-members-name": "Mitglieder",
+	"semorg-tab-group-meetings": "Treffen",
+	"semorg-tab-group-roles": "Rollen",
 
 	"semorg-form-group-member-add-button-text": "Mitglied hinzufügen",
 	"semorg-field-group-member-group-name": "Gremium", 
