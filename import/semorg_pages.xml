@@ -889,16 +889,16 @@
     <ns>10</ns>
     <id>81</id>
     <revision>
-      <id>2502</id>
-      <parentid>2501</parentid>
-      <timestamp>2019-07-13T20:03:45Z</timestamp>
+      <id>2543</id>
+      <parentid>2542</parentid>
+      <timestamp>2019-07-15T18:42:53Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1896">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-set:meeting
+      <text xml:space="preserve" bytes="1967">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-meeting-category}}]][[Category:{{int:semorg-meeting-group-category}}]]{{#semorg-set:meeting
   |group={{{group|}}}
   |date={{{date|{{{start-date|}}}}}}
   |start-date={{{start-date|{{{date|}}}}}}
@@ -929,7 +929,9 @@
   |participant={{{participant|}}}
   |excused={{{excused|}}}
   |guest={{{guest|}}}
-}}[[Category:{{int:semorg-meeting-group-category}}]]{{DISPLAYTITLE:{{int:semorg-meeting-displaytitle|{{{group|}}}|{{{date|}}}}}}} __NUMBEREDHEADINGS__ __FORCETOC__
+}}{{#semorg-detail:meeting-group
+  |heading={{int:semorg-meeting-displaytitle|{{{group|}}}|{{{date|}}}}}
+}} __NUMBEREDHEADINGS__ __FORCETOC__
 
 {{#semorg-table:meeting
   |group=[[{{{group|}}}]]
@@ -955,9 +957,8 @@
   |secretary={{semorg-person-link|{{{secretary|}}}}}
   |moderator={{semorg-person-link|{{{moderator|}}}}}
   |files=&lt;ul&gt;{{{files|}}}&lt;/ul&gt;
-}}
-&lt;/includeonly&gt;</text>
-      <sha1>bh4fr3mmuy3moct91qlw7545lk5roqn</sha1>
+}}&lt;/includeonly&gt;</text>
+      <sha1>1ll6xijrvwq2cgjsfklqrrxnoazkl80</sha1>
     </revision>
   </page>
   <page>
@@ -7758,4 +7759,229 @@ Dies ist die Vorlage „{{PAGENAME}}“.
       <sha1>ouo6x5n6saaq0r6c0saqw7ljb0l3xb2</sha1>
     </revision>
   </page>
+  <page>
+    <title>Template:Semorg-task-dashboard</title>
+    <ns>10</ns>
+    <id>724</id>
+    <revision>
+      <id>2527</id>
+      <parentid>2526</parentid>
+      <timestamp>2019-07-15T16:09:39Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="161">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:task
+  |query=[[semorg-task-responsible::{{{user|{{#semorg-user:}}}}}]]
+}}&lt;/includeonly&gt;</text>
+      <sha1>jksujzcerggxubv10x2vtqaqsqd2wt2</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-project-dashboard</title>
+    <ns>10</ns>
+    <id>725</id>
+    <revision>
+      <id>2528</id>
+      <timestamp>2019-07-15T16:11:20Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:project   |query=-semorg-project-team-project.semorg-project-team-team::{{{user|{{#semorg-user:}}}}}...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="194">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:project
+  |query=[[-semorg-project-team-project.semorg-project-team-team::{{{user|{{#semorg-user:}}}}}]]
+}}&lt;/includeonly&gt;</text>
+      <sha1>4f7mhqjdsu8ofos6h0slm08rd61s454</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-role-task-dashboard</title>
+    <ns>10</ns>
+    <id>726</id>
+    <revision>
+      <id>2532</id>
+      <parentid>2529</parentid>
+      <timestamp>2019-07-15T16:24:12Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="907">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{semorg-card
+  |title={{int:semorg-role-task-dashboard-title}}
+  |links=[[{{int:semorg-role-page-name}}|&lt;span class=&quot;btn btn-sm btn-secondary&quot;&gt;{{int:semorg-dashboard-link-all|{{int:semorg-role-page-name}}}}&lt;/span&gt;]] {{#semorg-formlink:role|returnto={{FULLPAGENAME}}}}
+  |body={{#ask:[[-semorg-role-holder-role.semorg-role-holder-holder::{{{user|{{#semorg-user:}}}}}]]
+    |format=list
+  }}
+  |tables={{#semorg-list:role-task
+    |category=-
+    |headers=-
+    |query=[[semorg-role-task-name::+]][[semorg-role-task-month::{{#expr:{{CURRENTMONTH1}}-1}}||{{CURRENTMONTH1}}||{{#expr:{{CURRENTMONTH1}}+1}}]][[semorg-role-task-role.-semorg-role-holder-role.semorg-role-holder-holder::{{{user|{{#semorg-user:}}}}}]]
+    |row template=role-task-schedule
+    |?semorg-role-task-role.semorg-role-name=role-name
+    |tableclass=table table-sm
+  }}
+}}&lt;/includeonly&gt;</text>
+      <sha1>c8jmb83edsnps0uos3sg3fjauxoom54</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-group-dashboard</title>
+    <ns>10</ns>
+    <id>727</id>
+    <revision>
+      <id>2531</id>
+      <timestamp>2019-07-15T16:20:32Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:group   |query=[[-semorg-group-member-group.semorg-group-member-member::{{{user|{{#semorg-user:}}}}}]]...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="192">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:group
+  |query=[[-semorg-group-member-group.semorg-group-member-member::{{{user|{{#semorg-user:}}}}}]]
+}}&lt;/includeonly&gt;</text>
+      <sha1>mgiyizey1dngo9pvdmuf8dv96irr46x</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-meeting-group-dashboard</title>
+    <ns>10</ns>
+    <id>728</id>
+    <revision>
+      <id>2544</id>
+      <parentid>2541</parentid>
+      <timestamp>2019-07-15T18:43:15Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="555">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:meeting
+  |query=[[semorg-meeting-group.-semorg-group-member-group.semorg-group-member-member::{{{user|{{#semorg-user:}}}}}]]
+  |row template=meeting-group
+  |title={{int:semorg-dashboard-title|{{int:semorg-meeting-group-page-name}}}}
+  |links=[[{{int:semorg-meeting-group-page-name}}|&lt;span class=&quot;btn btn-sm btn-secondary&quot;&gt;{{int:semorg-dashboard-link-all|{{int:semorg-meeting-group-page-name}}}}&lt;/span&gt;]]{{#semorg-formlink:meeting-group|returnto={{FULLPAGENAME}}}}
+}}&lt;/includeonly&gt;</text>
+      <sha1>hi3eiv8wexotva2ldqqtyw46mpzqu05</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-vacation-dashboard</title>
+    <ns>10</ns>
+    <id>729</id>
+    <revision>
+      <id>2537</id>
+      <parentid>2536</parentid>
+      <timestamp>2019-07-15T16:31:54Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="147">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-dashboard:vacation
+  |tables=-
+  |body={{semorg-vacation-upcoming}}
+}}&lt;/includeonly&gt;</text>
+      <sha1>t2ulq8udw022gnu1n34hvrh9amy3wct</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-person-user-roles-tab</title>
+    <ns>10</ns>
+    <id>730</id>
+    <revision>
+      <id>2547</id>
+      <timestamp>2019-07-16T15:20:29Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-formlink:role   |returnto={{FULLPAGENAME}} }}  {{#semorg-list:role   |query=-semorg-role-holder-role.semorg-ro...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="562">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-formlink:role
+  |returnto={{FULLPAGENAME}}
+}}
+
+{{#semorg-list:role
+  |query=[[-semorg-role-holder-role.semorg-role-holder-holder::{{FULLPAGENAME}}]]
+}}
+
+{{#semorg-list:role-task
+  |category=-
+  |headers=-
+  |query=[[semorg-role-task-name::+]][[semorg-role-task-month::+]][[semorg-role-task-role.-semorg-role-holder-role.semorg-role-holder-holder::{{FULLPAGENAME}}]]
+  |row template=role-task-schedule
+  |?semorg-role-task-role.semorg-role-name=role-name
+  |tableclass=table table-sm
+}}&lt;/includeonly&gt;</text>
+      <sha1>jm8s5ghpdwqgwmcn70xqydj1dkvgfw9</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-group-roles-tab</title>
+    <ns>10</ns>
+    <id>731</id>
+    <revision>
+      <id>2548</id>
+      <timestamp>2019-07-16T15:32:18Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-formlink:role   |returnto={{FULLPAGENAME}}   |query string=semorg-role[group]={{FULLPAGENAME}} }}  {{#semorg-lis...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="548">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-formlink:role
+  |returnto={{FULLPAGENAME}}
+  |query string=semorg-role[group]={{FULLPAGENAME}}
+}}
+
+{{#semorg-list:role
+  |query=[[semorg-role-group::{{FULLPAGENAME}}]]
+}}
+
+{{#semorg-list:role-task
+  |category=-
+  |headers=-
+  |query=[[semorg-role-task-name::+]][[semorg-role-task-month::+]][[semorg-role-task-role.semorg-role-group::{{FULLPAGENAME}}]]
+  |row template=role-task-schedule
+  |?semorg-role-task-role.semorg-role-name=role-name
+  |tableclass=table table-sm
+}}&lt;/includeonly&gt;</text>
+      <sha1>0spezh6cnflobhclq3q9qedso7plmv5</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Form:Semorg-message</title>
+    <ns>106</ns>
+    <id>600</id>
+    <revision>
+      <id>2549</id>
+      <parentid>2425</parentid>
+      <timestamp>2019-07-16T16:14:43Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="201">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#tweekibodyclass:semorg-message-edit}}{{{standard input|free text|default={{int:{{PAGENAME}} }} }}}
+
+{{semorg-form-standard-inputs}}&lt;/includeonly&gt;</text>
+      <sha1>amv6srargtsotzh9cbjvaa9vupncflu</sha1>
+    </revision>
+  </page>
 </mediawiki>
+<br />
+<b>Warning</b>:  Cannot modify header information - headers already sent by (output started at /var/www/oteloegen.at/semorg/w/includes/export/DumpOutput.php:82) in <b>/var/www/oteloegen.at/semorg/w/includes/WebResponse.php</b> on line <b>154</b><br />
