@@ -343,6 +343,7 @@
 	"semorg-membership-payment-entity-name": "Zahlung",
 	"semorg-form-membership-payment-create-title": "Ein-/Auszahlung von Geschäftsanteilen erstellen",
 	"semorg-form-membership-payment-edit-title": "Ein-/Auszahlung vog Geschäftsanteilen bearbeiten",
+	"semorg-form-membership-payment-page-name": "Zahlung",
 	"semorg-field-membership-payment-amount-name": "Betrag",
 	"semorg-field-membership-payment-amount-help": "Für eine Auszahlung einen negativen Betrag eingeben.",
 	"semorg-field-membership-payment-date-name": "Datum",
