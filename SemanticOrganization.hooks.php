@@ -54,6 +54,7 @@ class SemanticOrganizationHooks {
 			'documentation' => 'renderDocumentation',
 			'schedule' => 'renderSchedule',
 			'dashboard' => 'renderDashboard',
+			'role-link' => 'renderRoleLink',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -1582,6 +1583,41 @@ class SemanticOrganizationHooks {
 
 		$dashboard = '{{semorg-card' . $dashboard . '}}';
 		return array( $dashboard, 'noparse' => false );
+	}
+
+
+	/**
+	 * Render a link to a role
+	 */
+	static function renderRoleLink( &$parser ) {
+		$rolelink = '';
+		$parameter = func_get_args()[1];
+		$parameter = trim( $parameter );
+		if( $parameter != '' ) {
+			$parametertitle = Title::newFromText( $parameter );
+
+			// is the parameter the name of a page?
+			if( $parametertitle->exists() ) {
+				return [ '[[' . $parameter . '|{{#show:' . $parameter . '|?semorg-role-name}}]]', 'noparse' => false ];
+			} else {
+
+				// is the parameter the value of a page's semorg-role-name attribute?
+				$parameterrole = $parser->recursiveTagParse( '{{#ask:[[semorg-role-name::' . $parameter . ']]|link=none|limit=1|searchlabel=}}' );
+				if( $parameterrole != '' ) {
+					return [ $parameterrole, 'noparse' => false ];
+
+				// show a link to create a new role with that name
+				} else {
+					$newlink = Title::newFromText( 'Special:FormEdit/' . wfMessage( 'semorg-role-form' ) )->getFullURL( wfMessage('semorg-role-template') . '[name]=' . $parameter );
+					if( wfMessage('semorg-formlink-role-link-text')->exists() ) {
+						$newlink_tooltip = wfMessage('semorg-formlink-role-link-text')->text();
+					} else {
+						$newlink_tooltip = wfMessage('semorg-formlink-generic-link-text')->params( wfMessage('semorg-role-entity-name')->text() )->text();
+					}
+					return [ '<a href="' . $newlink . '" class="new" data-toggle="tooltip" title="' . $newlink_tooltip . '">' . htmlentities( $parameter ) . '</a>', 'noparse' => true, 'isHTML' => true ];
+				}
+			}
+		}
 	}
 
 
