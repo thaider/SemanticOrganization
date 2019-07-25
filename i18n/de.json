@@ -370,11 +370,18 @@
 	"semorg-field-salary-children-name": "Kinder (Geburtsjahre)",
 	"semorg-field-salary-children-placeholder": "Anzahl der Kinder (Geburtsjahre)",
 
+	"semorg-salary-entry-displaytitle": "Dienstvertrag $1",
 	"semorg-form-salary-entry-create-title": "Dienstvertrag erstellen",
 	"semorg-form-salary-entry-edit-title": "Dienstvertrag bearbeiten",
 
+	"semorg-salary-change-displaytitle": "Gehaltsänderung $1",
 	"semorg-form-salary-change-create-title": "Gehaltsänderung erstellen",
 	"semorg-form-salary-change-edit-title": "Gehaltsänderung bearbeiten",
+
+	"semorg-salary-exit-displaytitle": "Kündigung $1",
+	"semorg-form-salary-exit-create-title": "Kündigung erstellen",
+	"semorg-form-salary-exit-edit-title": "Kündigung bearbeiten",
+	"semorg-form-salary-exit-page-name": "Kündigung",
 
 	"semorg-gdpr-processing-displaytitle": "Datenanwendung $1",
 	"semorg-gdpr-processing-page-name": "Verfahrensverzeichnis",
