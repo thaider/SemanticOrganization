@@ -456,6 +456,7 @@
 	"semorg-form-meeting-department-rows": "department,datetime,location,participant,excused,secretary,moderator,overview,guest",
 	"semorg-form-meeting-department-template": "meeting",
 
+	"semorg-file-template": "semorg-file",
 	"semorg-form-file-add-button-text": "Add file",
 	"semorg-form-file-template": "file",
 	"semorg-form-file-rows": "file,link-text,description",

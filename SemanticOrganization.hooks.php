@@ -1594,10 +1594,20 @@ class SemanticOrganizationHooks {
 		$parameter = func_get_args()[1];
 		$parameter = trim( $parameter );
 		if( $parameter != '' ) {
+			$isRoleTitle = false;
 			$parametertitle = Title::newFromText( $parameter );
 
-			// is the parameter the name of a page?
 			if( $parametertitle->exists() ) {
+				$parameterpage = WikiPage::factory( $parametertitle );
+				foreach( $parameterpage->getCategories() as $cat ) {
+					if( lcfirst( $cat->getText() ) === wfMessage('semorg-role-template')->text() ) {
+						$isRoleTitle = true;
+					}
+				}
+			}
+
+			// is the parameter the name of a page in the roles' category?
+			if( $isRoleTitle ) {
 				return [ '[[' . $parameter . '|{{#show:' . $parameter . '|?semorg-role-name}}]]', 'noparse' => false ];
 			} else {
 
