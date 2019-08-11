@@ -685,6 +685,8 @@
 	"semorg-field-expense-amount-gross-placeholder": "Brutto", 
 	"semorg-field-expense-amount-net-name": "Nettobetrag", 
 	"semorg-field-expense-amount-net-placeholder": "Netto", 
+	"semorg-field-expense-vat-name": "Umsatzsteuer", 
+	"semorg-field-expense-type-name": "Typ", 
 	"semorg-field-expense-account-name": "Kostenstelle", 
 
 	"semorg-task-page-name": "Todos",
