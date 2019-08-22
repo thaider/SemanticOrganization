@@ -21,6 +21,8 @@
 	"semorg-tooltip-edit": "bearbeiten",
 	"semorg-tooltip-edit-mail-template": "E-Mail-Vorlage bearbeiten",
 	"semorg-tooltip-create-person": "Person neu anlegen",
+	"semorg-tooltip-printable-create": "Inhaltsblock für die Druckausgabe erstellen",
+	"semorg-tooltip-printable-edit": "Inhaltsblock für die Druckausgabe bearbeiten",
 
 	"semorg-timespan-since": "seit {{#time:j.n.y|$1}}",
 	"semorg-timespan-until": "bis {{#time:j.n.y|$1}}",

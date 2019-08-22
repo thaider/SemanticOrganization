@@ -29,6 +29,8 @@
 	"semorg-tooltip-edit": "edit",
 	"semorg-tooltip-edit-mail-template": "Edit e-mail template",
 	"semorg-tooltip-create-person": "Create new person",
+	"semorg-tooltip-printable-create": "Create content block for printable version",
+	"semorg-tooltip-printable-edit": "Edit content block for printable version",
 
 	"semorg-timespan-since": "since {{#time:Y-n-j|$1}}",
 	"semorg-timespan-until": "until {{#time:Y-n-j|$1}}",

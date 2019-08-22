@@ -645,6 +645,11 @@ class SemanticOrganizationHooks {
 
 		$list = $parser->recursiveTagParse( $query );
 
+		if( isset( $listoptions['csv'] ) ) {
+			$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'] );
+			$list = '<div class="semorg-csv-download">' . $parser->recursiveTagParse( $download ) . '</div>' . $list;
+		}
+
 		// Filterbox
 		if( isset( $filter_links ) ) {
 			$filter_links_values = [];
@@ -673,11 +678,6 @@ class SemanticOrganizationHooks {
 			}
 		}
 
-		if( isset( $listoptions['csv'] ) ) {
-			$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'] );
-			$list .= $parser->recursiveTagParse( $download );
-		}
-
 		return [ $list, 'noparse' => true, 'isHTML' => true ];
 	}
 
@@ -704,7 +704,8 @@ class SemanticOrganizationHooks {
 		}
 		$csv .= '|format=csv';
 		$csv .= '|sep=;';
-		$csv .= '|searchlabel=<span class="semorg-csv-download">' . wfMessage( 'semorg-download-csv-text' )->plain() . '</span>';
+		$csv .= '|limit=1000';
+		$csv .= '|searchlabel=<i class="fa fa-download"></i> ' . wfMessage( 'semorg-download-csv-text' )->plain();
 		$csv .= '}}';
 		return $csv;
 	}
