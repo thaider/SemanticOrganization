@@ -846,7 +846,7 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $fieldoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->text();
+			return wfMessage( 'semorg-form-notemplate', '#semorg-fields' )->text();
 		}
 		$template = $fieldoptions['template'];
 
@@ -868,7 +868,7 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $fieldoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->text();
+			return wfMessage( 'semorg-form-notemplate', '#semorg-field' )->text();
 		}
 		$template = $fieldoptions['template'];
 
@@ -886,7 +886,7 @@ class SemanticOrganizationHooks {
 		
 		// wurde template gesetzt?
 		if( !isset( $fieldoptions['template'] ) ) {
-			return wfMessage( 'semorg-form-notemplate' )->text();
+			return wfMessage( 'semorg-form-notemplate', '#semorg-field-rows' )->text();
 		}
 		$template = $fieldoptions['template'];
 

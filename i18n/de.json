@@ -58,8 +58,8 @@
 	"semorg-process-progress-steps": "$1 von $2 {{plural:$2|Schritt|Schritten}} abgeschlossen",
 
 	"semorg-form-standard-input-save-label": "Speichern",
-	"semorg-form-notemplate": "Parameter <code>template</code> wurde beim Aufruf von <code>#semorg-form</code> nicht gesetzt",
-	"semorg-form-noelements": "Parameter <code>elements</code> wurde beim Aufruf von <code>#semorg-form</code> nicht gesetzt",
+	"semorg-form-notemplate": "Parameter <code>template</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
+	"semorg-form-noelements": "Parameter <code>elements</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
 	"semorg-form-freestyle-legend": "Freestyle",
 
 	"semorg-list-proposal-default": "keine Beschlüsse bisher…",
