@@ -119,6 +119,8 @@
 	"semorg-value-salary-type-entry": "Dienstvertrag",
 	"semorg-value-salary-type-change": "Gehaltsänderung",
 	"semorg-value-salary-type-exit": "Kündigung",
+	"semorg-value-status-open": "laufend",
+	"semorg-value-status-closed": "abgeschlossen",
 
 	"semorg-form-person-edit-title": "Person bearbeiten",
 	"semorg-form-person-create-title": "Person erstellen",
@@ -215,6 +217,9 @@
 	"semorg-field-project-desc-name": "Kurzbeschreibung",
 	"semorg-field-project-team-name": "Teammitglieder",
 	"semorg-field-project-budget-name": "Budget",
+	"semorg-field-project-closed-name": "Geschlossen", 
+	"semorg-field-project-closed-suffix": "&nbsp;geschlossen",
+	"semorg-field-project-status-name": "Projektende",
 
 	"semorg-project-subpage-page-name": "Projektunterseiten",
 	"semorg-project-subpage-entity-name": "Projektunterseite",
