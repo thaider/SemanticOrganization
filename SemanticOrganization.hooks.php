@@ -1601,7 +1601,7 @@ class SemanticOrganizationHooks {
 			if( $parametertitle->exists() ) {
 				$parameterpage = WikiPage::factory( $parametertitle );
 				foreach( $parameterpage->getCategories() as $cat ) {
-					if( lcfirst( $cat->getText() ) === wfMessage('semorg-role-template')->text() ) {
+					if( lcfirst( $cat->getText() ) === wfMessage('semorg-role-category')->text() ) {
 						$isRoleTitle = true;
 					}
 				}
