@@ -55,6 +55,8 @@ class SemanticOrganizationHooks {
 			'schedule' => 'renderSchedule',
 			'dashboard' => 'renderDashboard',
 			'role-link' => 'renderRoleLink',
+			'datediff' => 'getDateDiff',
+			'round' => 'getRound',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -75,6 +77,58 @@ class SemanticOrganizationHooks {
 	 */
 	static function getUser( &$parser ) {
 		return $parser->getUser()->getUserPage()->getFullText();
+	}
+
+
+	/**
+	 * Return difference of two given datetimes
+	 */
+	static function getDateDiff( &$parser ) {
+		$start = new Datetime( func_get_arg( 1 ) );
+		$end = new Datetime( func_get_arg( 2 ) );
+
+		if( func_num_args() > 3 ) {
+			switch( func_get_arg( 3 ) ) {
+				case 'days':
+					$divisor = 60 * 60 * 24;
+					break;
+				case 'hours':
+					$divisor = 60 * 60;
+					break;
+				case 'minutes':
+					$divisor = 60;
+					break;
+				case 'seconds':
+					$divisor = 1;
+					break;
+			}
+		} else {
+			$divisor = 60 * 60;
+		}
+
+		$diff = round( ( $end->format('U') - $start->format('U') ) / $divisor );
+
+		return $diff;
+	}
+
+
+	/**
+	 * Round a number
+	 */
+	static function getRound( &$parser ) {
+		$lang = $parser->getTargetLanguage()->getCode();
+		setlocale( LC_MONETARY, $lang );
+		setlocale( LC_MONETARY, 'de_DE' );
+		$currency_string = money_format( '%.2n', func_get_arg( 1 ) );
+		return $currency_string;
+		$precision = 0;
+		if( func_num_args() > 2 ) {
+			$precision = func_get_arg( 2 );
+		}
+
+		$rounded = round( func_get_arg( 1 ), $precision );
+
+		return $rounded;
 	}
 
 
@@ -212,7 +266,7 @@ class SemanticOrganizationHooks {
 				$parameters['link text'] = '';
 			}
 		}
-		$parameters['link text'] = '<span class="btn btn-secondary btn-sm">' . $parameters['link text'] . '</span>';
+		$parameters['link text'] = '<span class="btn btn-secondary btn-sm d-print-none">' . $parameters['link text'] . '</span>';
 
 		$formlink = '{{#formlink:';
 		foreach( $parameters as $parameter => $value ) {
@@ -587,6 +641,65 @@ class SemanticOrganizationHooks {
 				}
 			}
 		}
+
+		// Set defaults for parameters
+		$parameters['limit'] = $wgSemorgListLimit;
+		$parameters['default'] = wfMessage('semorg-list-default');
+		
+		// Parameters for sorting, ordering, default (queries without results), limit, userparam
+		foreach( ['sort', 'order', 'default', 'limit', 'userparam' ] as $parameter ) {
+
+			// set by a message?
+			if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
+				$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
+			}
+			// explicitly set by parser function parameter?
+			if( isset( $listoptions[$parameter] ) ) {
+				$parameters[$parameter] = $listoptions[$parameter];
+			}
+			// explicitly set by query parameter?
+			if( !is_null( $request->getVal( $parameter ) ) && $request->getVal( $parameter ) > 0 ) {
+				$parameters[$parameter] = $request->getVal( $parameter );
+			}
+		}
+
+		// Apply parameters...
+		foreach( $parameters as $parameter => $value ) {
+			if( $value != '' ) {
+				$query_string .= '|' . $parameter . '=' . $value;
+			}
+		}
+
+		// Page number, limit, offset
+		$count = (int) $parser->recursiveTagParse( '{{#ask:' . $query_string . '|format=count}}' );
+		$limit = $parameters['limit'];
+		$page = 1;
+		if( $request->getInt( 'page' ) > 1 ) {
+			$page = min( $request->getInt( 'page' ), ceil( $count / $limit ) );
+		}
+		if( $request->getInt( 'page' ) > 1 ) {
+			$parameters['offset'] = ($page-1) * $limit;
+		}
+		
+		// Sums
+		$sums = '';
+		if( isset( $listoptions['sums'] ) ) {
+			$sums = '<tr class="semorg-sums sortbottom">';
+			foreach( explode(',', $listoptions['sums'] )  as $sum ) {
+				$sums .= '<td style="text-align:right">';
+				if( $sum != '' ) {
+					$sum_query = '{{#ask:' . $query_string . '|?semorg-' . $sum . '|format=sum}}';
+					if( wfMessage('semorg-list-' . $sum . '-sum-template' )->exists() ) {
+						$sums .= '{{' . wfMessage('semorg-list-' . $sum . '-sum-template' )->text() . '|' . $sum_query . '}}';
+					} else {
+						$sums .= $sum_query;
+					}
+				}
+				$sums .= '</td>';
+			}
+			$sums .= '<td class="semorg-showedit"></td>';
+			$sums .= '</tr>';
+		}
 		
 		$query = '{{#ask:' . $query_string;
 
@@ -610,37 +723,16 @@ class SemanticOrganizationHooks {
 		$query .= '|link=none|named args=yes|format=template';
 		$query .= '|template=semorg-' . $row_template . '-row';
 		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
-		$query .= '|outro={{semorg-list-outro}}';
-
-		// Parameters for sorting, ordering, searchlabel, default (queries without results)
-		foreach( ['sort', 'order', 'default', 'limit', 'userparam' ] as $parameter ) {
-			$parameters[$parameter] = '';
-
-			// set default limit
-			if( $parameter == 'limit' ) {
-				$parameters[$parameter] = $wgSemorgListLimit;
-			}
-
-			// set by a message?
-			if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
-				$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
-			}
-			// explicitly set by parser function parameter?
-			if( isset( $listoptions[$parameter] ) ) {
-				$parameters[$parameter] = $listoptions[$parameter];
-			}
-			// apply if set...
-			if( $parameters[$parameter] != '' ) {
-				$query .= '|' . $parameter . '=' . $parameters[$parameter];
+		$query .= '|outro=' . $sums . '{{semorg-list-outro}}';
+		
+		// apply parameters...
+		foreach( $parameters as $parameter => $value ) {
+			if( $value != '' ) {
+				$query .= '|' . $parameter . '=' . $value;
 			}
 		}
 
-		$limit = $parameters['limit'];
 		$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
-		if( $request->getInt( 'page' ) > 1 ) {
-			$query .= '|offset=' . ($request->getInt( 'page' )-1) * $limit;
-		}
-
 		$query .= '}}';
 
 		$list = $parser->recursiveTagParse( $query );
@@ -667,15 +759,13 @@ class SemanticOrganizationHooks {
 		}
 
 		// pagination
-		$count = (int) $parser->recursiveTagParse( '{{#ask:' . $query_string . '|format=count}}' );
-		$page = 1;
-		if( $request->getInt( 'page' ) > 1 ) {
-			$page = $request->getInt( 'page' );
-		}
 		if( !isset( $listoptions['nopagination'] ) ) {
+			$list .= '<div class="semorg-pagination d-print-none">';
 			if( $page > 1 || $count > $limit ) {
 				$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
 			}
+			$list .= self::getPagesizeBox( $parser, $applied_filters, $count, $limit, $page );
+			$list .= '</div>';
 		}
 
 		return [ $list, 'noparse' => true, 'isHTML' => true ];
@@ -916,7 +1006,8 @@ class SemanticOrganizationHooks {
 			'placeholder',
 			'input-type',
 			'values',
-			'mapping-template'
+			'mapping-template',
+			'default'
 		] as $parameter ) {
 			if( !wfMessage($fullelement . '-' . $parameter)->isDisabled() ) {
 				$field .= '|' . str_replace('-', ' ', $parameter) . '=' . wfMessage($fullelement . '-' . $parameter)->text();
@@ -1470,8 +1561,44 @@ class SemanticOrganizationHooks {
 		}
 
 		$pagination = '<nav aria-label="' . wfMessage( 'semorg-pagination-label' )->text() . '"><ul class="pagination pagination-sm">' . $pagination . '</ul></nav>';
-		$pagination = '<div class="semorg-pagination">' . $pagination . '</div>';
+		$pagination = '<div class="semorg-pagination-pagination">' . $pagination . '</div>';
 		return $pagination;
+	}
+
+
+	/**
+	 * Get page size box
+	 *
+	 * @param Parser $parser Parser
+	 * @param Array $applied_filters List of applied filters and the applied value
+	 * @param Integer $count Number of rows
+	 * @param Integer $limit Page size
+	 * @param Integer $page Page number
+	 * 
+	 * @return string HTML code for page size selection
+	 */
+	static function getPagesizeBox( $parser, $applied_filters, $count, $limit, $page = 1 ) {
+		if( $count == 0 ) {
+			return '';
+		}
+
+		$pagesize = '';
+
+		$sizes = [ 20, 50, 100 ];
+		$sizes = array_unique( array_merge( $sizes, [ (int) $limit ] ) );
+		sort( $sizes );
+		foreach( $sizes as $size ) {
+			$pagesize_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'limit' => $size ] ) );
+			if( $size != $limit ) {
+				$pagesize .= '<li class="page-item"><a class="page-link" href="' . $pagesize_url . '">' . $size . '</a></li>';
+			} else {
+				$pagesize .= '<li class="page-item active" aria-current="pagesize"><a class="page-link" href="' . $pagesize_url . '">' . $size . '<span class="sr-only">(current)</span></a></li>';
+			}
+		}
+
+		$pagesize = '<nav aria-label="' . wfMessage( 'semorg-pagesize-label' )->text() . '"><ul class="pagination pagination-sm">' . $pagesize . '</ul></nav>';
+		$pagesize = '<div class="semorg-pagination-pagesize">' . $pagesize . '</div>';
+		return $pagesize;
 	}
 
 
@@ -1484,6 +1611,23 @@ class SemanticOrganizationHooks {
 	 */
 	static function getFilterURL( $parser, $filters_to_apply ) {
 		$query_string = '';
+
+		// Apply limit
+		if( isset( $filters_to_apply['limit'] ) ) {
+
+			// explicit unsetting
+			if( $filters_to_apply['limit'] == '' ) {
+				unset( $filters_to_apply['limit'] );
+			}
+		} else {
+
+			// use request query if available and limit hasn't been explicitly set
+			if( $parser->getUser()->getRequest()->getInt( 'limit' ) > 0 ) {
+				$filters_to_apply['limit'] = $parser->getUser()->getRequest()->getInt( 'limit' );
+			}
+		}
+
+		// Add filters to query string for URL
 		foreach( $filters_to_apply as $filter_property => $value ) {
 			$query_string .= $filter_property . '=' . urlencode( $value ) . '&';
 		}

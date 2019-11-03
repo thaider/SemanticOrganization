@@ -18,6 +18,7 @@
 	"semorg-pagination-label": "Page Navigation",
 	"semorg-pagination-previous-label": "Previous",
 	"semorg-pagination-next-label": "Next",
+	"semorg-pagesize-label": "Page Size",
 
 	"semorg-up-to-date-warning": "<b>Warning!</b> This page is automatically created based on the current version of the form. The version shown might differ from the real content (as printed and signed)!",
 	"semorg-invoice-storno-warning": "This invoice had been canceled",
@@ -47,6 +48,9 @@
 	"semorg-date-long-noyear": "F j",
 	"semorg-date-short-noyear": "m/d",
 
+	"semorg-datetime-long": "F j, Y H:i",
+	"semorg-datetime-short": "y-m-d H:i",
+
 	"semorg-quarter": "Q$2/$1",
 	"semorg-month": "$1-$2",
 	
@@ -74,6 +78,7 @@
 	"semorg-form-noelements": "Parameter <code>elements</code> has not been set when calling <code>$1</code>.",
 	"semorg-form-freestyle-legend": "Freestyle",
 
+	"semorg-list-default": "no entries so far…",
 	"semorg-list-proposal-default": "no proposals so far…",
 
 	"semorg-value-data-type-wpg": "Page",
@@ -133,6 +138,8 @@
 	"semorg-value-salary-type-exit": "Exit",
 	"semorg-value-status-open": "open",
 	"semorg-value-status-closed": "closed",
+	
+	"semorg-allowances-template": "semorg-allowances-at",
 
 	"semorg-person-category": "semorg-person",
 	"semorg-field-person-fullname-name": "Name",
@@ -1157,8 +1164,11 @@
 	"semorg-form-travel-expenses-edit-title": "Edit Travel Expenses", 
 	"semorg-form-travel-expenses-page-name": "Travel Expenses",
 	"semorg-form-travel-expenses-template": "travel-expenses",
-	"semorg-form-travel-expenses-rows": "person, date, time, project, description, destination, means, distance, allowance-day, allowance-night, expenses",
-	"semorg-list-travel-expenses-headers": "travel-expenses, travel-expenses-person, travel-expenses-date, travel-expenses-time, travel-expenses-project, travel-expenses-description, travel-expenses-allowances, travel-expenses-expenses, travel-expenses-total",
+	"semorg-form-travel-expenses-rows": "person, dates, project, description, destination, means, distance, allowance-day, allowance-night, expenses",
+	"semorg-list-travel-expenses-headers": "travel-expenses, travel-expenses-date, travel-expenses-description, travel-expenses-allowances, travel-expenses-expenses, travel-expenses-total",
+	"semorg-list-travel-expenses-allowances": "semorg-currency",
+	"semorg-list-travel-expenses-expenses": "semorg-currency",
+	"semorg-list-travel-expenses-total": "semorg-currency",
 	"semorg-field-travel-expenses-name": "Expenses", 
 	"semorg-field-travel-expenses-person-name": "Person", 
 	"semorg-field-travel-expenses-person-parameters": "input type=combobox|values from category=Semorg-person-user|mapping property=Semorg-person-name|default={{#semorg-user:}}",
@@ -1168,8 +1178,15 @@
 	"semorg-field-travel-expenses-project-parameters": "input type=combobox|values from category=Semorg-project",
 	"semorg-field-travel-expenses-date-name": "Date", 
 	"semorg-field-travel-expenses-date-parameters": "input type=datepicker|size=10",
+	"semorg-field-travel-expenses-dates-name": "Dates", 
+	"semorg-field-travel-expenses-dates-fields": "start,end",
+	"semorg-field-travel-expenses-start-name": "Start", 
+	"semorg-field-travel-expenses-start-parameters": "input type=datetimepicker|size=10|mandatory",
+	"semorg-field-travel-expenses-start-suffix": "&nbsp;–&nbsp;",
+	"semorg-field-travel-expenses-end-name": "End", 
+	"semorg-field-travel-expenses-end-parameters": "input type=datetimepicker|size=10|mandatory",
 	"semorg-field-travel-expenses-expenses-name": "Expenses", 
-	"semorg-field-travel-expenses-expenses-parameters": "size=5",
+	"semorg-field-travel-expenses-expenses-parameters": "size=15",
 	"semorg-field-travel-expenses-description-name": "Purpose", 
 	"semorg-field-travel-expenses-description-parameters": "",
 	"semorg-field-travel-expenses-quarter-name": "Quarter", 
@@ -1209,6 +1226,9 @@
 	"semorg-form-expense-report-template": "expense-report",
 	"semorg-form-expense-report-rows": "person, date, quarter-year, payment-date, expenses",
 	"semorg-list-expense-report-headers": "expense-report-quarter, expense-report-date, expense-report-person, expense-report-total, expense-report-payment-date",
+	"semorg-list-expense-amount-gross-sum-template": "semorg-currency",
+	"semorg-list-expense-amount-net-sum-template": "semorg-currency",
+	"semorg-list-expense-vat-sum-template": "semorg-currency",
 	"semorg-field-expense-report-person-name": "Person", 
 	"semorg-field-expense-report-person-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-expense-report-date-name": "Date", 
@@ -1229,7 +1249,6 @@
 	"semorg-field-expense-report-month-year-fields": "month,year",
 	"semorg-field-expense-report-expenses-name": "-",
 	"semorg-field-expense-report-expenses-parameters": "holds template",
-	"semorg-field-expense-report-total-name": "Total (gross)",
 	"semorg-expense-report-displaytitle": "Expense report for $1",
 
 	"semorg-expense-template": "semorg-expense",
@@ -1237,7 +1256,7 @@
 	"semorg-form-expense-template": "expense",
 	"semorg-form-expense-rows": "oneline",
 	"semorg-form-expense-displayed-fields-when-minimized": "date,description,amount-gross",
-	"semorg-list-expense-headers": "expense-date,expense-description,expense-amount-gross,expense-type",
+	"semorg-list-expense-headers": "expense-date,expense-description,expense-amount-gross,expense-amount-net,expense-vat,expense-type",
 	"semorg-list-expense-sort": "semorg-expense-date",
 	"semorg-field-expense-expense-report-name": "Expense Report", 
 	"semorg-field-expense-expense-report-parameters": "",

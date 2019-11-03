@@ -12,6 +12,7 @@
 	"semorg-pagination-label": "Seitennavigation",
 	"semorg-pagination-previous-label": "Vorherige",
 	"semorg-pagination-next-label": "Nächste",
+	"semorg-pagesize-label": "Anzahl der Listeneinträge je Seite",
 
 	"semorg-up-to-date-warning": "<b>Achtung!</b> Diese Seite wird automatisiert auf der Grundlage der aktuell geltenden Fassung des zugrundeliegenden Formulars erstellt. Die hier angezeigte Version kann daher vom tatsächlichen Inhalt des Dokuments (wie ausgedruckt und unterfertigt) abweichen!",
 	"semorg-invoice-storno-warning": "Diese Rechnung wurde '''storniert'''!",
@@ -40,6 +41,9 @@
 	"semorg-date-long-noyear": "j. F",
 	"semorg-date-short-noyear": "j.n.",
 
+	"semorg-datetime-long": "j. F Y, H:i",
+	"semorg-datetime-short": "j.n.y, H:i",
+
 	"semorg-help-msg-edit": "Hilfetext bearbeiten",
 	"semorg-help-formatting-button-text": "Formatierungshilfe anzeigen (Popup)",
 	"semorg-help-formatting-heading": "Formatierungshilfe",
@@ -63,6 +67,7 @@
 	"semorg-form-freestyle-legend": "Freestyle",
 
 	"semorg-list-proposal-default": "keine Beschlüsse bisher…",
+	"semorg-list-default": "keine Einträge bisher…",
 
 	"semorg-value-data-type-wpg": "Seite",
 	"semorg-value-data-type-txt": "Text",
@@ -648,7 +653,7 @@
 	"semorg-field-travel-expenses-allowance-night-name": "Nächtigungsaufwand", 
 	"semorg-field-travel-expenses-project-name": "Projekt", 
 	"semorg-field-travel-expenses-date-name": "Datum", 
-	"semorg-field-travel-expenses-expenses-name": "Sonstige Spesen", 
+	"semorg-field-travel-expenses-expenses-name": "Spesen", 
 	"semorg-field-travel-expenses-expenses-help": "z.B. Tickets, …", 
 	"semorg-field-travel-expenses-description-name": "Reisezweck", 
 	"semorg-field-travel-expenses-quarter-name": "Quartal", 
@@ -664,7 +669,7 @@
 	"semorg-field-travel-expenses-distance-name": "Distanz", 
 	"semorg-field-travel-expenses-duration-name": "Dauer", 
 	"semorg-field-travel-expenses-total-name": "Summe",
-	"semorg-field-travel-expenses-allowances-name": "Diäten gesamt", 
+	"semorg-field-travel-expenses-allowances-name": "Diäten", 
 
 	"semorg-expense-report-page-name": "Spesenabrechnungen",
 	"semorg-expense-report-entity-name": "Spesenabrechnung", 
@@ -679,7 +684,6 @@
 	"semorg-field-expense-report-year-name": "Jahr", 
 	"semorg-field-expense-report-quarter-year-name": "Quartal",
 	"semorg-field-expense-report-month-year-name": "Monat",
-	"semorg-field-expense-report-total-name": "Summe (brutto)",
 	"semorg-expense-report-displaytitle": "Spesenabrechnung für $1",
 
 	"semorg-form-expense-add-button-text": "Ausgabe hinzufügen",
