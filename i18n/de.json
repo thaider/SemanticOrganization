@@ -332,6 +332,7 @@
 	"semorg-field-agenda-proposal-parameters": "input type=textarea|rows=1|autogrow|cols=60|placeholder=Bitte dieses Feld erst ausfüllen, NACHDEM ein Beschluss tatsächlich gefasst wurde. Formulierungsvorschläge können ins Beschreibungsfeld geschrieben werden!",
 	"semorg-field-agenda-tag-name": "Tags",
 	"semorg-field-agenda-meeting-name": "Sitzung",
+	"semorg-field-agenda-timer-name": "Zeitbedarf",
 
 	"semorg-field-membership-date-name": "Datum",
 	"semorg-field-membership-shares-name": "Anteile",

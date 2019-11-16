@@ -528,6 +528,8 @@
 	"semorg-field-agenda-time-real-parameters": "hidden",
 	"semorg-field-agenda-files-name": "Files",
 	"semorg-field-agenda-files-parameters": "holds template",
+	"semorg-field-agenda-timer-name": "Time required",
+	"semorg-field-agenda-timer-fields": "time,start,end,time-real",
 
 	"semorg-membership-category": "semorg-membership",
 	"semorg-form-membership-rows": "member,date,shares,due-date",
