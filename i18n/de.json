@@ -493,6 +493,7 @@
 	"semorg-field-process-involved-name": "Beteiligte Rollen",
 	"semorg-field-process-groups-name": "Beteiligte Gremien",
 
+	"semorg-working-time-intro-text": "Um deine eigenen Kernarbeitszeiten einzutragen, [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} bearbeite deine Benutzer*innenseite].",
 	"semorg-field-working-time-person-name": "Name",
 	"semorg-field-working-time-day-name": "Tag",
 	"semorg-field-working-time-time-name": "Uhrzeit",

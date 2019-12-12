@@ -818,6 +818,7 @@
 	"semorg-field-process-involved-name": "Involved roles",
 	"semorg-field-process-groups-name": "Involved groups",
 
+	"semorg-working-time-intro-text": "To enter or change your core working times [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} edit your user page].",
 	"semorg-field-working-time-person-name": "Name",
 	"semorg-field-working-time-person-parameters": "hidden",
 	"semorg-field-working-time-day-name": "Day",
