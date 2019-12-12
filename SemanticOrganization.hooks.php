@@ -293,7 +293,7 @@ class SemanticOrganizationHooks {
 		$parameters = ['form' => $form ];
 		$messages = [
 			'size' => 'size',
-			'default value' => 'default value',
+			'default value' => 'default-value',
 			'button text' => 'button-text',
 			'query string' => 'query-string',
 			'autocomplete on category' => 'autocomplete-on-category',

@@ -1145,6 +1145,7 @@
 	"semorg-field-contact-details-parameters": "input type=textarea|autogrow|rows=5|cols=60",
 	"semorg-field-contact-type-name": "Type", 
 	"semorg-field-contact-type-parameters": "input type=dropdown|values=email,phone,social-media,personal|mapping template=semorg-mapping-contact-type",
+	"semorg-field-contact-type-default": "phone", 
 	"semorg-field-contact-location-name": "Location", 
 	"semorg-field-contact-location-parameters": "",
 	"semorg-field-contact-time-name": "Time", 
