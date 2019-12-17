@@ -545,12 +545,39 @@ div.mw-warning-with-logexcerpt {
 
 
 /* PAGINATION */
+.semorg-pagination {
+	margin-top:-.7rem;
+}
 .semorg-pagination-pagination {
 	float:left;
 }
+.semorg-pagination-pagination .pagination {
+	margin:0;
+}
 .semorg-pagination-pagesize {
 	float:right;
-	margin-right:70px;
+}
+.semorg-pagination-pagesize .pagination {
+	margin:0;
+	margin-right:50px;
+}
+.semorg-pagination .page-item.active .page-link {
+	background:none;
+	color:#000;
+}
+.semorg-pagination .page-link {
+	border:none;
+	border-left:1px dotted #dee2e6 !important;
+	border-right:1px dotted #dee2e6 !important;
+	color:#bbb;
+	font-size:.8rem;
+	line-height:1;
+}
+.semorg-pagination .page-item:first-child .page-link {
+	border-left:none !important;
+}
+.semorg-pagination .page-item:last-child .page-link {
+	border-right:none !important;
 }
 
 

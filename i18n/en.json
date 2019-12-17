@@ -394,7 +394,7 @@
 	"semorg-field-meeting-start-time-placeholder": "00:00",
 	"semorg-field-meeting-end-time-name": "End time", 
 	"semorg-field-meeting-end-time-parameters": "input type=regexp|regexp=/^([0-2][0-9]:[0-5][0-9])?$/|size=5|message=Wrong format, should be HH:MM",
-	"semorg-field-meeting-end-time-prefix": "-",
+	"semorg-field-meeting-end-time-prefix": "-&nbsp;",
 	"semorg-field-meeting-end-time-placeholder": "00:00",
 	"semorg-field-meeting-times-name": "Time",
 	"semorg-field-meeting-times-fields": "start-time,end-time",

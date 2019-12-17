@@ -542,6 +542,8 @@ class SemanticOrganizationHooks {
 	static function renderList( &$parser ) {
 		global $wgSemorgListLimit;
 
+		$parser->disableCache();
+
 		$list = '';
 		$template = func_get_args()[1];
 		$listoptions = self::extractOptions( array_slice(func_get_args(), 2) );
@@ -760,7 +762,7 @@ class SemanticOrganizationHooks {
 
 		// pagination
 		if( !isset( $listoptions['nopagination'] ) ) {
-			$list .= '<div class="semorg-pagination d-print-none">';
+			$list .= '<div class="semorg-pagination d-print-none clearfix">';
 			if( $page > 1 || $count > $limit ) {
 				$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
 			}
@@ -831,15 +833,20 @@ class SemanticOrganizationHooks {
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |default={{int:semorg-list-meeting-default}}
+		  |limit=1000
+		  |nopagination
 		}}';
 		$meetings .= '<div class="h3">{{int:semorg-list-meeting-past-heading}}</div>';
+		$meetings .= '[{{fullurl:{{int:semorg-meeting-' . $template . '-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} alle anzeigen]';
 		$meetings .= '{{#semorg-list:meeting
-		  |query=' . $query . '[[Semorg-meeting-date::<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
+		  |query=' . $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |order=desc
 		  |default={{int:semorg-list-meeting-default-past}}
+		  |limit=15
+		  |nopagination
 		}}';
 
 		return [ $meetings, 'noparse' => false ];
@@ -1544,7 +1551,9 @@ class SemanticOrganizationHooks {
 			$pagination .= '<li class="page-item disabled"><a class="page-link" href="' . $previous_url . '" tabindex="-1" aria-disabled="true" aria-label="' . wfMessage( 'semorg-pagination-previous-label' ) . '"><span aria-hidden="true">&laquo;</span></a></li>';
 		}
 
-		for( $i = max( $page-5, 1 ); $i-1 < $count / $limit; $i++ ) {
+		$start = max( $page-2, 1 );
+		$ende = min( $start+5, $count / $limit ); 
+		for( $i = $start; $i < $ende; $i++ ) {
 			$page_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'page' => $i ] ) );
 			if( $page == $i ) {
 				$pagination .= '<li class="page-item active" aria-current="page"><a class="page-link" href="' . $page_url . '">' . ( $i ) . '<span class="sr-only">(current)</span></a></li>';
