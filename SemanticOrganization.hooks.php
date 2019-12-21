@@ -1552,8 +1552,8 @@ class SemanticOrganizationHooks {
 		}
 
 		$start = max( $page-2, 1 );
-		$ende = min( $start+5, $count / $limit ); 
-		for( $i = $start; $i < $ende; $i++ ) {
+		$ende = min( $start+5, ceil( $count / $limit ) ); 
+		for( $i = $start; $i <= $ende; $i++ ) {
 			$page_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ 'page' => $i ] ) );
 			if( $page == $i ) {
 				$pagination .= '<li class="page-item active" aria-current="page"><a class="page-link" href="' . $page_url . '">' . ( $i ) . '<span class="sr-only">(current)</span></a></li>';
