@@ -1724,6 +1724,10 @@ class SemanticOrganizationHooks {
 			foreach( $dashboardoptions as $option => $value ) {
 				$tableparameters .= '|' . $option . '=' . $value;
 			}
+			// switch off pagination by default
+			if( !isset( $dashboardoptions['pagination'] ) ) {
+				$tableparameters .= '|nopagination';
+			}
 			$tables = '{{#semorg-list:' . $template . $tableparameters . '}}';
 		}
 
