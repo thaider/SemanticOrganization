@@ -203,6 +203,8 @@
 	"semorg-field-person-tag-parameters": "input type=tokens|values from property=Semorg-person-tag",
 	"semorg-field-person-profession-name": "Profession",
 	"semorg-field-person-profession-parameters": "",
+	"semorg-field-person-tax-number-name": "Tax number", 
+	"semorg-field-person-tax-number-parameters": "",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
