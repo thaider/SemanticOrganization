@@ -1220,7 +1220,7 @@ class SemanticOrganizationHooks {
 			}
 			$output .= '</td></tr>';
 		}
-		foreach( [ 'organization', 'note' ] as $field ) {
+		foreach( [ 'birthday', 'organization', 'note', 'ssn', 'vat', 'tax-number', 'legal-form', 'legal-registry', 'iban', 'profession' ] as $field ) {
 			if( isset( self::$options[$field] ) ) {
 				$output .= '<tr><th>' . wfMessage( 'semorg-field-person-' . $field . '-name' )->plain() . '</th><td>' . self::$options[$field] . '</td></tr>';
 			}
