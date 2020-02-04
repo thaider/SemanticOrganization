@@ -255,7 +255,7 @@
 	"semorg-list-meeting-default": "keine Treffen geplant…",
 	"semorg-list-meeting-default-past": "keine Treffen bisher…",
 	"semorg-list-meeting-current-heading": "geplante Treffen",
-	"semorg-list-meeting-past-heading": "letzte Treffen",
+	"semorg-list-meeting-past-heading": "vergangene Treffen",
 	"semorg-field-meeting-group-name": "Gremium",
 	"semorg-field-meeting-project-name": "Projekt",
 	"semorg-field-meeting-department-name": "Geschäftsfeld",
@@ -286,6 +286,7 @@
 	"semorg-field-meeting-type-parameters": "input type=combobox|existing values only|values=ordentlich,außerordentlich",
 
 	"semorg-meeting-group-page-name": "Treffen",
+	"semorg-meeting-group-past-page-name": "Vergangene Treffen",
 	"semorg-meeting-group-entity-name": "Treffen",
 	"semorg-form-meeting-group-create-title": "Treffen erstellen",
 	"semorg-form-meeting-group-edit-title": "Treffen bearbeiten",
