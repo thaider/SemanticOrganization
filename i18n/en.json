@@ -1310,6 +1310,8 @@
 	"semorg-field-task-done-date-name": "Done date", 
 	"semorg-field-task-done-date-parameters": "input type=datepicker|size=10", 
 	"semorg-field-task-done-date-prefix": "&nbsp;&nbsp;'''done at'''&nbsp;",
+	"semorg-field-task-done-name": "Done", 
+	"semorg-field-task-done-parameters": "input type=checkbox", 
 	"semorg-field-task-responsible-name": "Responsible", 
 	"semorg-field-task-responsible-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name|default={{#semorg-user:}}",
 	"semorg-field-task-dates-name": "planned till", 

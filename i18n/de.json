@@ -716,6 +716,7 @@
 	"semorg-field-task-description-name": "Beschreibung", 
 	"semorg-field-task-done-date-name": "Erledigt am", 
 	"semorg-field-task-done-date-prefix": "&nbsp;&nbsp;'''erledigt am'''&nbsp;",
+	"semorg-field-task-done-name": "Erledigt", 
 	"semorg-field-task-responsible-name": "verantwortlich", 
 	"semorg-field-task-dates-name": "geplant bis", 
 	"semorg-field-task-meeting-name": "Treffen", 
