@@ -649,7 +649,7 @@ class SemanticOrganizationHooks {
 		$parameters['default'] = wfMessage('semorg-list-default');
 		
 		// Parameters for sorting, ordering, default (queries without results), limit, userparam
-		foreach( ['sort', 'order', 'default', 'limit', 'userparam' ] as $parameter ) {
+		foreach( ['sort', 'order', 'default', 'limit', 'userparam'] as $parameter ) {
 
 			// set by a message?
 			if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
@@ -1723,7 +1723,12 @@ class SemanticOrganizationHooks {
 			$title = $dashboardoptions['title'];
 		}
 		if( isset( $dashboardoptions['links'] ) ) {
-			$links = $dashboardoptions['links'];
+			// explicit unsetting
+			if( $dashboardoptions['links'] == '-' ) {
+				$links = '';
+			} else {
+				$links = $dashboardoptions['links'];
+			}
 		}
 		$dashboard .= '|title=' . $title;
 		$dashboard .= '|links=' . $links;
@@ -1731,6 +1736,12 @@ class SemanticOrganizationHooks {
 		if( isset( $dashboardoptions['tables'] ) ) {
 			$tables = $dashboardoptions['tables'];
 		} else {
+			// wrap default value in div.semorg-dashboard-default
+			if( !isset( $dashboardoptions['default'] ) ) {
+				$dashboardoptions['default'] = wfMessage('semorg-list-default');
+			}
+			$dashboardoptions['default'] = '<div class="semorg-dashboard-default">' . $dashboardoptions['default'] . '</div>';
+			
 			$tableparameters = '';
 			foreach( $dashboardoptions as $option => $value ) {
 				$tableparameters .= '|' . $option . '=' . $value;
