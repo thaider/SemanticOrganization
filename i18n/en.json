@@ -1316,7 +1316,7 @@
 	"semorg-field-task-title-name": "Title", 
 	"semorg-field-task-title-parameters": "",
 	"semorg-field-task-due-date-name": "Due date", 
-	"semorg-field-task-due-date-parameters": "input type=datepicker|size=10",
+	"semorg-field-task-due-date-parameters": "input type=datepicker|size=10|mandatory",
 	"semorg-field-task-description-name": "Description", 
 	"semorg-field-task-description-parameters": "input type=textarea|rows=2|autogrow|cols=60",
 	"semorg-field-task-done-date-name": "Done date", 

@@ -716,11 +716,12 @@
 
 	"semorg-task-page-name": "Todos",
 	"semorg-task-done-page-name": "Erledigte Todos",
+	"semorg-task-current-link-text": "Offene Todos",
 	"semorg-task-entity-name": "Todo",
+	"semorg-task-create-link-text": "Neues Todo erstellen",
 	"semorg-form-task-create-title": "Todo erstellen",
 	"semorg-form-task-edit-title": "Todo bearbeiten", 
 	"semorg-form-task-page-name": "Todos",
-	"semorg-task-current-link-text": "Offene Todos",
 	"semorg-field-task-task-name": "Todo",
 	"semorg-field-task-title-name": "Titel", 
 	"semorg-field-task-due-date-name": "Geplant bis", 
