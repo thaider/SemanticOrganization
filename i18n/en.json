@@ -1410,7 +1410,7 @@
 	"semorg-field-plot-number-name": "Plot Number", 
 	"semorg-field-plot-number-parameters": "size=3|mandatory",
 	"semorg-field-plot-name-name": "Name", 
-	"semorg-field-plot-name-parameters": "",
+	"semorg-field-plot-name-parameters": "input type=textarea|autogrow|rows=1|cols=60",
 	"semorg-field-plot-scj-name": "System Change Journey", 
 	"semorg-field-plot-scj-parameters": "input type=combobox|values from category=semorg-scj|mapping property=Semorg-scj-name",
 	"semorg-field-plot-description-name": "Description", 
@@ -1435,7 +1435,7 @@
 	"semorg-field-milestone-number-name": "Milestone Number", 
 	"semorg-field-milestone-number-parameters": "size=3|mandatory",
 	"semorg-field-milestone-name-name": "Name", 
-	"semorg-field-milestone-name-parameters": "",
+	"semorg-field-milestone-name-parameters": "input type=textarea|autogrow|rows=1|cols=60",
 	"semorg-field-milestone-description-name": "Description", 
 	"semorg-field-milestone-description-parameters": "input type=textarea|autogrow|rows=1|cols=60",
 
