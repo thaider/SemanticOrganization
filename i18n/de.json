@@ -408,7 +408,6 @@
 	"semorg-form-salary-exit-edit-title": "Kündigung bearbeiten",
 	"semorg-form-salary-exit-page-name": "Kündigung",
 
-	"semorg-gdpr-processing-displaytitle": "Datenanwendung $1",
 	"semorg-gdpr-processing-page-name": "Verfahrensverzeichnis",
 	"semorg-gdpr-processing-entity-name": "Datenanwendung",
 	"semorg-gdpr-processing-page-link-text": "Verfahrensverzeichnis",
@@ -437,7 +436,6 @@
 	"semorg-field-gdpr-processing-access-help": "Wer hat zu diesen Daten Zugang?",
 	"semorg-field-gdpr-processing-affected-name": "Betroffenenkategorien",
 
-	"semorg-gdpr-affected-displaytitle": "Betroffenenkategorie $1",
 	"semorg-gdpr-affected-page-name": "Betroffenenkategorien",
 	"semorg-gdpr-affected-entity-name": "Betroffenenkategorie",
 	"semorg-list-gdpr-affected-overview-heading": "Personen- und Datenkategorien",
@@ -448,7 +446,6 @@
 	"semorg-field-gdpr-affected-name-name": "Betroffenenkategorie",
 	"semorg-field-gdpr-affected-category-name": "Datenkategorien",
 
-	"semorg-gdpr-category-displaytitle": "Datenkategorie $1",
 	"semorg-gdpr-category-page-name": "Datenkategorien",
 	"semorg-gdpr-category-entity-name": "Datenkategorie",
 	"semorg-form-gdpr-category-create-title": "Datenkategorie erstellen",
