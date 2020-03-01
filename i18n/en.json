@@ -347,6 +347,9 @@
 	"semorg-field-project-team-oneliner-internal-fields": "team-internal,role",
 	"semorg-field-project-team-oneliner-external-name": "",
 	"semorg-field-project-team-oneliner-external-fields": "team-external,role",
+	"semorg-field-project-team-main-responsible-name": "Main Responsible", 
+	"semorg-field-project-team-main-responsible-parameters": "input type=checkbox", 
+	"semorg-field-project-team-main-responsible-suffix": "Main Responsible",
 
 	"semorg-project-team-internal-template": "semorg-project-team-internal",
 	"semorg-form-project-team-internal-add-button-text": "Add internal team member",
@@ -1104,6 +1107,9 @@
 	"semorg-field-role-holder-end-date-input-type": "datepicker",
 	"semorg-field-role-holder-end-date-parameters": "size=10",
 	"semorg-field-role-holder-oneliner-fields": "holder,start-date,end-date",
+	"semorg-field-role-holder-main-responsible-name": "Main Responsible", 
+	"semorg-field-role-holder-main-responsible-parameters": "input type=checkbox", 
+	"semorg-field-role-holder-main-responsible-suffix": "Main Responsible",
 
 	"semorg-account-template": "semorg-account",
 	"semorg-account-category": "semorg-account",

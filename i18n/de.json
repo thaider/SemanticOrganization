@@ -250,6 +250,8 @@
 	"semorg-field-project-team-end-date-name": "Enddatum", 
 	"semorg-field-project-team-team-name": "Team", 
 	"semorg-field-project-team-team-internal-name": "Team (intern)", 
+	"semorg-field-project-team-main-responsible-name": "hauptverantwortlich",
+	"semorg-field-project-team-main-responsible-suffix": "hauptverantwortlich",
 
 	"semorg-form-project-team-internal-add-button-text": "Internes Teammitglied hinzufügen",
 
@@ -622,6 +624,8 @@
 	"semorg-field-role-holder-start-date-prefix": "von ", 
 	"semorg-field-role-holder-end-date-name": "bis", 
 	"semorg-field-role-holder-end-date-prefix": "bis ", 
+	"semorg-field-role-holder-main-responsible-name": "hauptverantwortlich", 
+	"semorg-field-role-holder-main-responsible-suffix": "hauptverantwortlich",
 
 	"semorg-account-page-name": "Kostenstellen",
 	"semorg-account-entity-name": "Kostenstelle",
