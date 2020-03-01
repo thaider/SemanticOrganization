@@ -292,6 +292,7 @@
 	"semorg-field-meeting-type-name": "Typ", 
 	"semorg-field-meeting-type-parameters": "input type=combobox|existing values only|values=ordentlich,außerordentlich",
 
+	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
 	"semorg-meeting-group-page-name": "Treffen",
 	"semorg-meeting-group-past-page-name": "Vergangene Treffen",
 	"semorg-meeting-group-past-dashboard-title": "Letzte Protokolle",
@@ -299,10 +300,10 @@
 	"semorg-form-meeting-group-create-title": "Treffen erstellen",
 	"semorg-form-meeting-group-edit-title": "Treffen bearbeiten",
 	"semorg-form-meeting-group-page-name": "Treffen",
-	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
 
 	"semorg-meeting-project-displaytitle": "$1-Projektbesprechung vom {{#timel:j. F Y|$2}}",
 	"semorg-meeting-project-page-name": "Projektbesprechungen",
+	"semorg-meeting-project-past-page-name": "Letzte Projektbesprechungen",
 	"semorg-meeting-project-entity-name": "Projektbesprechung",
 	"semorg-form-meeting-project-create-title": "Projektbesprechung erstellen",
 	"semorg-form-meeting-project-edit-title": "Projektbesprechung bearbeiten",
@@ -310,6 +311,7 @@
 
 	"semorg-meeting-department-displaytitle": "$1-Besprechung vom {{#timel:j. F Y|$2}}",
 	"semorg-meeting-department-page-name": "Bereichstreffen",
+	"semorg-meeting-department-past-page-name": "Letzte Bereichstreffen",
 	"semorg-meeting-department-entity-name": "Bereichstreffen",
 	"semorg-form-meeting-department-create-title": "Besprechung erstellen",
 	"semorg-form-meeting-department-edit-title": "Besprechung bearbeiten",
@@ -530,6 +532,7 @@
 	"semorg-field-group-active-name": "aktiv", 
 	"semorg-field-group-active-suffix": "aktiv",
 	"semorg-field-group-host-name": "Host", 
+	"semorg-field-group-co-host-name": "Co-Host", 
 	"semorg-field-group-properties-name": "Eigenschaften", 
 	"semorg-field-group-members-name": "Mitglieder",
 	"semorg-tab-group-meetings": "Treffen",
@@ -599,6 +602,7 @@
 	"semorg-field-role-tasks-name": "Aufgaben",
 	"semorg-field-role-holders-name": "InhaberInnen",
 	"semorg-field-role-hours-name": "<abbr title='Stundenaufwand (h/Jahr)'>h</abbr>",
+	"semorg-field-role-task-responsible-name": "verantwortlich", 
 
 	"semorg-role-task-dashboard-title": "Meine Rollen und ihre aktuellen Tasks",
 	"semorg-form-role-task-add-button-text": "Aufgabe hinzufügen",
