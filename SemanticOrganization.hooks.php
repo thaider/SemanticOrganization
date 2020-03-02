@@ -690,7 +690,7 @@ class SemanticOrganizationHooks {
 			foreach( explode(',', $listoptions['sums'] )  as $sum ) {
 				$sums .= '<td style="text-align:right">';
 				if( $sum != '' ) {
-					$sum_query = '{{#ask:' . $query_string . '|?semorg-' . $sum . '|format=sum}}';
+					$sum_query = '{{#ask:' . $query_string . '|?semorg-' . $sum . '|format=sum|limit=1000}}';
 					if( wfMessage('semorg-list-' . $sum . '-sum-template' )->exists() ) {
 						$sums .= '{{' . wfMessage('semorg-list-' . $sum . '-sum-template' )->text() . '|' . $sum_query . '}}';
 					} else {
