@@ -1400,7 +1400,7 @@
 	"semorg-list-scj-headers": "scj-scj,scj-targeted-sc,scj-plots",
 	"semorg-field-scj-scj-name": "Journey", 
 	"semorg-field-scj-name-name": "Name", 
-	"semorg-field-scj-name-parameters": "mandatory",
+	"semorg-field-scj-name-parameters": "mandatory|size=60",
 	"semorg-field-scj-targeted-sc-name": "Targeted System Change", 
 	"semorg-field-scj-targeted-sc-parameters": "input type=textarea|rows=1|autogrow|cols=60",
 	"semorg-field-scj-plots-name": "Plots", 
