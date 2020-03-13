@@ -215,6 +215,8 @@
 	"semorg-field-person-ref-tag-parameters": "placeholder=Tags|input type=tokens|list|values from property=semorg-person-ref-tag|size=20",
 
 	"semorg-project-page-name": "Projekte",
+	"semorg-project-closed-page-name": "Abgeschlossene Projekte",
+	"semorg-project-current-link-text": "Aktuelle Projekte",
 	"semorg-project-entity-name": "Projekt",
 	"semorg-form-project-create-title": "Projekt erstellen",
 	"semorg-form-project-edit-title": "Projekt bearbeiten",
@@ -230,8 +232,8 @@
 	"semorg-field-project-description-name": "Kurzbeschreibung",
 	"semorg-field-project-team-name": "Teammitglieder",
 	"semorg-field-project-budget-name": "Budget",
-	"semorg-field-project-closed-name": "Geschlossen", 
-	"semorg-field-project-closed-suffix": "&nbsp;geschlossen",
+	"semorg-field-project-closed-name": "", 
+	"semorg-field-project-closed-suffix": "&nbsp;abgeschlossen",
 	"semorg-field-project-status-name": "Projektende",
 	"semorg-field-project-budget-name": "Budget", 
 	"semorg-field-project-short-title-name": "Kurztitel", 
@@ -249,6 +251,8 @@
 	"semorg-field-project-grant-de-minimis-name": "de minimis", 
 	"semorg-field-project-grant-acceptance-date-name": "Datum der Förderzusage", 
 	"semorg-field-project-grant-title-name": "Titel", 
+	"semorg-field-project-grant-note-name": "Anmerkungen", 
+	"semorg-field-project-grant-responsible-name": "verantwortlich", 
 
 	"semorg-project-subpage-page-name": "Projektunterseiten",
 	"semorg-project-subpage-entity-name": "Projektunterseite",

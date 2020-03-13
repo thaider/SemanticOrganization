@@ -838,7 +838,7 @@ class SemanticOrganizationHooks {
 		  |nopagination
 		}}</div>';
 		$meetings .= '<div class="h3 semorg-meeting-heading">{{int:semorg-list-meeting-past-heading}}</div>';
-		$meetings .= '<div class="semorg-meeting-link">[{{fullurl:{{int:semorg-meeting-' . $template . '-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} <span class="btn btn-sm btn-secondary">{{int:semorg-list-meeting-all-link-text}}</span>]</div>';
+		$meetings .= '<div class="semorg-meeting-link">[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} <span class="btn btn-sm btn-secondary">{{int:semorg-list-meeting-all-link-text}}</span>]</div>';
 		$meetings .= '<div class="semorg-meeting-list">{{#semorg-list:meeting
 		  |query=' . $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
