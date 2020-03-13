@@ -587,6 +587,8 @@ class SemanticOrganizationHooks {
 			// use custom parameter if it wasn't used to explicitly unset the category
 			if( $listoptions['category'] != '-' ) {
 				$query_string = '[[Category:' . $listoptions['category'] . ']]';
+			} else {
+				$query_string = '';
 			}
 		} else {
 			// use standard category as main query parameter
