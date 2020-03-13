@@ -579,8 +579,9 @@ class SemanticOrganizationHooks {
 		}
 
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
-
-		$query_string = '';
+		if( $fields === false) {
+			return [ wfMessage( 'semorg-error-list-no-fields' )->text(), 'noparse' => true ];
+		}
 
 		if( isset( $listoptions['category'] ) ) {
 			// use custom parameter if it wasn't used to explicitly unset the category
@@ -818,16 +819,16 @@ class SemanticOrganizationHooks {
 		}
 		$query = '[[semorg-meeting-' . $template . '::' . $group . ']]';
 
-		$meetings = '{{#semorg-formlink:meeting-' . $template;
+		$meetings = '<div class="semorg-meeting-formlink">{{#semorg-formlink:meeting-' . $template;
 		if( $group != '+' ) {
 			$meetings .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
 		}
 		$meetings .= '
 		  |popup=true
-		}}';
-		$meetings .= '<div class="h3">{{int:semorg-list-meeting-current-heading}}</div>';
+		}}</div>';
+		$meetings .= '<div class="h3 semorg-meeting-heading">{{int:semorg-list-meeting-current-heading}}</div>';
 
-		$meetings .= '{{#semorg-list:meeting
+		$meetings .= '<div class="semorg-meeting-list">{{#semorg-list:meeting
 		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
@@ -835,10 +836,10 @@ class SemanticOrganizationHooks {
 		  |default={{int:semorg-list-meeting-default}}
 		  |limit=1000
 		  |nopagination
-		}}';
-		$meetings .= '<div class="h3">{{int:semorg-list-meeting-past-heading}}</div>';
-		$meetings .= '[{{fullurl:{{int:semorg-meeting-' . $template . '-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} alle anzeigen]';
-		$meetings .= '{{#semorg-list:meeting
+		}}</div>';
+		$meetings .= '<div class="h3 semorg-meeting-heading">{{int:semorg-list-meeting-past-heading}}</div>';
+		$meetings .= '<div class="semorg-meeting-link">[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} <span class="btn btn-sm btn-secondary">{{int:semorg-list-meeting-all-link-text}}</span>]</div>';
+		$meetings .= '<div class="semorg-meeting-list">{{#semorg-list:meeting
 		  |query=' . $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
@@ -847,7 +848,9 @@ class SemanticOrganizationHooks {
 		  |default={{int:semorg-list-meeting-default-past}}
 		  |limit=15
 		  |nopagination
-		}}';
+		}}</div>';
+
+		$meetings = '<div class="semorg-meetings">' . $meetings . '</div>';
 
 		return [ $meetings, 'noparse' => false ];
 	}
