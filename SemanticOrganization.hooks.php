@@ -33,7 +33,7 @@ class SemanticOrganizationHooks {
 			'field-rows' => 'renderFieldRows',
 			'set' => 'set',
 			'set-list' => 'setList',
-			'table' => 'table',
+			'table' => 'renderDetailTable',
 			'subobject' => 'subobject',
 			'network' => 'network',
 			'cooperation' => 'cooperation',
@@ -178,9 +178,9 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 * Render table
+	 * Render detail table
 	 */
-	static function table( &$parser ) {
+	static function renderDetailTable( &$parser ) {
 		$template = func_get_args()[1];
 		$keyvalues = self::extractOptions( array_slice(func_get_args(), 2) );
 
@@ -188,21 +188,17 @@ class SemanticOrganizationHooks {
 
 		foreach( $keyvalues as $key => $value ) {
 			$fullelement = $template . '-' . $key;
-			$table .= '<tr>';
-			$table .= '<th>{{semorg-field-name|' . $fullelement . '}}</th>';
-			if( is_array( $value ) ) {
-				$table .= '<td>
-' . implode( ', ', $value ) . '
-					</td>';
-			} else {
-				$table .= '<td>
-' . $value . '
-					</td>';
-			}
- 			$table .= '</tr>';
+			$table .= '<div class="row semorg-details-row">';
+			$table .= '<div class="col-lg-4 semorg-details-field-name">{{semorg-field-name|' . $fullelement . '}}</div>';
+			$table .= '<div class="col-lg-8">
+';
+			$table .= is_array( $value ) ? implode( ', ', $value ) : $value;
+			$table .= '
+</div>';
+ 			$table .= '</div>';
 		}
 
-		$table = '<table class="table semorg-detail-table">' . $table . '</table>';
+		$table = '<div class="semorg-detail-table semorg-details container-fluid">' . $table . '</div>';
 
 		return [ $table, 'noparse' => false ];
 	}
@@ -266,7 +262,8 @@ class SemanticOrganizationHooks {
 				$parameters['link text'] = '';
 			}
 		}
-		$parameters['link text'] = '<span class="btn btn-secondary btn-sm d-print-none">' . $parameters['link text'] . '</span>';
+		$class = $options['class'] ?? 'btn btn-secondary btn-sm d-print-none';
+		$parameters['link text'] = '<span class="' . $class . '">' . $parameters['link text'] . '</span>';
 
 		$formlink = '{{#formlink:';
 		foreach( $parameters as $parameter => $value ) {
@@ -765,7 +762,29 @@ class SemanticOrganizationHooks {
 			$list = $parser->recursiveTagParse( $filterbox ) . $list;
 		}
 
-		// pagination
+		// Header
+		if( isset( $listoptions['title'] ) || isset( $listoptions['formlink'] ) ) {
+			$list_header = '';
+
+			// Title
+			if( isset( $listoptions['title'] ) ) {
+				$list_header .= '<div class="semorg-list-title">' . $parser->recursiveTagParse( $listoptions['title'] ) . '</div>';
+			}
+
+			// Formlink
+			if( isset( $listoptions['formlink'] ) ) {
+				$list_header .= '<div class="semorg-list-formlink">' . $listoptions['formlink'] . '</div>';
+			}
+
+			$list = '<div class="semorg-list-header">' . $list_header . '</div>' . $list;
+		}
+
+		// Footer
+		if( isset( $listoptions['footer'] ) ) {
+			$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( $listoptions['footer'] ) . '</div>';
+		}
+
+		// Pagination
 		if( !isset( $listoptions['nopagination'] ) ) {
 			$list .= '<div class="semorg-pagination d-print-none clearfix">';
 			if( $page > 1 || $count > $limit ) {
@@ -835,43 +854,38 @@ class SemanticOrganizationHooks {
 		}
 		$links .= '
 		  |popup=true
+		  |class=-
 		}}';
 
 		/* current meetings */
-		$meetings = '<div class="semorg-meeting-heading mb-4"><b>{{int:semorg-list-meeting-current-heading|' . $meetings_page_name . '}}</b></div>';
-		$meetings .= '{{#semorg-list:meeting
+		$meetings .= '<div class="semorg-meetings-current mt-4 mb-4">{{#semorg-list:meeting
+		  |title={{int:semorg-list-meeting-current-heading|' . $meetings_page_name . '}}
+	      |formlink=' . $links . '
 		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |default={{int:semorg-list-meeting-default}}
-		  |intro=<div class="semorg-meeting-list card-body-table">
-		  |outro=</div>
 		  |limit=1000
 		  |nopagination
-		}}';
+		}}</div>';
 
 		/* past meetings */
-		$show_all_link = '<span class="semorg-meeting-link">[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text}}]</span>';
-		$meetings .= '<div class="semorg-meeting-heading mt-4 mb-4"><b>{{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}</b> – ' . $show_all_link . '</div>';
-		$meetings .= '{{#semorg-list:meeting
-		  |query=' . $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
+		$past_query = $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]';
+		$past_count = $parser->recursiveTagParse( '{{#ask:' . $past_query . '|format=count}}' );
+		$show_all_link = '[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text|' . $past_count . '}}]';
+		$meetings .= '<div class="semorg-meetings-past">{{#semorg-list:meeting
+		  |title={{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}
+		  |query=' . $past_query . '
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |order=desc
 		  |default={{int:semorg-list-meeting-default-past}}
-		  |intro=<div class="semorg-meeting-list card-body-table">
-		  |outro=</div>
-		  |limit=15
+		  |limit=10
 		  |nopagination
-		}}';
-
-		$meetings = "{{semorg-card
-			|title=$title
-			|links=$links
-			|body=$meetings
-		}}";
+		  |footer={{#ifexpr:' . $past_count . ' > 10|' . $show_all_link . '}}
+		}}</div>';
 
 		return [ $meetings, 'noparse' => false ];
 	}
@@ -1785,6 +1799,8 @@ class SemanticOrganizationHooks {
 			$dashboardoptions['default'] = '<div class="semorg-dashboard-default">' . $dashboardoptions['default'] . '</div>';
 			
 			$tableparameters = '';
+			// do not use title for dashboard and list
+			unset( $dashboardoptions['title'] );
 			foreach( $dashboardoptions as $option => $value ) {
 				$tableparameters .= '|' . $option . '=' . $value;
 			}

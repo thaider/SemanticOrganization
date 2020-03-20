@@ -291,7 +291,7 @@
 	"semorg-list-meeting-default-past": "keine Treffen bisher…",
 	"semorg-list-meeting-current-heading": "geplante $1",
 	"semorg-list-meeting-past-heading": "vergangene $1",
-	"semorg-list-meeting-all-link-text": "alle anzeigen",
+	"semorg-list-meeting-all-link-text": "…alle $1 Treffen anzeigen",
 	"semorg-field-meeting-group-name": "Gremium",
 	"semorg-field-meeting-project-name": "Projekt",
 	"semorg-field-meeting-department-name": "Geschäftsfeld",
