@@ -30,7 +30,7 @@
 	"semorg-timespan-since-until": "von {{#time:j.n.y|$1}} bis {{#time:j.n.y|$2}}",
 
 	"semorg-dashboard-title": "Meine $1",
-	"semorg-dashboard-link-all": "Alle $1",
+	"semorg-dashboard-link-all": "alle $1",
 	"semorg-dashboard-link-create": "$1 erstellen",
 
 	"semorg-formlink-generic-link-text": "$1 erstellen",
@@ -182,6 +182,7 @@
 	"semorg-field-person-tag-name": "Tags", 
 	"semorg-field-person-profession-name": "Jobbezeichnung",
 	"semorg-field-person-tax-number-name": "Steuernummer", 
+	"semorg-field-person-acronym-name": "Kurzzeichen", 
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
@@ -239,6 +240,8 @@
 	"semorg-field-project-short-title-name": "Kurztitel", 
 	"semorg-field-project-department-name": "Geschäftsfeld", 
 	"semorg-field-project-milestone-name": "Meilenstein", 
+	"semorg-field-project-team-internal-name": "Team (intern)",
+	"semorg-field-project-team-external-name": "Team (extern)",
 
 	"semorg-project-grant-page-name": "Projektförderungen",
 	"semorg-project-grant-entity-name": "Projektförderung",
@@ -388,11 +391,18 @@
 	"semorg-form-membership-exit-edit-title": "Austrittserklärung bearbeiten",
 	"semorg-form-membership-exit-create-title": "Austrittserklärung erstellen",
 
+	"semorg-membership-state-displaytitle": "Mitgliederliste per {{#timel:j. F Y|$1}}",
+	"semorg-membership-state-page-name": "Mitgliederverzeichnis",
+	"semorg-membership-state-help-text": "Um den Stichtag zu ändern, einfach auf „[{{fullurl:$1|action=formedit}} Bearbeiten]“ klicken.",
+	"semorg-field-membership-state-date-name": "Datum",
+	"semorg-field-membership-state-date-help": "Datum des Stichtags (leer lassen für das aktuelle Datum).",
+
 	"semorg-membership-payment-page-name": "Zahlungen",
 	"semorg-membership-payment-entity-name": "Zahlung",
 	"semorg-form-membership-payment-create-title": "Ein-/Auszahlung von Geschäftsanteilen erstellen",
 	"semorg-form-membership-payment-edit-title": "Ein-/Auszahlung vog Geschäftsanteilen bearbeiten",
 	"semorg-form-membership-payment-page-name": "Zahlung",
+	"semorg-list-membership-payment-default": "keine Zahlungen bisher…",
 	"semorg-field-membership-payment-amount-name": "Betrag",
 	"semorg-field-membership-payment-amount-help": "Für eine Auszahlung einen negativen Betrag eingeben.",
 	"semorg-field-membership-payment-date-name": "Datum",

@@ -1263,6 +1263,11 @@ class SemanticOrganizationHooks {
 
 	static function network( Parser $parser ) {
 		$options = self::extractOptions( array_slice(func_get_args(), 1) );
+		foreach( [ 'node1', 'node2', 'links' ] as $required ) {
+			if( !isset( $options[$required] ) || $options[$required] == '' ) {
+				return wfMessage( 'semorg-error-missing-parameter', 'semorg-network', $required );
+			}
+		}
 
 		$parser->getOutput()->addModules( 'ext.network' );
 
@@ -1271,27 +1276,18 @@ class SemanticOrganizationHooks {
 				'links' => [] 
 			];
 
-		$filter = '';
-		if( isset( $options['filter'] ) ) {
-			$filter = $options['filter'];
-		}
-
 		/* NODES */
 
-		$node_categories = [
-			'Projekt' => [ 'group' => 1 ],
-			'Semorg-member' => [ 'group' => 4, 'title' => 'Semorg-person-firstname', 'query' => '[[Semorg-person-membership::wahr]][[Semorg-person-firstname::+]]' ],
-		];
-		foreach( $node_categories as $node_category => $node_options ) {
-			$node_filter = $filter;
-			$title = 'Kurztitel';
-			if( isset( $node_options['title'] ) ) {
-				$title = $node_options['title'];
+		foreach( ['node1', 'node2' ] as $node ) {
+			$node_options = explode( ',', $options[$node] );
+			if( count( $node_options ) < 1 ) {
+				return wfMessage( 'semorg-error-missing-data', 'semorg-network', $node );
 			}
-			if( isset( $node_options['query'] ) ) {
-				$node_filter .= $node_options['query'];
-			}
-			$node_query = "{{#ask:[[Kategorie:" . $node_category . "]]" . $node_filter . "|?" . $title . "|format=array|sep=<NODE>}}";
+			$node_category = $node_options[0];
+			$node_text_property = isset( $node_options[1] ) ?  'semorg-' . $node_options[1] : '';
+			$node_query = $node_options[2] ?? '';
+
+			$node_query = "{{#ask:[[Category:semorg-" . $node_category . "]]" . $node_query . "|?" . $node_text_property . "|format=array|sep=<NODE>}}";
 			$node_results = $parser->RecursiveTagParse( $node_query );
 			$node_results = explode( '&lt;NODE&gt;', $node_results );
 			foreach( $node_results as $node_result ) {
@@ -1300,31 +1296,50 @@ class SemanticOrganizationHooks {
 				if( isset( $node_result[1] ) && $node_result[1] !== '' ) {
 					$node_text = $node_result[1];
 				}
-				$network_data['nodes'][] = [ 'id' => $node_id, 'group' => $node_options['group'], 'text' => $node_text ];
+				$network_data['nodes'][] = [ 'id' => $node_id, 'group' => $node_options[0], 'text' => $node_text, 'category' => $node_category ];
 			}
 		}
 
 		$nodes = [];
 		foreach( $network_data['nodes'] as $node ) {
-			$nodes[] = $node['id'];
+			$nodes[$node['id']] = 0;
 		}
 
 		/* LINKS */
 
-		$kontakte_query = "{{#ask:[[Projektteam::+]][[Projekt::+]]|mainlabel=-|?Projektteam|?Projekt|format=array|sep=<KONTAKT>}}";
-		$kontakte = $parser->RecursiveTagParse( $kontakte_query );
-		$kontakte = explode( '&lt;KONTAKT&gt;', $kontakte );
-		foreach( $kontakte as $kontakt ) {
-			$link = explode( '&lt;PROP&gt;', $kontakt );
-			if( in_array( $link[0], $nodes ) && in_array( $link[1], $nodes ) ) {
+		$links_options = explode( ',', $options['links'] );
+		if( count( $links_options ) < 2 ) {
+			return wfMessage( 'semorg-error-missing-data', 'semorg-network', 'links' );
+		}
+		$links_property1 = 'semorg-' . $links_options[0];
+		$links_property2 = 'semorg-' . $links_options[1];
+		$links_query = "{{#ask:[[" . $links_property1 . "::+]][[" . $links_property2 . "::+]]|mainlabel=-|?" . $links_property1 . "|?" . $links_property2 . "|format=array|sep=<LINK>}}";
+		$links = $parser->RecursiveTagParse( $links_query );
+		$links = explode( '&lt;LINK&gt;', $links );
+		foreach( $links as $link ) {
+			$link = explode( '&lt;PROP&gt;', $link );
+			if( key_exists( $link[0], $nodes ) && key_exists( $link[1], $nodes ) ) {
 				$network_data['links'][] = [ 'source' => $link[0], 'target' => $link[1], 'value' => 5 ];
+				$nodes[$link[0]]++;
+				$nodes[$link[1]]++;
 			}
 		}
 
-		$id = 'network';
+		if( isset( $options['threshold'] ) ) {
+			foreach( $network_data['nodes'] as $key => $node ) {
+				if( $nodes[$node['id']] < $options['threshold'] ) {
+					unset( $network_data['nodes'][$key] );
+				}
+			}
+		}
+
+		$network_data['nodes'] = array_values( $network_data['nodes'] );
+
+		$id = 'semorg-network-' . explode(',', $options['node1'] )[0] . '-' . explode(',', $options['node2'] )[0];
 		if( isset( $options['id'] ) ) {
 			$id = $options['id'];
 		}
+		$id = str_replace( '-', '_', $id );
 
 		$out = '<div id="' . $id . '" class="semorg-network"><svg width="960" height="600"></svg></div>';
 		$out .= '<script>var ' . $id . '=' . json_encode( $network_data ) . ';</script>';

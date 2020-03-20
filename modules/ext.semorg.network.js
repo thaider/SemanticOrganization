@@ -2,43 +2,44 @@ $( '.semorg-network' ).each( function() {
 	var id = $(this).attr('id');
 	var network_data = window[id];
 	var svg = d3.select("#" + id + " svg"),
-	width = +svg.attr("width"),
-	height = +svg.attr("height"),
-	radius = 6;
+		width = +svg.attr("width"),
+		height = +svg.attr("height"),
+		radius = 5;
 
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var simulation = d3.forceSimulation()
-	.force("link", d3.forceLink().id(function(d) { return d.id; }))
-	.force("charge", d3.forceManyBody().strength(-400).distanceMax(300).distanceMin(100))
-	.force("center", d3.forceCenter(width / 2, height / 2));
+		.force("link", d3.forceLink().id(function(d) { return d.id; }))
+		.force("charge", d3.forceManyBody().strength(-400).distanceMax(300).distanceMin(100))
+		.force("center", d3.forceCenter(width / 2, height / 2));
 
 	var link = svg.append("g")
-	.attr("class", "links")
-	.selectAll("line")
-	.data(network_data.links)
-	.enter().append("line")
-	.attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+		.attr("class", "links")
+		.selectAll("line")
+		.data(network_data.links)
+		.enter().append("line")
+		.attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
 	var gnodes = svg.selectAll('g.gnode')
-	.data(network_data.nodes)
-	.enter()
-	.append('g')
-	.classed('gnode',true)
-	.call(d3.drag()
+		.data(network_data.nodes)
+		.enter()
+		.append('g')
+		.classed('gnode',true)
+		.call(d3.drag()
 			.on("start", dragstarted)
 			.on("drag", dragged)
-			.on("end", dragended))
-	.on("mouseover",mouseover)
-	.on("mousemove",mousemove)
-	.on("mouseout",mouseout)
-	.on("click",function(d) {
-		window.location = '/wiki/' + d.id;
-	});
+			.on("end", dragended)
+		)
+		.on("mouseover",mouseover)
+		.on("mousemove",mousemove)
+		.on("mouseout",mouseout)
+		.on("click",function(d) {
+			window.location = '/wiki/' + d.id;
+		});
 
 	var node = gnodes.append("circle")
-		.attr("r", function(d) { return ( d.group % 2 == 1 ) ? 6 : 5; } )
-		.attr("fill", function(d) { return color(d.group); });
+		.attr("r", radius )
+		.attr("class", function(d) { return 'semorg-network-node-' + d.category; });
 
 	var labels = gnodes.append('text')
 		.text(function(d) { 
@@ -67,7 +68,7 @@ $( '.semorg-network' ).each( function() {
 		/* node
 			.attr("cx", function(d) { return d.x = Math.max(radius, Math.min(width - radius, d.x)); })
 			.attr("cy", function(d) { return d.y = Math.max(radius, Math.min(height - radius, d.y)); });
-		*/
+			*/
 
 		gnodes.attr("transform", function(d) {
 			return 'translate(' + [d.x, d.y] + ')';

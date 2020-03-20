@@ -30,4 +30,10 @@
 	border-radius:2px;
 }
 
+.semorg-network-node-project {
+	fill:steelblue;
+}
 
+.semorg-network-node-person-user {
+	fill:orange;
+}

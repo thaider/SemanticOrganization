@@ -147,6 +147,8 @@
 	"semorg-value-status-closed": "closed",
 
 	"semorg-error-list-no-fields": "error: no fields for list defined…",
+	"semorg-error-missing-parameter": "error: missing parameter <code>$2</code> for parser function <code>$1!</code>",
+	"semorg-error-missing-data": "error: missing data for parameter <code>$2</code> for parser function <code>$1!</code>",
 	
 	"semorg-allowances-template": "semorg-allowances-at",
 
@@ -214,6 +216,8 @@
 	"semorg-field-person-profession-parameters": "",
 	"semorg-field-person-tax-number-name": "Tax number", 
 	"semorg-field-person-tax-number-parameters": "",
+	"semorg-field-person-acronym-name": "Acronym", 
+	"semorg-field-person-acronym-parameters": "size=10",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
@@ -331,10 +335,10 @@
 	"semorg-form-project-grant-edit-title": "Edit Project Grant", 
 	"semorg-form-project-grant-page-name": "Grants",
 	"semorg-form-project-grant-template": "project-grant",
-	"semorg-form-project-grant-rows": "project,title,grantor,amount",
-	"semorg-list-project-grant-headers": "project-grant-title,project-grant-grantor,project-grant-amount",
+	"semorg-form-project-grant-rows": "project,title,grantor,amount,project-grant-acceptance-date",
+	"semorg-list-project-grant-headers": "project-grant-title,project-grant-grantor,project-grant-project,project-grant-amount,project-grant-acceptance-date",
 	"semorg-field-project-grant-project-name": "Project", 
-	"semorg-field-project-grant-project-parameters": "hidden",
+	"semorg-field-project-grant-project-parameters": "input type=combobox|values from category=semorg-project|size=60|mandatory",
 	"semorg-field-project-grant-amount-name": "Amount", 
 	"semorg-field-project-grant-amount-parameters": "size=10",
 	"semorg-field-project-grant-grantor-name": "Grantor", 
@@ -613,7 +617,7 @@
 	"semorg-form-membership-decrease-page-name": "Decreases",
 	"semorg-form-membership-decrease-edit-title": "Edit Decrease of Shares",
 	"semorg-form-membership-decrease-create-title": "Create Decrease of Shares",
-	"semorg-form-membership-decrease-rows": "member,date,shares",
+	"semorg-form-membership-decrease-rows": "member,date,shares,due-date",
 	"semorg-field-membership-decrease-due-date-name": "Date",
 	"semorg-field-membership-decrease-due-date-parameters": "input type=datepicker|mandatory|size=10",
 	"semorg-membership-exit-template": "semorg-membership-exit",
@@ -642,6 +646,13 @@
 	"semorg-field-membership-type-name": "Type",
 	"semorg-field-membership-due-name": "Due",
 
+	"semorg-membership-state-displaytitle": "Register of members per {{#timel:Y-m-d|$1}}",
+	"semorg-membership-state-page-name": "Register of members",
+	"semorg-form-membership-state-rows": "date",
+	"semorg-form-membership-state-template": "membership-state",
+	"semorg-field-membership-state-date-name": "Date",
+	"semorg-field-membership-state-date-parameters": "input type=datepicker|size=10",
+
 	"semorg-membership-payment-template": "semorg-membership-payment",
 	"semorg-membership-payment-category": "semorg-membership-payment",
 	"semorg-membership-payment-form": "semorg-membership-payment",
@@ -653,6 +664,7 @@
 	"semorg-form-membership-payment-edit-title": "Edit membership payment",
 	"semorg-form-membership-payment-rows": "ref, date, member, amount",
 	"semorg-list-membership-payment-headers": "membership-payment-date, membership-payment-amount",
+	"semorg-list-membership-payment-default": "no payments…",
 	"semorg-field-membership-payment-ref-name": "",
 	"semorg-field-membership-payment-ref-parameters": "hidden",
 	"semorg-field-membership-payment-member-name": "",
