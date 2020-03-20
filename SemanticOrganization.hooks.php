@@ -650,9 +650,11 @@ class SemanticOrganizationHooks {
 		// Set defaults for parameters
 		$parameters['limit'] = $wgSemorgListLimit;
 		$parameters['default'] = wfMessage('semorg-list-default');
+		$parameters['intro'] = '';
+		$parameters['outro'] = '';
 		
-		// Parameters for sorting, ordering, default (queries without results), limit, userparam
-		foreach( ['sort', 'order', 'default', 'limit', 'userparam'] as $parameter ) {
+		// Parameters for sorting, ordering, default (queries without results), intro, outro, limit, userparam
+		foreach( ['sort', 'order', 'default', 'intro', 'outro', 'limit', 'userparam'] as $parameter ) {
 
 			// set by a message?
 			if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
@@ -727,8 +729,8 @@ class SemanticOrganizationHooks {
 
 		$query .= '|link=none|named args=yes|format=template';
 		$query .= '|template=semorg-' . $row_template . '-row';
-		$query .= '|intro={{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
-		$query .= '|outro=' . $sums . '{{semorg-list-outro}}';
+		$parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
+		$parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
 		
 		// apply parameters...
 		foreach( $parameters as $parameter => $value ) {
@@ -772,6 +774,8 @@ class SemanticOrganizationHooks {
 			$list .= self::getPagesizeBox( $parser, $applied_filters, $count, $limit, $page );
 			$list .= '</div>';
 		}
+
+		$list = '<div class="semorg-list">' . $list . '</div>';
 
 		return [ $list, 'noparse' => true, 'isHTML' => true ];
 	}
@@ -820,39 +824,54 @@ class SemanticOrganizationHooks {
 			$group = $options['group'];
 		}
 		$query = '[[semorg-meeting-' . $template . '::' . $group . ']]';
+		$meetings_page_name = wfMessage( 'semorg-meeting-' . $template . '-page-name' )->text();
 
-		$meetings = '<div class="semorg-meeting-formlink">{{#semorg-formlink:meeting-' . $template;
+		$meetings = '';
+
+		$title = $options['title'] ?? $meetings_page_name;
+		$links = '{{#semorg-formlink:meeting-' . $template;
 		if( $group != '+' ) {
-			$meetings .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
+			$links .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
 		}
-		$meetings .= '
+		$links .= '
 		  |popup=true
-		}}</div>';
-		$meetings .= '<div class="h3 semorg-meeting-heading">{{int:semorg-list-meeting-current-heading}}</div>';
+		}}';
 
-		$meetings .= '<div class="semorg-meeting-list">{{#semorg-list:meeting
+		/* current meetings */
+		$meetings = '<div class="semorg-meeting-heading mb-4"><b>{{int:semorg-list-meeting-current-heading|' . $meetings_page_name . '}}</b></div>';
+		$meetings .= '{{#semorg-list:meeting
 		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |default={{int:semorg-list-meeting-default}}
+		  |intro=<div class="semorg-meeting-list card-body-table">
+		  |outro=</div>
 		  |limit=1000
 		  |nopagination
-		}}</div>';
-		$meetings .= '<div class="h3 semorg-meeting-heading">{{int:semorg-list-meeting-past-heading}}</div>';
-		$meetings .= '<div class="semorg-meeting-link">[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} <span class="btn btn-sm btn-secondary">{{int:semorg-list-meeting-all-link-text}}</span>]</div>';
-		$meetings .= '<div class="semorg-meeting-list">{{#semorg-list:meeting
+		}}';
+
+		/* past meetings */
+		$show_all_link = '<span class="semorg-meeting-link">[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text}}]</span>';
+		$meetings .= '<div class="semorg-meeting-heading mt-4 mb-4"><b>{{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}</b> – ' . $show_all_link . '</div>';
+		$meetings .= '{{#semorg-list:meeting
 		  |query=' . $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |order=desc
 		  |default={{int:semorg-list-meeting-default-past}}
+		  |intro=<div class="semorg-meeting-list card-body-table">
+		  |outro=</div>
 		  |limit=15
 		  |nopagination
-		}}</div>';
+		}}';
 
-		$meetings = '<div class="semorg-meetings">' . $meetings . '</div>';
+		$meetings = "{{semorg-card
+			|title=$title
+			|links=$links
+			|body=$meetings
+		}}";
 
 		return [ $meetings, 'noparse' => false ];
 	}
@@ -1341,7 +1360,10 @@ class SemanticOrganizationHooks {
 		}
 		$id = str_replace( '-', '_', $id );
 
-		$out = '<div id="' . $id . '" class="semorg-network"><svg width="960" height="600"></svg></div>';
+		$width = $options['width'] ?? 960;
+		$height= $options['height'] ?? 600;
+
+		$out = '<div id="' . $id . '" class="semorg-network"><svg width="' . $width . '" height="' . $height . '"></svg></div>';
 		$out .= '<script>var ' . $id . '=' . json_encode( $network_data ) . ';</script>';
 		return array( $out, 'noparse' => true, 'isHTML' => true );
 	}
