@@ -68,6 +68,9 @@
 	"semorg-task-status-due": "zu erledigen",
 	"semorg-task-status-overdue": "überfällig",
 
+	"semorg-invoice-status-due": "fällig",
+	"semorg-invoice-status-overdue": "überfällig",
+
 	"semorg-form-standard-input-save-label": "Speichern",
 	"semorg-form-notemplate": "Parameter <code>template</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
 	"semorg-form-noelements": "Parameter <code>elements</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
