@@ -762,6 +762,11 @@ class SemanticOrganizationHooks {
 			$list = $parser->recursiveTagParse( $filterbox ) . $list;
 		}
 
+		// Links
+		if( isset( $listoptions['links'] ) ) {
+			$list = '<div class="semorg-list-links">' . $parser->recursiveTagParse( $listoptions['links'] ) . '</div>' . $list;
+		}
+
 		// Header
 		if( isset( $listoptions['title'] ) || isset( $listoptions['formlink'] ) ) {
 			$list_header = '';
@@ -777,6 +782,16 @@ class SemanticOrganizationHooks {
 			}
 
 			$list = '<div class="semorg-list-header">' . $list_header . '</div>' . $list;
+		}
+
+		// Heading
+		if( isset( $listoptions['heading'] ) ) {
+			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . '</div>';
+			$heading = '<div class="semorg-detail">' . $heading . '</div>';
+
+			$heading .= '{{#tweekiHide:firstHeading}}';
+			$heading .= '{{DISPLAYTITLE:' . $listoptions['heading'] . '}}';
+			$list = $parser->recursiveTagParse( $heading ) . $list;
 		}
 
 		// Footer
@@ -853,8 +868,6 @@ class SemanticOrganizationHooks {
 			$links .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
 		}
 		$links .= '
-		  |popup=true
-		  |class=-
 		}}';
 
 		/* current meetings */
