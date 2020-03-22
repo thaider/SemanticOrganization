@@ -790,7 +790,7 @@ class SemanticOrganizationHooks {
 			$heading = '<div class="semorg-detail">' . $heading . '</div>';
 
 			$heading .= '{{#tweekiHide:firstHeading}}';
-			$heading .= '{{DISPLAYTITLE:' . $listoptions['heading'] . '}}';
+			$heading .= '{{DISPLAYTITLE:' . $listoptions['heading'] . '|noerror}}';
 			$list = $parser->recursiveTagParse( $heading ) . $list;
 		}
 
@@ -1674,6 +1674,17 @@ class SemanticOrganizationHooks {
 		$pagesize = '';
 
 		$sizes = [ 20, 50, 100 ];
+		if( $sizes[0] > $count ) {
+			
+			// don't show page size selection if total number is smaller than current page size
+			if( (int) $limit > $count ) {
+				return '';
+
+			// show only first available standard page size if total number is smaller than it but larger than current page size
+			} else {
+				$sizes = [ $sizes[0] ];
+			}
+		}
 		$sizes = array_unique( array_merge( $sizes, [ (int) $limit ] ) );
 		sort( $sizes );
 		foreach( $sizes as $size ) {
