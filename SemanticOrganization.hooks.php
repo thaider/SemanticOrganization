@@ -244,7 +244,8 @@ class SemanticOrganizationHooks {
 			'popup' => 'popup',
 			'new window' => 'new-window',
 			'query string' => 'query-string',
-			'returnto' => 'returnto'
+			'returnto' => 'returnto',
+			'preload' => 'preload',
 		];
 		foreach( $messages as $option => $message_key ) {
 			if( isset( $options[$option] ) ) {
@@ -867,8 +868,13 @@ class SemanticOrganizationHooks {
 		if( $group != '+' ) {
 			$links .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
 		}
+		$default_agenda = Title::newFromText( $parser->getTitle()->getPrefixedText() . '/' . wfMessage( 'semorg-form-default-agenda-page-name' )->text() );
+		if( $default_agenda->exists() ) {
+			$links .= '|preload=' . $default_agenda->getPrefixedText();
+		}
 		$links .= '
 		}}';
+		$links .= ' {{semorg-formlink-default-agenda}}';
 
 		/* current meetings */
 		$meetings .= '<div class="semorg-meetings-current mt-4 mb-4">{{#semorg-list:meeting

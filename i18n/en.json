@@ -8,7 +8,7 @@
 	"semorg-print-header": "",
 	"semorg-print-footer": "",
 
-	"semorg-mail-meeting-group-link-text": "Send invitation e-mail",
+	"semorg-mail-meeting-group-link-text": "Send Invitation E-mail",
 	"semorg-mail-meeting-group-subject": "Invitation for $1 on $2, $3",
 
 	"semorg-filterbox-title": "Filter",
@@ -602,6 +602,10 @@
 	"semorg-field-agenda-files-parameters": "holds template",
 	"semorg-field-agenda-timer-name": "Time required",
 	"semorg-field-agenda-timer-fields": "time,start,end,time-real",
+
+	"semorg-form-default-agenda-page-name": "Default Agenda",
+	"semorg-form-default-agenda-create-title": "Create Default Agenda",
+	"semorg-form-default-agenda-edit-title": "Edit Default Agenda",
 
 	"semorg-membership-category": "semorg-membership",
 	"semorg-form-membership-rows": "member,date,shares,due-date",
