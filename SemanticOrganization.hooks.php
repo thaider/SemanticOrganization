@@ -1832,11 +1832,15 @@ class SemanticOrganizationHooks {
 			$dashboardoptions['default'] = '<div class="semorg-dashboard-default">' . $dashboardoptions['default'] . '</div>';
 			
 			$tableparameters = '';
-			// do not use title for dashboard and list
+			
+			// do not use title and links for both dashboard and list
 			unset( $dashboardoptions['title'] );
+			unset( $dashboardoptions['links'] );
+
 			foreach( $dashboardoptions as $option => $value ) {
 				$tableparameters .= '|' . $option . '=' . $value;
 			}
+
 			// switch off pagination by default
 			if( !isset( $dashboardoptions['pagination'] ) ) {
 				$tableparameters .= '|nopagination';
