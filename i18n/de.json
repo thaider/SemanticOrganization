@@ -773,6 +773,8 @@
 	"semorg-form-task-create-title": "Todo erstellen",
 	"semorg-form-task-edit-title": "Todo bearbeiten", 
 	"semorg-form-task-page-name": "Todos",
+	"semorg-list-task-current-link-text": "offen",
+	"semorg-list-task-done-link-text": "erledigt",
 	"semorg-field-task-task-name": "Todo",
 	"semorg-field-task-title-name": "Titel", 
 	"semorg-field-task-due-date-name": "Geplant bis", 

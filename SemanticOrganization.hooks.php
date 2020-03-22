@@ -1580,8 +1580,11 @@ class SemanticOrganizationHooks {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
 			$filter_properties = explode( '.', $filter_property );
 
-			/* allow nested property names (e.g. not only “feature-field“ but also “feature-field.semorg-feature-field”) */
-			$filter_name_msg = 'semorg-field-' . str_replace( 'semorg-', '', end( $filter_properties  ) ) . '-name';
+			// allow costumization for nested property names via 'semorg-feature-field-feature-field-name'
+			$filter_name_msg = 'semorg-field-' . str_replace( '.semorg', '', $filter_property ) . '-name';
+			if( !wfMessage( $filter_name_msg )->exists() ) {
+				$filter_name_msg = 'semorg-field-' . str_replace( 'semorg-', '', end( $filter_properties  ) ) . '-name';
+			}
 			$filter_name = wfMessage( $filter_name_msg );
 			$filterbox .= '<span class="semorg-filterbox-filter-name">' . $filter_name . ': </span>';
 			foreach( $values as &$value ) {
