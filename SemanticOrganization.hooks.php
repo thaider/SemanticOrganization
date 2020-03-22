@@ -1271,7 +1271,10 @@ class SemanticOrganizationHooks {
 			}
 			$output .= '</td></tr>';
 		}
-		foreach( [ 'birthday', 'organization', 'note', 'ssn', 'vat', 'tax-number', 'legal-form', 'legal-registry', 'iban', 'profession' ] as $field ) {
+		if( isset( self::$options['birthday'] ) ) {
+			$output .= '<tr><th>' . wfMessage( 'semorg-field-person-birthday-name' )->plain() . '</th><td>{{semorg-date|' . self::$options['birthday'] . '|long}}</td></tr>';
+		}
+		foreach( [ 'organization', 'note', 'ssn', 'vat', 'tax-number', 'legal-form', 'legal-registry', 'iban', 'profession' ] as $field ) {
 			if( isset( self::$options[$field] ) ) {
 				$output .= '<tr><th>' . wfMessage( 'semorg-field-person-' . $field . '-name' )->plain() . '</th><td>' . self::$options[$field] . '</td></tr>';
 			}
