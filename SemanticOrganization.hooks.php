@@ -549,221 +549,223 @@ class SemanticOrganizationHooks {
 		$template = func_get_args()[1];
 		$listoptions = self::extractOptions( array_slice(func_get_args(), 2) );
 		$request = $parser->getUser()->getRequest();
-		$parameters = [];
+		if( $template != '' ) {
+			$parameters = [];
+			$row_template = $template;
+			if( wfMessage('semorg-list-' . $template . '-row-template' )->exists() ) {
+				$row_template = wfMessage('semorg-list-' . $template . '-row-template' )->text();
+			}
+			if( isset( $listoptions['row template'] ) ) {
+				$row_template = $listoptions['row template'];
+			}
 
-		$row_template = $template;
-		if( wfMessage('semorg-list-' . $template . '-row-template' )->exists() ) {
-			$row_template = wfMessage('semorg-list-' . $template . '-row-template' )->text();
-		}
-		if( isset( $listoptions['row template'] ) ) {
-			$row_template = $listoptions['row template'];
-		}
-
-		// if a message for the custom headers is defined for the row-template, use custom headers
-		if( isset( $listoptions['headers'] ) ) {
-			$headers = $listoptions['headers'];
-		} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
-			$headers = wfMessage('semorg-list-' . $row_template . '-headers' )->text();
-		} else {
-			$headers = wfMessage('semorg-list-' . $template . '-headers' )->text();
-		}
-
-		if( isset( $listoptions['tableclass'] ) ) {
-			$tableclass = $listoptions['tableclass'];
-		} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-tableclass' )->exists() ) {
-			$tableclass = wfMessage('semorg-list-' . $row_template . '-tableclass' )->text();
-		} elseif( wfMessage('semorg-list-' . $template . '-tableclass' )->exists() ) {
-			$tableclass = wfMessage('semorg-list-' . $template . '-tableclass' )->text();
-		} else {
-			$tableclass = 'table table-sm table-bordered sortable';
-			$tableclass = 'table table-condensed table-sm table-bordered sortable'; // for backwards-compatibility
-		}
-
-		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
-		if( $fields === false) {
-			return [ wfMessage( 'semorg-error-list-no-fields' )->text(), 'noparse' => true ];
-		}
-
-		if( isset( $listoptions['category'] ) ) {
-			// use custom parameter if it wasn't used to explicitly unset the category
-			if( $listoptions['category'] != '-' ) {
-				$query_string = '[[Category:' . $listoptions['category'] . ']]';
+			// if a message for the custom headers is defined for the row-template, use custom headers
+			if( isset( $listoptions['headers'] ) ) {
+				$headers = $listoptions['headers'];
+			} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
+				$headers = wfMessage('semorg-list-' . $row_template . '-headers' )->text();
 			} else {
-				$query_string = '';
+				$headers = wfMessage('semorg-list-' . $template . '-headers' )->text();
 			}
-		} else {
-			// use standard category as main query parameter
-			$query_string = '[[Category:{{int:semorg-' . $template . '-category}}]]';
-		}
 
-		// Custom query parameters
-		if( isset( $listoptions['query'] ) ) {
-			$query_string .= $listoptions['query'];
-		}
-
-		// Get implicit filters (filter links)
-		if( isset( $listoptions['filter links'] ) ) {
-			$filter_links = explode( ',', $listoptions['filter links'] );
-		}
-
-		// Filters
-		$applied_filters = [];
-		if( isset( $listoptions['filters'] ) || isset( $listoptions['filter links'] ) ) {
-			$filters = [];
-			$filter_defaults = [];
-			$filter_string = '';
-			if( isset( $listoptions['filters'] ) ) {
-				$filters = explode(',', $listoptions['filters']);
+			if( isset( $listoptions['tableclass'] ) ) {
+				$tableclass = $listoptions['tableclass'];
+			} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-tableclass' )->exists() ) {
+				$tableclass = wfMessage('semorg-list-' . $row_template . '-tableclass' )->text();
+			} elseif( wfMessage('semorg-list-' . $template . '-tableclass' )->exists() ) {
+				$tableclass = wfMessage('semorg-list-' . $template . '-tableclass' )->text();
+			} else {
+				$tableclass = 'table table-sm table-bordered sortable';
+				$tableclass = 'table table-condensed table-sm table-bordered sortable'; // for backwards-compatibility
 			}
-			// add filters that have implicitly been set with filter links
-			if( isset( $filter_links ) ) {
-				$filters = array_merge( $filters, $filter_links );
+
+			$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
+			if( $fields === false) {
+				return [ wfMessage( 'semorg-error-list-no-fields' )->text(), 'noparse' => true ];
 			}
-			foreach( $filters as $filter ) {
-				$filter_value = false;
-				$filter = explode( '=', $filter );
-				$filter_property = $filter[0];
 
-				// had the filter been set explicitly in the query string?
-				if( $request->getCheck( $filter_property ) ) {
-					$filter_value = $request->getText( $filter_property );
-
-				// or do we have a default value in the list definition?
-				} elseif( isset( $filter[1] ) ) {
-					$filter_value = $filter[1];
+			if( isset( $listoptions['category'] ) ) {
+				// use custom parameter if it wasn't used to explicitly unset the category
+				if( $listoptions['category'] != '-' ) {
+					$query_string = '[[Category:' . $listoptions['category'] . ']]';
+				} else {
+					$query_string = '';
 				}
+			} else {
+				// use standard category as main query parameter
+				$query_string = '[[Category:{{int:semorg-' . $template . '-category}}]]';
+			}
 
-				if( isset( $filter[1] ) && $filter[1] == $filter_value ) {
-					$filter_defaults[$filter_property] = true;
+			// Custom query parameters
+			if( isset( $listoptions['query'] ) ) {
+				$query_string .= $listoptions['query'];
+			}
+
+			// Get implicit filters (filter links)
+			if( isset( $listoptions['filter links'] ) ) {
+				$filter_links = explode( ',', $listoptions['filter links'] );
+			}
+
+			// Filters
+			$applied_filters = [];
+			if( isset( $listoptions['filters'] ) || isset( $listoptions['filter links'] ) ) {
+				$filters = [];
+				$filter_defaults = [];
+				$filter_string = '';
+				if( isset( $listoptions['filters'] ) ) {
+					$filters = explode(',', $listoptions['filters']);
 				}
-
-				// apply filter
-				if( $filter_value !== false && $filter_value !== '') {
-					$query_string .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
-					$applied_filters[$filter_property] = $filter_value;
+				// add filters that have implicitly been set with filter links
+				if( isset( $filter_links ) ) {
+					$filters = array_merge( $filters, $filter_links );
 				}
-				if( $filter_value === '') {
-					$applied_filters[$filter_property] = $filter_value;
-				}
-			}
-		}
+				foreach( $filters as $filter ) {
+					$filter_value = false;
+					$filter = explode( '=', $filter );
+					$filter_property = $filter[0];
 
-		// Set defaults for parameters
-		$parameters['limit'] = $wgSemorgListLimit;
-		$parameters['default'] = wfMessage('semorg-list-default');
-		$parameters['intro'] = '';
-		$parameters['outro'] = '';
-		
-		// Parameters for sorting, ordering, default (queries without results), intro, outro, limit, userparam
-		foreach( ['sort', 'order', 'default', 'intro', 'outro', 'limit', 'userparam'] as $parameter ) {
+					// had the filter been set explicitly in the query string?
+					if( $request->getCheck( $filter_property ) ) {
+						$filter_value = $request->getText( $filter_property );
 
-			// set by a message?
-			if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
-				$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
-			}
-			// explicitly set by parser function parameter?
-			if( isset( $listoptions[$parameter] ) ) {
-				$parameters[$parameter] = $listoptions[$parameter];
-			}
-			// explicitly set by query parameter?
-			if( !is_null( $request->getVal( $parameter ) ) && $request->getVal( $parameter ) > 0 ) {
-				$parameters[$parameter] = $request->getVal( $parameter );
-			}
-		}
+					// or do we have a default value in the list definition?
+					} elseif( isset( $filter[1] ) ) {
+						$filter_value = $filter[1];
+					}
 
-		// Apply parameters...
-		foreach( $parameters as $parameter => $value ) {
-			if( $value != '' ) {
-				$query_string .= '|' . $parameter . '=' . $value;
-			}
-		}
+					if( isset( $filter[1] ) && $filter[1] == $filter_value ) {
+						$filter_defaults[$filter_property] = true;
+					}
 
-		// Page number, limit, offset
-		$count = (int) $parser->recursiveTagParse( '{{#ask:' . $query_string . '|format=count}}' );
-		$limit = $parameters['limit'];
-		$page = 1;
-		if( $request->getInt( 'page' ) > 1 ) {
-			$page = min( $request->getInt( 'page' ), ceil( $count / $limit ) );
-		}
-		if( $request->getInt( 'page' ) > 1 ) {
-			$parameters['offset'] = ($page-1) * $limit;
-		}
-		
-		// Sums
-		$sums = '';
-		if( isset( $listoptions['sums'] ) ) {
-			$sums = '<tr class="semorg-sums sortbottom">';
-			foreach( explode(',', $listoptions['sums'] )  as $sum ) {
-				$sums .= '<td style="text-align:right">';
-				if( $sum != '' ) {
-					$sum_query = '{{#ask:' . $query_string . '|?semorg-' . $sum . '|format=sum|limit=1000}}';
-					if( wfMessage('semorg-list-' . $sum . '-sum-template' )->exists() ) {
-						$sums .= '{{' . wfMessage('semorg-list-' . $sum . '-sum-template' )->text() . '|' . $sum_query . '}}';
-					} else {
-						$sums .= $sum_query;
+					// apply filter
+					if( $filter_value !== false && $filter_value !== '') {
+						$query_string .= '[[semorg-' . $filter_property . '::' . $filter_value . ']]';
+						$applied_filters[$filter_property] = $filter_value;
+					}
+					if( $filter_value === '') {
+						$applied_filters[$filter_property] = $filter_value;
 					}
 				}
-				$sums .= '</td>';
 			}
-			$sums .= '<td class="semorg-showedit"></td>';
-			$sums .= '</tr>';
-		}
-		
-		$query = '{{#ask:' . $query_string;
 
-		// Fields
-		$query .= '|mainlabel=target';
-		foreach( $fields as $field => $attributes ) {
-			if( $attributes['type'] = 'dat' ) {
-				$query .= '|?semorg-' . $template . '-' . $field . '#ISO=' . $field;
-			} else {
-				$query .= '|?semorg-' . $template . '-' . $field . '=' . $field;
+			// Set defaults for parameters
+			$parameters['limit'] = $wgSemorgListLimit;
+			$parameters['default'] = wfMessage('semorg-list-default');
+			$parameters['intro'] = '';
+			$parameters['outro'] = '';
+			
+			// Parameters for sorting, ordering, default (queries without results), intro, outro, limit, userparam
+			foreach( ['sort', 'order', 'default', 'intro', 'outro', 'limit', 'userparam'] as $parameter ) {
+
+				// set by a message?
+				if( wfMessage('semorg-list-' . $row_template . '-' . $parameter )->exists() ) {
+					$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
+				}
+				// explicitly set by parser function parameter?
+				if( isset( $listoptions[$parameter] ) ) {
+					$parameters[$parameter] = $listoptions[$parameter];
+				}
+				// explicitly set by query parameter?
+				if( !is_null( $request->getVal( $parameter ) ) && $request->getVal( $parameter ) > 0 ) {
+					$parameters[$parameter] = $request->getVal( $parameter );
+				}
 			}
-		}
 
-		// Custom fields
-		foreach( $listoptions as $option => $value ) {
-			if( substr( $option, 0, 1 ) === '?' ) {
-				$query .= '|' . $option . '=' . $value;
+			// Apply parameters...
+			foreach( $parameters as $parameter => $value ) {
+				if( $value != '' ) {
+					$query_string .= '|' . $parameter . '=' . $value;
+				}
 			}
-		}
 
-		$query .= '|link=none|named args=yes|format=template';
-		$query .= '|template=semorg-' . $row_template . '-row';
-		$parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
-		$parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
-		
-		// apply parameters...
-		foreach( $parameters as $parameter => $value ) {
-			if( $value != '' ) {
-				$query .= '|' . $parameter . '=' . $value;
+			// Page number, limit, offset
+			$count = (int) $parser->recursiveTagParse( '{{#ask:' . $query_string . '|format=count}}' );
+			$limit = $parameters['limit'];
+			$page = 1;
+			if( $request->getInt( 'page' ) > 1 ) {
+				$page = min( $request->getInt( 'page' ), ceil( $count / $limit ) );
 			}
-		}
-
-		$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
-		$query .= '}}';
-
-		$list = $parser->recursiveTagParse( $query );
-
-		if( isset( $listoptions['csv'] ) ) {
-			$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'] );
-			$list = '<div class="semorg-csv-download">' . $parser->recursiveTagParse( $download ) . '</div>' . $list;
-		}
-
-		// Filterbox
-		if( isset( $filter_links ) ) {
-			$filter_links_values = [];
-			foreach( $filter_links as $filter ) {
-				$filter = explode( '=', $filter );
-				$filter_property = $filter[0];
-
-				// get all existing values
-				$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
-				sort( $filter_values );
-				$filter_links_values[$filter_property] = $filter_values;
+			if( $request->getInt( 'page' ) > 1 ) {
+				$parameters['offset'] = ($page-1) * $limit;
 			}
-			$filterbox = self::getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults );
-			$list = $parser->recursiveTagParse( $filterbox ) . $list;
+			
+			// Sums
+			$sums = '';
+			if( isset( $listoptions['sums'] ) ) {
+				$sums = '<tr class="semorg-sums sortbottom">';
+				foreach( explode(',', $listoptions['sums'] )  as $sum ) {
+					$sums .= '<td style="text-align:right">';
+					if( $sum != '' ) {
+						$sum_query = '{{#ask:' . $query_string . '|?semorg-' . $sum . '|format=sum|limit=1000}}';
+						if( wfMessage('semorg-list-' . $sum . '-sum-template' )->exists() ) {
+							$sums .= '{{' . wfMessage('semorg-list-' . $sum . '-sum-template' )->text() . '|' . $sum_query . '}}';
+						} else {
+							$sums .= $sum_query;
+						}
+					}
+					$sums .= '</td>';
+				}
+				$sums .= '<td class="semorg-showedit"></td>';
+				$sums .= '</tr>';
+			}
+			
+			$query = '{{#ask:' . $query_string;
+
+			// Fields
+			$query .= '|mainlabel=target';
+			foreach( $fields as $field => $attributes ) {
+				if( $attributes['type'] = 'dat' ) {
+					$query .= '|?semorg-' . $template . '-' . $field . '#ISO=' . $field;
+				} else {
+					$query .= '|?semorg-' . $template . '-' . $field . '=' . $field;
+				}
+			}
+
+			// Custom fields
+			foreach( $listoptions as $option => $value ) {
+				if( substr( $option, 0, 1 ) === '?' ) {
+					$query .= '|' . $option . '=' . $value;
+				}
+			}
+
+			$query .= '|link=none|named args=yes|format=template';
+			$query .= '|template=semorg-' . $row_template . '-row';
+			$parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
+			$parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
+			
+			// apply parameters...
+			foreach( $parameters as $parameter => $value ) {
+				if( $value != '' ) {
+					$query .= '|' . $parameter . '=' . $value;
+				}
+			}
+
+			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
+			$query .= '}}';
+
+			$list = $parser->recursiveTagParse( $query );
+
+
+			if( isset( $listoptions['csv'] ) ) {
+				$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'] );
+				$list = '<div class="semorg-csv-download">' . $parser->recursiveTagParse( $download ) . '</div>' . $list;
+			}
+
+			// Filterbox
+			if( isset( $filter_links ) ) {
+				$filter_links_values = [];
+				foreach( $filter_links as $filter ) {
+					$filter = explode( '=', $filter );
+					$filter_property = $filter[0];
+
+					// get all existing values
+					$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
+					sort( $filter_values );
+					$filter_links_values[$filter_property] = $filter_values;
+				}
+				$filterbox = self::getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults );
+				$list = $parser->recursiveTagParse( $filterbox ) . $list;
+			}
 		}
 
 		// Links
@@ -804,7 +806,7 @@ class SemanticOrganizationHooks {
 		}
 
 		// Pagination
-		if( !isset( $listoptions['nopagination'] ) ) {
+		if( $template != '' && !isset( $listoptions['nopagination'] ) ) {
 			$list .= '<div class="semorg-pagination d-print-none clearfix">';
 			if( $page > 1 || $count > $limit ) {
 				$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
