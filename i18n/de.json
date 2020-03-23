@@ -582,8 +582,11 @@
 	"semorg-field-group-co-host-name": "Co-Host", 
 	"semorg-field-group-properties-name": "Eigenschaften", 
 	"semorg-field-group-members-name": "Mitglieder",
-	"semorg-tab-group-meetings": "Treffen",
+	"semorg-tab-group-info": "Info",
 	"semorg-tab-group-roles": "Rollen",
+	"semorg-tab-group-schedule": "Jahreskreis",
+	"semorg-tab-group-tasks": "Todos",
+	"semorg-tab-group-meetings": "Treffen",
 
 	"semorg-form-group-member-add-button-text": "Mitglied hinzufügen",
 	"semorg-field-group-member-group-name": "Gremium", 
@@ -748,6 +751,7 @@
 	"semorg-field-expense-report-year-name": "Jahr", 
 	"semorg-field-expense-report-quarter-year-name": "Quartal",
 	"semorg-field-expense-report-month-year-name": "Monat",
+	"semorg-field-expense-report-total-name": "Summe",
 	"semorg-expense-report-displaytitle": "Spesenabrechnung für $1",
 
 	"semorg-form-expense-add-button-text": "Ausgabe hinzufügen",
@@ -775,6 +779,7 @@
 	"semorg-form-task-page-name": "Todos",
 	"semorg-list-task-current-link-text": "offen",
 	"semorg-list-task-done-link-text": "erledigt",
+	"semorg-list-task-all-link-text": "… alle $1 Todos anzeigen",
 	"semorg-field-task-task-name": "Todo",
 	"semorg-field-task-title-name": "Titel", 
 	"semorg-field-task-due-date-name": "Geplant bis", 

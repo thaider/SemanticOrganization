@@ -520,9 +520,12 @@ class SemanticOrganizationHooks {
 		foreach( $taboptions as $id => $content ) {
 			if( substr( $id, 0, 1 ) === '?' ) {
 				$id = substr( $id, 1 );
+
+				// content comes from template
 				if( $content === true ) {
 					$content = '{{semorg-' . $template . '-' . $id . '-tab}}';
 				}
+
 				$tabcontents .= '<div id="' . $id . '" class="tab-pane fade' . ($first ? ' active show' : '' ) . '" role="tabpanel" aria-labelledby="' . $id . '-label">' . $content . '</div>'; 
 				$first = false;
 			}
