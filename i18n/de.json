@@ -17,6 +17,7 @@
 	"semorg-up-to-date-warning": "<b>Achtung!</b> Diese Seite wird automatisiert auf der Grundlage der aktuell geltenden Fassung des zugrundeliegenden Formulars erstellt. Die hier angezeigte Version kann daher vom tatsächlichen Inhalt des Dokuments (wie ausgedruckt und unterfertigt) abweichen!",
 	"semorg-invoice-storno-warning": "Diese Rechnung wurde '''storniert'''!",
 	"semorg-transfer-listed-warning": "Diese Umbuchung wurde mit der [[$1|<span class='alert-link'>Umbuchungsliste vom $2</span>]] an die Buchhaltung weitergegeben. Bitte keine Änderungen mehr durchführen.",
+	"semorg-role-inactive-warning": "Diese Rolle ist nicht mehr aktiv. {{#if:$1|(Grund: $1)}}",
 
 	"semorg-tooltip-view": "ansehen",
 	"semorg-tooltip-edit": "bearbeiten",
@@ -666,7 +667,12 @@
 	"semorg-field-role-tasks-name": "Aufgaben",
 	"semorg-field-role-holders-name": "InhaberInnen",
 	"semorg-field-role-hours-name": "<abbr title='Stundenaufwand (h/Jahr)'>h</abbr>",
-	"semorg-field-role-task-responsible-name": "verantwortlich", 
+	"semorg-field-role-status-name": "Status", 
+	"semorg-field-role-status-help": "Bitte erkläre, warum diese Rolle nicht mehr aktiv ist.",
+	"semorg-field-role-active-name": "aktiv", 
+	"semorg-field-role-active-suffix": "&nbsp;aktiv&nbsp;&nbsp;",
+	"semorg-field-role-active-reason-name": "Grund", 
+	"semorg-field-role-active-reason-placeholder": "Grund für die Inaktivierung",
 
 	"semorg-role-task-dashboard-title": "Meine Rollen und ihre aktuellen Tasks",
 	"semorg-form-role-task-add-button-text": "Aufgabe hinzufügen",
@@ -678,6 +684,7 @@
 	"semorg-field-role-task-hours-suffix": "&nbsp;h/Jahr",
 	"semorg-field-role-task-month-name": "Monat(e)", 
 	"semorg-field-role-task-month-help": "Ist diese Aufgabe im Jahreskreis zeitlich zu verorten?",
+	"semorg-field-role-task-responsible-name": "verantwortlich", 
 
 	"semorg-form-role-holder-add-button-text": "Person hinzufügen",
 	"semorg-field-role-holder-role-name": "Rolle", 
