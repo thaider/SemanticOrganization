@@ -792,7 +792,12 @@ class SemanticOrganizationHooks {
 
 		// Heading
 		if( isset( $listoptions['heading'] ) ) {
-			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . '</div>';
+			$help_link = '';
+			if( wfMessage( 'semorg-' . $template . '-help-page-name' )->exists() ) {
+				$help_page = wfMessage( 'semorg-' . $template . '-help-page-name' );
+				$help_link = '<btn class="semorg-detail-help-link" wrapper="" title="' . $help_page . '" data-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
+			}
+			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . $help_link . '</div>';
 			$heading = '<div class="semorg-detail">' . $heading . '</div>';
 
 			$heading .= '{{#tweekiHide:firstHeading}}';
