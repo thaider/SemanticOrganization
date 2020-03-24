@@ -982,7 +982,7 @@
 	"semorg-field-group-host-name": "Host", 
 	"semorg-field-group-host-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-group-co-host-name": "Co-Host", 
-	"semorg-field-group-co-host-parameters": "input type=combobox|values from property=semorg-person|mapping property=Semorg-person-name",
+	"semorg-field-group-co-host-parameters": "input type=combobox|values from property=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-group-properties-name": "Properties", 
 	"semorg-field-group-properties-fields": "permanent,active",
 	"semorg-field-group-members-name": "Members",

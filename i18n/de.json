@@ -266,6 +266,7 @@
 	"semorg-field-project-grant-title-name": "Titel", 
 	"semorg-field-project-grant-note-name": "Anmerkungen", 
 	"semorg-field-project-grant-responsible-name": "verantwortlich", 
+	"semorg-field-task-responsible-person-name-name": "verantwortlich", 
 
 	"semorg-project-subpage-page-name": "Projektunterseiten",
 	"semorg-project-subpage-entity-name": "Projektunterseite",
@@ -590,7 +591,7 @@
 	"semorg-field-group-permanent-name": "permanent", 
 	"semorg-field-group-permanent-suffix": " permanent&nbsp;&nbsp;",
 	"semorg-field-group-active-name": "aktiv", 
-	"semorg-field-group-active-suffix": "aktiv",
+	"semorg-field-group-active-suffix": "&nbsp;aktiv",
 	"semorg-field-group-host-name": "Host", 
 	"semorg-field-group-co-host-name": "Co-Host", 
 	"semorg-field-group-properties-name": "Eigenschaften", 
