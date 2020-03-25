@@ -885,6 +885,11 @@ class SemanticOrganizationHooks {
 		$links .= '
 		}}';
 		$links .= ' {{semorg-formlink-default-agenda}}';
+		if( isset( $options['links'] ) ) {
+			$links .= ' ' . $options['links'];
+		}
+
+		$limit = $options['limit'] ?? 1000;
 
 		/* current meetings */
 		$meetings .= '<div class="semorg-meetings-current mt-4 mb-4">{{#semorg-list:meeting
@@ -895,26 +900,28 @@ class SemanticOrganizationHooks {
 		  |row template=meeting-' . $template . '
 		  |sort=Semorg-meeting-date
 		  |default={{int:semorg-list-meeting-default}}
-		  |limit=1000
+		  |limit=' . $limit .'
 		  |nopagination
 		}}</div>';
 
 		/* past meetings */
-		$past_query = $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]';
-		$past_count = $parser->recursiveTagParse( '{{#ask:' . $past_query . '|format=count}}' );
-		$show_all_link = '[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text|' . $past_count . '}}]';
-		$meetings .= '<div class="semorg-meetings-past">{{#semorg-list:meeting
-		  |title={{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}
-		  |query=' . $past_query . '
-		  |category=semorg-meeting-' . $template . '
-		  |row template=meeting-' . $template . '
-		  |sort=Semorg-meeting-date
-		  |order=desc
-		  |default={{int:semorg-list-meeting-default-past}}
-		  |limit=10
-		  |nopagination
-		  |footer={{#ifexpr:' . $past_count . ' > 10|' . $show_all_link . '}}
-		}}</div>';
+		if( !isset( $options['only current'] ) || $options['only current'] != true ) {
+			$past_query = $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]';
+			$past_count = $parser->recursiveTagParse( '{{#ask:' . $past_query . '|format=count}}' );
+			$show_all_link = '[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text|' . $past_count . '}}]';
+			$meetings .= '<div class="semorg-meetings-past">{{#semorg-list:meeting
+			  |title={{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}
+			  |query=' . $past_query . '
+			  |category=semorg-meeting-' . $template . '
+			  |row template=meeting-' . $template . '
+			  |sort=Semorg-meeting-date
+			  |order=desc
+			  |default={{int:semorg-list-meeting-default-past}}
+			  |limit=10
+			  |nopagination
+			  |footer={{#ifexpr:' . $past_count . ' > 10|' . $show_all_link . '}}
+			}}</div>';
+		}
 
 		return [ $meetings, 'noparse' => false ];
 	}
