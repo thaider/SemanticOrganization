@@ -307,6 +307,7 @@
 	"semorg-meeting-displaytitle": "$1 vom {{#timel:j. F Y|$2}}",
 	"semorg-meeting-page-name": "Treffen",
 	"semorg-meeting-past-page-name": "Vergangene Treffen",
+	"semorg-meeting-past-dashboard-title": "Letzte Protokolle",
 	"semorg-form-meeting-edit-title": "Treffen bearbeiten",
 	"semorg-form-meeting-create-title": "Treffen erstellen",
 	"semorg-form-meeting-page-name": "Treffen",
