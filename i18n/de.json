@@ -292,6 +292,8 @@
 	"semorg-form-project-team-external-add-button-text": "Externes Teammitglied hinzufügen",
 
 	"semorg-meeting-displaytitle": "$1 vom {{#timel:j. F Y|$2}}",
+	"semorg-meeting-page-name": "Treffen",
+	"semorg-meeting-past-page-name": "Vergangene Treffen",
 	"semorg-form-meeting-edit-title": "Treffen bearbeiten",
 	"semorg-form-meeting-create-title": "Treffen erstellen",
 	"semorg-form-meeting-page-name": "Treffen",
@@ -302,6 +304,7 @@
 	"semorg-list-meeting-all-link-text": "… alle $1 Treffen anzeigen",
 	"semorg-list-meeting-current-link-text": "geplant",
 	"semorg-list-meeting-past-link-text": "vergangen",
+	"semorg-field-meeting-meeting-name": "Treffen",
 	"semorg-field-meeting-group-name": "Gremium",
 	"semorg-field-meeting-project-name": "Projekt",
 	"semorg-field-meeting-department-name": "Geschäftsfeld",
@@ -332,8 +335,8 @@
 	"semorg-field-meeting-type-parameters": "input type=combobox|existing values only|values=ordentlich,außerordentlich",
 
 	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
-	"semorg-meeting-group-page-name": "Treffen",
-	"semorg-meeting-group-past-page-name": "Vergangene Treffen",
+	"semorg-meeting-group-page-name": "Besprechungen",
+	"semorg-meeting-group-past-page-name": "Vergangene Besprechungen",
 	"semorg-meeting-group-past-dashboard-title": "Letzte Protokolle",
 	"semorg-meeting-group-entity-name": "Treffen",
 	"semorg-form-meeting-group-create-title": "Treffen erstellen",
