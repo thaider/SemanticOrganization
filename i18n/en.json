@@ -257,6 +257,7 @@
 	"semorg-form-person-contact-edit-title": "Edit person",
 	"semorg-form-person-contact-rows": "fullname,address,email,workphone,organization,note",
 	"semorg-form-person-contact-template": "person",
+	"semorg-formlink-person-contact-link-text": "Create person",
 	"semorg-list-person-contact-headers": "person-name, person-worklocality, person-email, person-workphone",
 	"semorg-tab-person-contact-details": "Details",
 	"semorg-tab-person-contact-contact": "Contact History",
@@ -270,6 +271,7 @@
 	"semorg-form-person-legal-edit-title": "Edit institution", 
 	"semorg-form-person-legal-template": "person",
 	"semorg-form-person-legal-rows": "name,address,email,workphone,legal-form,legal-registry,vat-number,note",
+	"semorg-forminput-person-legal-button-text": "Institution erstellen",
 	"semorg-list-person-legal-headers": "person-name, person-worklocality",
 
 	"semorg-person-ref-template": "semorg-person-ref",

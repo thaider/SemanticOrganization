@@ -207,11 +207,13 @@
 	"semorg-person-contact-entity-name": "Kontakt",
 	"semorg-form-person-contact-create-title": "Person erstellen",
 	"semorg-form-person-contact-edit-title": "Person bearbeiten",
+	"semorg-formlink-person-contact-link-text": "Person erstellen",
 
 	"semorg-person-legal-page-name": "Institutionen",
 	"semorg-person-legal-entity-name": "Institution",
 	"semorg-form-person-legal-create-title": "Institution erstellen",
 	"semorg-form-person-legal-edit-title": "Institution bearbeiten", 
+	"semorg-forminput-person-legal-button-text": "Institution erstellen",
 
 	"semorg-field-person-ref-person-ref-fields": "name,role,tag",
 	"semorg-field-person-ref-name-name": "Name",
