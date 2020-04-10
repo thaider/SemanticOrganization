@@ -879,6 +879,7 @@
 
 	"semorg-milestone-page-name": "Meilensteine",
 	"semorg-milestone-entity-name": "Meilenstein",
+	"semorg-milestone-delete-link-text": "Meilenstein löschen",
 	"semorg-form-milestone-create-title": "Meilenstein erstellen",
 	"semorg-form-milestone-edit-title": "Meilenstein bearbeiten", 
 	"semorg-form-milestone-page-name": "Meilensteine",
@@ -888,6 +889,7 @@
 	"semorg-field-milestone-number-name": "Meilenstein-Nummer", 
 	"semorg-field-milestone-name-name": "Name", 
 	"semorg-field-milestone-description-name": "Beschreibung", 
+	"semorg-field-milestone-scj-name": "System Change Journey", 
 
 	"end": "Ende"
 }

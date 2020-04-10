@@ -1574,6 +1574,7 @@
 	"semorg-milestone-form": "semorg-milestone",
 	"semorg-milestone-page-name": "Milestones",
 	"semorg-milestone-entity-name": "Milestone",
+	"semorg-milestone-delete-link-text": "Delete Milestone",
 	"semorg-form-milestone-create-title": "Create Milestone",
 	"semorg-form-milestone-edit-title": "Edit Milestone", 
 	"semorg-form-milestone-page-name": "Milestones",
@@ -1591,6 +1592,7 @@
 	"semorg-field-milestone-name-parameters": "input type=textarea|autogrow|rows=1|cols=60",
 	"semorg-field-milestone-description-name": "Description", 
 	"semorg-field-milestone-description-parameters": "input type=textarea|autogrow|rows=1|cols=60",
+	"semorg-field-milestone-scj-name": "System Change Journey", 
 
 	"end": "end"
 }
