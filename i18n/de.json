@@ -533,7 +533,7 @@
 	"semorg-field-gdpr-recipient-name-name": "Empfänger",
 	"semorg-field-gdpr-recipient-third-country-name": "Drittstaat",
 
-	"semorg-invoice-displaytitle": "Rechnung #$1 $2",
+	"semorg-invoice-displaytitle": "Rechnung #{{#titleparts:$1||2}}",
 	"semorg-invoice-page-name": "Ausgangsrechnungen",
 	"semorg-invoice-open-page-name": "Offene Rechnungen",
 	"semorg-invoice-open-summary-page-name": "Offene Rechnungen (Zusammenfassung)",
