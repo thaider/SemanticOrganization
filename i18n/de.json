@@ -862,6 +862,9 @@
 	"semorg-form-scj-page-name": "SCJ",
 	"semorg-field-scj-scj-name": "Journey", 
 	"semorg-field-scj-name-name": "Name", 
+	"semorg-field-scj-targeted-sc-long-name": "Angezielter Systemwandel (Langfassung)", 
+	"semorg-field-scj-targeted-sc-long-help": "Im (''Name des Systems'')-System gibt es die Notwendigkeit, eine (''Ressource/Rolle/Relation/Regel'') (''hinzuzufügen/zu verändern/zu entfernen''): <br>(''Beschreibung der Veränderung''). <br>Das wird dazu führen, dass (''verbesserte Resultate'').", 
+	"semorg-field-scj-targeted-sc-long-placeholder": "Im ___-System gibt es die Notwendigkeit, eine ___ ___: ___. Das wird dazu führen, dass ___.", 
 	"semorg-field-scj-targeted-sc-name": "Angezielter Systemwandel",
 	"semorg-field-scj-plots-name": "Plots",
 
