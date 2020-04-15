@@ -1593,6 +1593,12 @@ class SemanticOrganizationHooks {
 	 */
 	static function getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults ) {
 		$filterbox = '';
+		// add invisible filters that have been applied in order to make them dropable
+		foreach( $applied_filters as $filter_property => $value ) {
+			if( !isset( $filter_links_values[$filter_property] ) ) {
+				$filter_links_values[$filter_property] = [ $value ];
+			}
+		}
 		foreach( $filter_links_values as $filter_property => $values ) {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
 			$filter_properties = explode( '.', $filter_property );
@@ -1621,7 +1627,7 @@ class SemanticOrganizationHooks {
 						}
 					} else {
 
-						/* if there are no results it might be because of default value - needs to be dropable */
+						// if there are no results it might be because of default value - needs to be dropable
 						if( isset( $filter_defaults[$filter_property] ) ) {
 							$drop_filter_url = self::getFilterURL( $parser, array_merge( array_diff_key( $applied_filters, [ $filter_property => $value ] ), [ $filter_property => '' ] ) );
 							$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
