@@ -862,6 +862,9 @@
 	"semorg-form-scj-page-name": "SCJ",
 	"semorg-field-scj-scj-name": "Journey", 
 	"semorg-field-scj-name-name": "Name", 
+	"semorg-field-scj-targeted-sc-long-name": "Angezielter Systemwandel (Langfassung)", 
+	"semorg-field-scj-targeted-sc-long-help": "Im (''Name des Systems'')-System gibt es die Notwendigkeit, eine (''Ressource/Rolle/Relation/Regel'') (''hinzuzufügen/zu verändern/zu entfernen''): <br>(''Beschreibung der Veränderung''). <br>Das wird dazu führen, dass (''verbesserte Resultate'').", 
+	"semorg-field-scj-targeted-sc-long-placeholder": "Im ___-System gibt es die Notwendigkeit, eine ___ ___: ___. Das wird dazu führen, dass ___.", 
 	"semorg-field-scj-targeted-sc-name": "Angezielter Systemwandel",
 	"semorg-field-scj-plots-name": "Plots",
 
@@ -890,6 +893,33 @@
 	"semorg-field-milestone-name-name": "Name", 
 	"semorg-field-milestone-description-name": "Beschreibung", 
 	"semorg-field-milestone-scj-name": "System Change Journey", 
+	"semorg-field-milestone-tools-name": "Werkzeuge", 
+	"semorg-field-milestone-delivery-models-name": "Vertriebswege", 
+
+	"semorg-form-tool-label": "Werkzeuge",
+	"semorg-form-tool-add-button-text": "Werkzeug hinzufügen",
+	"semorg-list-tool-heading": "Werkzeuge",
+	"semorg-field-tool-type-name": "Typ", 
+	"semorg-field-tool-type-parameters": "input type=combobox|existing values only|values=Direkte Maßnahmen,Kompetenzaufbau,Wissensaufbau,Infrastrukturentwicklung,Aufbau einer Bewegung,Advocacy",
+	"semorg-field-tool-type-help": "<ul><li>'''Direkte Maßnahmen''': unsere Lösungen für Nutzer*innen direkt als Produkte oder Dienstleistungen zur Verfügung stellen</li><li>'''Kompetenzaufbau''': die Fähigkeit anderer verbessern, unsere Lösungen zur Verfügung zu stellen</li><li>'''Wissensaufbau''': fehlende Daten und Evidenzen generieren, testen, standardisieren und mit anderen teilen</li><li>'''Infrastrukturentwicklung''': Transparenz, Kommunikation, Standards, Zertifizierungen, Preise, Anreize</li><li>'''Aufbau einer Bewegung''': Bewusstseinsbildung, Massenmobilisierung, Aktivismus</li><li>'''Advocacy''': Gesetze, politische Strategien, Regularien im öffentlichen und privaten Sektor</li></ul>",
+	"semorg-field-tool-stakeholder-name": "Stakeholder", 
+	"semorg-field-tool-note-name": "Anmerkungen", 
+	"semorg-field-tool-how-name": "Wie es helfen könnte", 
+	"semorg-field-tool-pro-name": "Pro", 
+	"semorg-field-tool-contra-name": "Contra", 
+	"semorg-field-tool-milestone-name": "Meilenstein", 
+
+	"semorg-form-delivery-model-label": "Vertriebsweg",
+	"semorg-form-delivery-model-add-button-text": "Vertriebsweg hinzufügen",
+	"semorg-list-delivery-model-heading": "Vertriebswege",
+	"semorg-field-delivery-model-type-name": "Typ", 
+	"semorg-field-delivery-model-type-parameters": "input type=combobox|existing values only|values=Organisches Wachstum/Filialisierung, Fusionierung/Übernahme, Joint Ventures, Akkreditierung, Social Licensing, Smarte Netzwerke, Open Source",
+	"semorg-field-delivery-model-stakeholder-name": "Stakeholder", 
+	"semorg-field-delivery-model-note-name": "Anmerkungen", 
+	"semorg-field-delivery-model-how-name": "Wie es helfen könnte", 
+	"semorg-field-delivery-model-pro-name": "Pro", 
+	"semorg-field-delivery-model-contra-name": "Contra", 
+	"semorg-field-delivery-model-milestone-name": "Meilenstein", 
 
 	"end": "Ende"
 }
