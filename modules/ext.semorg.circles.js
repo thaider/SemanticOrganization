@@ -16,7 +16,12 @@ $( '.semorg-circles' ).each( function() {
 	var node = g.selectAll(".node")
 		.data(pack(root).descendants())
 		.enter().append("g")
-		.attr("class", function(d) { return d.children ? "node " + d.data.type : "leaf node " + d.data.type; })
+		.attr("class", function(d) { 
+			var classes = [ "node", d.data.type ];
+			if( !d.children ) classes.push( "leaf" );
+			if( d.data.group_member != d.data.group_role ) classes.push( "external" );
+			return classes.join(" ");
+		})
 		.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
 	node.append("title")
@@ -29,7 +34,7 @@ $( '.semorg-circles' ).each( function() {
 		.on("click", function(d) { d3.event.stopPropagation(); window.location = '/wiki/' + d.data.link; })
 		.append("text")
 		.attr("dy", "0.3em")
-		.attr("class", "role")
+		.attr("class", function(d) { return "role" + ( ( d.link == d.group ) ? " external" : "" ); })
 		.text(function(d) { return d.data.name.substring(0, d.r / 3); });
 
 	node.filter(function(d) { return (d.data.type == "member"); })

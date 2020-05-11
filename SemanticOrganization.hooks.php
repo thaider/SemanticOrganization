@@ -1515,15 +1515,33 @@ class SemanticOrganizationHooks {
 		foreach( $groups as $group ) {
 			/* alle Mitglieder eines Gremiums */
             $members_query = "{{#ask:[[" . $group . "]]|mainlabel=-|?Mitglied|format=array}}";
+
 			/* nur Mitglieder mit Rollen in einem Gremium */
 			//$members_query = "{{#ask:[[-Inhaber::+]][[-Inhaber.Gremium::" . $group . "]]|format=array}}";
+
 			$members = $parser->RecursiveTagParse( $members_query );
 			if( $members != '' ) {
 				$members = explode( '&lt;MANY&gt;', $members );
 				//$members = explode( ',', $members );
 				$hierarchy_members = [];
 				foreach( $members as $member ) {
-					$roles_query = "{{#ask:[[Inhaber::" . $member . "]][[Gremium::" . $group . "||Koordinationskreis]]|?Rollentitel|format=array|sep=<ROLE>}}";
+
+					/* default: show siblings and parent */
+					if( !isset( $options['hide siblings'] ) || $options['hide siblings'] != 'true' ) {
+						if( !isset( $options['hide parent'] ) || $options['hide parent'] != 'true') {
+							$group_selector = '+';
+						} else {
+							$group_selector = '!Koordinationskreis';
+						}
+					} else {
+						if( !isset( $options['hide parent'] ) || $options['hide parent'] != 'true') {
+							$group_selector = $group . '||Koordinationskreis';
+						} else {
+							$group_selector = $group;
+						}
+					}
+
+					$roles_query = "{{#ask:[[Inhaber::" . $member . "]][[aktiv::wahr]][[Gremium::" . $group_selector . "]]|?Rollentitel|?Gremium|?Inhaber|format=array|sep=<ROLE>}}";
 					$roles = $parser->RecursiveTagParse( $roles_query );
 					if( $roles != '' ) {
 						$roles = explode( '&lt;ROLE&gt;', $roles );
@@ -1531,9 +1549,13 @@ class SemanticOrganizationHooks {
 						foreach( $roles as $role ) {
 							$role = explode( '&lt;PROP&gt;', $role );
 							$hours_query = "{{#ask:[[Rolle::" . $role[0] . "]]|?Stundenaufwand|format=sum|default=1}}";
+							$role_members_count = count( explode( '&lt;MANY&gt;', $role[3] ) );
 							$hours = $parser->RecursiveTagParse( $hours_query );
+							if( $role[2] != 'Koordinationskreis' ) {
+								$hours = $hours / $role_members_count;
+							}
 							//$hierarchy_roles[] = [ "name" => $role[1], "link" => $role[0], "type" => "role", "size" => $hours ];
-							$hierarchy_roles[] = [ "name" => $role[1], "link" => $group, "type" => "role", "size" => $hours ];
+							$hierarchy_roles[] = [ "name" => $role[1], "link" => $role[0], "type" => "role", "size" => $hours, "group_role" => $role[2], "group_member" => $group ];
 						}
 						$hierarchy_members[] = [ "name" => str_replace( 'Benutzer:', '', $member ), "type" => "member", "children" => $hierarchy_roles ];
 					} else {

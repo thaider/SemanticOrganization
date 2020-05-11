@@ -16,6 +16,10 @@ circle {
 	fill-opacity: 1;
 	fill-opacity: .25;
 }
+.leaf.external circle {
+	stroke: #666;
+	fill: #ccc;
+}
 
 text {
 	font: 10px sans-serif;
