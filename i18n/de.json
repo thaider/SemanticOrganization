@@ -478,6 +478,9 @@
 	"semorg-field-salary-leave-parameters": "input type=dropdown|values=5 Wochen,6 Wochen (nach 25 Jahren)|default=5 Wochen",
 	"semorg-field-salary-children-name": "Kinder (Geburtsjahre)",
 	"semorg-field-salary-children-placeholder": "Anzahl der Kinder (Geburtsjahre)",
+	"semorg-field-salary-reason-name": "Begründung (bei Änderung des Stundensatzes)", 
+	"semorg-field-salary-reason-prefix": "<div>wegen Veränderung/Erweiterung des Tätigkeitsbereich auf:</div>",
+	"semorg-field-salary-reason-help": "Eine signifikante Änderung des Stundensatzes sollte mit einer Veränderung/Erweiterung des Tätigkeitsbereichs begründet werden.", 
 
 	"semorg-salary-entry-displaytitle": "Dienstvertrag $1",
 	"semorg-form-salary-entry-create-title": "Dienstvertrag erstellen",

@@ -769,6 +769,8 @@
 	"semorg-field-salary-prior-service-periods-leave-name": "Prior service periods (Leave)",
 	"semorg-field-salary-prior-service-periods-leave-parameters": "size=5",
 	"semorg-field-salary-leave-name": "Leave",
+	"semorg-field-salary-reason-name": "Reason", 
+	"semorg-field-salary-reason-parameters": "input type=textarea|rows=1|cols=60|autogrow",
 
 	"semorg-salary-entry-template": "semorg-salary-entry",
 	"semorg-salary-entry-category": "semorg-salary-entry",
