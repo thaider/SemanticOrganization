@@ -130,6 +130,7 @@
 	"semorg-value-contact-type-social-media": "Social Media",
 	"semorg-value-contact-type-personal": "Persönliches Treffen",
 	"semorg-value-contact-type-unknown": "Kontakt",
+	"semorg-value-contact-type-event": "Veranstaltung",
 	"semorg-value-membership-type-entry": "Beitritt",
 	"semorg-value-membership-type-increase": "Erhöhung",
 	"semorg-value-membership-type-decrease": "Reduktion",
@@ -349,6 +350,10 @@
 	"semorg-field-meeting-signer-name": "Protokollmitfertigung", 
 	"semorg-field-meeting-type-name": "Typ", 
 	"semorg-field-meeting-type-parameters": "input type=combobox|existing values only|values=ordentlich,außerordentlich",
+	"semorg-field-meeting-event-name": "Veranstaltung", 
+	"semorg-field-meeting-event-type-name": "Typ", 
+	"semorg-field-meeting-event-title-name": "Titel", 
+	"semorg-field-meeting-contact-name": "Externe TeilnehmerInnen", 
 
 	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
 	"semorg-meeting-group-page-name": "Besprechungen",
@@ -374,6 +379,14 @@
 	"semorg-form-meeting-department-create-title": "Besprechung erstellen",
 	"semorg-form-meeting-department-edit-title": "Besprechung bearbeiten",
 	"semorg-form-meeting-department-page-name": "Besprechungen",
+
+	"semorg-meeting-event-page-name": "Veranstaltungen",
+	"semorg-meeting-event-past-page-name": "Vergangene Veranstaltungen",
+	"semorg-meeting-event-past-dashboard-title": "Letzte Veranstaltungen",
+	"semorg-meeting-event-entity-name": "Veranstaltung",
+	"semorg-form-meeting-event-create-title": "Veranstaltung erstellen",
+	"semorg-form-meeting-event-edit-title": "Veranstaltung bearbeiten",
+	"semorg-form-meeting-event-page-name": "Veranstaltungen",
 
 	"semorg-form-file-add-button-text": "Datei hinzufügen",
 	"semorg-field-file-ref-name": "Verweis", 
