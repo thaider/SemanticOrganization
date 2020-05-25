@@ -754,6 +754,7 @@
 	"semorg-field-salary-date-parameters": "input type=datepicker|size=10|default={{CURRENTYEAR}}/{{CURRENTMONTH}}/{{CURRENTDAY2}}",
 	"semorg-field-salary-start-date-name": "Start date",
 	"semorg-field-salary-start-date-parameters": "input type=datepicker|size=10|default={{CURRENTYEAR}}/{{CURRENTMONTH}}/{{CURRENTDAY2}}|mandatory",
+	"semorg-field-salary-year-name": "Year",
 	"semorg-field-salary-limitation-name": "Limitation",
 	"semorg-field-salary-limitation-parameters": "input type=datepicker|size=10",
 	"semorg-field-salary-amount-name": "Gross salary (per month)",
