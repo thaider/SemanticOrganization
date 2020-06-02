@@ -153,6 +153,7 @@
 	"semorg-value-salary-type-exit": "Exit",
 	"semorg-value-status-open": "open",
 	"semorg-value-status-closed": "closed",
+	"semorg-value-status-archived": "archived",
 
 	"semorg-error-list-no-fields": "error: no fields for list defined…",
 	"semorg-error-missing-parameter": "error: missing parameter <code>$2</code> for parser function <code>$1!</code>",
@@ -1573,7 +1574,7 @@
 	"semorg-form-scj-edit-title": "Edit System Change Journey", 
 	"semorg-form-scj-page-name": "SCJ",
 	"semorg-form-scj-template": "scj",
-	"semorg-form-scj-rows": "name,targeted-sc-long,targeted-sc",
+	"semorg-form-scj-rows": "name,targeted-sc-long,targeted-sc,archived",
 	"semorg-list-scj-headers": "scj-scj,scj-plots",
 	"semorg-field-scj-scj-name": "Journey", 
 	"semorg-field-scj-name-name": "Name", 
@@ -1586,6 +1587,9 @@
 	"semorg-field-scj-targeted-sc-parameters": "input type=textarea|rows=1|autogrow|cols=60",
 	"semorg-field-scj-plots-name": "Plots", 
 	"semorg-field-scj-plots-parameters": "",
+	"semorg-field-scj-archived-name": "", 
+	"semorg-field-scj-archived-parameters": "input type=checkbox", 
+	"semorg-field-scj-archived-suffix": "&nbsp;archived",
 
 	"semorg-plot-template": "semorg-plot",
 	"semorg-plot-category": "semorg-plot",

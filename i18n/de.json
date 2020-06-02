@@ -140,6 +140,7 @@
 	"semorg-value-salary-type-exit": "Kündigung",
 	"semorg-value-status-open": "laufend",
 	"semorg-value-status-closed": "abgeschlossen",
+	"semorg-value-status-archived": "archiviert",
 
 	"semorg-form-person-edit-title": "Person bearbeiten",
 	"semorg-form-person-create-title": "Person erstellen",
@@ -894,6 +895,7 @@
 	"semorg-field-scj-targeted-sc-long-placeholder": "Im ___-System gibt es die Notwendigkeit, eine ___ ___: ___. Das wird dazu führen, dass ___.", 
 	"semorg-field-scj-targeted-sc-name": "Angezielter Systemwandel",
 	"semorg-field-scj-plots-name": "Plots",
+	"semorg-field-scj-archived-suffix": "&nbsp;archiviert",
 
 	"semorg-plot-page-name": "Plots",
 	"semorg-plot-entity-name": "Plot",
