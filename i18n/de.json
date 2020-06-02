@@ -464,6 +464,7 @@
 	"semorg-field-salary-type-name": "Typ",
 	"semorg-field-salary-date-name": "Datum",
 	"semorg-field-salary-start-date-name": "Anstellungsbeginn",
+	"semorg-field-salary-year-name": "Jahr",
 	"semorg-field-salary-limitation-name": "befristet bis",
 	"semorg-field-salary-limitation-help": "Für unbefristete Anstellung Feld leer lassen.",
 	"semorg-field-salary-amount-name": "Bruttomonatsgehalt",
