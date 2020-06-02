@@ -885,10 +885,13 @@
 	"semorg-field-knowledge-role-name": "Verantwortliche Rolle", 
 
 	"semorg-scj-page-name": "System Change Journeys",
+	"semorg-scj-archived-page-name": "Archivierte System Change Journeys",
 	"semorg-scj-entity-name": "System Change Journey",
 	"semorg-form-scj-create-title": "System Change Journey erstellen",
 	"semorg-form-scj-edit-title": "System Change Journey bearbeiten", 
 	"semorg-form-scj-page-name": "SCJ",
+	"semorg-list-scj-current-link-text": "aktuell",
+	"semorg-list-scj-archived-link-text": "archiviert",
 	"semorg-field-scj-scj-name": "Journey", 
 	"semorg-field-scj-name-name": "Name", 
 	"semorg-field-scj-targeted-sc-long-name": "Angezielter Systemwandel (Langfassung)", 
