@@ -52,6 +52,11 @@
 	"semorg-datetime-long": "F j, Y H:i",
 	"semorg-datetime-short": "y-m-d H:i",
 
+	"semorg-datediff-human-recently": "recently",
+	"semorg-datediff-human-days": "$1 {{plural:$1|day|days}} ago",
+	"semorg-datediff-human-months": "$1 {{plural:$1|month|months}} ago",
+	"semorg-datediff-human-years": "$1 {{plural:$1|year|years}} ago",
+
 	"semorg-quarter": "Q$2/$1",
 	"semorg-month": "$1-$2",
 	
@@ -158,6 +163,10 @@
 	"semorg-error-list-no-fields": "error: no fields for list defined…",
 	"semorg-error-missing-parameter": "error: missing parameter <code>$2</code> for parser function <code>$1!</code>",
 	"semorg-error-missing-data": "error: missing data for parameter <code>$2</code> for parser function <code>$1!</code>",
+
+	"semorg-up-to-date-date-none": "unchecked so far…",
+	"semorg-up-to-date-date-check-tooltip": "confirm this page's content as being up-to-date",
+	"semorg-up-to-date-date-check-confirmation": "confirmation that page's content is up-to-date",
 	
 	"semorg-allowances-template": "semorg-allowances-at",
 
@@ -1534,7 +1543,7 @@
 	"semorg-forminput-manual-button-text": "Create Manual",
 	"semorg-forminput-manual-placeholder": "Name of manual entry",
 	"semorg-form-manual-template": "manual",
-	"semorg-form-manual-rows": "role,summary,tag",
+	"semorg-form-manual-rows": "role,summary,tag,up-to-date-date",
 	"semorg-list-manual-headers": "manual-title,manual-summary,manual-role",
 	"semorg-field-manual-title-name": "Title", 
 	"semorg-field-manual-title-parameters": "",
@@ -1544,6 +1553,9 @@
 	"semorg-field-manual-role-parameters": "input type=combobox|values from category=semorg-role|mapping property=Semorg-role-name",
 	"semorg-field-manual-tag-name": "Tags", 
 	"semorg-field-manual-tag-parameters": "input type=tokens|values from property=semorg-manual-tag",
+	"semorg-field-manual-up-to-date-date-name": "Last Check", 
+	"semorg-field-manual-up-to-date-date-parameters": "hidden", 
+	"semorg-field-manual-checked-name": "Checked", 
 	
 	"semorg-knowledge-template": "semorg-knowledge",
 	"semorg-knowledge-category": "semorg-knowledge",
@@ -1555,7 +1567,7 @@
 	"semorg-forminput-knowledge-button-text": "Create Knowledge",
 	"semorg-forminput-knowledge-placeholder": "Name of knowledge database entry",
 	"semorg-form-knowledge-template": "knowledge",
-	"semorg-form-knowledge-rows": "role,summary,tag",
+	"semorg-form-knowledge-rows": "role,summary,tag,up-to-date-date",
 	"semorg-list-knowledge-headers": "knowledge-title,knowledge-summary,knowledge-role",
 	"semorg-field-knowledge-title-name": "Title", 
 	"semorg-field-knowledge-title-parameters": "",
@@ -1565,6 +1577,9 @@
 	"semorg-field-knowledge-role-parameters": "input type=combobox|values from category=semorg-role|mapping property=Semorg-role-name",
 	"semorg-field-knowledge-tag-name": "Tags", 
 	"semorg-field-knowledge-tag-parameters": "input type=tokens|values from property=semorg-knowledge-tag",
+	"semorg-field-knowledge-up-to-date-date-name": "Last Check", 
+	"semorg-field-knowledge-up-to-date-date-parameters": "hidden", 
+	"semorg-field-knowledge-checked-name": "Checked", 
 
 	"semorg-scj-template": "semorg-scj",
 	"semorg-scj-category": "semorg-scj",

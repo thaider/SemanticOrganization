@@ -56,6 +56,7 @@ class SemanticOrganizationHooks {
 			'dashboard' => 'renderDashboard',
 			'role-link' => 'renderRoleLink',
 			'datediff' => 'getDateDiff',
+			'datediff-human' => 'getDateDiffHuman',
 			'round' => 'getRound',
 		];
 		foreach( $parserfunctions as $key => $method ) {
@@ -82,6 +83,10 @@ class SemanticOrganizationHooks {
 
 	/**
 	 * Return difference of two given datetimes
+	 *
+	 * @param String First date
+	 * @param String Second date
+	 * @param String Unit (default: hours)
 	 */
 	static function getDateDiff( &$parser ) {
 		$start = new Datetime( func_get_arg( 1 ) );
@@ -109,6 +114,30 @@ class SemanticOrganizationHooks {
 		$diff = round( ( $end->format('U') - $start->format('U') ) / $divisor );
 
 		return $diff;
+	}
+
+
+	/**
+	 * Return difference of a given datetime to the current time as readable for humans (“x ago”)
+	 *
+	 * @param String Date
+	 */
+	static function getDateDiffHuman( &$parser ) {
+		$start = new Datetime( func_get_arg( 1 ) );
+		$end = new Datetime();
+
+		$diff = ( $end->format('U') - $start->format('U') ) / ( 60*60*24 );
+		if( $diff < 1 ) {
+			$diff_human = wfMessage( 'semorg-datediff-human-recently' )->plain();
+		} elseif( $diff < 60 ) {
+			$diff_human = wfMessage( 'semorg-datediff-human-days', round( $diff ) )->plain();
+		} elseif( $diff < 730 ) {
+			$diff_human = wfMessage( 'semorg-datediff-human-months', round( $diff/30 ) )->plain();
+		} else {
+			$diff_human = wfMessage( 'semorg-datediff-human-years', round( $diff/365 ) )->plain();
+		}
+
+		return $diff_human;
 	}
 
 

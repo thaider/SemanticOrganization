@@ -45,6 +45,11 @@
 	"semorg-datetime-long": "j. F Y, H:i",
 	"semorg-datetime-short": "j.n.y, H:i",
 
+	"semorg-datediff-human-recently": "vor kurzem",
+	"semorg-datediff-human-days": "vor $1 {{plural:$1|Tag|Tagen}}",
+	"semorg-datediff-human-months": "vor $1 {{plural:$1|Monat|Monaten}}",
+	"semorg-datediff-human-years": "vor $1 {{plural:$1|Jahr|Jahren}}",
+
 	"semorg-net-text": "netto",
 
 	"semorg-help-msg-edit": "Hilfetext bearbeiten",
@@ -141,6 +146,10 @@
 	"semorg-value-status-open": "laufend",
 	"semorg-value-status-closed": "abgeschlossen",
 	"semorg-value-status-archived": "archiviert",
+
+	"semorg-up-to-date-date-none": "noch nicht kontrolliert…",
+	"semorg-up-to-date-date-check-tooltip": "die Informationen auf dieser Seite als aktuell bestätigen",
+	"semorg-up-to-date-date-check-confirmation": "Bestätigung: Seite ist aktuell",
 
 	"semorg-form-person-edit-title": "Person bearbeiten",
 	"semorg-form-person-create-title": "Person erstellen",
@@ -873,6 +882,8 @@
 	"semorg-field-manual-title-name": "Titel", 
 	"semorg-field-manual-summary-name": "Zusammenfassung", 
 	"semorg-field-manual-role-name": "Verantwortliche Rolle", 
+	"semorg-field-manual-up-to-date-date-name": "zuletzt überprüft", 
+	"semorg-field-manual-checked-name": "überprüft", 
 
 	"semorg-knowledge-page-name": "Wissensdatenbank",
 	"semorg-knowledge-entity-name": "Wissen",
@@ -883,6 +894,8 @@
 	"semorg-field-knowledge-title-name": "Titel", 
 	"semorg-field-knowledge-summary-name": "Zusammenfassung", 
 	"semorg-field-knowledge-role-name": "Verantwortliche Rolle", 
+	"semorg-field-knowledge-up-to-date-date-name": "zuletzt überprüft", 
+	"semorg-field-knowledge-checked-name": "überprüft", 
 
 	"semorg-scj-page-name": "System Change Journeys",
 	"semorg-scj-archived-page-name": "Archivierte System Change Journeys",
