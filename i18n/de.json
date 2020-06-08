@@ -967,5 +967,18 @@
 	"semorg-field-delivery-model-contra-name": "Contra", 
 	"semorg-field-delivery-model-milestone-name": "Meilenstein", 
 
+	"semorg-stakeholder-page-name": "Stakeholder",
+	"semorg-stakeholder-entity-name": "Stakeholder",
+	"semorg-form-stakeholder-create-title": "Stakeholder erstellen",
+	"semorg-form-stakeholder-edit-title": "Stakeholder bearbeiten", 
+	"semorg-form-stakeholder-page-name": "Stakeholder",
+	"semorg-field-stakeholder-scj-name": "System Change Journey", 
+	"semorg-field-stakeholder-name-name": "Name/Beispiele", 
+	"semorg-field-stakeholder-role-name": "Rolle", 
+	"semorg-field-stakeholder-hook-name": "Hook", 
+	"semorg-field-stakeholder-importance-name": "Bedeutung", 
+	"semorg-field-stakeholder-engaged-name": "beteiligt", 
+	"semorg-field-stakeholder-engaged-parameters": "input type=checkbox|label=&nbsp;beteiligt",
+
 	"end": "Ende"
 }
