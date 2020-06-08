@@ -758,7 +758,7 @@
 	"semorg-salary-category": "semorg-salary",
 	"semorg-list-salary-headers": "salary-employee,salary-type,salary-date,salary-amount,salary-hours,salary-hourly-rate",
 	"semorg-field-salary-employee-name": "Name",
-	"semorg-field-salary-employee-parameters": "hidden",
+	"semorg-field-salary-employee-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-salary-type-name": "Type",
 	"semorg-field-salary-date-name": "Date of Signature",
 	"semorg-field-salary-date-parameters": "input type=datepicker|size=10|default={{CURRENTYEAR}}/{{CURRENTMONTH}}/{{CURRENTDAY2}}",
