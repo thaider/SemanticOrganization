@@ -944,7 +944,7 @@
 
 	"semorg-form-tool-label": "Werkzeuge",
 	"semorg-form-tool-add-button-text": "Werkzeug hinzufügen",
-	"semorg-list-tool-heading": "Werkzeuge",
+	"semorg-list-tool-heading": "<i class='fa fa-tools'></i> Werkzeuge",
 	"semorg-field-tool-type-name": "Typ", 
 	"semorg-field-tool-type-parameters": "input type=combobox|existing values only|values=Direkte Maßnahmen,Kompetenzaufbau,Wissensaufbau,Infrastrukturentwicklung,Aufbau einer Bewegung,Advocacy",
 	"semorg-field-tool-type-help": "<ul><li>'''Direkte Maßnahmen''': unsere Lösungen für Nutzer*innen direkt als Produkte oder Dienstleistungen zur Verfügung stellen</li><li>'''Kompetenzaufbau''': die Fähigkeit anderer verbessern, unsere Lösungen zur Verfügung zu stellen</li><li>'''Wissensaufbau''': fehlende Daten und Evidenzen generieren, testen, standardisieren und mit anderen teilen</li><li>'''Infrastrukturentwicklung''': Transparenz, Kommunikation, Standards, Zertifizierungen, Preise, Anreize</li><li>'''Aufbau einer Bewegung''': Bewusstseinsbildung, Massenmobilisierung, Aktivismus</li><li>'''Advocacy''': Gesetze, politische Strategien, Regularien im öffentlichen und privaten Sektor</li></ul>",
@@ -957,7 +957,7 @@
 
 	"semorg-form-delivery-model-label": "Vertriebsweg",
 	"semorg-form-delivery-model-add-button-text": "Vertriebsweg hinzufügen",
-	"semorg-list-delivery-model-heading": "Vertriebswege",
+	"semorg-list-delivery-model-heading": "<i class='fa fa-share-alt'></i> Vertriebswege",
 	"semorg-field-delivery-model-type-name": "Typ", 
 	"semorg-field-delivery-model-type-parameters": "input type=combobox|existing values only|values=Organisches Wachstum/Filialisierung, Fusionierung/Übernahme, Joint Ventures, Akkreditierung, Social Licensing, Smarte Netzwerke, Open Source",
 	"semorg-field-delivery-model-stakeholder-name": "Stakeholder", 
@@ -979,6 +979,15 @@
 	"semorg-field-stakeholder-importance-name": "Bedeutung", 
 	"semorg-field-stakeholder-engaged-name": "beteiligt", 
 	"semorg-field-stakeholder-engaged-parameters": "input type=checkbox|label=&nbsp;beteiligt",
+
+	"semorg-form-smart-network-add-button-text": "Stakeholder hinzufügen",
+	"semorg-list-smart-network-heading": "<i class='fa fa-users'></i> Smart Network",
+	"semorg-field-smart-network-milestone-name": "Meilenstein", 
+	"semorg-field-smart-network-stakeholder-name": "Stakeholder", 
+	"semorg-field-smart-network-stakeholder-help": "'''Typen von Akteur*innen''':<ul><li>'''Anbieter*innen von Ressourcen''': stellen finanzielle, personelle, Wissens-, Netzwerk oder Technologie-Ressourcen zur Verfügung, umfasst auch Vermittler*innen und Intermediäre, die Zugang zu Ressourcen ermöglichen</li><li>'''Mitbewerber*innen''': Organisationen, die um die gleichen Ressourcen konkurrieren oder der gleichen Zielgruppe mit der gleichen Zielsetzung dienen</li><li>'''Komplementäre Organisationen und Alliierte''': Akteur*innen die beim Verwirklichen der Vision helfen können, Partner*innen, die entscheidende Schritte zur Theory of Change beitragen können, Akteur*innen, die das gleiche Anliegen vorantreiben oder die wichtige ergänzende Dienstleistungen anbieten können</li><li>'''Nutznießer*innen und Kund*innen''': Klient*innen, Patient*innen, Kund*innen und andere, die von den Aktivitäten direkt oder indirekt profitieren</li><li>'''Gegner*innen und Unruhestifter*innen''': diese Akteur*innen tragen zu dem Problem bei, das gelöst werden soll, leisten Widerstand gegen die Verwirklichung der Vision oder opponieren auf der politischen Ebene</li><li>'''Betroffene oder einflussreiche Zuschauer*innen''': generelle Kategorie, um über Akteur*innen nachzudenken, die zum jetzigen Zeitpunkt keinen direkten Einfluss haben, die aber durch die Aktivitäten beeinflusst werden oder Einfluss darauf haben könnten</li></ul>", 
+	"semorg-field-smart-network-note-name": "Anmerkung", 
+	"semorg-field-smart-network-engaged-name": "beteiligt", 
+	"semorg-field-smart-network-engaged-parameters": "input type=checkbox|label=&nbsp;beteiligt",
 
 	"end": "Ende"
 }

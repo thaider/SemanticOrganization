@@ -1742,6 +1742,7 @@
 	"semorg-form-smart-network-add-button-text": "Add Stakeholder",
 	"semorg-form-smart-network-template": "smart-network",
 	"semorg-form-smart-network-rows": "stakeholder,note,engaged",
+	"semorg-form-smart-network-displayed-fields-when-minimized": "stakeholder",
 	"semorg-list-smart-network-headers": "smart-network-stakeholder,smart-network-note,smart-network-engaged",
 	"semorg-list-smart-network-heading": "<i class='fa fa-users'></i> Smart Network",
 	"semorg-field-smart-network-milestone-name": "Milestone", 
