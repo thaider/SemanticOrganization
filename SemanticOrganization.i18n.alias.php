@@ -48,4 +48,6 @@ $magicWords['en'] = array(
 	'semorg-datediff' => array( 0, 'semorg-datediff' ),
 	'semorg-datediff-human' => array( 0, 'semorg-datediff-human' ),
 	'semorg-round' => array( 0, 'semorg-round'),
+	'semorg-stakeholder-milestones' => array( 0, 'semorg-stakeholder-milestones'),
+	'semorg-rating' => array( 0, 'semorg-rating'),
 );

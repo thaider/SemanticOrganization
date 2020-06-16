@@ -5,7 +5,14 @@
 class SemanticOrganizationHooks {
 
 	static $options;
-	static $listvalues = array( 'email', 'homepage', 'workphone', 'tag' );
+	static $listvalues = [ 
+		'email', 
+		'homepage', 
+		'workphone', 
+		'tag'
+	];
+	static $milestones = [];
+
 
 	/**
 	 *  Enforce use of Bootstrap 4, apply custom styles
@@ -19,6 +26,7 @@ class SemanticOrganizationHooks {
 			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.tweeki.styles';
 		}
 	}
+
 
 	/**
 	 * Setup
@@ -58,6 +66,8 @@ class SemanticOrganizationHooks {
 			'datediff' => 'getDateDiff',
 			'datediff-human' => 'getDateDiffHuman',
 			'round' => 'getRound',
+			'stakeholder-milestones' => 'renderStakeholderMilestones',
+			'rating' => 'renderRating',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -1611,6 +1621,94 @@ class SemanticOrganizationHooks {
 	static function renderValues( &$parser ) {
 		$property = func_get_args()[1];
 		return self::getValues( $parser, $property );
+	}
+
+
+	/**
+	 * Get a System Change Journey's Milestones
+	 *
+	 * @param String $scj System Change Journey
+	 *
+	 * @return Array List of Milestones
+	 */
+	static function getMilestones( $parser, $scj ) {
+		if( !isset( self::$milestones[$scj] ) ) {
+			$milestone_query = '{{#ask:[[semorg-milestone-plot.semorg-plot-scj::' . $scj . ']]
+				|?semorg-milestone-name
+				|?semorg-milestone-plot.semorg-plot-number=plot-number
+				|?semorg-milestone-number=milestone-number
+				|sep=<MILESTONE>
+				|format=array
+			}}';
+			$milestones = $parser->recursiveTagParse( $milestone_query );
+			$milestones = explode( '&lt;MILESTONE&gt;', $milestones );
+			foreach( $milestones as &$milestone ) {
+				$milestone = explode( '&lt;PROP&gt;', $milestone );
+			}
+			usort( $milestones, function( $a, $b ) { return $a[2] == $b[2] ? ( $a[3] < $b[3] ? -1 : 1 ) : $a[2] > $b[2]; } );
+			self::$milestones[$scj] = $milestones;
+		}
+		return self::$milestones[$scj];
+	}
+
+
+	/**
+	 * Render a visual representation of a stakeholder's milestones
+	 */
+	static function renderStakeholderMilestones( &$parser ) {
+		$stakeholder = htmlentities( func_get_args()[1] );
+		$scj_query = '{{#show:' . $stakeholder . '|?semorg-stakeholder-scj#}}';
+		$scj = $parser->recursiveTagParse( $scj_query );
+		$scj_milestones = self::getMilestones( $parser, $scj );
+		$milestone_query = '{{#ask:[[semorg-smart-network-stakeholder::' . $stakeholder . ']]
+			|?semorg-smart-network-milestone
+			|?semorg-smart-network-milestone.semorg-milestone-name
+			|?semorg-smart-network-milestone.semorg-milestone-plot.semorg-plot-number
+			|?semorg-smart-network-milestone.semorg-milestone-number
+			|sep=<MILESTONE>
+			|format=array
+		}}';
+		$milestone_result = $parser->recursiveTagParse( $milestone_query );
+		$milestones = explode( '&lt;MILESTONE&gt;', $milestone_result );
+		foreach( $milestones as &$milestone ) {
+			$milestone = explode( '&lt;PROP&gt;', $milestone );
+		}
+		$viz = '<div class="container-fluid semorg-stakeholder-milestones"><div class="row">';
+		$old_plot = '1';
+		foreach( $scj_milestones as $scj_milestone ) {
+			if( $old_plot != $scj_milestone[2] ) {
+				$viz .= '</div><div class="row">';
+			}
+			foreach( $milestones as $milestone ) {
+				if( $milestone[3] == $scj_milestone[2] && $milestone[4] == $scj_milestone[3] ) {
+					$viz .= '<div class="col px-0 text-center"><div class="semorg-stakeholder-milestone" data-toggle="tooltip" title="' . $scj_milestone[1] . '">[[' . $scj_milestone[0] . '|' . $scj_milestone[2] . '.' . $scj_milestone[3] . ']]</div></div>';
+					$old_plot = $scj_milestone[2];
+					continue 2;
+				}
+			}
+			$viz .= '<div class="col px-0 text-center"><div class="semorg-stakeholder-milestone-empty">&nbsp;</div></div>';
+			$old_plot = $scj_milestone[2];
+		}
+		$viz .= '</div>';
+		return [ $viz ];
+	}
+
+	/**
+	 * Render a rating from 1 to five with stars
+	 *
+	 * @param Integer $rating Rating
+	 */
+	static function renderRating( &$parser, $rating ) {
+		$rating_html = '';
+		$rating = (int) $rating;
+		$rating = min( $rating, 5 );
+		if( $rating > 0 ) {
+			for( $i = 0; $i < $rating; $i++ ) {
+				$rating_html .= '<i class="fa fa-star"></i>';
+			}
+		}
+		$rating_html = '<div class="semorg-rating">' . $rating_html . '</div>';
+		return [ $rating_html ];
 	}
 
 
