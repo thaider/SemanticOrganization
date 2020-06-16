@@ -1670,8 +1670,8 @@ class SemanticOrganizationHooks {
 		}}';
 		$milestone_result = $parser->recursiveTagParse( $milestone_query );
 		$milestones = explode( '&lt;MILESTONE&gt;', $milestone_result );
-		foreach( $milestones as &$milestone ) {
-			$milestone = explode( '&lt;PROP&gt;', $milestone );
+		foreach( $milestones as $key => $milestone ) {
+			$milestones[$key] = explode( '&lt;PROP&gt;', $milestone );
 		}
 		$viz = '<div class="container-fluid semorg-stakeholder-milestones"><div class="row">';
 		$old_plot = '1';
