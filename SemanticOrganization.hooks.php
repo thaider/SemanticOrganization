@@ -1127,7 +1127,8 @@ class SemanticOrganizationHooks {
 			'input-type',
 			'values',
 			'mapping-template',
-			'default'
+			'default',
+			'label'
 		] as $parameter ) {
 			if( !wfMessage($fullelement . '-' . $parameter)->isDisabled() ) {
 				$field .= '|' . str_replace('-', ' ', $parameter) . '=' . wfMessage($fullelement . '-' . $parameter)->text();
@@ -1211,12 +1212,12 @@ class SemanticOrganizationHooks {
 		}
 
 		if( !wfMessage($fullelement . '-name')->exists() || wfMessage($fullelement . '-name')->plain() != '-' ) {
-			$row = '<th>' . $heading . '</th><td>' . $items . $help . '</td>';
+			$row = '<th class="semorg-row-name">' . $heading . '</th><td class="semorg-row-field">' . $items . $help . '</td>';
 		} else {
-			$row = '<td colspan="2">' . $items . $help . '</td>';
+			$row = '<td colspan="2" class="semorg-row-field">' . $items . $help . '</td>';
 		}
 			
-		return '<tr class="semorg-row-' . $template . '-' . $element . ' ' . $row_class . '">' . $row . '</tr>';
+		return '<tr class="semorg-row semorg-row-' . $template . '-' . $element . ' ' . $row_class . '">' . $row . '</tr>';
 	}
 
 
