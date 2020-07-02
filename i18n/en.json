@@ -245,6 +245,10 @@
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
+	"semorg-person-user-feature-name": "Membership administration",
+	"semorg-person-user-feature-description": "*Manage users",
+	"semorg-person-user-personnel-feature-name": "Personnel administration",
+	"semorg-person-user-personnel-feature-description": "*Manage users",
 	"semorg-person-user-template": "semorg-person-user",
 	"semorg-person-user-category": "semorg-person-user",
 	"semorg-person-user-form": "semorg-person-user",
@@ -304,6 +308,8 @@
 	"semorg-field-person-ref-tag-name": "Tags",
 	"semorg-field-person-ref-tag-parameters": "placeholder=Tags|input type=tokens|list|values from property=semorg-person-ref-tag|size=20",
 
+	"semorg-project-feature-name": "Project overview",
+	"semorg-project-feature-description": "* Document who is involved in which projects",
 	"semorg-project-template": "semorg-project",
 	"semorg-project-category": "semorg-project",
 	"semorg-project-form": "semorg-project",
@@ -467,6 +473,8 @@
 	"semorg-list-project-team-external-headers": "",
 	"semorg-form-project-team-external-template": "project-team",
 
+	"semorg-meeting-feature-name": "Meetings",
+	"semorg-meeting-feature-description": "* Create agendas and minutes for meetings\n* Meetings can be created for Working groups, Projects, and Departments",
 	"semorg-meeting-template": "semorg-meeting",
 	"semorg-meeting-category": "semorg-meeting",
 	"semorg-meeting-form": "semorg-meeting",
@@ -818,6 +826,9 @@
 	"semorg-salary-year-category": "semorg-salary-year",
 	"semorg-salary-year-form": "semorg-salary-year",
 
+	"semorg-gdpr-feature-name": "GDPR",
+	"semorg-gdpr-feature-description": "* Document processings, categories of data and individuals etc.",
+
 	"semorg-gdpr-processing-template": "semorg-gdpr-processing",
 	"semorg-gdpr-processing-category": "semorg-gdpr-processing",
 	"semorg-gdpr-processing-form": "semorg-gdpr-processing",
@@ -906,6 +917,8 @@
 	"semorg-field-gdpr-recipient-international-organization-name": "",
 	"semorg-field-gdpr-recipient-international-organization-parameters": "",
 
+	"semorg-invoice-feature-name": "Invoices",
+	"semorg-invoice-feature-description": "* Create invoices and track their status",
 	"semorg-invoice-template": "semorg-invoice",
 	"semorg-invoice-category": "semorg-invoice",
 	"semorg-invoice-form": "semorg-invoice",
@@ -973,6 +986,8 @@
 	"semorg-field-invoice-year-year-parameters": "input type=text|size=4|default={{CURRENTYEAR}}",
 	"semorg-field-invoice-year-year-help": "leave empty for the current year",
 
+	"semorg-process-feature-name": "Processes",
+	"semorg-process-feature-description": "* Document business processes and the responsible roles for every process step",
 	"semorg-process-template": "semorg-process",
 	"semorg-process-category": "semorg-process",
 	"semorg-process-form": "semorg-process",
@@ -1000,6 +1015,8 @@
 	"semorg-field-working-time-note-name": "Note",
 	"semorg-field-working-time-note-parameters": "input type=textarea|autogrow|rows=1|columns=60",
 
+	"semorg-vacation-feature-name": "Vacation schedule",
+	"semorg-vacation-feature-description": "* Keep track of your member's absenteeisms",
 	"semorg-vacation-template": "semorg-vacation",
 	"semorg-vacation-category": "semorg-vacation",
 	"semorg-vacation-form": "semorg-vacation",
@@ -1022,6 +1039,8 @@
 	"semorg-field-vacation-note-name": "Notes",
 	"semorg-field-vacation-note-parameters": "input type=textarea|autogrow|rows=1|columns=60",
 
+	"semorg-group-feature-name": "Commitees/Working groups",
+	"semorg-group-feature-description": "* Create permanent or temporary working groups\n* Document the group's responsibilities and members\n* Inspired by Sociocracy's working groups",
 	"semorg-group-template": "semorg-group",
 	"semorg-group-category": "semorg-group",
 	"semorg-group-form": "semorg-group",
@@ -1205,6 +1224,8 @@
 	"semorg-field-generator-field-appearance-name": "Aussehen",
 	"semorg-field-generator-field-appearance-fields": "prefix,type,suffix",
 
+	"semorg-department-feature-name": "Departments",
+	"semorg-department-feature-description": "* Cluster the members working in the same fields",
 	"semorg-department-template": "semorg-department",
 	"semorg-department-category": "semorg-department",
 	"semorg-department-form": "semorg-department",
@@ -1219,6 +1240,8 @@
 	"semorg-field-department-name-name": "Name", 
 	"semorg-field-department-name-parameters": "",
 	
+	"semorg-role-feature-name": "Roles",
+	"semorg-role-feature-description": "* Document responsibilities of roles\n* Based loosely on Holocracy",
 	"semorg-role-template": "semorg-role",
 	"semorg-role-category": "semorg-role",
 	"semorg-role-form": "semorg-role",
@@ -1498,6 +1521,8 @@
 	"semorg-field-expense-type-parameters": "",
 	"semorg-field-expense-oneline-fields": "date,description,amount-gross,amount-net",
 
+	"semorg-task-feature-name": "Tasks",
+	"semorg-task-feature-description": "* Track open tasks and their status",
 	"semorg-task-template": "semorg-task",
 	"semorg-task-category": "semorg-task",
 	"semorg-task-form": "semorg-task",
@@ -1564,6 +1589,8 @@
 	"semorg-field-manual-up-to-date-date-parameters": "hidden", 
 	"semorg-field-manual-checked-name": "Checked", 
 	
+	"semorg-knowledge-feature-name": "Knowledge database and Manuals",
+	"semorg-knowledge-feature-description": "* Document your organization's knowledge and make it easily available",
 	"semorg-knowledge-template": "semorg-knowledge",
 	"semorg-knowledge-category": "semorg-knowledge",
 	"semorg-knowledge-form": "semorg-knowledge",
