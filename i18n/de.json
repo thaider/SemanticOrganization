@@ -506,6 +506,8 @@
 	"semorg-field-salary-reason-name": "Begründung (bei Änderung des Stundensatzes)", 
 	"semorg-field-salary-reason-prefix": "<div>wegen Veränderung/Erweiterung des Tätigkeitsbereich auf:</div>",
 	"semorg-field-salary-reason-help": "Eine signifikante Änderung des Stundensatzes sollte mit einer Veränderung/Erweiterung des Tätigkeitsbereichs begründet werden.", 
+	"semorg-field-salary-note-name": "Anmerkung", 
+	"semorg-field-salary-note-help": "wird in der Übersichtstabelle angezeigt", 
 
 	"semorg-salary-entry-displaytitle": "Dienstvertrag $1",
 	"semorg-form-salary-entry-create-title": "Dienstvertrag erstellen",

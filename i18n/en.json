@@ -797,6 +797,8 @@
 	"semorg-field-salary-leave-name": "Leave",
 	"semorg-field-salary-reason-name": "Reason", 
 	"semorg-field-salary-reason-parameters": "input type=textarea|rows=1|cols=60|autogrow",
+	"semorg-field-salary-note-name": "Note", 
+	"semorg-field-salary-note-parameters": "input type=textarea|rows=1|cols=60|autogrow",
 
 	"semorg-salary-entry-template": "semorg-salary-entry",
 	"semorg-salary-entry-category": "semorg-salary-entry",
@@ -804,7 +806,7 @@
 	"semorg-form-salary-entry-create-title": "Create Employment Contract",
 	"semorg-form-salary-entry-edit-title": "Edit Employment Contract",
 	"semorg-form-salary-entry-template": "salary",
-	"semorg-form-salary-entry-rows": "employee,date,start-date,hourly-rate,hours,children,limitation,prior-service-periods-all,leave",
+	"semorg-form-salary-entry-rows": "employee,date,start-date,hourly-rate,hours,children,limitation,prior-service-periods-all,leave,note",
 
 	"semorg-salary-change-template": "semorg-salary-change",
 	"semorg-salary-change-category": "semorg-salary-change",
@@ -812,7 +814,7 @@
 	"semorg-form-salary-change-create-title": "Create Salary Change",
 	"semorg-form-salary-change-edit-title": "Edit Salary Change",
 	"semorg-form-salary-change-template": "salary",
-	"semorg-form-salary-change-rows": "employee,date,hourly-rate,hours",
+	"semorg-form-salary-change-rows": "employee,date,hourly-rate,hours,note",
 
 	"semorg-salary-exit-template": "semorg-salary-exit",
 	"semorg-salary-exit-category": "semorg-salary-exit",
@@ -820,7 +822,7 @@
 	"semorg-form-salary-exit-create-title": "Create Termination",
 	"semorg-form-salary-exit-edit-title": "Edit Termination",
 	"semorg-form-salary-exit-template": "salary",
-	"semorg-form-salary-exit-rows": "employee,date",
+	"semorg-form-salary-exit-rows": "employee,date,note",
 
 	"semorg-salary-year-template": "semorg-salary-year",
 	"semorg-salary-year-category": "semorg-salary-year",
