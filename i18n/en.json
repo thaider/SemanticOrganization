@@ -100,6 +100,12 @@
 	"semorg-list-default": "no entries so far…",
 	"semorg-list-proposal-default": "no proposals so far…",
 
+	"semorg-feature-heading": "Features",
+	"semorg-feature-name-heading": "Features",
+	"semorg-feature-pages-heading": "Pages",
+	"semorg-feature-description-heading": "Description",
+	"semorg-feature-create": "Create Page “$1”",
+
 	"semorg-value-data-type-wpg": "Page",
 	"semorg-value-data-type-txt": "Text",
 	"semorg-value-data-type-num": "Number",
@@ -247,8 +253,10 @@
 
 	"semorg-person-user-feature-name": "Membership administration",
 	"semorg-person-user-feature-description": "*Manage users",
+	"semorg-person-user-feature-pages": "person-user",
 	"semorg-person-user-personnel-feature-name": "Personnel administration",
 	"semorg-person-user-personnel-feature-description": "*Manage users",
+	"semorg-person-user-personnel-feature-pages": "person-user",
 	"semorg-person-user-template": "semorg-person-user",
 	"semorg-person-user-category": "semorg-person-user",
 	"semorg-person-user-form": "semorg-person-user",
@@ -310,6 +318,7 @@
 
 	"semorg-project-feature-name": "Project overview",
 	"semorg-project-feature-description": "* Document who is involved in which projects",
+	"semorg-project-feature-pages": "project,meeting-project",
 	"semorg-project-template": "semorg-project",
 	"semorg-project-category": "semorg-project",
 	"semorg-project-form": "semorg-project",
@@ -475,6 +484,7 @@
 
 	"semorg-meeting-feature-name": "Meetings",
 	"semorg-meeting-feature-description": "* Create agendas and minutes for meetings\n* Meetings can be created for Working groups, Projects, and Departments",
+	"semorg-meeting-feature-pages": "meeting,meeting-group,meeting-project,meeting-department",
 	"semorg-meeting-template": "semorg-meeting",
 	"semorg-meeting-category": "semorg-meeting",
 	"semorg-meeting-form": "semorg-meeting",
@@ -830,6 +840,7 @@
 
 	"semorg-gdpr-feature-name": "GDPR",
 	"semorg-gdpr-feature-description": "* Document processings, categories of data and individuals etc.",
+	"semorg-gdpr-feature-pages": "gdpr-processing",
 
 	"semorg-gdpr-processing-template": "semorg-gdpr-processing",
 	"semorg-gdpr-processing-category": "semorg-gdpr-processing",
@@ -921,6 +932,7 @@
 
 	"semorg-invoice-feature-name": "Invoices",
 	"semorg-invoice-feature-description": "* Create invoices and track their status",
+	"semorg-invoice-feature-pages": "invoice",
 	"semorg-invoice-template": "semorg-invoice",
 	"semorg-invoice-category": "semorg-invoice",
 	"semorg-invoice-form": "semorg-invoice",
@@ -990,6 +1002,7 @@
 
 	"semorg-process-feature-name": "Processes",
 	"semorg-process-feature-description": "* Document business processes and the responsible roles for every process step",
+	"semorg-process-feature-pages": "process",
 	"semorg-process-template": "semorg-process",
 	"semorg-process-category": "semorg-process",
 	"semorg-process-form": "semorg-process",
@@ -1019,6 +1032,7 @@
 
 	"semorg-vacation-feature-name": "Vacation schedule",
 	"semorg-vacation-feature-description": "* Keep track of your member's absenteeisms",
+	"semorg-vacation-feature-pages": "vacation",
 	"semorg-vacation-template": "semorg-vacation",
 	"semorg-vacation-category": "semorg-vacation",
 	"semorg-vacation-form": "semorg-vacation",
@@ -1043,6 +1057,7 @@
 
 	"semorg-group-feature-name": "Commitees/Working groups",
 	"semorg-group-feature-description": "* Create permanent or temporary working groups\n* Document the group's responsibilities and members\n* Inspired by Sociocracy's working groups",
+	"semorg-group-feature-pages": "group,meeting-group",
 	"semorg-group-template": "semorg-group",
 	"semorg-group-category": "semorg-group",
 	"semorg-group-form": "semorg-group",
@@ -1228,6 +1243,7 @@
 
 	"semorg-department-feature-name": "Departments",
 	"semorg-department-feature-description": "* Cluster the members working in the same fields",
+	"semorg-department-feature-pages": "department,meeting-department",
 	"semorg-department-template": "semorg-department",
 	"semorg-department-category": "semorg-department",
 	"semorg-department-form": "semorg-department",
@@ -1244,6 +1260,7 @@
 	
 	"semorg-role-feature-name": "Roles",
 	"semorg-role-feature-description": "* Document responsibilities of roles\n* Based loosely on Holocracy",
+	"semorg-role-feature-pages": "role",
 	"semorg-role-template": "semorg-role",
 	"semorg-role-category": "semorg-role",
 	"semorg-role-form": "semorg-role",
@@ -1525,6 +1542,7 @@
 
 	"semorg-task-feature-name": "Tasks",
 	"semorg-task-feature-description": "* Track open tasks and their status",
+	"semorg-task-feature-pages": "task",
 	"semorg-task-template": "semorg-task",
 	"semorg-task-category": "semorg-task",
 	"semorg-task-form": "semorg-task",
@@ -1593,6 +1611,7 @@
 	
 	"semorg-knowledge-feature-name": "Knowledge database and Manuals",
 	"semorg-knowledge-feature-description": "* Document your organization's knowledge and make it easily available",
+	"semorg-knowledge-feature-pages": "knowledge,manual",
 	"semorg-knowledge-template": "semorg-knowledge",
 	"semorg-knowledge-category": "semorg-knowledge",
 	"semorg-knowledge-form": "semorg-knowledge",

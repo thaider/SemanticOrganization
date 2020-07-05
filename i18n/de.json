@@ -87,6 +87,12 @@
 	"semorg-list-proposal-default": "keine Beschlüsse bisher…",
 	"semorg-list-default": "keine Einträge bisher…",
 
+	"semorg-feature-heading": "Features",
+	"semorg-feature-name-heading": "Features",
+	"semorg-feature-pages-heading": "Seiten",
+	"semorg-feature-description-heading": "Beschreibung",
+	"semorg-feature-create": "Seite „$1“ erstellen",
+
 	"semorg-value-data-type-wpg": "Seite",
 	"semorg-value-data-type-txt": "Text",
 	"semorg-value-data-type-num": "Zahl",
