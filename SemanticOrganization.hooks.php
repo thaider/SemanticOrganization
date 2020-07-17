@@ -68,6 +68,8 @@ class SemanticOrganizationHooks {
 			'round' => 'getRound',
 			'stakeholder-milestones' => 'renderStakeholderMilestones',
 			'rating' => 'renderRating',
+			'msg' => 'renderMsg',
+			'int' => 'renderInt',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -1171,15 +1173,23 @@ class SemanticOrganizationHooks {
 
 		/* get the help message if it exists */
 		if( !wfMessage($fullelement . '-help')->isDisabled() ) {
-			$help = '{{semorg-msg|field-' . $template . '-' . $element . '-help}}';
+			$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
+			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '}}';
 			$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
-		}
 
 		/* get inline help message if it exists */
-		if( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
-			$help = '{{semorg-msg|field-' . $template . '-' . $element . '-help-inline}}';
+		} elseif( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
+			$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
+			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help-inline|tooltip=' . $help_tooltip . '}}';
+			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
+
+		/* show help message create link */
+		} else {
+			$help_tooltip = wfMessage( 'semorg-msg-help-create-tooltip' )->plain();
+			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '|icon=question}}';
 			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
 		}
+
 
 		/* get the row class if it exists */
 		if( !wfMessage($fullelement . '-row-class')->isDisabled() ) {
@@ -1710,6 +1720,40 @@ class SemanticOrganizationHooks {
 		}
 		$rating_html = '<div class="semorg-rating">' . $rating_html . '</div>';
 		return [ $rating_html ];
+	}
+
+
+	/**
+	 * Render a message (e.g. help message) and a link to edit its content
+	 *
+	 * @param String $feature Feature
+	 */
+	static function renderMsg( &$parser, $msg ) {
+		$options = self::extractOptions( array_slice(func_get_args(), 2) );
+
+		$msg_content = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg ) : '';
+		$msg_preload = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg )->plain() : '';
+		$msg_tooltip = $options['tooltip'] ?? wfMessage( 'semorg-msg-edit-tooltip' );
+		$msg_icon = $options['icon'] ?? 'pen';
+
+		$msg_html = '<span class="semorg-msg">' . $msg_content . '<small class="semorg-msg-edit d-print-none"> {{#formlink:form=semorg-message
+		  |returnto={{FULLPAGENAME}}
+		  |link text=<span data-toggle="tooltip" title="' . $msg_tooltip . '" class="fa fa-' . $msg_icon . '"></span>
+		  |target=MediaWiki:semorg-' . $msg . '
+		  |preload=' . $msg_preload . '
+		}}</small></span>';
+		return [ $msg_html, 'noparse' => false ];
+	}
+
+
+	/**
+	 * Get a message, if it exists
+	 *
+	 * @param String $msg Message
+	 */
+	static function renderInt( &$parser, $msg ) {
+		$msg_content = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg ) : '';
+		return [ $msg_content ];
 	}
 
 

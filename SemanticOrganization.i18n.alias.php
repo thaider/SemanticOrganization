@@ -50,4 +50,6 @@ $magicWords['en'] = array(
 	'semorg-round' => array( 0, 'semorg-round'),
 	'semorg-stakeholder-milestones' => array( 0, 'semorg-stakeholder-milestones'),
 	'semorg-rating' => array( 0, 'semorg-rating'),
+	'semorg-msg' => array( 0, 'semorg-msg'),
+	'semorg-int' => array( 0, 'semorg-int'),
 );

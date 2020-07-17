@@ -52,11 +52,14 @@
 
 	"semorg-net-text": "netto",
 
+	"semorg-msg-edit-displaytitle": "Systemnachricht bearbeiten",
 	"semorg-help-msg-edit": "Hilfetext bearbeiten",
 	"semorg-help-formatting-button-text": "Formatierungshilfe anzeigen (Popup)",
 	"semorg-help-formatting-heading": "Formatierungshilfe",
 
 	"semorg-msg-edit-tooltip": "Wert bearbeiten/festlegen",
+	"semorg-msg-help-edit-tooltip": "Hilfetext bearbeiten",
+	"semorg-msg-help-create-tooltip": "Hilfetext erstellen",
 
 	"semorg-agenda-times": "(Agenda: $1 min gesamt, $2 min $4)",
 	"semorg-agenda-times-planned": "geplant",
