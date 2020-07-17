@@ -1731,7 +1731,7 @@ class SemanticOrganizationHooks {
 	static function renderMsg( &$parser, $msg ) {
 		$options = self::extractOptions( array_slice(func_get_args(), 2) );
 
-		$msg_content = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg ) : '';
+		$msg_content = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg )->plain() : '';
 		$msg_preload = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg )->plain() : '';
 		$msg_tooltip = $options['tooltip'] ?? wfMessage( 'semorg-msg-edit-tooltip' );
 		$msg_icon = $options['icon'] ?? 'pen';
