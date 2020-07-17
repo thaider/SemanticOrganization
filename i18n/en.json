@@ -784,7 +784,7 @@
 	"semorg-field-membership-payment-date-parameters": "input type=datepicker|mandatory|size=10",
 
 	"semorg-salary-category": "semorg-salary",
-	"semorg-list-salary-headers": "salary-employee,salary-type,salary-date,salary-amount,salary-hours,salary-hourly-rate",
+	"semorg-list-salary-headers": "salary-employee,salary-type,salary-start-date,salary-amount,salary-hours,salary-hourly-rate",
 	"semorg-field-salary-employee-name": "Name",
 	"semorg-field-salary-employee-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-salary-type-name": "Type",
