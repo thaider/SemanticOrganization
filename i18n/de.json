@@ -491,8 +491,8 @@
 
 	"semorg-field-salary-employee-name": "Name",
 	"semorg-field-salary-type-name": "Typ",
-	"semorg-field-salary-date-name": "Datum",
-	"semorg-field-salary-start-date-name": "Anstellungsbeginn",
+	"semorg-field-salary-date-name": "Datum der Unterschrift",
+	"semorg-field-salary-start-date-name": "gültig ab",
 	"semorg-field-salary-year-name": "Jahr",
 	"semorg-field-salary-limitation-name": "befristet bis",
 	"semorg-field-salary-limitation-help": "Für unbefristete Anstellung Feld leer lassen.",

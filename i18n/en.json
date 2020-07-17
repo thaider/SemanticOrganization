@@ -786,9 +786,9 @@
 	"semorg-field-salary-employee-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",
 	"semorg-field-salary-type-name": "Type",
 	"semorg-field-salary-date-name": "Date of Signature",
-	"semorg-field-salary-date-parameters": "input type=datepicker|size=10|default={{CURRENTYEAR}}/{{CURRENTMONTH}}/{{CURRENTDAY2}}",
+	"semorg-field-salary-date-parameters": "input type=datepicker|size=10",
 	"semorg-field-salary-start-date-name": "Start date",
-	"semorg-field-salary-start-date-parameters": "input type=datepicker|size=10|default={{CURRENTYEAR}}/{{CURRENTMONTH}}/{{CURRENTDAY2}}|mandatory",
+	"semorg-field-salary-start-date-parameters": "input type=datepicker|size=10|mandatory",
 	"semorg-field-salary-year-name": "Year",
 	"semorg-field-salary-limitation-name": "Limitation",
 	"semorg-field-salary-limitation-parameters": "input type=datepicker|size=10",
@@ -816,7 +816,7 @@
 	"semorg-form-salary-entry-create-title": "Create Employment Contract",
 	"semorg-form-salary-entry-edit-title": "Edit Employment Contract",
 	"semorg-form-salary-entry-template": "salary",
-	"semorg-form-salary-entry-rows": "employee,date,start-date,hourly-rate,hours,children,limitation,prior-service-periods-all,leave,note",
+	"semorg-form-salary-entry-rows": "employee,start-date,hourly-rate,hours,children,limitation,prior-service-periods-all,leave,note,date",
 
 	"semorg-salary-change-template": "semorg-salary-change",
 	"semorg-salary-change-category": "semorg-salary-change",
@@ -824,7 +824,7 @@
 	"semorg-form-salary-change-create-title": "Create Salary Change",
 	"semorg-form-salary-change-edit-title": "Edit Salary Change",
 	"semorg-form-salary-change-template": "salary",
-	"semorg-form-salary-change-rows": "employee,date,hourly-rate,hours,note",
+	"semorg-form-salary-change-rows": "employee,start-date,hourly-rate,hours,reason,note,date",
 
 	"semorg-salary-exit-template": "semorg-salary-exit",
 	"semorg-salary-exit-category": "semorg-salary-exit",
@@ -832,7 +832,7 @@
 	"semorg-form-salary-exit-create-title": "Create Termination",
 	"semorg-form-salary-exit-edit-title": "Edit Termination",
 	"semorg-form-salary-exit-template": "salary",
-	"semorg-form-salary-exit-rows": "employee,date,note",
+	"semorg-form-salary-exit-rows": "employee,start-date,note,date",
 
 	"semorg-salary-year-template": "semorg-salary-year",
 	"semorg-salary-year-category": "semorg-salary-year",
