@@ -1676,6 +1676,7 @@ class SemanticOrganizationHooks {
 			|?semorg-smart-network-milestone.semorg-milestone-name
 			|?semorg-smart-network-milestone.semorg-milestone-plot.semorg-plot-number
 			|?semorg-smart-network-milestone.semorg-milestone-number
+			|?semorg-smart-network-note
 			|sep=<MILESTONE>
 			|format=array
 		}}';
@@ -1692,7 +1693,7 @@ class SemanticOrganizationHooks {
 			}
 			foreach( $milestones as $milestone ) {
 				if( $milestone[3] == $scj_milestone[2] && $milestone[4] == $scj_milestone[3] ) {
-					$viz .= '<div class="col px-0 text-center"><div class="semorg-stakeholder-milestone" data-toggle="tooltip" title="' . $scj_milestone[1] . '">[[' . $scj_milestone[0] . '|' . $scj_milestone[2] . '.' . $scj_milestone[3] . ']]</div></div>';
+					$viz .= '<div class="col px-0 text-center"><div class="semorg-stakeholder-milestone" data-toggle="tooltip" title="' . $milestone[5] . '">[[' . $scj_milestone[0] . '|' . $scj_milestone[2] . '.' . $scj_milestone[3] . ']]</div></div>';
 					$old_plot = $scj_milestone[2];
 					continue 2;
 				}
