@@ -1155,6 +1155,8 @@
 	"semorg-field-transfer-add-name": "Add to list",
 	"semorg-field-transfer-type-name": "Type",
 	"semorg-field-transfer-type-parameters": "",
+	"semorg-field-transfer-note-name": "Note", 
+	"semorg-field-transfer-note-parameters": "input type=textarea|rows=1|cols=60|autogrow",
 
 	"semorg-transfer-list-template": "semorg-transfer-list",
 	"semorg-transfer-list-category": "semorg-transfer-list",

@@ -713,6 +713,7 @@
 	"semorg-field-transfer-type-name": "Typ",
 	"semorg-field-transfer-type-parameters": "input type=combobox|existing values only|values=Aufwand,Erlös",
 	"semorg-field-transfer-add-name": "listen",
+	"semorg-field-transfer-note-name": "Anmerkung", 
 	"semorg-field-transfer-recipient-account-account-name-name": "An", 
 
 	"semorg-transfer-list-page-name": "Umbuchungslisten",
