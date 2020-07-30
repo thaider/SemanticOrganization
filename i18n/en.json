@@ -60,7 +60,7 @@
 	"semorg-quarter": "Q$2/$1",
 	"semorg-month": "$1-$2",
 	
-	"semorg-agenda-times": "(Agenda: $1 min total, $2 min $4)",
+	"semorg-agenda-times": "(Agenda: {{#semorg-hours:$1}}h total, {{#semorg-hours:$2}}h $4)",
 	"semorg-agenda-times-planned": "planned",
 
 	"semorg-currency-symbol": "€",

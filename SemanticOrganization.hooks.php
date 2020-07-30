@@ -70,6 +70,7 @@ class SemanticOrganizationHooks {
 			'rating' => 'renderRating',
 			'msg' => 'renderMsg',
 			'int' => 'renderInt',
+			'hours' => 'renderHours',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -1755,6 +1756,26 @@ class SemanticOrganizationHooks {
 	static function renderInt( &$parser, $msg ) {
 		$msg_content = wfMessage( 'semorg-' . $msg )->exists() ? wfMessage( 'semorg-' . $msg ) : '';
 		return [ $msg_content ];
+	}
+
+
+	/**
+	 * Convert minutes into H:MM
+	 *
+	 * @param Integer $minutes Minutes
+	 */
+	static function renderHours( &$parser, $minutes ) {
+		$hours = floor( $minutes / 60 );
+		$minutes = $minutes - $hours * 60;
+		$hours_string = $hours;
+		if( $minutes > 0 ) {
+			$hours_string .= ':';
+			if( $minutes < 10 ) {
+				$hours_string .= '0';
+			}
+			$hours_string .= $minutes;
+		}
+		return [ $hours_string ];
 	}
 
 

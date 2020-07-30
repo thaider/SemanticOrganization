@@ -52,4 +52,5 @@ $magicWords['en'] = array(
 	'semorg-rating' => array( 0, 'semorg-rating'),
 	'semorg-msg' => array( 0, 'semorg-msg'),
 	'semorg-int' => array( 0, 'semorg-int'),
+	'semorg-hours' => array( 0, 'semorg-hours'),
 );

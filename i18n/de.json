@@ -61,7 +61,7 @@
 	"semorg-msg-help-edit-tooltip": "Hilfetext bearbeiten",
 	"semorg-msg-help-create-tooltip": "Hilfetext erstellen",
 
-	"semorg-agenda-times": "(Agenda: $1 min gesamt, $2 min $4)",
+	"semorg-agenda-times": "(Agenda: {{#semorg-hours:$1}}h gesamt, {{#semorg-hours:$2}}h $4)",
 	"semorg-agenda-times-planned": "geplant",
 	
 	"semorg-process-step-done": "<span class='fa fa-check'></span> erledigt am $1",
