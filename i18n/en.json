@@ -1056,7 +1056,7 @@
 	"semorg-field-vacation-end-date-name": "until",
 	"semorg-field-vacation-end-date-parameters": "input type=datepicker|size=10|mandatory",
 	"semorg-field-vacation-note-name": "Notes",
-	"semorg-field-vacation-note-parameters": "input type=textarea|autogrow|rows=1|columns=60",
+	"semorg-field-vacation-note-parameters": "input type=textarea|autogrow|rows=1|cols=60",
 
 	"semorg-group-feature-name": "Commitees/Working groups",
 	"semorg-group-feature-description": "* Create permanent or temporary working groups\n* Document the group's responsibilities and members\n* Inspired by Sociocracy's working groups",

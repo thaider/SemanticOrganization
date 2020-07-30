@@ -618,7 +618,6 @@ class SemanticOrganizationHooks {
 				$tableclass = wfMessage('semorg-list-' . $template . '-tableclass' )->text();
 			} else {
 				$tableclass = 'table table-sm table-bordered sortable';
-				$tableclass = 'table table-condensed table-sm table-bordered sortable'; // for backwards-compatibility
 			}
 
 			$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
@@ -771,21 +770,45 @@ class SemanticOrganizationHooks {
 			}
 
 			$query .= '|link=none|named args=yes|format=template';
-			$query .= '|template=semorg-' . $row_template . '-row';
-			$parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
-			$parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
+			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
+
+			$table_query = $query . '|template=semorg-' . $row_template . '-row';
+			$table_parameters = $parameters;
+			$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
+			$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
 			
 			// apply parameters...
-			foreach( $parameters as $parameter => $value ) {
+			foreach( $table_parameters as $parameter => $value ) {
 				if( $value != '' ) {
-					$query .= '|' . $parameter . '=' . $value;
+					$table_query .= '|' . $parameter . '=' . $value;
 				}
 			}
 
-			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
-			$query .= '}}';
+			$table_query .= '}}';
 
-			$list = $parser->recursiveTagParse( $query );
+			$list = $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-lg-table">' . $table_query . '</div>' );
+
+			$mobile_row_template = 'semorg-default-mobile-row';
+			if( Title::newFromText( 'Template:semorg-' . $row_template . '-mobile-row' )->exists() ) {
+				$mobile_row_template = 'semorg-' . $row_template . '-mobile-row';
+			} elseif( Title::newFromText( 'Template:semorg-' . $template . '-mobile-row' )->exists() ) {
+				$mobile_row_template = 'semorg-' . $template . '-mobile-row';
+			}
+			$mobile_query = $query . '|template=' . $mobile_row_template;
+			$mobile_parameters = $parameters;
+			$mobile_parameters['intro'] .= '{{semorg-list-intro|columns=-|tableclass=' . $tableclass . '}}';
+			$mobile_parameters['outro'] = '{{semorg-list-outro}}' . $parameters['outro'];
+			
+			// apply parameters...
+			foreach( $mobile_parameters as $parameter => $value ) {
+				if( $value != '' ) {
+					$mobile_query .= '|' . $parameter . '=' . $value;
+				}
+			}
+
+			$mobile_query .= '}}';
+
+			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-lg-none">' . $mobile_query . '</div>' );
 
 
 			if( isset( $listoptions['csv'] ) ) {
