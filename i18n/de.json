@@ -215,6 +215,7 @@
 	"semorg-field-person-profession-name": "Jobbezeichnung",
 	"semorg-field-person-tax-number-name": "Steuernummer", 
 	"semorg-field-person-acronym-name": "Kurzzeichen", 
+	"semorg-field-person-topic-name": "Thema", 
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
@@ -1050,6 +1051,26 @@
 	"semorg-field-smart-network-engaged-name": "eingebunden", 
 	"semorg-field-smart-network-engaged-short-name": "<abbr title='bereits eingebunden'><i class='fa fa-check'></i></abbr>", 
 	"semorg-field-smart-network-engaged-parameters": "input type=checkbox|label=&nbsp;bereits eingebunden",
+
+	"semorg-topic-category-page-name": "Themenkategorien",
+	"semorg-topic-category-entity-name": "Themenkategorie",
+	"semorg-form-topic-category-create-title": "Themenkategorie erstellen",
+	"semorg-form-topic-category-edit-title": "Themenkategorie bearbeiten", 
+	"semorg-form-topic-category-page-name": "Themenkategorien",
+	"semorg-field-topic-category-name-name": "Name", 
+	"semorg-field-topic-category-description-name": "Beschreibung", 
+	"semorg-field-topic-category-category-name": "Kategorie",
+	"semorg-field-topic-category-topics-name": "Themen",
+
+	"semorg-topic-page-name": "Themen",
+	"semorg-topic-entity-name": "Thema",
+	"semorg-form-topic-create-title": "Thema erstellen",
+	"semorg-form-topic-edit-title": "Thema bearbeiten", 
+	"semorg-form-topic-page-name": "Themen",
+	"semorg-field-topic-name-name": "Name", 
+	"semorg-field-topic-description-name": "Beschreibung", 
+	"semorg-field-topic-category-name": "Kategorien", 
+	"semorg-field-topic-topic-name": "Thema",
 
 	"end": "Ende"
 }
