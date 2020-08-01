@@ -87,8 +87,9 @@
 	"semorg-form-noelements": "Parameter <code>elements</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
 	"semorg-form-freestyle-legend": "Freestyle",
 
-	"semorg-list-proposal-default": "keine Beschlüsse bisher…",
 	"semorg-list-default": "keine Einträge bisher…",
+	"semorg-list-default-all-link-text": "alle anzeigen",
+	"semorg-list-proposal-default": "keine Beschlüsse bisher…",
 
 	"semorg-feature-heading": "Features",
 	"semorg-feature-name-heading": "Features",
