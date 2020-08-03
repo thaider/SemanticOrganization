@@ -8,7 +8,7 @@
 	"semorg-print-header": "",
 	"semorg-print-footer": "",
 
-	"semorg-mail-meeting-group-link-text": "Send Invitation E-mail",
+	"semorg-mail-meeting-group-link-text": "Send Invitation Email",
 	"semorg-mail-meeting-group-subject": "Invitation for $1 on $2, $3",
 
 	"semorg-filterbox-title": "Filter",
@@ -29,7 +29,7 @@
 
 	"semorg-tooltip-view": "view",
 	"semorg-tooltip-edit": "edit",
-	"semorg-tooltip-edit-mail-template": "Edit e-mail template",
+	"semorg-tooltip-edit-mail-template": "Edit email template",
 	"semorg-tooltip-create-person": "Create new person",
 	"semorg-tooltip-printable-create": "Create content block for printable version",
 	"semorg-tooltip-printable-edit": "Edit content block for printable version",
@@ -116,7 +116,7 @@
 	"semorg-value-data-type-dat": "Date",
 	"semorg-value-data-type-boo": "Boolean",
 	"semorg-value-data-type-uri": "URI",
-	"semorg-value-data-type-ema": "E-Mail",
+	"semorg-value-data-type-ema": "Email",
 	"semorg-value-data-type-tel": "Telephone number",
 	"semorg-value-gender-female": "female",
 	"semorg-value-gender-male": "male",
@@ -207,8 +207,8 @@
 	"semorg-field-person-workpostalcode-parameters": "size=5|placeholder=Postal Code|input type=text",
 	"semorg-field-person-worklocality-name": "Locality",
 	"semorg-field-person-worklocality-parameters": "placeholder=Locality|input type=text",
-	"semorg-field-person-email-name": "E-Mail",
-	"semorg-field-person-email-parameters": "placeholder=E-mail|list",
+	"semorg-field-person-email-name": "Email",
+	"semorg-field-person-email-parameters": "placeholder=Email|list",
 	"semorg-field-person-workphone-name": "Phone Number",
 	"semorg-field-person-workphone-parameters": "placeholder=Phone Number|list",
 	"semorg-field-person-workphone-help": "Format: +43-123-456 789",
