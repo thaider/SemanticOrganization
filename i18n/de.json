@@ -842,6 +842,7 @@
 	"semorg-field-travel-expenses-allowance-night-name": "Nächtigungsaufwand", 
 	"semorg-field-travel-expenses-project-name": "Projekt", 
 	"semorg-field-travel-expenses-date-name": "Datum", 
+	"semorg-field-travel-expenses-dates-name": "Daten", 
 	"semorg-field-travel-expenses-expenses-name": "Spesen", 
 	"semorg-field-travel-expenses-expenses-help": "z.B. Tickets, …", 
 	"semorg-field-travel-expenses-description-name": "Reisezweck", 

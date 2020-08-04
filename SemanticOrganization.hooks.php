@@ -787,7 +787,7 @@ class SemanticOrganizationHooks {
 
 			$table_query .= '}}';
 
-			$list = $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-lg-table">' . $table_query . '</div>' );
+			$list = $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div>' );
 
 			$mobile_row_template = 'semorg-default-mobile-row';
 			if( Title::newFromText( 'Template:semorg-' . $row_template . '-mobile-row' )->exists() ) {
@@ -809,7 +809,7 @@ class SemanticOrganizationHooks {
 
 			$mobile_query .= '}}';
 
-			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-lg-none">' . $mobile_query . '</div>' );
+			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div>' );
 
 
 			if( isset( $listoptions['csv'] ) ) {
