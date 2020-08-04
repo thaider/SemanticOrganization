@@ -216,7 +216,7 @@
 	"semorg-field-person-profession-name": "Jobbezeichnung",
 	"semorg-field-person-tax-number-name": "Steuernummer", 
 	"semorg-field-person-acronym-name": "Kurzzeichen", 
-	"semorg-field-person-topic-name": "Thema", 
+	"semorg-field-person-topic-name": "Themen", 
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
@@ -1053,7 +1053,7 @@
 	"semorg-field-smart-network-engaged-short-name": "<abbr title='bereits eingebunden'><i class='fa fa-check'></i></abbr>", 
 	"semorg-field-smart-network-engaged-parameters": "input type=checkbox|label=&nbsp;bereits eingebunden",
 
-	"semorg-topic-category-page-name": "Themenkategorien",
+	"semorg-topic-category-page-name": "Themen",
 	"semorg-topic-category-entity-name": "Themenkategorie",
 	"semorg-form-topic-category-create-title": "Themenkategorie erstellen",
 	"semorg-form-topic-category-edit-title": "Themenkategorie bearbeiten", 
@@ -1071,7 +1071,10 @@
 	"semorg-field-topic-name-name": "Name", 
 	"semorg-field-topic-description-name": "Beschreibung", 
 	"semorg-field-topic-category-name": "Kategorien", 
+	"semorg-field-topic-type-name": "Typ", 
 	"semorg-field-topic-topic-name": "Thema",
+	"semorg-field-topic-person-name": "Personen",
+	"semorg-field-topic-person-count-name": "Anzahl Personen",
 
 	"end": "Ende"
 }

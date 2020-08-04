@@ -9,7 +9,8 @@ class SemanticOrganizationHooks {
 		'email', 
 		'homepage', 
 		'workphone', 
-		'tag'
+		'tag',
+		'topic',
 	];
 	static $milestones = [];
 
@@ -1375,6 +1376,13 @@ class SemanticOrganizationHooks {
 			if( isset( self::$options[$field] ) ) {
 				$output .= '<tr><th>' . wfMessage( 'semorg-field-person-' . $field . '-name' )->plain() . '</th><td>' . self::$options[$field] . '</td></tr>';
 			}
+		}
+		if( isset( self::$options['topic'] ) ) {
+			$output .= '<tr><th>' . wfMessage( 'semorg-field-person-topic-name' )->plain() . '</th><td><ul>';
+			foreach( self::$options['topic'] as $topic ) {
+				$output .= '<li>[[' . $topic . '|{{#show:' . $topic . '|?semorg-topic-name}}]]';
+			}
+			$output .= '</ul></td></tr>';
 		}
 		$output .= '</table>';
 		$output .= '<div class="vcard">{{#ask:[[{{FULLPAGENAME}}]]

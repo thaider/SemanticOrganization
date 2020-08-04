@@ -252,7 +252,7 @@
 	"semorg-field-person-tax-number-parameters": "",
 	"semorg-field-person-acronym-name": "Acronym", 
 	"semorg-field-person-acronym-parameters": "size=10",
-	"semorg-field-person-topic-name": "Topic", 
+	"semorg-field-person-topic-name": "Topics", 
 	"semorg-field-person-topic-parameters": "input type=checkboxes|values from category=semorg-topic|mapping property=Semorg-topic-name|list",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
@@ -1840,7 +1840,7 @@
 	"semorg-topic-category-template": "semorg-topic-category",
 	"semorg-topic-category-category": "semorg-topic-category",
 	"semorg-topic-category-form": "semorg-topic-category",
-	"semorg-topic-category-page-name": "Topic Categories",
+	"semorg-topic-category-page-name": "Topics",
 	"semorg-topic-category-entity-name": "Topic Category",
 	"semorg-form-topic-category-create-title": "Create Topic Category",
 	"semorg-form-topic-category-edit-title": "Edit Topic Category", 
@@ -1865,14 +1865,18 @@
 	"semorg-form-topic-page-name": "Topics",
 	"semorg-form-topic-template": "topic",
 	"semorg-form-topic-rows": "category,name,description",
-	"semorg-list-topic-headers": "topic-topic,topic-description",
+	"semorg-list-topic-headers": "topic-topic",
 	"semorg-field-topic-name-name": "Name", 
 	"semorg-field-topic-name-parameters": "input type=text|size=60|mandatory",
 	"semorg-field-topic-description-name": "Description", 
 	"semorg-field-topic-description-parameters": "input type=textarea|cols=60|rows=1|autogrow",
 	"semorg-field-topic-category-name": "Categories", 
 	"semorg-field-topic-category-parameters": "input type=checkboxes|values from category=semorg-topic-category|mapping property=Semorg-topic-category-name|list",
+	"semorg-field-topic-type-name": "Type", 
+	"semorg-field-topic-type-parameters": "input type=tokens|values from property=Semorg-topic-type",
 	"semorg-field-topic-topic-name": "Topic",
+	"semorg-field-topic-person-name": "People",
+	"semorg-field-topic-person-count-name": "Number of People",
 
 	"end": "end"
 }
