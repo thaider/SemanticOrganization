@@ -151,6 +151,8 @@ class SemanticOrganizationHooks {
 			$diff_human = wfMessage( 'semorg-datediff-human-years', round( $diff/365 ) )->plain();
 		}
 
+		$diff_human = $parser->recursiveTagParse( $diff_human );
+
 		return $diff_human;
 	}
 
@@ -306,7 +308,7 @@ class SemanticOrganizationHooks {
 				$parameters['link text'] = '';
 			}
 		}
-		$class = $options['class'] ?? 'btn btn-secondary btn-sm d-print-none';
+		$class = $options['class'] ?? 'semorg-formlink btn btn-secondary btn-sm d-print-none';
 		$parameters['link text'] = '<span class="' . $class . '">' . $parameters['link text'] . '</span>';
 
 		$formlink = '{{#formlink:';

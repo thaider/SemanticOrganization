@@ -294,6 +294,8 @@
 	"semorg-field-project-phase-name": "Phase", 
 	"semorg-field-project-strategic-objective-name": "Strategisches Ziel", 
 	"semorg-field-project-sales-name": "Umsätze", 
+	"semorg-field-project-type-name": "Typ", 
+	"semorg-field-project-last-update-name": "Letztes Update",
 	"semorg-tab-project-overview": "Übersicht",
 	"semorg-tab-project-details": "Details",
 	"semorg-tab-project-meetings": "Projektbesprechungen",
@@ -339,6 +341,18 @@
 	"semorg-form-project-team-internal-add-button-text": "Internes Teammitglied hinzufügen",
 
 	"semorg-form-project-team-external-add-button-text": "Externes Teammitglied hinzufügen",
+
+	"semorg-project-update-displaytitle": "Projektupdate for $1, {{#time:j. F Y|$2}}",
+	"semorg-project-update-page-name": "Projektupdates",
+	"semorg-project-update-entity-name": "Projektupdate",
+	"semorg-project-update-dashboard-title": "Letzte Projektupdates",
+	"semorg-form-project-update-create-title": "Projektupdate erstellen",
+	"semorg-form-project-update-edit-title": "Projektupdate bearbeiten", 
+	"semorg-form-project-update-page-name": "Projektupdates",
+	"semorg-field-project-update-project-name": "Projekt", 
+	"semorg-field-project-update-date-name": "Datum", 
+	"semorg-field-project-update-author-name": "Autor", 
+	"semorg-field-project-update-update-name": "Update", 
 
 	"semorg-meeting-feature-name": "Treffen",
 	"semorg-meeting-feature-description": "*Erstellung von Agendas und Protokollen für Treffen\n*Treffen können für Arbeitsgruppen, Projekte und Geschäftsbereiche erstellt werden",
