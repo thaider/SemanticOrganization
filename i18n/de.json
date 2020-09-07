@@ -52,6 +52,8 @@
 
 	"semorg-net-text": "netto",
 
+	"semorg-vcard-link-text": "<i class='fa fa-download'></i> Als vcard herunterladen",
+
 	"semorg-msg-edit-displaytitle": "Systemnachricht bearbeiten",
 	"semorg-help-msg-edit": "Hilfetext bearbeiten",
 	"semorg-help-formatting-button-text": "Formatierungshilfe anzeigen (Popup)",
@@ -217,6 +219,8 @@
 	"semorg-field-person-tax-number-name": "Steuernummer", 
 	"semorg-field-person-acronym-name": "Kurzzeichen", 
 	"semorg-field-person-topic-name": "Themen", 
+	"semorg-field-person-contacts-name": "Kontakte",
+	"semorg-field-person-institutions-name": "Institutionen",
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
@@ -234,6 +238,8 @@
 	"semorg-tab-person-user-details": "Benutzerdetails",
 	"semorg-tab-person-user-contact": "Kontaktgeschichte",
 	"semorg-tab-person-user-roles": "Rollen",
+	"semorg-tab-person-user-schedule": "Jahreskreis",
+	"semorg-tab-person-user-tasks": "Todos",
 
 	"semorg-person-contact-page-name": "Kontakte",
 	"semorg-person-contact-entity-name": "Kontakt",
@@ -247,13 +253,10 @@
 	"semorg-form-person-legal-edit-title": "Institution bearbeiten", 
 	"semorg-forminput-person-legal-button-text": "Institution erstellen",
 
-	"semorg-field-person-ref-person-ref-fields": "name,role,tag",
+	"semorg-form-person-ref-add-button-text": "Kontakt hinzufügen",
 	"semorg-field-person-ref-name-name": "Name",
-	"semorg-field-person-ref-name-parameters": "placeholder=Name|input type=combobox|values from category=semorg-person",
 	"semorg-field-person-ref-role-name": "Rolle",
-	"semorg-field-person-ref-role-parameters": "placeholder=Rolle|input type=combobox|property=semorg-person-ref-role",
 	"semorg-field-person-ref-tag-name": "Tags",
-	"semorg-field-person-ref-tag-parameters": "placeholder=Tags|input type=tokens|list|values from property=semorg-person-ref-tag|size=20",
 
 	"semorg-project-feature-name": "Projektübersicht",
 	"semorg-project-feature-description": "*Dokumentation, wer an welchen Projekten beteiligt ist",

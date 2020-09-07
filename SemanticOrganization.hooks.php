@@ -2212,7 +2212,7 @@ class SemanticOrganizationHooks {
 			}
 		}
 
-		foreach( self::$listvalues as $listvalue ) {
+		/*foreach( self::$listvalues as $listvalue ) {
 			if( isset( $results[$listvalue] ) ) {
 				$results[$listvalue] = explode( ',', $results[$listvalue] );
 				foreach( $results[$listvalue] as &$singlevalue ) {
@@ -2220,6 +2220,7 @@ class SemanticOrganizationHooks {
 				}
 			}
 		}
+		 */
 
 		return $results;
 	}

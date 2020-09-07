@@ -67,6 +67,8 @@
 
 	"semorg-net-text": "net",
 
+	"semorg-vcard-link-text": "<i class='fa fa-download'></i> Download as vcard",
+
 	"semorg-help-msg-edit": "Edit help text",
 	"semorg-help-formatting-button-text": "Show formatting help (Popup)",
 	"semorg-help-formatting-heading": "Formatting Help",
@@ -241,7 +243,7 @@
 	"semorg-field-person-personnel-number-name": "Personnel Number",
 	"semorg-field-person-personnel-number-parameters": "input type=text|size=3",
 	"semorg-field-person-legal-form-name": "Legal Form",
-	"semorg-field-person-legal-form-parameters": "input type=text",
+	"semorg-field-person-legal-form-parameters": "input type=combobox|values from property=semorg-person-legal-form",
 	"semorg-field-person-legal-registry-name": "Legal Registry Number",
 	"semorg-field-person-legal-registry-parameters": "input type=text",
 	"semorg-field-person-tag-name": "Tags", 
@@ -254,6 +256,10 @@
 	"semorg-field-person-acronym-parameters": "size=10",
 	"semorg-field-person-topic-name": "Topics", 
 	"semorg-field-person-topic-parameters": "input type=checkboxes|values from category=semorg-topic|mapping property=Semorg-topic-name|list",
+	"semorg-field-person-contacts-name": "Contacts",
+	"semorg-field-person-contacts-parameters": "holds template",
+	"semorg-field-person-vcard-name": "",
+	"semorg-field-person-institutions-name": "Institutions",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
@@ -305,14 +311,18 @@
 	"semorg-form-person-legal-create-title": "Create institution",
 	"semorg-form-person-legal-edit-title": "Edit institution", 
 	"semorg-form-person-legal-template": "person",
-	"semorg-form-person-legal-rows": "name,address,email,workphone,legal-form,legal-registry,vat-number,note",
+	"semorg-form-person-legal-rows": "address,email,workphone,legal-form,legal-registry,vat-number,note,contacts",
 	"semorg-forminput-person-legal-button-text": "Institution erstellen",
 	"semorg-list-person-legal-headers": "person-name, person-worklocality",
+	"semorg-tab-person-legal-details": "Details",
 
 	"semorg-person-ref-template": "semorg-person-ref",
 	"semorg-person-ref-category": "semorg-person-ref",
 	"semorg-person-ref-form": "semorg-person-ref",
-	"semorg-form-person-ref-parameters": "multiple",
+	"semorg-form-person-ref-template": "person-ref",
+	"semorg-form-person-ref-rows": "person-ref",
+	"semorg-form-person-ref-add-button-text": "Add Contact",
+	"semorg-form-person-ref-displayed-fields-when-minimized": "name,role",
 	"semorg-field-person-ref-person-ref-name": "",
 	"semorg-field-person-ref-person-ref-fields": "name,role,tag",
 	"semorg-field-person-ref-name-name": "Name",
