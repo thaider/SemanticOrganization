@@ -218,6 +218,7 @@
 	"semorg-field-person-profession-name": "Jobbezeichnung",
 	"semorg-field-person-tax-number-name": "Steuernummer", 
 	"semorg-field-person-acronym-name": "Kurzzeichen", 
+	"semorg-field-person-category-name": "Zuordnung",
 	"semorg-field-person-topic-name": "Themen", 
 	"semorg-field-person-contacts-name": "Kontakte",
 	"semorg-field-person-institutions-name": "Institutionen",
