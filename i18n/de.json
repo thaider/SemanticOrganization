@@ -222,6 +222,7 @@
 	"semorg-field-person-topic-name": "Themen", 
 	"semorg-field-person-contacts-name": "Kontakte",
 	"semorg-field-person-institutions-name": "Institutionen",
+	"semorg-field-person-refs-name": "Verweise",
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
@@ -247,6 +248,8 @@
 	"semorg-form-person-contact-create-title": "Person erstellen",
 	"semorg-form-person-contact-edit-title": "Person bearbeiten",
 	"semorg-formlink-person-contact-link-text": "Person erstellen",
+	"semorg-tab-person-contact-details": "Details",
+	"semorg-tab-person-contact-contact": "Kontaktgeschichte",
 
 	"semorg-person-legal-page-name": "Institutionen",
 	"semorg-person-legal-entity-name": "Institution",
