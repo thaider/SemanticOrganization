@@ -618,6 +618,8 @@
 	"semorg-field-meeting-event-title-parameters": "mandatory",
 	"semorg-field-meeting-contact-name": "External Participants", 
 	"semorg-field-meeting-contact-parameters": "input type=tokens|values from category=semorg-person-contact|mapping property=Semorg-person-name",
+	"semorg-field-meeting-contacts-name": "Contacts", 
+	"semorg-field-meeting-contacts-parameters": "holds template", 
 
 	"semorg-meeting-group-template": "semorg-meeting-group",
 	"semorg-meeting-group-category": "semorg-meeting-group",
@@ -672,8 +674,8 @@
 	"semorg-form-meeting-event-create-title": "Create event",
 	"semorg-form-meeting-event-edit-title": "Edit event",
 	"semorg-form-meeting-event-page-name": "Events",
-	"semorg-list-meeting-event-headers": "meeting-event-title,meeting-event-type,meeting-date,meeting-location,meeting-participant",
-	"semorg-form-meeting-event-rows": "event-title,event-type,datetimes,location,participant,contact,overview,files",
+	"semorg-list-meeting-event-headers": "meeting-event-title,meeting-date,meeting-location,meeting-participant",
+	"semorg-form-meeting-event-rows": "event-title,event-type,datetimes,location,participant,contacts,overview,files",
 	"semorg-form-meeting-event-template": "meeting",
 
 	"semorg-file-template": "semorg-file",

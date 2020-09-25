@@ -308,7 +308,7 @@
 	"semorg-tab-project-meetings": "Projektbesprechungen",
 	"semorg-tab-project-grants": "Förderungen",
 	"semorg-tab-project-contact": "Kontaktgeschichte",
-	"semorg-tab-project-agenda": "auf der Agenda",
+	"semorg-tab-project-agenda": "Agenda",
 	"semorg-tab-project-openproject": "OpenProject",
 
 	"semorg-project-grant-page-name": "Projektförderungen",
@@ -411,6 +411,7 @@
 	"semorg-field-meeting-event-type-name": "Typ", 
 	"semorg-field-meeting-event-title-name": "Titel", 
 	"semorg-field-meeting-contact-name": "Externe TeilnehmerInnen", 
+	"semorg-field-meeting-contacts-name": "Kontakte", 
 
 	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
 	"semorg-meeting-group-page-name": "Besprechungen",
