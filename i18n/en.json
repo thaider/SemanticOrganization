@@ -413,6 +413,7 @@
 	"semorg-tab-project-meetings": "Meetings",
 	"semorg-tab-project-grants": "Grants",
 	"semorg-tab-project-contact": "Contact History",
+	"semorg-tab-project-agenda": "On the Agenda",
 	"semorg-tab-project-openproject": "OpenProject",
 
 	"semorg-project-grant-template": "semorg-project-grant",
@@ -693,6 +694,7 @@
 	"semorg-field-file-tag-name": "Tag", 
 	"semorg-field-file-tag-parameters": "values from property=Semorg-file-tag|list|input type=tokens",
 
+	"semorg-agenda-page-name": "Resolutions",
 	"semorg-agenda-template": "semorg-agenda",
 	"semorg-agenda-heading": "Agenda",
 	"semorg-form-agenda-label": "Agenda/Minutes",
@@ -700,7 +702,7 @@
 	"semorg-form-agenda-rows": "title,details,description,proposal,tag",
 	"semorg-form-agenda-template": "agenda",
 	"semorg-form-agenda-displayed-fields-when-minimized": "title,person,type,time",
-	"semorg-list-agenda-headers": "meeting-group,agenda-meeting,agenda-proposal,agenda-tag",
+	"semorg-list-agenda-headers": "agenda-meeting,agenda-title",
 	"semorg-field-agenda-title-name": "Title",
 	"semorg-field-agenda-title-parameters": "input type=text|size=60",
 	"semorg-field-agenda-details-name": "Details",
@@ -733,6 +735,8 @@
 	"semorg-field-agenda-files-parameters": "holds template",
 	"semorg-field-agenda-timer-name": "Time required",
 	"semorg-field-agenda-timer-fields": "time,start,end,time-real",
+	"semorg-field-agenda-project-name": "Project",
+	"semorg-field-agenda-project-parameters": "input type=combobox|values from category=semorg-project",
 
 	"semorg-form-default-agenda-page-name": "Default Agenda",
 	"semorg-form-default-agenda-create-title": "Create Default Agenda",

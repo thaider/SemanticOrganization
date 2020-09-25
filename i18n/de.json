@@ -308,6 +308,7 @@
 	"semorg-tab-project-meetings": "Projektbesprechungen",
 	"semorg-tab-project-grants": "Förderungen",
 	"semorg-tab-project-contact": "Kontaktgeschichte",
+	"semorg-tab-project-agenda": "auf der Agenda",
 	"semorg-tab-project-openproject": "OpenProject",
 
 	"semorg-project-grant-page-name": "Projektförderungen",
@@ -453,6 +454,7 @@
 	"semorg-field-file-link-text-name": "Linktext",
 	"semorg-field-file-link-text-help": "Text für den Link zur Datei.",
 
+	"semorg-agenda-page-name": "Beschlüsse",
 	"semorg-form-agenda-label": "Agenda/Protokoll",
 	"semorg-form-agenda-add-button-text": "Weiteren Agendapunkt hinzufügen",
 	"semorg-field-agenda-title-name": "Titel",
@@ -473,6 +475,7 @@
 	"semorg-field-agenda-tag-name": "Tags",
 	"semorg-field-agenda-meeting-name": "Sitzung",
 	"semorg-field-agenda-timer-name": "Zeitbedarf",
+	"semorg-field-agenda-project-name": "Projekt",
 
 	"semorg-form-default-agenda-page-name": "Standardagenda",
 	"semorg-form-default-agenda-create-title": "Standardagenda erstellen",
