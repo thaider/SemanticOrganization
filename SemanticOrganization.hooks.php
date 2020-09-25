@@ -1859,29 +1859,31 @@ class SemanticOrganizationHooks {
 			}
 			$filter_name = wfMessage( $filter_name_msg );
 			$filterbox .= '<span class="semorg-filterbox-filter-name">' . $filter_name . ': </span>';
-			foreach( $values as &$value ) {
-				if( $value != '' ) {
-					if( $value != '-' ) {
-						if( isset( $applied_filters[$filter_property] ) && $applied_filters[$filter_property] == $value ) {
-							if( isset( $filter_defaults[$filter_property] ) ) {
-								$drop_filter_url = self::getFilterURL( $parser, array_merge( array_diff_key( $applied_filters, [ $filter_property => $value ] ), [ $filter_property => '' ] ) );
-							} else {
-								$drop_filter_url = self::getFilterURL( $parser, array_diff_key( $applied_filters, [ $filter_property => $value ] ) );
-							}
-							$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
-							$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $value . ' ' . $drop_filter_link . '</span>';
-						} else {
-							$filter_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ $filter_property => $value ] ) );
-							$value = '<span class="semorg-filterbox-filter-value">[' . $filter_url . ' ' . $value . ']</span>';
-						}
-					} else {
 
-						// if there are no results it might be because of default value - needs to be dropable
+			// remove empty values
+			$values = array_filter( $values, 'strlen' );
+
+			foreach( $values as &$value ) {
+				if( $value != '-' ) {
+					if( isset( $applied_filters[$filter_property] ) && $applied_filters[$filter_property] == $value ) {
 						if( isset( $filter_defaults[$filter_property] ) ) {
 							$drop_filter_url = self::getFilterURL( $parser, array_merge( array_diff_key( $applied_filters, [ $filter_property => $value ] ), [ $filter_property => '' ] ) );
-							$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
-							$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $applied_filters[$filter_property] . ' ' . $drop_filter_link . '</span>';
+						} else {
+							$drop_filter_url = self::getFilterURL( $parser, array_diff_key( $applied_filters, [ $filter_property => $value ] ) );
 						}
+						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
+						$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $value . ' ' . $drop_filter_link . '</span>';
+					} else {
+						$filter_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ $filter_property => $value ] ) );
+						$value = '<span class="semorg-filterbox-filter-value">[' . $filter_url . ' ' . $value . ']</span>';
+					}
+				} else {
+
+					// if there are no results it might be because of default value - needs to be dropable
+					if( isset( $filter_defaults[$filter_property] ) ) {
+						$drop_filter_url = self::getFilterURL( $parser, array_merge( array_diff_key( $applied_filters, [ $filter_property => $value ] ), [ $filter_property => '' ] ) );
+						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
+						$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $applied_filters[$filter_property] . ' ' . $drop_filter_link . '</span>';
 					}
 				}
 			}
