@@ -1186,6 +1186,13 @@ class SemanticOrganizationHooks {
 			}
 		}
 
+		if( !wfMessage($fullelement . '-input-type')->isDisabled() ) {
+			$input_type = wfMessage($fullelement . '-input-type')->text();
+			if( !wfMessage('semorg-input-type-' . $input_type . '-parameters')->isDisabled() ) {
+				$field .= '|' . wfMessage('semorg-input-type-' . $input_type . '-parameters')->text();
+			}
+		}
+
 		/* special class? */
 		$class = !wfMessage($fullelement . '-class')->isDisabled() ? ( ' ' . wfMessage($fullelement . '-class')->text() ) : '';
 
