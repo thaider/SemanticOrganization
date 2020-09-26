@@ -84,6 +84,12 @@ class SemanticOrganizationHooks {
 	 */
 	static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 		$out->addModules( [ 'ext.semorg' ] );
+
+		// add special script for the FormEdit special page
+		$formEditTitle = Title::newFromText( 'Special:FormEdit' );
+		if( $out->getTitle()->equals( $formEditTitle ) || $out->getRequest()->getText('action') == 'formedit' ) {
+			$out->addModules( [ 'ext.semorg.formedit' ] );
+		}
 	}
 
 

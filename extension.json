@@ -67,6 +67,16 @@
 			"styles": [
 				"ext.semorg.circles.css"
 			]
+		},
+		"ext.semorg.formedit": {
+			"position": "bottom",
+			"scripts": [
+				"ext.semorg.formedit.js"
+			],
+			"messages": [
+				"semorg-prompt-save-text",
+				"semorg-prompt-save-button-text"
+			]
 		}
 	},
 	"config": {

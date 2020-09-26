@@ -5,6 +5,9 @@
 	"semorg-mail-meeting-group-link-text": "Einladungsmail verschicken",
 	"semorg-mail-meeting-group-subject": "Einladung: $1 am $2, $3",
 
+	"semorg-prompt-save-text": "Du hast seit $1 {{plural:$1|Minute|Minuten}} nicht gespeichert!",
+	"semorg-prompt-save-button-text": "Jetzt speichern",
+
 	"semorg-filterbox-title": "Filter",
 	"semorg-filterbox-drop-filter": "Filter abwählen",
 	"semorg-download-csv-text": "Download als CSV",

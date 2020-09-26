@@ -11,6 +11,9 @@
 	"semorg-mail-meeting-group-link-text": "Send Invitation Email",
 	"semorg-mail-meeting-group-subject": "Invitation for $1 on $2, $3",
 
+	"semorg-prompt-save-text": "You haven't been saving for $1 {{plural:$1|minute|minutes}}!",
+	"semorg-prompt-save-button-text": "Save Now",
+
 	"semorg-filterbox-title": "Filter",
 	"semorg-filterbox-drop-filter": "Drop filter",
 	"semorg-download-csv-text": "Download as CSV",
