@@ -1163,7 +1163,8 @@ class SemanticOrganizationHooks {
 			'values',
 			'mapping-template',
 			'default',
-			'label'
+			'label',
+			'size'
 		] as $parameter ) {
 			if( !wfMessage($fullelement . '-' . $parameter)->isDisabled() ) {
 				$field .= '|' . str_replace('-', ' ', $parameter) . '=' . wfMessage($fullelement . '-' . $parameter)->text();
