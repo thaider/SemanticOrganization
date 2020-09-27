@@ -100,6 +100,9 @@
 	"semorg-invoice-status-due": "due",
 	"semorg-invoice-status-overdue": "overdue",
 
+	"semorg-manual-to-be-checked-weeks": "26",
+	"semorg-manual-out-of-date-weeks": "52",
+
 	"semorg-form-standard-input-save-label": "Save",
 	"semorg-form-notemplate": "Parameter <code>template</code> has not been set when calling <code>$1</code>.",
 	"semorg-form-noelements": "Parameter <code>elements</code> has not been set when calling <code>$1</code>.",
@@ -186,6 +189,8 @@
 	"semorg-error-missing-data": "error: missing data for parameter <code>$2</code> for parser function <code>$1!</code>",
 
 	"semorg-up-to-date-date-none": "unchecked so far…",
+	"semorg-up-to-date-date-to-be-checked": "to be checked",
+	"semorg-up-to-date-date-out-of-date": "out of date",
 	"semorg-up-to-date-date-check-tooltip": "confirm this page's content as being up-to-date",
 	"semorg-up-to-date-date-check-confirmation": "confirmation that page's content is up-to-date",
 
@@ -1716,7 +1721,7 @@
 	"semorg-forminput-manual-placeholder": "Name of manual entry",
 	"semorg-form-manual-template": "manual",
 	"semorg-form-manual-rows": "role,summary,tag,up-to-date-date",
-	"semorg-list-manual-headers": "manual-title,manual-summary,manual-role",
+	"semorg-list-manual-headers": "manual-title,manual-summary,manual-role,manual-up-to-date-date",
 	"semorg-field-manual-title-name": "Title", 
 	"semorg-field-manual-title-parameters": "",
 	"semorg-field-manual-summary-name": "Summary", 
