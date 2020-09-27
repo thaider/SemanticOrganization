@@ -337,6 +337,7 @@
 	"semorg-forminput-project-subpage-placeholder": "Name der Unterseite",
 	"semorg-field-project-subpage-project-name": "Projekt", 
 	"semorg-field-project-subpage-subpage-name": "Unterseite", 
+	"semorg-field-project-subpage-description-name": "Beschreibung", 
 
 	"semorg-field-project-team-project-name": "Projekt", 
 	"semorg-field-project-team-team-external-name": "Team (extern)", 
