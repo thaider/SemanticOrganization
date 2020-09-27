@@ -1311,7 +1311,7 @@
 	"semorg-forminput-generator-placeholder": "Name",
 	"semorg-form-generator-template": "generator",
 	"semorg-form-generator-rows": "template-name, template-id, page-name",
-	"semorg-list-generator-headers": "generator-template, generator-template-name, generator-properties",
+	"semorg-list-generator-headers": "generator-template, generator-properties",
 	"semorg-field-generator-template-name-name": "Name of the template", 
 	"semorg-field-generator-template-name-parameters": "",
 	"semorg-field-generator-template-id-name": "ID of the template", 
