@@ -749,6 +749,8 @@
 	"semorg-field-agenda-title-parameters": "input type=text|size=60",
 	"semorg-field-agenda-details-name": "Details",
 	"semorg-field-agenda-details-fields": "person,type,time,priority,start,end,time-real",
+	"semorg-field-agenda-details-project-name": "Details",
+	"semorg-field-agenda-details-project-fields": "person,type,time,priority,start,end,time-real,project",
 	"semorg-field-agenda-person-name": "Person",
 	"semorg-field-agenda-person-parameters": "input type=combobox|existing values only|values from category=semorg-person-user|mapping property=Semorg-person-name|size=30",
 	"semorg-field-agenda-person-suffix": "&nbsp;&nbsp;",
