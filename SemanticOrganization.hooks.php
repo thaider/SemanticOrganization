@@ -795,6 +795,10 @@ class SemanticOrganizationHooks {
 				}
 			}
 
+			// Modification and creation dates
+			$query .= '|?Modification date#ISO=modification-date';
+			$query .= '|?Creation date#ISO=creation-date';
+
 			$query .= '|link=none|named args=yes|format=template';
 			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
 

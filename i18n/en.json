@@ -1774,7 +1774,7 @@
 	"semorg-form-scj-page-name": "SCJ",
 	"semorg-form-scj-template": "scj",
 	"semorg-form-scj-rows": "name,targeted-sc-long,targeted-sc,archived",
-	"semorg-list-scj-headers": "scj-scj,scj-plots",
+	"semorg-list-scj-headers": "scj-scj,scj-creation-date,scj-plots",
 	"semorg-list-scj-current-link-text": "current",
 	"semorg-list-scj-archived-link-text": "archived",
 	"semorg-field-scj-scj-name": "Journey", 
@@ -1793,6 +1793,7 @@
 	"semorg-field-scj-archived-name": "", 
 	"semorg-field-scj-archived-parameters": "input type=checkbox", 
 	"semorg-field-scj-archived-suffix": "&nbsp;archived",
+	"semorg-field-scj-creation-date-name": "created",
 
 	"semorg-plot-template": "semorg-plot",
 	"semorg-plot-category": "semorg-plot",
