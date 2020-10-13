@@ -1383,21 +1383,21 @@ class SemanticOrganizationHooks {
 		}
 		if( isset( self::$options['email'] ) ) {
 			$output .= '<tr><td><i class="fa fa-envelope"></i></td><td>';
-			foreach( self::$options['email'] as $email ) {
+			foreach( explode( ',', self::$options['email'] ) as $email ) {
 				$output .= '[mailto:' . $email . ' ' . $email . ']<br>';
 			}
 			$output .= '</td></tr>';
 		}
 		if( isset( self::$options['workphone'] ) ) {
 			$output .= '<tr><td><i class="fa fa-phone"></i></td><td>';
-			foreach( self::$options['workphone'] as $phone ) {
+			foreach( explode( ',', self::$options['workphone'] ) as $phone ) {
 				$output .= '[tel:' . str_replace( ' ', '', $phone ) . ' ' . $phone . ']<br>';
 			}
 			$output .= '</td></tr>';
 		}
 		if( isset( self::$options['homepage'] ) ) {
 			$output .= '<tr><td><i class="fa fa-home"></i></td><td>';
-			foreach( self::$options['homepage'] as $homepage ) {
+			foreach( explode( ',', self::$options['homepage'] ) as $homepage ) {
 				$output .= $homepage . '<br>';
 			}
 			$output .= '</td></tr>';
