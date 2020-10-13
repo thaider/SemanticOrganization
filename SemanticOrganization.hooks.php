@@ -107,6 +107,8 @@ class SemanticOrganizationHooks {
 	 * @param String First date
 	 * @param String Second date
 	 * @param String Unit (default: hours)
+	 *
+	 * @todo: proper error handling if missing parameter or if datetimes cannot be parsed
 	 */
 	static function getDateDiff( &$parser ) {
 		$start = new Datetime( func_get_arg( 1 ) );
