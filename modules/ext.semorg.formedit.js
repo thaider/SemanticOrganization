@@ -20,6 +20,7 @@
 
 	// save on click and hide prompt until timeout is reached again
 	$(document).on( 'click', '#semorg-prompt-save-button', function(e) {
+		e.preventDefault();
 		$('#semorg-prompt-save-button').addClass( 'disabled' );
 		let url = $('#pfForm').attr('action');
 		let data = $('#pfForm').serialize() + '&wpSave=Save';
