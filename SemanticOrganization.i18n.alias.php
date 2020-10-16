@@ -53,4 +53,6 @@ $magicWords['en'] = array(
 	'semorg-msg' => array( 0, 'semorg-msg'),
 	'semorg-int' => array( 0, 'semorg-int'),
 	'semorg-hours' => array( 0, 'semorg-hours'),
+	'semorg-distinct' => array( 0, 'semorg-distinct'),
+	'semorg-distinct-number' => array( 0, 'semorg-distinct-number'),
 );

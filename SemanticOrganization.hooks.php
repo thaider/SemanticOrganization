@@ -72,6 +72,8 @@ class SemanticOrganizationHooks {
 			'msg' => 'renderMsg',
 			'int' => 'renderInt',
 			'hours' => 'renderHours',
+			'distinct' => 'renderDistinct',
+			'distinct-number' => 'renderDistinctNumber',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -98,6 +100,60 @@ class SemanticOrganizationHooks {
 	 */
 	static function getUser( &$parser ) {
 		return $parser->getUser()->getUserPage()->getFullText();
+	}
+
+
+	/**
+	 * Return number of distinct values
+	 *
+	 * @param Parser $parser
+	 * @param Float $values comma seperated list of values
+	 * @param String $regexp Regular Expression, that should be used to filter the results
+	 *
+	 * @return Array Array of distinct values
+	 */
+	static function getDistinct( $parser, $values, $regexp = '' ) {
+		$values = explode( ',', $values );
+		foreach( $values as &$value ) {
+			$value = trim( $value );
+		}
+		$values = array_unique( $values );
+		if( $regexp !== '' ) {
+			$values = array_filter( $values, function( $v ) use ($regexp) {
+				return preg_match( "/" . $regexp . "/", $v );
+			});
+		}
+		return $values;
+	}
+
+
+	/**
+	 * Return list of distinct values
+	 *
+	 * @param Parser $parser
+	 * @param Float $values comma seperated list of values
+	 * @param String $regexp Regular Expression, that should be used to filter the results
+	 *
+	 * @return String List of distinct values
+	 */
+	static function renderDistinct( $parser, $values, $regexp = '' ) {
+		$values = self::getDistinct( $parser, $values, $regexp );
+		return join( ',',  $values );
+	}
+
+
+	/**
+	 * Return number of distinct values
+	 *
+	 * @param Parser $parser
+	 * @param Float $values comma seperated list of values
+	 * @param String $regexp Regular Expression, that should be used to filter the results
+	 *
+	 * @return Integer Number of distinct values
+	 */
+	static function renderDistinctNumber( $parser, $values, $regexp = '' ) {
+		$values = self::getDistinct( $parser, $values, $regexp );
+		return count( $values );
 	}
 
 
