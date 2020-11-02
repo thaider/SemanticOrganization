@@ -1648,7 +1648,7 @@
 	"semorg-field-expense-project-parameters": "input type=combobox|values from category=Semorg-project|mapping-property=Semorg-project-title",
 	"semorg-field-expense-description-name": "Description", 
 	"semorg-field-expense-description-placeholder": "Description", 
-	"semorg-field-expense-description-parameters": "input type=combobox|values from property=semorg-expense-description|size=40",
+	"semorg-field-expense-description-parameters": "input type=text with autocomplete|values from property=semorg-expense-description|size=40",
 	"semorg-field-expense-amount-gross-name": "Amount gross", 
 	"semorg-field-expense-amount-gross-placeholder": "gross", 
 	"semorg-field-expense-amount-gross-prefix": "&nbsp;&nbsp;€&nbsp;", 
