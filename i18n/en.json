@@ -915,7 +915,7 @@
 	"semorg-field-salary-note-parameters": "rows=1",
 	"semorg-field-salary-note-input-type": "textarea",
 	"semorg-field-salary-exit-type-name": "Terminated By",
-	"semorg-field-salary-exit-type-input-type": "checkboxes",
+	"semorg-field-salary-exit-type-input-type": "radiobutton",
 	"semorg-field-salary-exit-type-values": "employee,employer,amicably",
 
 	"semorg-salary-entry-template": "semorg-salary-entry",
