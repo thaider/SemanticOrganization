@@ -914,6 +914,9 @@
 	"semorg-field-salary-note-name": "Note", 
 	"semorg-field-salary-note-parameters": "rows=1",
 	"semorg-field-salary-note-input-type": "textarea",
+	"semorg-field-salary-exit-type-name": "Terminated By",
+	"semorg-field-salary-exit-type-input-type": "checkboxes",
+	"semorg-field-salary-exit-type-values": "employee,employer,amicably",
 
 	"semorg-salary-entry-template": "semorg-salary-entry",
 	"semorg-salary-entry-category": "semorg-salary-entry",
@@ -937,7 +940,7 @@
 	"semorg-form-salary-exit-create-title": "Create Termination",
 	"semorg-form-salary-exit-edit-title": "Edit Termination",
 	"semorg-form-salary-exit-template": "salary",
-	"semorg-form-salary-exit-rows": "employee,start-date,note,date",
+	"semorg-form-salary-exit-rows": "employee,start-date,note,date,exit-type",
 
 	"semorg-salary-year-template": "semorg-salary-year",
 	"semorg-salary-year-category": "semorg-salary-year",

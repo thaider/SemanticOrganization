@@ -551,6 +551,8 @@
 	"semorg-field-salary-reason-help": "Eine signifikante Änderung des Stundensatzes sollte mit einer Veränderung/Erweiterung des Tätigkeitsbereichs begründet werden.", 
 	"semorg-field-salary-note-name": "Anmerkung", 
 	"semorg-field-salary-note-help": "wird in der Übersichtstabelle angezeigt", 
+	"semorg-field-salary-exit-type-name": "Kündigung durch",
+	"semorg-field-salary-exit-type-values": "Arbeitnehmer*in,Arbeitgeber*in,einvernehmlich",
 
 	"semorg-salary-entry-displaytitle": "Dienstvertrag $1",
 	"semorg-form-salary-entry-create-title": "Dienstvertrag erstellen",
