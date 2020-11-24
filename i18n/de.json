@@ -280,6 +280,7 @@
 	"semorg-forminput-project-placeholder": "Projektname",
 	"semorg-list-project-current-link-text": "aktuell",
 	"semorg-list-project-closed-link-text": "abgeschlossen",
+	"semorg-list-project-update-link-text": "Updates",
 	"semorg-field-project-title-name": "Titel",
 	"semorg-field-project-run-time-name": "Laufzeit",
 	"semorg-field-project-start-name": "Projektbeginn",
