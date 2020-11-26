@@ -13,6 +13,7 @@ class SemanticOrganizationHooks {
 		'topic',
 	];
 	static $milestones = [];
+	static $usersnames = [];
 
 
 	/**
@@ -25,6 +26,21 @@ class SemanticOrganizationHooks {
 		if( $GLOBALS['wgSemorgUseCustomTweekiFiles'] !== false ) {
 			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.tweeki.scripts';
 			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.tweeki.styles';
+		}
+	}
+
+
+	/**
+	 * Use real names instead of user names
+	 */
+	static function onHtmlPageLinkRendererEnd(  $linkRenderer, $target, $isKnown, &$text, &$attribs, &$ret ) {
+		if( $GLOBALS['wgSemorgUseRealnames'] == true && $target->getNamespace() === 2 ) {
+			$userkey = $target->getDBKey();
+			if( !isset( $usernames[$userkey] ) ) {
+				$user = User::newFromName( $userkey );
+				$usernames[$userkey] = $user->getRealName() ?: $user->getName();
+			}
+			$text = $usernames[ $userkey ];
 		}
 	}
 
