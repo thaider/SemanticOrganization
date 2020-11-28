@@ -13,7 +13,7 @@ class SemanticOrganizationHooks {
 		'topic',
 	];
 	static $milestones = [];
-	static $usersnames = [];
+	static $realnames = [];
 
 
 	/**
@@ -36,11 +36,12 @@ class SemanticOrganizationHooks {
 	static function onHtmlPageLinkRendererEnd(  $linkRenderer, $target, $isKnown, &$text, &$attribs, &$ret ) {
 		if( $GLOBALS['wgSemorgUseRealnames'] == true && $target->getNamespace() === 2 ) {
 			$userkey = $target->getDBKey();
-			if( !isset( $usernames[$userkey] ) ) {
-				$user = User::newFromName( $userkey );
-				$usernames[$userkey] = $user->getRealName() ?: $user->getName();
+
+			// use real name if link text hadn't been set explicitly to be different from the page name
+			$title = Title::newFromText( HtmlArmor::getHtml( $text ) );
+			if( $title && $title->getPrefixedText() == $target->getPrefixedText() ) {
+				$text = self::getRealname( $userkey );
 			}
-			$text = $usernames[ $userkey ];
 		}
 	}
 
@@ -90,6 +91,7 @@ class SemanticOrganizationHooks {
 			'hours' => 'renderHours',
 			'distinct' => 'renderDistinct',
 			'distinct-number' => 'renderDistinctNumber',
+			'realname' => 'renderRealname',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -140,6 +142,38 @@ class SemanticOrganizationHooks {
 			});
 		}
 		return $values;
+	}
+
+
+	/**
+	 * Render a user's real name
+	 *
+	 * @param Parser $parser
+	 * @param String $user User name
+	 *
+	 * @return String User's real name
+	 */
+	static function renderRealName( $parser, $user ) {
+		$realname = self::getRealname( $user );
+
+		return [ $realname ];
+	}
+
+
+	/**
+	 * Get a user's real name
+	 *
+	 * @param String $user User name
+	 *
+	 * @return String User's real name
+	 */
+	static function getRealname( $userkey ) {
+		if( !isset( self::$realnames[$userkey] ) ) {
+			$user = User::newFromName( $userkey );
+			self::$realnames[$userkey] = $user->getRealName() ?: $user->getName();
+		}
+
+		return self::$realnames[$userkey];
 	}
 
 
