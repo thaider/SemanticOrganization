@@ -39,7 +39,13 @@ class SemanticOrganizationHooks {
 
 			// use real name if link text hadn't been set explicitly to be different from the page name
 			$title = Title::newFromText( HtmlArmor::getHtml( $text ) );
-			if( $title && $title->getPrefixedText() == $target->getPrefixedText() ) {
+			if( 
+				$title && 
+				( 
+					$title->getPrefixedText() == $target->getPrefixedText() 
+					|| $title->getText() == $target->getText()
+				)
+			) {
 				$text = self::getRealname( $userkey );
 			}
 		}
