@@ -87,7 +87,7 @@
 			"value": 20
 		},
 		"SemorgUseRealnames": {
-			"value": true
+			"value": false
 		}
 	},
 	"Hooks": {
