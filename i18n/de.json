@@ -1120,5 +1120,22 @@
 	"semorg-field-topic-person-name": "Personen",
 	"semorg-field-topic-person-count-name": "Anzahl Personen",
 
+	"semorg-iooi-page-name": "IOOI Analysen",
+	"semorg-iooi-entity-name": "IOOI",
+	"semorg-form-iooi-create-title": "IOOI erstellen",
+	"semorg-form-iooi-edit-title": "IOOI bearbeiten", 
+	"semorg-form-iooi-page-name": "IOOI",
+	"semorg-field-iooi-title-name": "Title", 
+	"semorg-field-iooi-impact-name": "Impact", 
+	"semorg-field-iooi-impact-help": "Änderungen (Wirkungen) über die Zielgruppe hinaus",
+	"semorg-field-iooi-description-name": "Description", 
+	"semorg-field-iooi-input-name": "Input", 
+	"semorg-field-iooi-input-help": "Ressourcen:\n*Geld\n*Zeit\n*In-Kind",
+	"semorg-field-iooi-activities-name": "Aktivitäten", 
+	"semorg-field-iooi-activities-help": "Hauptaktivitäten der Organisation",
+	"semorg-field-iooi-output-name": "Output", 
+	"semorg-field-iooi-outcome-name": "Outcome", 
+	"semorg-field-iooi-outcome-help": "Änderungen (Wirkungen) im Leben der Zielgruppen",
+
 	"end": "Ende"
 }
