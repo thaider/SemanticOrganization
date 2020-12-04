@@ -53,6 +53,8 @@
 	"semorg-datediff-human-months": "vor $1 {{plural:$1|Monat|Monaten}}",
 	"semorg-datediff-human-years": "vor $1 {{plural:$1|Jahr|Jahren}}",
 
+	"semorg-created": "erstellt $1",
+
 	"semorg-net-text": "netto",
 
 	"semorg-vcard-link-text": "<i class='fa fa-download'></i> Als vcard herunterladen",
@@ -1125,15 +1127,16 @@
 	"semorg-form-iooi-create-title": "IOOI erstellen",
 	"semorg-form-iooi-edit-title": "IOOI bearbeiten", 
 	"semorg-form-iooi-page-name": "IOOI",
-	"semorg-field-iooi-title-name": "Title", 
+	"semorg-field-iooi-title-name": "Titel", 
 	"semorg-field-iooi-impact-name": "Impact", 
 	"semorg-field-iooi-impact-help": "Änderungen (Wirkungen) über die Zielgruppe hinaus",
-	"semorg-field-iooi-description-name": "Description", 
+	"semorg-field-iooi-description-name": "Beschreibung", 
 	"semorg-field-iooi-input-name": "Input", 
-	"semorg-field-iooi-input-help": "Ressourcen:\n*Geld\n*Zeit\n*In-Kind",
+	"semorg-field-iooi-input-help": "Ressourcen:<br>- Geld<br>- Zeit<br>- In-Kind",
 	"semorg-field-iooi-activities-name": "Aktivitäten", 
 	"semorg-field-iooi-activities-help": "Hauptaktivitäten der Organisation",
 	"semorg-field-iooi-output-name": "Output", 
+	"semorg-field-iooi-output-help": "Direkte Resultate, die gemessen werden können: <br>- Anzahl Personen<br>- Anzahl Aktivitäten<br>- Anzahl Institutionen",
 	"semorg-field-iooi-outcome-name": "Outcome", 
 	"semorg-field-iooi-outcome-help": "Änderungen (Wirkungen) im Leben der Zielgruppen",
 

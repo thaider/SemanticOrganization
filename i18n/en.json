@@ -60,6 +60,8 @@
 	"semorg-datediff-human-months": "$1 {{plural:$1|month|months}} ago",
 	"semorg-datediff-human-years": "$1 {{plural:$1|year|years}} ago",
 
+	"semorg-created": "created $1",
+
 	"semorg-quarter": "Q$2/$1",
 	"semorg-month": "$1-$2",
 	
@@ -2057,13 +2059,13 @@
 	"semorg-field-iooi-description-parameters": "input type=textarea|rows=1|autogrow|cols=60",
 	"semorg-field-iooi-input-name": "Input", 
 	"semorg-field-iooi-input-parameters": "input type=textarea|rows=1|autogrow|cols=60", 
-	"semorg-field-iooi-input-help": "Resources:\n*money\n*time\n*in-kind",
+	"semorg-field-iooi-input-help": "Resources:<br>- money<br>- time<br>- in-kind",
 	"semorg-field-iooi-activities-name": "Activities", 
 	"semorg-field-iooi-activities-parameters": "input type=textarea|rows=1|autogrow|cols=60", 
 	"semorg-field-iooi-activities-help": "Main activities of the organisation",
 	"semorg-field-iooi-output-name": "Output", 
 	"semorg-field-iooi-output-parameters": "input type=textarea|rows=1|autogrow|cols=60", 
-	"semorg-field-iooi-output-help": "Direct results that can be measured \n*# of people\n*# of activities\n*# of institutions",
+	"semorg-field-iooi-output-help": "Direct results that can be measured<br>- # of people<br>- # of activities<br>- # of institutions",
 	"semorg-field-iooi-outcome-name": "Outcome", 
 	"semorg-field-iooi-outcome-parameters": "input type=textarea|rows=1|autogrow|cols=60", 
 	"semorg-field-iooi-outcome-help": "Changes (effects) in the lives of the target groups",
