@@ -365,7 +365,7 @@
 	"semorg-field-person-ref-name-parameters": "input type=combobox|values from category=semorg-person|mapping property=Semorg-person-name|size=50",
 	"semorg-field-person-ref-name-placeholder": "Name",
 	"semorg-field-person-ref-role-name": "Role",
-	"semorg-field-person-ref-role-parameters": "input type=combobox|values from property=semorg-person-ref-role|size=50",
+	"semorg-field-person-ref-role-parameters": "input type=text with autocomplete|values from property=semorg-person-ref-role|size=50",
 	"semorg-field-person-ref-role-placeholder": "Role",
 	"semorg-field-person-ref-tag-name": "Tags",
 	"semorg-field-person-ref-tag-parameters": "input type=tokens|list|values from property=semorg-person-ref-tag|size=20",
