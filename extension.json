@@ -85,9 +85,6 @@
 		},
 		"SemorgListLimit": {
 			"value": 20
-		},
-		"SemorgUseRealnames": {
-			"value": false
 		}
 	},
 	"Hooks": {
@@ -102,9 +99,6 @@
 		],
 		"BeforePageDisplay": [
 			"SemanticOrganizationHooks::onBeforePageDisplay"
-		],
-		"HtmlPageLinkRendererEnd" : [
-			"SemanticOrganizationHooks::onHtmlPageLinkRendererEnd"
 		]
 	},
 	"MessagesDirs": {
