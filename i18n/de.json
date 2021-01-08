@@ -810,6 +810,8 @@
 	"semorg-field-role-group-name": "Gremium", 
 	"semorg-field-role-tasks-name": "Aufgaben",
 	"semorg-field-role-holders-name": "Inhaber*innen",
+	"semorg-field-role-holder-name": "Inhaber*in", 
+	"semorg-field-role-holder-person-name-name": "Inhaber*in", 
 	"semorg-field-role-hours-name": "<abbr title='Stundenaufwand (h/Jahr)'>h</abbr>",
 	"semorg-field-role-status-name": "Status", 
 	"semorg-field-role-status-help": "Bitte erkläre, warum diese Rolle nicht mehr aktiv ist.",
