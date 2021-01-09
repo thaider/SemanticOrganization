@@ -1434,6 +1434,7 @@
 	"semorg-field-role-active-reason-placeholder": "Reason for deactivation",
 
 	"semorg-role-task-template": "semorg-role-task",
+	"semorg-role-task-page-name": "Schedule",
 	"semorg-role-task-dashboard-title": "My Roles and Their Current Tasks",
 	"semorg-form-role-task-add-button-text": "Add task",
 	"semorg-form-role-task-template": "role-task",
