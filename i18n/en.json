@@ -1426,6 +1426,7 @@
 	"semorg-field-role-hours-name": "<abbr title='hours per year'>h</abbr>",
 	"semorg-field-role-holder-name": "Holder", 
 	"semorg-field-role-holder-person-name-name": "Holder", 
+	"semorg-field-role-task-role-role-holder-person-name-name": "Holder", 
 	"semorg-field-role-status-name": "Status", 
 	"semorg-field-role-status-fields": "active,active-reason", 
 	"semorg-field-role-status-help": "Please explain, why this role is not active any more.",
