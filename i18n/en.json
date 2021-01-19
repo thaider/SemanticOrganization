@@ -336,6 +336,7 @@
 	"semorg-form-person-contact-template": "person",
 	"semorg-formlink-person-contact-link-text": "Create person",
 	"semorg-list-person-contact-headers": "person-name, person-worklocality, person-email, person-workphone",
+	"semorg-list-person-contact-row-template": "person-name, person-worklocality, person-email, person-workphone",
 	"semorg-tab-person-contact-details": "Details",
 	"semorg-tab-person-contact-contact": "Contact History",
 
