@@ -5,8 +5,9 @@
 	"semorg-field-documentation-list-header-name": "<list-header>",
 
 	"semorg-mailing-list": "your@mailing.list",
-	"semorg-print-header": "",
-	"semorg-print-footer": "",
+	"semorg-header": "",
+	"semorg-letter-header": "",
+	"semorg-letter-address": "$1<br>$2<br>$3 $4",
 
 	"semorg-mail-meeting-group-link-text": "Send Invitation Email",
 	"semorg-mail-meeting-group-subject": "Invitation for $1 on $2, $3",
@@ -106,6 +107,8 @@
 	"semorg-manual-out-of-date-weeks": "52",
 	"semorg-knowledge-to-be-checked-weeks": "26",
 	"semorg-knowledge-out-of-date-weeks": "52",
+
+	"semorg-project-update-out-of-date-weeks": "10",
 
 	"semorg-form-standard-input-save-label": "Save",
 	"semorg-form-notemplate": "Parameter <code>template</code> has not been set when calling <code>$1</code>.",
