@@ -813,10 +813,20 @@ class SemanticOrganizationHooks {
 			}
 			
 			// Sums
-			$sums = '';
+			$sum_columns = '';
+			if( wfMessage('semorg-list-' . $template . '-sums' )->exists() ) {
+				$sum_columns = wfMessage('semorg-list-' . $template . '-sums' )->text();
+			}
+			if( wfMessage('semorg-list-' . $row_template . '-sums' )->exists() ) {
+				$sum_columns = wfMessage('semorg-list-' . $row_template . '-sums' )->text();
+			}
 			if( isset( $listoptions['sums'] ) ) {
+				$sum_columns = $listoptions['sums'];
+			}
+			$sums = '';
+			if( $sum_columns != '' ) {
 				$sums = '<tr class="semorg-sums sortbottom">';
-				foreach( explode(',', $listoptions['sums'] )  as $sum ) {
+				foreach( explode(',', $sum_columns )  as $sum ) {
 					$sums .= '<td style="text-align:right">';
 					if( $sum != '' ) {
 						$sum_query = '{{#ask:' . $query_string . '|?semorg-' . $sum . '|format=sum|default=0|limit=1000}}';

@@ -1077,6 +1077,7 @@
 	"semorg-form-invoice-template": "invoice",
 	"semorg-list-invoice-headers": "invoice-number-short, invoice-date-short, invoice-recipient, invoice-issuer, invoice-amount-net-short, invoice-payment-date",
 	"semorg-list-invoice-open-headers": "invoice-number-short, invoice-date-short, invoice-due-date, invoice-recipient, invoice-issuer, invoice-amount-gross-short",
+	"semorg-list-invoice-sums": ",,,,invoice-amount-net,",
 	"semorg-list-invoice-all-link-text": "all",
 	"semorg-list-invoice-open-link-text": "open",
 	"semorg-list-invoice-open-summary-link-text": "open (Summary)",
