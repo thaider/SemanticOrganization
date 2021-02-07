@@ -88,6 +88,11 @@
 
 	"semorg-invoice-status-due": "fällig",
 	"semorg-invoice-status-overdue": "überfällig",
+	"semorg-invoice-subject-text": "Rechnung Nr. $1",
+	"semorg-invoice-period-text": "Leistungszeitraum: $1",
+	"semorg-invoice-subtotal-text": "Zwischensumme",
+	"semorg-invoice-total-text": "Gesamtbetrag",
+	"semorg-invoice-vat-text": "USt ($1%)",
 
 	"semorg-form-standard-input-save-label": "Speichern",
 	"semorg-form-notemplate": "Parameter <code>template</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
@@ -666,6 +671,8 @@
 	"semorg-field-invoice-reminder-1-date-name": "Datum der ersten Mahnung", 
 	"semorg-field-invoice-reminder-2-date-name": "Datum der zweiten Mahnung", 
 	"semorg-field-invoice-collection-date-name": "Inkasso-Datum", 
+	"semorg-field-invoice-period-name": "Leistungszeitraum",
+	"semorg-field-invoice-outro-name": "Outro",
 
 	"semorg-invoice-year-displaytitle": "Ausgangsrechnungen $1",
 	"semorg-field-invoice-year-year-name": "Jahr",
