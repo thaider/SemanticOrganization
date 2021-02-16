@@ -570,7 +570,7 @@
 	"semorg-form-project-update-page-name": "Project Updates",
 	"semorg-form-project-update-template": "project-update",
 	"semorg-form-project-update-rows": "project,date,author,update",
-	"semorg-list-project-update-headers": "project-update-project,project-update-date,project-update-author,project-update-update",
+	"semorg-list-project-update-headers": "project-update-project,project-update-update",
 	"semorg-field-project-update-project-name": "Project", 
 	"semorg-field-project-update-project-parameters": "input type=combobox|values from category=semorg-project|existing values only|mandatory",
 	"semorg-field-project-update-date-name": "Date", 
