@@ -1528,16 +1528,16 @@
     <ns>10</ns>
     <id>21</id>
     <revision>
-      <id>4412</id>
-      <parentid>4401</parentid>
-      <timestamp>2020-12-04T00:03:47Z</timestamp>
+      <id>4533</id>
+      <parentid>4532</parentid>
+      <timestamp>2021-03-01T11:19:23Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="6062">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:Semorg-generator-category}}]]{{#semorg-set:generator
+      <text xml:space="preserve" bytes="7280">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:Semorg-generator-category}}]]{{#semorg-set:generator
   |template-name={{lc:{{FULLPAGENAME}}}}
   |template-id={{{template-id|}}}
 }}
@@ -1624,7 +1624,9 @@
 {{semorg-form-standard-inputs}}
 &lt;/nowiki&gt;&lt;/include&lt;nowiki&gt;&lt;/nowiki&gt;only&gt;
 
-als embedded:
+'''as embedded:'''
+
+Use this code, if this is not meant to be a standalone feature but rather a supplement that should be embedded in other forms. Add this line to a form definition that includes a field with the parameter &lt;code&gt;holds template&lt;/code&gt;. The second parameter of the &lt;code&gt;semorg-form-template-embed&lt;/code&gt; call should be the target field, specified with &lt;code&gt;''&lt;feature&gt;''[''&lt;field&gt;'']&lt;/code&gt; (e.g. &lt;code&gt;meeting-group[files]&lt;/code&gt; or &lt;code&gt;&lt;nowiki&gt;{{int:semorg-meeting-group-template}}[files]&lt;/nowiki&gt;&lt;/code&gt; to respect template customization).
 
  &lt;nowiki&gt;{{semorg-form-template-embed|&lt;/nowiki&gt;{{lc:{{FULLPAGENAME}}}}|{{{embed-field|}}}&lt;nowiki&gt;}}&lt;/nowiki&gt;
 
@@ -1692,8 +1694,22 @@ als embedded:
 
  &lt;nowiki&gt;{{&lt;/nowiki&gt;semorg-{{lc:{{FULLPAGENAME}}}}-overview&lt;nowiki&gt;}}&lt;/nowiki&gt;
 
+=== Property Registration ===
+
+Add the following line to &lt;code&gt;LocalSettings.php&lt;/code&gt;:
+
+ $wgSemorgAdditionalProperties['{{lc:{{FULLPAGENAME}}}}'] = &lt;nowiki&gt;[&lt;/nowiki&gt; &quot;id&quot; =&gt; &quot;{{{template-id|}}}&quot;,&quot;fields&quot; =&gt; &lt;nowiki&gt;[&lt;/nowiki&gt;{{#ask:[[Semorg-generator-field-template::{{lc:{{FULLPAGENAME}}}}]][[Semorg-generator-field-property-id::+]]
+       |mainlabel=field
+       |?Semorg-generator-field-id=field-id
+       |?Semorg-generator-field-property-id=field-property-id
+       |?Semorg-generator-field-type=field-type
+       |named args=yes
+       |template=semorg-generator-register-property-field
+       |format=template
+       }} &lt;nowiki&gt;]&lt;/nowiki&gt; &lt;nowiki&gt;]&lt;/nowiki&gt;;
+
 &lt;/includeonly&gt;</text>
-      <sha1>db41tswn0f39p1rmxal3u6mcvqtwcbx</sha1>
+      <sha1>boa8rhnmvpypdy48gk1jn8q7ssgu2gu</sha1>
     </revision>
   </page>
   <page>
@@ -3835,22 +3851,52 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>104</id>
     <revision>
-      <id>4461</id>
-      <parentid>4145</parentid>
-      <timestamp>2021-01-27T16:11:34Z</timestamp>
+      <id>4521</id>
+      <parentid>4520</parentid>
+      <timestamp>2021-02-07T14:40:11Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="1411">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-set:invoice
+      <text xml:space="preserve" bytes="2652">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:semorg-invoice-category}}]]{{semorg-letter-header}}&lt;div class=&quot;d-print-none&quot;&gt;{{#semorg-detail:invoice
+  |heading={{int:semorg-invoice-displaytitle|{{FULLPAGENAME}}|{{#time:Y|{{{date|}}}}}}}
+}}{{#semorg-true:{{{storno|}}}
+  |&lt;div class=&quot;alert alert-danger&quot;&gt;{{int:semorg-invoice-storno-warning}}&lt;/div&gt;
+}}{{#semorg-table:invoice
+  |recipient={{semorg-person-link|{{{recipient|}}}}}
+  |issuer={{semorg-person-link|{{{issuer|}}}}}
+  |date={{semorg-date|{{{date|}}}|long}}
+  |due-date={{semorg-date|{{{due-date|}}}|long}}
+  |payment-date={{semorg-date|{{{payment-date|}}}|long}}
+  |amount-net={{semorg-currency|{{formatnum:{{{amount-net|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]]
+    |?semorg-invoice-item-amount-net
+    |format=sum
+  }}}}}}}}}
+  |amount-gross={{semorg-currency|{{formatnum:{{{amount-gross|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]]
+    |?semorg-invoice-item-amount-gross
+    |format=sum
+  }}}}}}}}}
+  |description={{{description|}}}
+  |period={{{period|}}}
+  |department={{semorg-department-link|{{{department|}}}}}
+  |project={{#if:{{{project|}}}|[[{{{project|}}}]]}}
+  |storno={{{storno|}}}
+}}&lt;/div&gt;&lt;div class=&quot;d-none d-print-block container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col&quot;&gt;{{semorg-letter-recipient|{{{recipient|}}}}}{{semorg-letter-date|{{{date|}}}}}{{semorg-letter-subject|{{int:semorg-invoice-subject-text|{{int:semorg-invoice-number|{{FULLPAGENAME}}}}}}|{{#if:{{{period|}}}
+  |{{int:semorg-invoice-period-text|{{{period|}}}}}
+}}}}
+{{#if:{{{items|}}}
+  |&lt;table class=&quot;table mb-5&quot;&gt;{{#if:{{{description|}}}
+    |&lt;tr&gt;&lt;td class=&quot;semorg-invoice-description border-top-0&quot; colspan=3&gt;
+'''{{{description}}}'''&lt;/td&gt;&lt;/tr&gt;
+  }}{{{items}}}{{semorg-invoice-items-sums}}&lt;/table&gt;
+}}{{semorg-letter-outro|{{{outro|}}}}}{{semorg-letter-footer}}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+{{#semorg-set:invoice
   |recipient={{{recipient|}}}
   |issuer={{{issuer|}}}
   |number={{int:semorg-invoice-number|{{FULLPAGENAME}}}}
   |date={{{date|}}}
-  |amount-gross={{{amount-gross|}}}
-  |amount-net={{{amount-net|}}}
   |due-date={{{due-date|}}}
   |payment-date={{{payment-date|}}}
   |description={{{description|}}}
@@ -3859,27 +3905,18 @@ Dies ist die Vorlage „{{PAGENAME}}“.
   |storno={{{storno|false}}}
   |year={{semorg-year|{{{date|}}}}}
   |payed={{#if:{{{payment-date|}}}|true|false}}
-}}[[Category:{{int:semorg-invoice-category}}]]{{#semorg-detail:invoice
-  |heading={{int:semorg-invoice-displaytitle|{{FULLPAGENAME}}|{{#time:Y|{{{date|}}}}}}}
-}}{{#semorg-true:{{{storno|}}}
-  |&lt;div class=&quot;alert alert-danger&quot;&gt;{{int:semorg-invoice-storno-warning}}&lt;/div&gt;
-}}
-
-{{#semorg-table:invoice
-  |recipient={{{recipient|}}}
-  |issuer={{semorg-person-link|{{{issuer|}}}}}
-  |number={{int:semorg-invoice-number|{{FULLPAGENAME}}}}
-  |date={{semorg-date|{{{date|}}}|long}}
-  |amount-gross=€ {{formatnum:{{{amount-gross|}}}}}
-  |amount-net=€ {{formatnum:{{{amount-net|}}}}}
-  |due-date={{semorg-date|{{{due-date|}}}|long}}
-  |payment-date={{semorg-date|{{{payment-date|}}}|long}}
-  |description={{{description|}}}
-  |department={{semorg-department-link|{{{department|}}}}}
-  |project={{#if:{{{project|}}}|[[{{{project|}}}]]}}
-  |storno={{{storno|}}}
+  |outro={{{outro|}}}
+  |period={{{period|}}}
+  |amount-gross={{{amount-gross|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]]
+    |?semorg-invoice-item-amount-gross
+    |format=sum
+  }}}}}
+  |amount-net={{{amount-net|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]]
+    |?semorg-invoice-item-amount-net
+    |format=sum
+  }}}}}
 }}&lt;/includeonly&gt;</text>
-      <sha1>f0mz0zv1p1a80sqqhna1xqg9dtber9h</sha1>
+      <sha1>t4wfv6zs38hj8u2o5xuvfevde3fd5mo</sha1>
     </revision>
   </page>
   <page>
@@ -5053,28 +5090,28 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>106</ns>
     <id>229</id>
     <revision>
-      <id>4310</id>
-      <parentid>4106</parentid>
-      <timestamp>2020-11-30T19:45:32Z</timestamp>
+      <id>4465</id>
+      <parentid>4464</parentid>
+      <timestamp>2021-02-01T19:53:08Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>Text replacement - &quot;&lt;span class=&quot;d-none&quot;&gt;&lt;page name&gt;&lt;/span&gt;&quot; to &quot;&lt;span class=&quot;d-none&quot;&gt;: &lt;page name&gt;&lt;/span&gt;&quot;</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="413">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+      <text xml:space="preserve" bytes="480">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
    |create title={{int:semorg-form-invoice-create-title}}
    |edit title={{int:semorg-form-invoice-edit-title}}&lt;span class=&quot;d-none&quot;&gt;: &lt;page name&gt;&lt;/span&gt;
    |page name={{int:semorg-form-invoice-page-name}}/{{#time:Y|&lt;semorg-invoice[date]&gt;}}/&lt;unique number;start=001&gt;
 }}}
 
 {{semorg-form-template|invoice}}
+
+{{semorg-form-template-embed|invoice-item|semorg-invoice[items]}}
  
 {{semorg-form-standard-inputs}}
 &lt;/includeonly&gt;</text>
-      <sha1>bos4wkb7e61ko6gb6swo5i5yorpdpsp</sha1>
+      <sha1>b7gvnkkybipjprmet3g1ck6knbsvpgq</sha1>
     </revision>
   </page>
   <page>
@@ -5410,24 +5447,36 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>251</id>
     <revision>
-      <id>3435</id>
-      <parentid>3083</parentid>
-      <timestamp>2020-04-03T12:24:39Z</timestamp>
+      <id>4502</id>
+      <parentid>4462</parentid>
+      <timestamp>2021-02-06T11:51:44Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="436">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;card {{{class|}}}&quot; style=&quot;{{{style|}}}&quot;&gt;
-&lt;div class=&quot;card-header&quot;&gt;{{#if:{{{links|}}}
+      <text xml:space="preserve" bytes="557">&lt;noinclude&gt;{{semorg-bundle}}
+&lt;pre&gt;
+{{semorg-card
+  |class=
+  |style=
+  |links=
+  |title=
+  |body=
+  |tables=
+  |content=
+}}
+&lt;/pre&gt;&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;card {{{class|}}}&quot; style=&quot;{{{style|}}}&quot;&gt;
+&lt;div class=&quot;card-header&quot; id=&quot;{{{title|}}}&quot;&gt;{{#if:{{{links|}}}
   |&lt;div class=&quot;float-right card-header-links&quot;&gt;{{{links|}}}&lt;/div&gt;
 }}{{{title|}}}&lt;/div&gt;{{#if:{{{body|}}}
-  |&lt;div class=&quot;card-body&quot;&gt;{{{body|}}}&lt;/div&gt;
+  |&lt;div class=&quot;card-body&quot;&gt;
+{{{body|}}}&lt;/div&gt;
 }}{{#if:{{{tables|}}}
   |&lt;div class=&quot;card-body&quot;&gt;&lt;div class=&quot;card-body-table&quot;&gt;{{{tables|}}}&lt;/div&gt;&lt;/div&gt;
 }}{{{content|}}}&lt;/div&gt;&lt;/includeonly&gt;</text>
-      <sha1>1gva80sykzftuhu8vw2u9zvucq6o1qc</sha1>
+      <sha1>7d9bikbdzbrp863u48oi0mpub55omjk</sha1>
     </revision>
   </page>
   <page>
@@ -6375,28 +6424,26 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>106</ns>
     <id>515</id>
     <revision>
-      <id>4284</id>
-      <parentid>4140</parentid>
-      <timestamp>2020-11-28T22:21:40Z</timestamp>
+      <id>4487</id>
+      <parentid>4284</parentid>
+      <timestamp>2021-02-02T16:40:13Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>Text replacement - &quot;&lt;span class=&quot;d-none&quot;&gt;&lt;page name&gt;&lt;/span&gt;&quot; to &quot;&lt;span class=&quot;d-none&quot;&gt;: &lt;page name&gt;&lt;/span&gt;&quot;</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="408">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+      <text xml:space="preserve" bytes="452">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
    |create title={{int:semorg-form-travel-expenses-create-title}}
    |edit title={{int:semorg-form-travel-expenses-edit-title}}&lt;span class=&quot;d-none&quot;&gt;: &lt;page name&gt;&lt;/span&gt;
-   |page name={{int:semorg-form-travel-expenses-page-name}}/&lt;unique number;start=1&gt;
+   |page name={{int:semorg-form-travel-expenses-page-name}}/{{#time:Y|&lt;semorg-travel-expenses[start]&gt;}}/&lt;unique number;start=1&gt;
 }}}
 
 {{semorg-form-template|travel-expenses}}
  
 {{semorg-form-standard-inputs}}
 &lt;/includeonly&gt;</text>
-      <sha1>du16sieswfjb4zd3lxipem5owa4twzu</sha1>
+      <sha1>evuqhg6k0jossnhmylha055t8eqrtio</sha1>
     </revision>
   </page>
   <page>
@@ -7818,21 +7865,22 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>597</id>
     <revision>
-      <id>4421</id>
-      <parentid>4016</parentid>
-      <timestamp>2020-12-06T14:36:21Z</timestamp>
+      <id>4522</id>
+      <parentid>4421</parentid>
+      <timestamp>2021-02-16T07:43:40Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="201">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-list:manual
+      <text xml:space="preserve" bytes="243">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-list:manual
   |heading={{int:semorg-manual-page-name}}
   |formlink={{#semorg-formlink:manual}}
   |filter links=manual-tag
+  |{{#if:{{{limit|}}}|limit={{{limit}}}}}
 }}&lt;/includeonly&gt;</text>
-      <sha1>2j2fcqt6998gr38p3sf22l2ovyiv2nf</sha1>
+      <sha1>9bkfs8pewq58gnota2q2coj8hy2vg9a</sha1>
     </revision>
   </page>
   <page>
@@ -8551,16 +8599,16 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>790</id>
     <revision>
-      <id>4460</id>
-      <parentid>3365</parentid>
-      <timestamp>2021-01-27T16:08:33Z</timestamp>
+      <id>4503</id>
+      <parentid>4460</parentid>
+      <timestamp>2021-02-06T16:50:28Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="579">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-list:invoice
+      <text xml:space="preserve" bytes="547">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-list:invoice
   |heading={{int:semorg-invoice-page-name}}
   |formlink={{#semorg-formlink:invoice
     |returnto={{FULLPAGENAME}}
@@ -8572,9 +8620,8 @@ Dies ist die Vorlage „{{PAGENAME}}“.
   |sort=semorg-invoice-number
   |order=desc
   |csv=number, date, due-date, payment-date, issuer, recipient, description, amount-net, amount-gross, storno
-  |sums=,,,,invoice-amount-net,
 }}&lt;/includeonly&gt;</text>
-      <sha1>i15d158di4flntw1tj2ect9c077rvb3</sha1>
+      <sha1>rh0zigsc4fy5sk1lt2alx4a85nxkjpo</sha1>
     </revision>
   </page>
   <page>
@@ -11486,26 +11533,29 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>1010</id>
     <revision>
-      <id>4012</id>
-      <parentid>3836</parentid>
-      <timestamp>2020-09-25T16:22:46Z</timestamp>
+      <id>4523</id>
+      <parentid>4012</parentid>
+      <timestamp>2021-02-16T08:27:36Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="390">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;{{#ifeq:{{{?project|}}}|{{FULLPAGENAME}}
+      <text xml:space="preserve" bytes="404">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;{{#ifeq:{{{?project|}}}|{{FULLPAGENAME}}
   |&lt;td&gt;[[{{{?target|}}}|{{#semorg-datediff-human:{{{?date|}}}}}]]&lt;/td&gt;
-  |&lt;td&gt;[[{{{?project|}}}]]&lt;/td&gt;&lt;td&gt;{{#semorg-datediff-human:{{{?date|}}}}}&lt;/td&gt; 
+  |&lt;td&gt;[[{{{?target|}}}|{{{?project|}}}]]&lt;/td&gt;
 }}
-&lt;td&gt;{{semorg-person-link|{{{?author|}}}}}&lt;/td&gt; 
-&lt;td&gt;{{{?update|}}}&lt;/td&gt;
+&lt;td&gt;{{semorg-project-last-update-show
+  |?date={{{?date|}}}
+  |?author={{{?author|}}}
+  |?update={{{?update|}}}
+}}&lt;/td&gt;
 {{semorg-showedit
   |target={{{?target|}}}
 }}
 &lt;/tr&gt;&lt;/includeonly&gt;</text>
-      <sha1>kwu5dt6t6a6i6vrldtj2ej5pixnwpll</sha1>
+      <sha1>2uf4zoxktxiujzrsj0fnuivaobm0qjr</sha1>
     </revision>
   </page>
   <page>
@@ -11590,17 +11640,17 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>1015</id>
     <revision>
-      <id>4366</id>
-      <parentid>4365</parentid>
-      <timestamp>2020-12-03T22:03:35Z</timestamp>
+      <id>4501</id>
+      <parentid>4366</parentid>
+      <timestamp>2021-02-06T11:20:54Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="186">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;small&gt;{{semorg-person-link|{{{?author|}}}}}, {{#semorg-datediff-human:{{{?date|}}}}}:&lt;/small&gt;&lt;div&gt;{{{?update|}}}&lt;/div&gt;&lt;/includeonly&gt;</text>
-      <sha1>6g0cop5sfq91paye7kmbe5klzp3pkna</sha1>
+      <text xml:space="preserve" bytes="321">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;small&gt;&lt;span class=&quot;semorg-project-update-author&quot;&gt;{{semorg-person-link|{{{?author|}}}}}&lt;/span&gt;, &lt;span class=&quot;semorg-project-update-date&quot;&gt;{{#semorg-datediff-human:{{{?date|}}}}}&lt;/span&gt;:&lt;/small&gt;&lt;div class=&quot;semorg-project-update-update&quot;&gt;{{{?update|}}}&lt;/div&gt;&lt;/includeonly&gt;</text>
+      <sha1>nr12deqz8m0suoshre80rtgdgplef2e</sha1>
     </revision>
   </page>
   <page>
@@ -12221,19 +12271,29 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>10</ns>
     <id>1069</id>
     <revision>
-      <id>4388</id>
-      <parentid>4387</parentid>
-      <timestamp>2020-12-03T22:36:42Z</timestamp>
+      <id>4500</id>
+      <parentid>4499</parentid>
+      <timestamp>2021-02-06T10:56:27Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve" bytes="281">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#ifexist:{{int:semorg-project-update-page-name}}
-  |&lt;div class=&quot;semorg-list-row-details m-2 px-2 py-1 bg-light&quot;&gt;'''{{int:semorg-field-project-last-update-name}}''' {{semorg-project-last-update|{{{1|}}}}}&lt;/div&gt;
+      <text xml:space="preserve" bytes="646">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#ifexist:{{int:semorg-project-update-page-name}}
+  |&lt;div class=&quot;semorg-project-update semorg-list-row-details m-2 px-2 py-1 bg-light {{#ifexpr:{{#time:U|-{{int:semorg-project-update-out-of-date-weeks}} week}} &gt; {{#time:U|{{#ask:[[semorg-project-update-project::{{{1}}}]]
+    |mainlabel=-
+    |?semorg-project-update-date#ISO=
+    |link=none
+    |limit=1
+    |sort=semorg-project-update-date
+    |order=desc
+    |searchlabel=
+  }}}}
+    |semorg-project-update-out-of-date
+  }}&quot;&gt;'''{{int:semorg-field-project-last-update-name}}''' {{semorg-project-last-update|{{{1|}}}}}&lt;/div&gt;
 }}&lt;/includeonly&gt;</text>
-      <sha1>depc01wynycv6bunn3p2usgw087aloh</sha1>
+      <sha1>7fvl8d1w5dujp5decr50rf1p49fngaq</sha1>
     </revision>
   </page>
   <page>
@@ -12514,6 +12574,186 @@ Dies ist die Vorlage „{{PAGENAME}}“.
   |template=semorg-person-institution
 }}&lt;/includeonly&gt;</text>
       <sha1>3olqwbv1eomzp3wppxoylx71elobhgd</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-invoice-item</title>
+    <ns>10</ns>
+    <id>1087</id>
+    <revision>
+      <id>4512</id>
+      <parentid>4511</parentid>
+      <timestamp>2021-02-07T14:25:09Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="487">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#semorg-subobject:invoice-item 
+  |invoice={{FULLPAGENAME}}
+  |description={{{description|}}} 
+  |amount-net={{{amount-net|0}}} 
+  |amount-gross={{#expr:{{{amount-net|0}}}*(1+({{{vat-rate|0}}}/100))}}
+  |amount-vat={{#expr:{{{amount-net|0}}}*({{{vat-rate|0}}}/100)}}
+  |vat-rate={{{vat-rate|}}} 
+}}&lt;tr&gt;
+&lt;td colspan=2&gt;{{{description|}}}&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;{{semorg-currency|{{{amount-net|}}}}}&lt;/td&gt;
+&lt;/tr&gt;&lt;/includeonly&gt;</text>
+      <sha1>jlngtg7eg19tnpochb49k1ptykfi34x</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-letter-header</title>
+    <ns>10</ns>
+    <id>1089</id>
+    <revision>
+      <id>4507</id>
+      <parentid>4489</parentid>
+      <timestamp>2021-02-07T14:19:57Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="156">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;semorg-letter-header d-none d-print-block&quot;&gt;{{int:semorg-letter-header}}&lt;/div&gt;&lt;/includeonly&gt;</text>
+      <sha1>asoh1e0t1vy93eg2l0jzwmqwex5rblh</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-letter-date</title>
+    <ns>10</ns>
+    <id>1090</id>
+    <revision>
+      <id>4505</id>
+      <parentid>4491</parentid>
+      <timestamp>2021-02-07T14:18:29Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="221">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#if:{{{1|}}}
+  |&lt;div class=&quot;semorg-letter-date text-right d-none d-print-block&quot; style=&quot;margin-bottom:100px&quot;&gt;{{int:semorg-letter-date|{{{1|}}}}}&lt;/div&gt;
+}}&lt;/includeonly&gt;</text>
+      <sha1>8g8xopjkt0ptn71siewlkwuu9r7vi45</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-letter-recipient</title>
+    <ns>10</ns>
+    <id>1091</id>
+    <revision>
+      <id>4506</id>
+      <parentid>4492</parentid>
+      <timestamp>2021-02-07T14:18:52Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="348">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;semorg-letter-recipient&quot; style=&quot;margin-bottom:100px&quot;&gt;
+{{int:semorg-letter-address|{{#show:{{{1|}}}|?semorg-person-name}}|{{#show:{{{1|}}}|?semorg-person-workstreet}}|{{#show:{{{1|}}}|?semorg-person-workpostalcode}}|{{#show:{{{1|}}}|?semorg-person-worklocality}}}}&lt;/div&gt;&lt;/includeonly&gt;</text>
+      <sha1>oid90a0ysrbir95csp1257i07g90uea</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-letter-footer</title>
+    <ns>10</ns>
+    <id>1092</id>
+    <revision>
+      <id>4508</id>
+      <timestamp>2021-02-07T14:20:18Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;semorg-letter-footer d-none d-print-block&quot;&gt;{{int:semorg-letter-footer}}&lt;/div&gt;&lt;/includeonly&gt;&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="156">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;semorg-letter-footer d-none d-print-block&quot;&gt;{{int:semorg-letter-footer}}&lt;/div&gt;&lt;/includeonly&gt;</text>
+      <sha1>gjsa3yhsft1wma8f1sejswqf3v99mpr</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-letter-outro</title>
+    <ns>10</ns>
+    <id>1095</id>
+    <revision>
+      <id>4515</id>
+      <timestamp>2021-02-07T14:26:05Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;semorg-letter-outro&quot; style=&quot;margin-bottom:100px&quot;&gt; {{{1|}}}&lt;/div&gt;&lt;/includeonly&gt;&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="143">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;semorg-letter-outro&quot; style=&quot;margin-bottom:100px&quot;&gt;
+{{{1|}}}&lt;/div&gt;&lt;/includeonly&gt;</text>
+      <sha1>02zr9ilfuq4d0g41pwpe6inpv31x6c1</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-letter-subject</title>
+    <ns>10</ns>
+    <id>1094</id>
+    <revision>
+      <id>4514</id>
+      <timestamp>2021-02-07T14:25:50Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <comment>Created page with &quot;&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;mb-5&quot;&gt;&lt;div class=&quot;semorg-letter-subject&quot;&gt; '''{{{1|}}}'''&lt;/div&gt;{{#if:{{{2|}}}   |&lt;div class=&quot;semorg-letter-subj...&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="222">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;div class=&quot;mb-5&quot;&gt;&lt;div class=&quot;semorg-letter-subject&quot;&gt;
+'''{{{1|}}}'''&lt;/div&gt;{{#if:{{{2|}}}
+  |&lt;div class=&quot;semorg-letter-subject-sub&quot;&gt;
+{{{2|}}}&lt;/div&gt;
+}}&lt;/div&gt;&lt;/includeonly&gt;</text>
+      <sha1>9lxiw67n05nfj03oo2y8yp2clvfws5n</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Semorg-invoice-items-sums</title>
+    <ns>10</ns>
+    <id>1093</id>
+    <revision>
+      <id>4519</id>
+      <parentid>4518</parentid>
+      <timestamp>2021-02-07T14:37:26Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="1143">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;&lt;tr&gt;
+&lt;td class=&quot;border-top border-dark&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;border-top border-dark&quot;&gt;''{{int:semorg-invoice-subtotal-text}}''&lt;/td&gt;
+&lt;td class=&quot;border-top border-dark&quot; style=&quot;text-align:right&quot;&gt;''{{semorg-currency|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]]|?semorg-invoice-item-amount-net|format=sum}}}}''&lt;/td&gt;
+&lt;/tr&gt;{{#arraymap:{{int:semorg-invoice-vat-rates}}
+  |,
+  |xxx
+  |{{#ifexpr:{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]][[semorg-invoice-item-vat-rate::xxx]]|format=count}}&gt;0
+    |&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;{{int:semorg-invoice-vat-text|xxx}}&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;{{semorg-currency|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]][[semorg-invoice-item-vat-rate::xxx]]|?semorg-invoice-item-amount-vat|format=sum}}}}&lt;/td&gt;
+&lt;/tr&gt;
+  }}
+  |
+}}&lt;tr&gt;
+&lt;td class=&quot;border-top border-dark&quot; colspan=&quot;2&quot;&gt;'''{{int:semorg-invoice-total-text}}'''&lt;/td&gt;
+&lt;td class=&quot;border-top border-dark&quot; style=&quot;text-align:right&quot;&gt;'''{{semorg-currency|{{#ask:[[semorg-invoice-item-invoice::{{FULLPAGENAME}}]]|?semorg-invoice-item-amount-gross|format=sum}}}}'''&lt;/td&gt;
+&lt;/tr&gt;&lt;/includeonly&gt;</text>
+      <sha1>ml9y36waf3h9wk3kyg5qe2jhia85m4y</sha1>
     </revision>
   </page>
 </mediawiki>
