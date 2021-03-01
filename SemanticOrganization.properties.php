@@ -92,10 +92,17 @@ class SemanticOrganizationProperties {
 
 
 	public static function onsmwInitProperties() {
-		foreach( self::$properties as $template_name => $template ) {
-			$template_id = $template['id'];
-			foreach( $template['fields'] as $field_name => $field ) {
-				self::registerProperty( '_SO_' . $template_id . '_' . $field['id'], '_' . $field['type'], 'Semorg-' . $template_name . '-' . $field_name );
+		$properties = array_merge( self::$properties, $GLOBALS['wgSemorgAdditionalProperties'] );
+		foreach( $properties as $template_name => $template ) {
+			if( isset( $template['id'] ) ) {
+				$template_id = $template['id'];
+				if( isset( $template['fields'] ) ) {
+					foreach( $template['fields'] as $field_name => $field ) {
+						if( isset( $field['id'] ) && isset( $field['type'] ) ) {
+							self::registerProperty( '_SO_' . $template_id . '_' . $field['id'], '_' . $field['type'], 'Semorg-' . $template_name . '-' . $field_name );
+						}
+					}
+				}
 			}
 		}
 	}

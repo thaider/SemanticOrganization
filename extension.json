@@ -85,6 +85,9 @@
 		},
 		"SemorgListLimit": {
 			"value": 20
+		},
+		"SemorgAdditionalProperties": {
+			"value": {}
 		}
 	},
 	"Hooks": {
