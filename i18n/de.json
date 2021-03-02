@@ -325,6 +325,7 @@
 	"semorg-field-project-last-update-name": "Letztes Update",
 	"semorg-field-project-partners-name": "Projektpartner",
 	"semorg-field-project-homepage-name": "Homepage",
+	"semorg-field-project-topic-name": "Themen",
 	"semorg-field-project-tag-name": "Tags",
 	"semorg-tab-project-overview": "Übersicht",
 	"semorg-tab-project-details": "Details",
@@ -1163,6 +1164,8 @@
 	"semorg-field-topic-topic-name": "Thema",
 	"semorg-field-topic-person-name": "Personen",
 	"semorg-field-topic-person-count-name": "Anzahl Personen",
+	"semorg-field-topic-project-research-name": "Forschungsprojekte",
+	"semorg-field-topic-project-research-count-name": "Anzahl Forschungsprojekte",
 
 	"semorg-iooi-page-name": "IOOI Analysen",
 	"semorg-iooi-entity-name": "IOOI",

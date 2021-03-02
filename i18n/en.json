@@ -468,6 +468,8 @@
 	"semorg-field-project-partners-parameters": "holds template",
 	"semorg-field-project-homepage-name": "Homepage",
 	"semorg-field-project-tag-name": "Tags",
+	"semorg-field-project-topic-name": "Topics",
+	"semorg-field-project-topic-parameters": "input type=tokens|values from category=semorg-topic|mapping property=Semorg-topic-name|list",
 	"semorg-field-project-tag-parameters": "values from property=Semorg-project-tag|list|input type=tokens",
 	"semorg-tab-project-overview": "Overview",
 	"semorg-tab-project-details": "Details",
@@ -2139,6 +2141,8 @@
 	"semorg-field-topic-topic-name": "Topic",
 	"semorg-field-topic-person-name": "People",
 	"semorg-field-topic-person-count-name": "Number of People",
+	"semorg-field-topic-project-research-name": "Research Projects",
+	"semorg-field-topic-project-research-count-name": "Number of Research Projects",
 
 	"semorg-iooi-template": "semorg-iooi",
 	"semorg-iooi-category": "semorg-iooi",
