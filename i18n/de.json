@@ -277,6 +277,7 @@
 	"semorg-field-person-ref-name-name": "Name",
 	"semorg-field-person-ref-role-name": "Rolle",
 	"semorg-field-person-ref-tag-name": "Tags",
+	"semorg-field-person-ref-formerly-label": "ehemals",
 
 	"semorg-project-feature-name": "Projektübersicht",
 	"semorg-project-feature-description": "*Dokumentation, wer an welchen Projekten beteiligt ist",

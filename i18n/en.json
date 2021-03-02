@@ -381,6 +381,9 @@
 	"semorg-field-person-ref-tag-name": "Tags",
 	"semorg-field-person-ref-tag-parameters": "input type=tokens|list|values from property=semorg-person-ref-tag|size=20",
 	"semorg-field-person-ref-tag-placeholder": "Tags",
+	"semorg-field-person-ref-formerly-name": "formerly",
+	"semorg-field-person-ref-formerly-input-type": "checkbox",
+	"semorg-field-person-ref-formerly-label": "formerly",
 
 	"semorg-project-feature-name": "Project overview",
 	"semorg-project-feature-description": "* Document who is involved in which projects",
