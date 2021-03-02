@@ -954,8 +954,17 @@ class SemanticOrganizationHooks {
 		// Heading
 		if( isset( $listoptions['heading'] ) ) {
 			$help_link = '';
-			if( wfMessage( 'semorg-' . $template . '-help-page-name' )->exists() ) {
-				$help_page = wfMessage( 'semorg-' . $template . '-help-page-name' );
+			$help_page = '';
+			if( isset( $listoptions['help'] ) ) {
+				if( wfMessage( 'semorg-' . $listoptions['help'] . '-help-page-name' )->exists() ) {
+					$help_page = wfMessage( 'semorg-' . $listoptions['help'] . '-help-page-name' );
+				}
+			} else {
+				if( wfMessage( 'semorg-' . $template . '-help-page-name' )->exists() ) {
+					$help_page = wfMessage( 'semorg-' . $template . '-help-page-name' );
+				}
+			}
+			if( $help_page != '' ) {
 				$help_link = '<btn class="semorg-detail-help-link" wrapper="" title="' . $help_page . '" data-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
 			}
 			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . $help_link . '</div>';
