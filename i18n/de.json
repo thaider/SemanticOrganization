@@ -325,6 +325,7 @@
 	"semorg-field-project-last-update-name": "Letztes Update",
 	"semorg-field-project-partners-name": "Projektpartner",
 	"semorg-field-project-homepage-name": "Homepage",
+	"semorg-field-project-tag-name": "Tags",
 	"semorg-tab-project-overview": "Übersicht",
 	"semorg-tab-project-details": "Details",
 	"semorg-tab-project-meetings": "Projektbesprechungen",
@@ -332,6 +333,12 @@
 	"semorg-tab-project-contact": "Kontaktgeschichte",
 	"semorg-tab-project-agenda": "Agenda",
 	"semorg-tab-project-openproject": "OpenProject",
+
+	"semorg-project-research-page-name": "Forschungsprojekte",
+	"semorg-project-research-entity-name": "Forschungsprojekt",
+	"semorg-form-project-research-create-title": "Forschungsprojekt erstellen",
+	"semorg-form-project-research-edit-title": "Forschungsprojekt bearbeiten",
+	"semorg-form-project-research-page-name": "Forschungsprojekte",
 
 	"semorg-project-grant-page-name": "Projektförderungen",
 	"semorg-project-grant-entity-name": "Projektförderung",
