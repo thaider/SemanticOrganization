@@ -1153,10 +1153,13 @@
 	"semorg-field-topic-category-topics-name": "Themen",
 
 	"semorg-topic-page-name": "Themen",
+	"semorg-topic-map-page-name": "Themenlandkarte",
 	"semorg-topic-entity-name": "Thema",
 	"semorg-form-topic-create-title": "Thema erstellen",
 	"semorg-form-topic-edit-title": "Thema bearbeiten", 
 	"semorg-form-topic-page-name": "Themen",
+	"semorg-list-topic-all-link-text": "alle",
+	"semorg-list-topic-map-link-text": "Landkarte",
 	"semorg-field-topic-name-name": "Name", 
 	"semorg-field-topic-description-name": "Beschreibung", 
 	"semorg-field-topic-category-name": "Kategorien", 
