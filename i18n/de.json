@@ -1165,9 +1165,9 @@
 	"semorg-field-topic-category-name": "Kategorien", 
 	"semorg-field-topic-type-name": "Typ", 
 	"semorg-field-topic-topic-name": "Thema",
-	"semorg-field-topic-person-name": "Personen",
+	"semorg-field-topic-person-name": "$1 {{plural:$1|Person|Personen}}",
 	"semorg-field-topic-person-count-name": "Anzahl Personen",
-	"semorg-field-topic-project-research-name": "Forschungsprojekte",
+	"semorg-field-topic-project-research-name": "$1 {{plural:$1|Forschungsprojekt|Forschungsprojekte}}",
 	"semorg-field-topic-project-research-count-name": "Anzahl Forschungsprojekte",
 
 	"semorg-iooi-page-name": "IOOI Analysen",

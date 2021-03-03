@@ -2142,9 +2142,9 @@
 	"semorg-field-topic-type-name": "Type", 
 	"semorg-field-topic-type-parameters": "input type=tokens|values from property=Semorg-topic-type",
 	"semorg-field-topic-topic-name": "Topic",
-	"semorg-field-topic-person-name": "People",
+	"semorg-field-topic-person-name": "$1 {{plural:$1|Person|People}}",
 	"semorg-field-topic-person-count-name": "Number of People",
-	"semorg-field-topic-project-research-name": "Research Projects",
+	"semorg-field-topic-project-research-name": "$1 Research {{plural:$1|Project|Projects}}",
 	"semorg-field-topic-project-research-count-name": "Number of Research Projects",
 
 	"semorg-iooi-template": "semorg-iooi",
