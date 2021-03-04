@@ -699,6 +699,15 @@
 	"semorg-field-invoice-collection-date-name": "Inkasso-Datum", 
 	"semorg-field-invoice-period-name": "Leistungszeitraum",
 	"semorg-field-invoice-outro-name": "Outro",
+	"semorg-field-invoice-template-name-name": "Vorlagenname",
+
+	"semorg-invoice-template-page-name": "Ausgangsrechnungsvorlagen",
+	"semorg-invoice-template-entity-name": "Rechnungsvorlage",
+	"semorg-invoice-template-create-invoice-link-text": "Rechnung basierend auf dieser Vorlage erstellen",
+	"semorg-form-invoice-template-create-title": "Rechnungsvorlage erstellen",
+	"semorg-form-invoice-template-edit-title": "Rechnungsvorlage bearbeiten",
+	"semorg-form-invoice-template-page-name": "Rechnungsvorlagen",
+	"semorg-list-invoice-template-link-text": "Vorlagen",
 
 	"semorg-invoice-year-displaytitle": "Ausgangsrechnungen $1",
 	"semorg-field-invoice-year-year-name": "Jahr",

@@ -824,7 +824,7 @@ class SemanticOrganizationHooks {
 				$sum_columns = $listoptions['sums'];
 			}
 			$sums = '';
-			if( $sum_columns != '' ) {
+			if( $sum_columns != ''  && $sum_columns != '-' ) {
 				$sums = '<tr class="semorg-sums sortbottom">';
 				foreach( explode(',', $sum_columns )  as $sum ) {
 					$sums .= '<td style="text-align:right">';
