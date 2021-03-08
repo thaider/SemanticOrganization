@@ -868,7 +868,12 @@ class SemanticOrganizationHooks {
 			$query .= '|link=none|named args=yes|format=template';
 			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
 
-			$table_query = $query . '|template=semorg-' . $row_template . '-row';
+			// Use custom template if it has been locally created
+			if( Title::newFromText( 'Template:semorg-' . $row_template . '-custom-row' )->exists() ) {
+				$table_query = $query . '|template=semorg-' . $row_template . '-custom-row';
+			} else {
+				$table_query = $query . '|template=semorg-' . $row_template . '-row';
+			}
 			$table_parameters = $parameters;
 			$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
 			$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
