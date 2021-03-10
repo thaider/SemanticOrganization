@@ -874,6 +874,8 @@
 	"semorg-field-role-active-label": "aktiv", 
 	"semorg-field-role-active-reason-name": "Grund", 
 	"semorg-field-role-active-reason-placeholder": "Grund für die Inaktivierung",
+	"semorg-field-role-manuals-name": "Anleitungen", 
+	"semorg-field-role-knowledge-name": "Wissensdatenbank", 
 
 	"semorg-role-task-page-name": "Jahreskreis",
 	"semorg-role-task-dashboard-title": "Meine Rollen und ihre aktuellen Tasks",

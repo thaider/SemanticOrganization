@@ -1569,6 +1569,8 @@
 	"semorg-field-role-active-reason-name": "Reason", 
 	"semorg-field-role-active-reason-parameters": "",
 	"semorg-field-role-active-reason-placeholder": "Reason for deactivation",
+	"semorg-field-role-manuals-name": "Manuals", 
+	"semorg-field-role-knowledge-name": "Knowledge database", 
 
 	"semorg-role-task-template": "semorg-role-task",
 	"semorg-role-task-page-name": "Schedule",
