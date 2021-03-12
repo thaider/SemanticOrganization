@@ -45,6 +45,11 @@
 	"semorg-date-long-noyear": "j. F",
 	"semorg-date-short-noyear": "j.n.",
 
+	"semorg-date-frequency-year": "Y",
+	"semorg-date-frequency-quarter": "n/Y",
+	"semorg-date-frequency-month": "n/Y",
+	"semorg-date-frequency-week": "W/Y",
+
 	"semorg-datetime-long": "j. F Y, H:i",
 	"semorg-datetime-short": "j.n.y, H:i",
 
@@ -180,6 +185,10 @@
 	"semorg-value-smart-network-type-beneficiaries": "Nutznießer*innen und Kund*innen",
 	"semorg-value-smart-network-type-opponents": "Gegner*innen und Unruhestifter*innen",
 	"semorg-value-smart-network-type-bystanders": "Betroffene oder einflussreiche Zuschauer*innen",
+	"semorg-value-frequency-year": "jährlich",
+	"semorg-value-frequency-quarter": "quartalsweise",
+	"semorg-value-frequency-month": "monatlich",
+	"semorg-value-frequency-week": "wöchentlich",
 
 	"semorg-up-to-date-date-none": "noch nicht kontrolliert…",
 	"semorg-up-to-date-date-to-be-checked": "zu überprüfen",
@@ -900,6 +909,30 @@
 	"semorg-field-role-holder-end-date-prefix": "bis ", 
 	"semorg-field-role-holder-main-responsible-name": "hauptverantwortlich", 
 	"semorg-field-role-holder-main-responsible-label": "hauptverantwortlich",
+
+	"semorg-role-metric-page-name": "Kennzahlen",
+	"semorg-role-metric-entity-name": "Kennzahl",
+	"semorg-form-role-metric-create-title": "Kennzahl erstellen",
+	"semorg-form-role-metric-edit-title": "Kennzahl bearbeiten",
+	"semorg-form-role-metric-page-name": "Kennzahlen",
+	"semorg-field-role-metric-name-name": "Name",
+	"semorg-field-role-metric-description-name": "Beschreibung",
+	"semorg-field-role-metric-active-name": "aktiv",
+	"semorg-field-role-metric-active-label": "aktiv",
+	"semorg-field-role-metric-responsible-name": "verantwortlich",
+	"semorg-field-role-metric-role-name": "Rolle",
+	"semorg-field-role-metric-frequency-name": "Häufigkeit",
+	"semorg-field-role-metric-measurements-name": "Messungen",
+
+	"semorg-role-metric-measurement-entity-name": "Messung",
+	"semorg-form-role-metric-measurement-create-title": "Messung erstellen",
+	"semorg-form-role-metric-measurement-edit-title": "Messung bearbeiten",
+	"semorg-form-role-metric-measurement-page-name": "Messungen",
+	"semorg-field-role-metric-measurement-metric-name": "Kennzahl",
+	"semorg-field-role-metric-measurement-date-name": "Datum",
+	"semorg-field-role-metric-measurement-value-name": "Wert",
+	"semorg-field-role-metric-measurement-author-name": "Autor*in",
+	"semorg-field-role-metric-measurement-note-name": "Anmerkung",
 
 	"semorg-account-page-name": "Kostenstellen",
 	"semorg-account-entity-name": "Kostenstelle",

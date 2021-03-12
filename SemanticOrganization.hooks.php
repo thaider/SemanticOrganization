@@ -913,7 +913,15 @@ class SemanticOrganizationHooks {
 
 
 			if( isset( $listoptions['csv'] ) ) {
-				$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'] );
+				$filename = 'result.csv';
+				if( isset( $listoptions['filename'] ) ) {
+					$filename = $listoptions['filename'];
+				} else {
+					if( wfMessage( 'semorg-' . $template . '-page-name' )->exists() ) {
+						$filename = $listoptions['filename'] ?? wfMessage( 'semorg-' . $template . '-page-name' )->plain() . '-{{#time:Y-m-d}}.csv';
+					}
+				}
+				$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'], $filename );
 				$list = '<div class="semorg-csv-download">' . $parser->recursiveTagParse( $download ) . '</div>' . $list;
 			}
 
@@ -1006,7 +1014,7 @@ class SemanticOrganizationHooks {
 	 *
 	 * @todo: allow for nested properties
 	 */
-	static function getDownload( &$parser, $query_string, $template, $csv_fields ) {
+	static function getDownload( &$parser, $query_string, $template, $csv_fields, $filename ) {
 		$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
 		$csv = '{{#ask:' . $query_string;
 		$csv .= '|mainlabel=-';
@@ -1024,6 +1032,7 @@ class SemanticOrganizationHooks {
 		$csv .= '|format=csv';
 		$csv .= '|sep=;';
 		$csv .= '|limit=1000';
+		$csv .= '|filename=' . $filename;
 		$csv .= '|searchlabel=<i class="fa fa-download"></i> ' . wfMessage( 'semorg-download-csv-text' )->plain();
 		$csv .= '}}';
 		return $csv;
