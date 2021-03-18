@@ -470,6 +470,7 @@
 	"semorg-field-project-toggl-id-name": "Toggl ID", 
 	"semorg-field-project-toggl-id-parameters": "size=10",
 	"semorg-field-project-target-group-name": "Target Group", 
+	"semorg-field-project-target-group-target-group-name-name": "Target Group", 
 	"semorg-field-project-target-group-parameters": "input type=checkboxes|values from category=semorg-target-group|mapping property=Semorg-target-group-name",
 	"semorg-field-project-phase-name": "Phase", 
 	"semorg-field-project-phase-parameters": "input type=tokens|property=semorg-project-phase",
@@ -2312,6 +2313,7 @@
 	"semorg-field-target-group-results-input-type": "textarea",
 	"semorg-field-target-group-results-parameters": "rows=1",
 	"semorg-field-target-group-results-help": "What results and gains would this target group wish for?",
+	"semorg-field-target-group-projects-name": "Projects for this target group",
 
 	"end": "end"
 }

@@ -332,6 +332,7 @@
 	"semorg-field-project-openproject-id-name": "OpenProject-ID", 
 	"semorg-field-project-toggl-id-name": "Toggl-ID", 
 	"semorg-field-project-target-group-name": "Zielgruppe", 
+	"semorg-field-project-target-group-target-group-name-name": "Zielgruppe", 
 	"semorg-field-project-phase-name": "Phase", 
 	"semorg-field-project-strategic-objective-name": "Strategisches Ziel", 
 	"semorg-field-project-sales-name": "Umsätze", 
@@ -1254,6 +1255,7 @@
 	"semorg-field-target-group-challenges-help": "Was sind die Probleme/Herausforderungen dieser Zielgruppe?",
 	"semorg-field-target-group-results-name": "Ergebnisse",
 	"semorg-field-target-group-results-help": "Welche Ergebnisse und Gewinne wünscht sich diese Zielgruppe?",
+	"semorg-field-target-group-projects-name": "Projekte für diese Zielgruppe",
 
 	"end": "Ende"
 }
