@@ -1241,5 +1241,19 @@
 	"semorg-field-iooi-outcome-name": "Outcome", 
 	"semorg-field-iooi-outcome-help": "Änderungen (Wirkungen) im Leben der Zielgruppen",
 
+	"semorg-target-group-page-name": "Zielgruppen",
+	"semorg-target-group-entity-name": "Zielgruppe",
+	"semorg-form-target-group-create-title": "Zielgruppe erstellen",
+	"semorg-form-target-group-edit-title": "Zielgruppe bearbeiten",
+	"semorg-form-target-group-page-name": "Zielgruppen",
+	"semorg-field-target-group-name-name": "Name",
+	"semorg-field-target-group-description-name": "Beschreibung",
+	"semorg-field-target-group-responsibilities-name": "Aufgaben",
+	"semorg-field-target-group-responsibilities-help": "Welche  Aufgaben hat diese Zielgruppe?",
+	"semorg-field-target-group-challenges-name": "Probleme",
+	"semorg-field-target-group-challenges-help": "Was sind die Probleme/Herausforderungen dieser Zielgruppe?",
+	"semorg-field-target-group-results-name": "Ergebnisse",
+	"semorg-field-target-group-results-help": "Welche Ergebnisse und Gewinne wünscht sich diese Zielgruppe?",
+
 	"end": "Ende"
 }
