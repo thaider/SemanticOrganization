@@ -420,7 +420,7 @@
 	"semorg-list-project-row-template": "project-team-members",
 	"semorg-list-project-headers": "project-title, project-start, project-end, project-contact-person",
 	"semorg-list-project-team-members-headers": "project-title, project-start, project-end, project-team",
-	"semorg-list-project-target-group-headers": "project-title, project-target-group",
+	"semorg-list-project-target-group-headers": "project-project, project-target-groups",
 	"semorg-list-project-current-link-text": "current",
 	"semorg-list-project-closed-link-text": "closed",
 	"semorg-list-project-update-link-text": "updates",
@@ -470,6 +470,7 @@
 	"semorg-field-project-toggl-id-name": "Toggl ID", 
 	"semorg-field-project-toggl-id-parameters": "size=10",
 	"semorg-field-project-target-group-name": "Target Group", 
+	"semorg-field-project-target-groups-name": "Target Groups", 
 	"semorg-field-project-target-group-target-group-name-name": "Target Group", 
 	"semorg-field-project-target-group-parameters": "input type=checkboxes|values from category=semorg-target-group|mapping property=Semorg-target-group-name",
 	"semorg-field-project-phase-name": "Phase", 
@@ -488,6 +489,7 @@
 	"semorg-field-project-topic-name": "Topics",
 	"semorg-field-project-topic-parameters": "input type=tokens|values from category=semorg-topic|mapping property=Semorg-topic-name|list",
 	"semorg-field-project-tag-parameters": "values from property=Semorg-project-tag|list|input type=tokens",
+	"semorg-field-project-project-name": "Project",
 	"semorg-tab-project-overview": "Overview",
 	"semorg-tab-project-details": "Details",
 	"semorg-tab-project-meetings": "Meetings",
@@ -2296,6 +2298,7 @@
 	"semorg-form-target-group-template": "target-group",
 	"semorg-form-target-group-rows": "name, description, responsibilities, challenges, results",
 	"semorg-list-target-group-headers": "target-group-name,target-group-responsibilities,target-group-challenges,target-group-results",
+	"semorg-list-target-group-projects-headers": "target-group-target-group,target-group-projects",
 	"semorg-field-target-group-name-name": "Name",
 	"semorg-field-target-group-name-parameters": "mandatory",
 	"semorg-field-target-group-description-name": "Description",
@@ -2314,6 +2317,7 @@
 	"semorg-field-target-group-results-parameters": "rows=1",
 	"semorg-field-target-group-results-help": "What results and gains would this target group wish for?",
 	"semorg-field-target-group-projects-name": "Projects for this target group",
+	"semorg-field-target-group-target-group-name": "Target Group",
 
 	"end": "end"
 }

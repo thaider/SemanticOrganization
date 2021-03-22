@@ -332,6 +332,7 @@
 	"semorg-field-project-openproject-id-name": "OpenProject-ID", 
 	"semorg-field-project-toggl-id-name": "Toggl-ID", 
 	"semorg-field-project-target-group-name": "Zielgruppe", 
+	"semorg-field-project-target-groups-name": "Zielgruppen", 
 	"semorg-field-project-target-group-target-group-name-name": "Zielgruppe", 
 	"semorg-field-project-phase-name": "Phase", 
 	"semorg-field-project-strategic-objective-name": "Strategisches Ziel", 
@@ -342,6 +343,7 @@
 	"semorg-field-project-homepage-name": "Homepage",
 	"semorg-field-project-topic-name": "Themen",
 	"semorg-field-project-tag-name": "Tags",
+	"semorg-field-project-project-name": "Projekt",
 	"semorg-tab-project-overview": "Übersicht",
 	"semorg-tab-project-details": "Details",
 	"semorg-tab-project-meetings": "Projektbesprechungen",
@@ -1256,6 +1258,7 @@
 	"semorg-field-target-group-results-name": "Ergebnisse",
 	"semorg-field-target-group-results-help": "Welche Ergebnisse und Gewinne wünscht sich diese Zielgruppe?",
 	"semorg-field-target-group-projects-name": "Projekte für diese Zielgruppe",
+	"semorg-field-target-group-target-group-name": "Zielgruppe",
 
 	"end": "Ende"
 }
