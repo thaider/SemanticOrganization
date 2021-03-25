@@ -668,9 +668,14 @@ class SemanticOrganizationHooks {
 				$row_template = $listoptions['row template'];
 			}
 
+			// does a custom row template exist?
+			$custom_row_template = Title::newFromText( 'Template:semorg-' . $row_template . '-custom-row' )->exists();
+
 			// if a message for the custom headers is defined for the row-template, use custom headers
 			if( isset( $listoptions['headers'] ) ) {
 				$headers = $listoptions['headers'];
+			} elseif( $custom_row_template && wfMessage( 'semorg-list-' . $row_template . '-custom-headers' )->exists() ) {
+				$headers = wfMessage( 'semorg-list-' . $row_template . '-custom-headers' )->parse();
 			} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-headers' )->exists() ) {
 				$headers = wfMessage('semorg-list-' . $row_template . '-headers' )->text();
 			} else {
@@ -679,6 +684,8 @@ class SemanticOrganizationHooks {
 
 			if( isset( $listoptions['tableclass'] ) ) {
 				$tableclass = $listoptions['tableclass'];
+			} elseif( $custom_row_template && wfMessage( 'semorg-list-' . $row_template . '-custom-tableclass' )->exists() ) {
+				$tableclass = wfMessage( 'semorg-list-' . $row_template . '-custom-tableclass' )->parse();
 			} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-tableclass' )->exists() ) {
 				$tableclass = wfMessage('semorg-list-' . $row_template . '-tableclass' )->text();
 			} elseif( wfMessage('semorg-list-' . $template . '-tableclass' )->exists() ) {
@@ -778,6 +785,11 @@ class SemanticOrganizationHooks {
 					$parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-' . $parameter )->parse();
 				}
 
+				// customized?
+				if( $custom_row_template && wfMessage( 'semorg-list-' . $row_template . '-custom-' . $parameter )->exists() ) {
+					$parameters[$parameter] = wfMessage( 'semorg-list-' . $row_template . '-custom-' . $parameter )->parse();
+				}
+
 				// explicitly set by parser function parameter?
 				if( isset( $listoptions[$parameter] ) ) {
 					$parameters[$parameter] = $listoptions[$parameter];
@@ -869,7 +881,7 @@ class SemanticOrganizationHooks {
 			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
 
 			// Use custom template if it has been locally created
-			if( Title::newFromText( 'Template:semorg-' . $row_template . '-custom-row' )->exists() ) {
+			if( $custom_row_template ) {
 				$table_query = $query . '|template=semorg-' . $row_template . '-custom-row';
 			} else {
 				$table_query = $query . '|template=semorg-' . $row_template . '-row';
