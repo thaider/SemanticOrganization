@@ -7,7 +7,7 @@
 	"descriptionmsg": "semorg-desc",
 	"license-name": "GPL-3.0",
 	"requires": {
-		"MediaWiki": ">= 1.28.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"type": "semantic",
 	"url": "https://www.mediawiki.org/wiki/Extension:SemanticOrganization",
