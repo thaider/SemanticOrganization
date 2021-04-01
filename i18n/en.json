@@ -1175,7 +1175,7 @@
 	"semorg-field-invoice-date-name": "Billing date",
 	"semorg-field-invoice-date-name": "Date",
 	"semorg-field-invoice-date-parameters": "mandatory",
-	"semorg-field-invoice-date-default": "{{time:Y/m/d}}",
+	"semorg-field-invoice-date-default": "{{#time:Y/m/d}}",
 	"semorg-field-invoice-date-input-type": "datepicker",
 	"semorg-field-invoice-date-short-name": "Date",
 	"semorg-field-invoice-amount-gross-name": "Gross amount",
