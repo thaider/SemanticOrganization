@@ -2005,6 +2005,7 @@
 	"semorg-form-system-template": "system",
 	"semorg-form-system-rows": "name,description,resources,rules,results",
 	"semorg-list-system-headers": "system-name,system-resources,system-rules,system-results",
+	"semorg-list-system-links-title": "System Analysis",
 	"semorg-field-system-name-name": "Name",
 	"semorg-field-system-name-parameters": "mandatory",
 	"semorg-field-system-description-name": "Description",
