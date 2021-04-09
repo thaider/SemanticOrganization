@@ -216,6 +216,8 @@
 	"semorg-field-person-workpostalcode-placeholder": "PLZ",
 	"semorg-field-person-worklocality-name": "Ort",
 	"semorg-field-person-worklocality-placeholder": "Ort",
+	"semorg-field-person-workcountry-name": "Land",
+	"semorg-field-person-workcountry-placeholder": "Land",
 	"semorg-field-person-email-name": "E-Mail-Adresse",
 	"semorg-field-person-email-placeholder": "Email",
 	"semorg-field-person-workphone-name": "Telefonnummer",
