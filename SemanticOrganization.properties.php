@@ -1,4 +1,7 @@
 <?php
+
+use SMW\PropertyRegistry;
+
 /**
  * Properties for the Semantic Organization Extension
  */
@@ -71,11 +74,8 @@ class SemanticOrganizationProperties {
 	];
 
 	public static function registerProperty( $id, $typeid, $label ) {
-		if ( class_exists( 'SMWDIProperty' ) ) {
-			SMWDIProperty::registerProperty( $id, $typeid, $label, true );
-		} else {
-			SMWPropertyValue::registerProperty( $id, $typeid, $label, true );
-		}
+		$propertyRegistry = PropertyRegistry::getInstance();
+		$propertyRegistry->registerProperty( $id, $typeid, $label, true );
 	}
 
 

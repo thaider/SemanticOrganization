@@ -652,7 +652,7 @@ class SemanticOrganizationHooks {
 	static function renderList( &$parser ) {
 		global $wgSemorgListLimit;
 
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry(0);
 
 		$list = '';
 		$template = func_get_args()[1];
@@ -1407,7 +1407,7 @@ class SemanticOrganizationHooks {
 		$tableclass = self::getTableclass();
 
 		$output = '';
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry(0);
 
 		$output = '{{#subobject:';
 		$values = self::extractOptions( array_slice(func_get_args(), 1) );
@@ -1469,7 +1469,7 @@ class SemanticOrganizationHooks {
 		$tableclass = self::getTableclass();
 
 		$output = '';
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry(0);
 		self::$options = self::extractOptions( array_slice(func_get_args(), 1) );
 		foreach( self::$options as $key => $value ) {
 			if( is_array( $value ) ) {
