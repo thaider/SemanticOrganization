@@ -318,6 +318,9 @@ class SemanticOrganizationHooks {
 	 */
 	static function renderUserCreateLink( &$parser ) {
 		$usertitle = func_get_args()[1];
+		if( $usertitle == "" ) {
+			return false;
+		}
 		$title = Title::newFromText( $usertitle, NS_USER );
 		$username = $title->getText();
 
