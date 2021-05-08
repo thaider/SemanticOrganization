@@ -1111,7 +1111,7 @@
 	"semorg-field-hypothesis-name-name": "Name",
 	"semorg-field-hypothesis-description-name": "Beschreibung",
 	"semorg-field-hypothesis-plausibility-name": "Wahrscheinlichkeit",
-	"semorg-field-hypothesis-plausibility-name": "<abbr title='Wahrscheinlichkeit'>W</abbr>",
+	"semorg-field-hypothesis-plausibility-short-name": "<abbr title='Wahrscheinlichkeit'>W</abbr>",
 	"semorg-field-hypothesis-evidence-name": "Indizien",
 	"semorg-field-hypothesis-validation-name": "Validierung",
 	"semorg-field-hypothesis-system-name": "System",
