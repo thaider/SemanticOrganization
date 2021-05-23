@@ -2248,9 +2248,9 @@ class SemanticOrganizationHooks {
 			if( $dashboardoptions['default'] !== '-' ) {
 				$dashboardoptions['default'] = '<div class="semorg-dashboard-default">' . $dashboardoptions['default'] . '</div>';
 			}
-			
+
 			$tableparameters = '';
-			
+
 			// do not use title and links for both dashboard and list
 			unset( $dashboardoptions['title'] );
 			unset( $dashboardoptions['links'] );
@@ -2262,6 +2262,14 @@ class SemanticOrganizationHooks {
 			// switch off pagination by default
 			if( !isset( $dashboardoptions['pagination'] ) ) {
 				$tableparameters .= '|nopagination';
+			}
+
+			// use special dashboard row template if defined
+			if( !isset( $dashboardoptions['row template'] ) ) {
+				$rowtemplatetitle = Title::newFromText( 'Template:semorg-' . $template . '-dashboard-row' );
+				if( $rowtemplatetitle->exists() ) {
+					$tableparameters .= '|row template=' . $template . '-dashboard';
+				}
 			}
 			$tables = '{{#semorg-list:' . $template . $tableparameters . '}}';
 		}
