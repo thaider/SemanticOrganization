@@ -1287,6 +1287,7 @@ class SemanticOrganizationHooks {
 			'input-type',
 			'values',
 			'mapping-template',
+			'mapping-property',
 			'default',
 			'label',
 			'size'
