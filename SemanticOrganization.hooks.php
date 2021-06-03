@@ -74,10 +74,19 @@ class SemanticOrganizationHooks {
 			'hours' => 'renderHours',
 			'distinct' => 'renderDistinct',
 			'distinct-number' => 'renderDistinctNumber',
+			'nocache' => 'disableCache',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
 		}
+	}
+
+
+	/**
+	 * Disable Cache
+	 */
+	static function disableCache(&$parser) {
+		$parser->getOutput()->updateCacheExpiry(0);
 	}
 
 
