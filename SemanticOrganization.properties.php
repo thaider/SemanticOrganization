@@ -73,11 +73,6 @@ class SemanticOrganizationProperties {
 		"working-time" => [ "id" => "WT","fields" => ["person" => [ "id" => "PE","type" => "wpg" ],"day" => [ "id" => "DA","type" => "num" ],"time" => [ "id" => "TI","type" => "txt" ],"note" => [ "id" => "NO","type" => "txt" ], ] ],
 	];
 
-	public static function registerProperty( $id, $typeid, $label ) {
-		$propertyRegistry = PropertyRegistry::getInstance();
-		$propertyRegistry->registerProperty( $id, $typeid, $label, true );
-	}
-
 
 	public static function getPropertyNamesForTemplate( $template_name ) {
 		if( isset( self::$properties[$template_name] ) ) {
@@ -97,7 +92,7 @@ class SemanticOrganizationProperties {
 	}
 
 
-	public static function onsmwInitProperties() {
+	public static function onsmwInitProperties(PropertyRegistry $propertyRegistry) {
 		$properties = array_merge( self::$properties, $GLOBALS['wgSemorgAdditionalProperties'] );
 		foreach( $properties as $template_name => $template ) {
 			if( isset( $template['id'] ) ) {
@@ -105,7 +100,18 @@ class SemanticOrganizationProperties {
 				if( isset( $template['fields'] ) ) {
 					foreach( $template['fields'] as $field_name => $field ) {
 						if( isset( $field['id'] ) && isset( $field['type'] ) ) {
-							self::registerProperty( '_SO_' . $template_id . '_' . $field['id'], '_' . $field['type'], 'Semorg-' . $template_name . '-' . $field_name );
+							$id = '___SO_' . $template_id . '_' . $field['id'];
+							$valueType = '_' . $field['type'];
+							$label = 'Semorg-' . $template_name . '-' . $field_name;
+
+							$propertyRegistry->registerProperty( $id, $valueType, $label, true );
+
+							/* @todo: a possibility to have aliases for property labels (need to be unique!)
+							$msgKey = 'semorg-property-' . $template_name . '-' . $field_name . '-alias';
+							if( wfMessage( $msgKey )->exists() ) {
+								$propertyRegistry->registerPropertyAliasByMsgKey( $id, $msgKey );
+							}
+							*/
 						}
 					}
 				}

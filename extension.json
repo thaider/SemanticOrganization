@@ -91,7 +91,7 @@
 		}
 	},
 	"Hooks": {
-		"smwInitProperties": [
+		"SMW::Property::initProperties": [
 			"SemanticOrganizationProperties::onsmwInitProperties"
 		],
 		"BeforeInitialize": [
