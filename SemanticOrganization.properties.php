@@ -75,8 +75,9 @@ class SemanticOrganizationProperties {
 
 
 	public static function getPropertyNamesForTemplate( $template_name ) {
-		if( isset( self::$properties[$template_name] ) ) {
-			return array_keys( self::$properties[$template_name]['fields'] );
+		$properties = array_merge( self::$properties, $GLOBALS['wgSemorgAdditionalProperties'] );
+		if( isset( $properties[$template_name] ) ) {
+			return array_keys( $properties[$template_name]['fields'] );
 		} else {
 			return false;
 		}
@@ -84,8 +85,9 @@ class SemanticOrganizationProperties {
 
 
 	public static function getPropertiesForTemplate( $template_name ) {
-		if( isset( self::$properties[$template_name] ) ) {
-			return self::$properties[$template_name]['fields'];
+		$properties = array_merge( self::$properties, $GLOBALS['wgSemorgAdditionalProperties'] );
+		if( isset( $properties[$template_name] ) ) {
+			return $properties[$template_name]['fields'];
 		} else {
 			return false;
 		}
