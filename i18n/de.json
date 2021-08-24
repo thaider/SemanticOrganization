@@ -932,9 +932,12 @@
 	"semorg-field-role-metric-active-name": "aktiv",
 	"semorg-field-role-metric-active-label": "aktiv",
 	"semorg-field-role-metric-responsible-name": "verantwortlich",
+	"semorg-field-role-metric-responsible-person-name-name": "verantwortlich",
 	"semorg-field-role-metric-role-name": "Rolle",
+	"semorg-field-role-metric-role-role-name-name": "Rolle",
 	"semorg-field-role-metric-frequency-name": "Häufigkeit",
 	"semorg-field-role-metric-measurements-name": "Messungen",
+	"semorg-field-role-metric-role-role-group-group-name-name": "Gremium",
 
 	"semorg-role-metric-measurement-entity-name": "Messung",
 	"semorg-form-role-metric-measurement-create-title": "Messung erstellen",
