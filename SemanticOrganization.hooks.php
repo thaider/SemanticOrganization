@@ -75,6 +75,7 @@ class SemanticOrganizationHooks {
 			'distinct' => 'renderDistinct',
 			'distinct-number' => 'renderDistinctNumber',
 			'nocache' => 'disableCache',
+			'missing-metrics' => 'renderMissingMetrics',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -2339,6 +2340,75 @@ class SemanticOrganizationHooks {
 				}
 			}
 		}
+	}
+
+
+	/**
+	 * Render list of missing metric measurements
+	 *
+	 * @todo: implement quarter and week
+	 */
+	static function renderMissingMetrics( &$parser ) {
+		$parser->getOutput()->updateCacheExpiry(0);
+		$metric = func_get_args()[1];
+		$frequency = func_get_args()[2];
+		$missing = '';
+
+		$lastmetric_query = '{{#ask:[[semorg-role-metric-measurement-metric::' . $metric . ']]
+			|mainlabel=-
+			|?semorg-role-metric-measurement-date#ISO=
+			|sort=semorg-role-metric-measurement-date
+			|order=desc
+			|limit=1
+			|searchlabel=
+		}}';
+		$lastmetric_response = $parser->recursiveTagParse( $lastmetric_query );
+		if( $lastmetric_response != '' ) {
+			$lastmetric_date = new Datetime( $lastmetric_response );
+		} else {
+			return [];
+		}
+
+		$now = new Datetime();
+
+
+		switch( $frequency ) {
+			case "year":
+				$lastmetric_year = $lastmetric_date->format('Y');
+				$current_year = $now->format('Y');
+				for( $i = $lastmetric_year+1; $i < $current_year; $i++ ) {
+					$missing .= self::getMeasurementLink( $metric, $i . '-12-31', $i );
+				}
+				break;
+			case "month":
+				$lastmetric_date->add(new DateInterval('P1M'));
+				$lastmetric_month = $lastmetric_date->format('Ym');
+				$current_month = $now->format('Ym');
+				for( $i = $lastmetric_month; $i < $current_month; $i++ ) {
+					$last_day_of_month = DateTime::createFromFormat('Ymd', $i+1 . '01');
+					$last_day_of_month->sub(new DateInterval('P1D'));
+					$missing .= self::getMeasurementLink( $metric, $last_day_of_month->format('Y-m-d'), $last_day_of_month->format('Y/m') );
+					if( $i % 100 == 12 ) {
+						$i = $i + 100 - 11;
+					}
+				}
+				break;
+			default:
+				//$missing = wfMessage( 'semorg-error-missing-data', 'semorg-missing-metrics', 'frequency' )->plain();
+		}
+		if( $missing != '' ) {
+			$missing = '<div class="semorg-missing-metrics pt-3"><span class="badge badge-warning">Missing Metrics:</span> ' . $missing . '</div>';
+		}
+
+		return [ $missing, 'noparse' => false ];
+	}
+
+
+	/**
+	 * get Link to create metric measurement
+	 */
+	static function getMeasurementLink( $metric, $date, $link_text ) {
+		return '<span class="semorg-missing-measurement" style="font-size:small">{{#formlink:form=semorg-role-metric-measurement|query string={{int:semorg-role-metric-measurement-template}}[metric]=' . $metric . '&{{int:semorg-role-metric-measurement-template}}[date]=' . $date . '|link text=' . $link_text . '|returnto={{FULLPAGENAME}}}} </span>';
 	}
 
 

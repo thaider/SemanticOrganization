@@ -920,10 +920,13 @@
 	"semorg-field-role-holder-main-responsible-label": "hauptverantwortlich",
 
 	"semorg-role-metric-page-name": "Kennzahlen",
+	"semorg-role-metric-inactive-page-name": "Inaktive Kennzahlen",
 	"semorg-role-metric-entity-name": "Kennzahl",
 	"semorg-form-role-metric-create-title": "Kennzahl erstellen",
 	"semorg-form-role-metric-edit-title": "Kennzahl bearbeiten",
 	"semorg-form-role-metric-page-name": "Kennzahlen",
+	"semorg-list-role-metric-active-link-text": "aktiv",
+	"semorg-list-role-metric-inactive-link-text": "inaktiv",
 	"semorg-field-role-metric-name-name": "Name",
 	"semorg-field-role-metric-description-name": "Beschreibung",
 	"semorg-field-role-metric-active-name": "aktiv",
