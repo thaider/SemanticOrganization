@@ -2346,7 +2346,7 @@ class SemanticOrganizationHooks {
 	/**
 	 * Render list of missing metric measurements
 	 *
-	 * @todo: implement quarter and week
+	 * @todo: implement week
 	 */
 	static function renderMissingMetrics( &$parser ) {
 		$parser->getOutput()->updateCacheExpiry(0);
@@ -2376,20 +2376,38 @@ class SemanticOrganizationHooks {
 			case "year":
 				$lastmetric_year = $lastmetric_date->format('Y');
 				$current_year = $now->format('Y');
-				for( $i = $lastmetric_year+1; $i < $current_year; $i++ ) {
+				$next_year = $lastmetric_year+1;
+				for( $i=$next_year; $i < $current_year; $i++ ) {
 					$missing .= self::getMeasurementLink( $metric, $i . '-12-31', $i );
 				}
 				break;
+			case "quarter":
+				$lastmetric_year = $lastmetric_date->format('Y');
+				$lastmetric_month = $lastmetric_date->format('m');
+				$lastmetric_quarter = $lastmetric_year . ( str_pad( ceil( $lastmetric_month / 4 ) * 4, 2, '0', STR_PAD_LEFT ) );
+				$current_year = $now->format('Y');
+				$current_month = $now->format('m');
+				$current_quarter = $current_year . ( str_pad( ceil( $current_month / 4 ) * 4, 2, '0', STR_PAD_LEFT ) );
+				$next_quarter = ( $lastmetric_quarter % 100 == 12 ) ? ( $lastmetric_quarter + 100 - 9 ) : ( $lastmetric_quarter + 3 );
+				for( $i = $next_quarter; $i < $current_quarter; $i = $i+3 ) {
+					$last_day_of_quarter = DateTime::createFromFormat('Ymd', $i+1 . '01');
+					$last_day_of_quarter->sub(new DateInterval('P1D'));
+					$missing .= self::getMeasurementLink( $metric, $last_day_of_quarter->format('Y-m-d'), $last_day_of_quarter->format('Y') . '/' . ceil( $last_day_of_quarter->format('m') / 4 ) );
+					if( $i % 100 == 12 ) {
+						$i = $i + 100 - 12;
+					}
+				}
+				break;
 			case "month":
-				$lastmetric_date->add(new DateInterval('P1M'));
 				$lastmetric_month = $lastmetric_date->format('Ym');
 				$current_month = $now->format('Ym');
-				for( $i = $lastmetric_month; $i < $current_month; $i++ ) {
+				$next_month = ( $lastmetric_month % 100 == 12 ) ? ( $lastmetric_month + 100 - 11 ) : ( $lastmetric_month + 1 );
+				for( $i = $next_month; $i < $current_month; $i++ ) {
 					$last_day_of_month = DateTime::createFromFormat('Ymd', $i+1 . '01');
 					$last_day_of_month->sub(new DateInterval('P1D'));
 					$missing .= self::getMeasurementLink( $metric, $last_day_of_month->format('Y-m-d'), $last_day_of_month->format('Y/m') );
 					if( $i % 100 == 12 ) {
-						$i = $i + 100 - 11;
+						$i = $i + 100 - 12;
 					}
 				}
 				break;

@@ -29,6 +29,7 @@
 	"semorg-invoice-storno-warning": "This invoice had been canceled",
 	"semorg-transfer-listed-warning": "This transfer has been submitted to accounting with the [[$1|<span class='alert-link'>list from $2</span>]]. Please do not change any more.",
 	"semorg-role-inactive-warning": "This role is not active. {{#if:$1|(Reason: $1)}}",
+	"semorg-role-metric-inactive-warning": "This metric is currently not active.",
 
 	"semorg-share-value": "100",
 
@@ -1696,8 +1697,9 @@
 	"semorg-field-role-metric-measurement-metric-parameters": "mandatory|input type=combobox|values from category=semorg-role-metric|mapping property=Semorg-role-metric-name",
 	"semorg-field-role-metric-measurement-date-name": "Date",
 	"semorg-field-role-metric-measurement-date-parameters": "mandatory",
-	"semorg-field-role-metric-measurement-date-default": "{{#time:Y/m/d}}",
+	"semorg-field-role-metric-measurement-date-default": "{{#time:Y/m/d|{{CURRENTYEAR}}-{{CURRENTMONTH}}-01 -1 days}}",
 	"semorg-field-role-metric-measurement-date-input-type": "datepicker",
+	"semorg-field-role-metric-measurement-date-help": "Chose the last day of the time period in question. If the measurement is a snap-shot it should be measured close to this date.",
 	"semorg-field-role-metric-measurement-value-name": "Value",
 	"semorg-field-role-metric-measurement-value-parameters": "mandatory|size=10",
 	"semorg-field-role-metric-measurement-author-name": "Author",

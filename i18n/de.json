@@ -942,6 +942,7 @@
 	"semorg-form-role-metric-measurement-page-name": "Messungen",
 	"semorg-field-role-metric-measurement-metric-name": "Kennzahl",
 	"semorg-field-role-metric-measurement-date-name": "Datum",
+	"semorg-field-role-metric-measurement-date-help": "Den letzten Tag des betreffenden Zeitraums wählen Handelt es sich um eine Momentaufnahme, sollte die Messung möglichst nahe zu diesem Datum vorgenommen werde.",
 	"semorg-field-role-metric-measurement-value-name": "Wert",
 	"semorg-field-role-metric-measurement-author-name": "Autor*in",
 	"semorg-field-role-metric-measurement-note-name": "Anmerkung",
