@@ -1660,6 +1660,7 @@
 	"semorg-form-role-metric-template": "role-metric",
 	"semorg-form-role-metric-rows": "role,name,description,frequency,responsible,active",
 	"semorg-list-role-metric-headers": "role-metric-name,role-metric-responsible,role-metric-measurements",
+        "semorg-list-role-metric-dashboard-headers": "role-metric-name,role-metric-measurements",
 	"semorg-field-role-metric-name-name": "Name",
 	"semorg-field-role-metric-name-parameters": "mandatory",
 	"semorg-field-role-metric-description-name": "Description",
