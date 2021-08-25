@@ -181,6 +181,8 @@
 	"semorg-value-status-closed": "abgeschlossen",
 	"semorg-value-status-archived": "archiviert",
 	"semorg-value-status-inactive": "nicht mehr aktiv",
+	"semorg-value-status-current": "aktuell",
+	"semorg-value-status-out-of-date": "nicht mehr aktuell",
 	"semorg-value-smart-network-type-resource": "Anbieter*innen von Ressourcen",
 	"semorg-value-smart-network-type-competitors": "Mitbewerber*innen",
 	"semorg-value-smart-network-type-complementary": "Komplementäre Organisationen und Alliierte",
