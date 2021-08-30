@@ -1278,7 +1278,7 @@ class SemanticOrganizationHooks {
 		foreach( $elements as $element ) {
 			$element = trim( $element );
 			if( $element != '' ) {
-				$fieldrows .= self::getFieldRow( $template, $element );
+				$fieldrows .= self::getFieldRow( $parser, $template, $element );
 			}
 		}
 		return [ $fieldrows, 'noparse' => false ];
@@ -1341,7 +1341,8 @@ class SemanticOrganizationHooks {
 	/**
 	 * Create a row for the form
 	 */
-	static function getFieldRow( $template, $element ) {
+	static function getFieldRow( &$parser, $template, $element ) {
+		$user = $parser->getUser();
 		$fullelement = 'semorg-field-' . $template . '-' . $element;
 		$heading = '';
 		$help = '';
@@ -1352,23 +1353,26 @@ class SemanticOrganizationHooks {
 			$heading = wfMessage($fullelement . '-name')->text();
 		}
 
-		/* get the help message if it exists */
-		if( !wfMessage($fullelement . '-help')->isDisabled() ) {
-			$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
-			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '}}';
-			$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
+		/* show create/edit links for help messages only for users with editinterface permission */
+		if( $user->isAllowed( 'editinterface' ) ) {
+			/* get the help message if it exists */
+			if( !wfMessage($fullelement . '-help')->isDisabled() ) {
+				$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
+				$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '}}';
+				$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
 
-		/* get inline help message if it exists */
-		} elseif( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
-			$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
-			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help-inline|tooltip=' . $help_tooltip . '}}';
-			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
+			/* get inline help message if it exists */
+			} elseif( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
+				$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
+				$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help-inline|tooltip=' . $help_tooltip . '}}';
+				$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
 
-		/* show help message create link */
-		} else {
-			$help_tooltip = wfMessage( 'semorg-msg-help-create-tooltip' )->plain();
-			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '|icon=question}}';
-			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
+			/* show help message create link */
+			} else {
+				$help_tooltip = wfMessage( 'semorg-msg-help-create-tooltip' )->plain();
+				$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '|icon=question}}';
+				$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
+			}
 		}
 
 
@@ -1898,13 +1902,21 @@ class SemanticOrganizationHooks {
 	 *
 	 * @param Integer $rating Rating
 	 */
-	static function renderRating( &$parser, $rating ) {
+	static function renderRating( &$parser, $rating, $max = false ) {
 		$rating_html = '';
+		if( $rating == '' ) {
+			return [ '' ];
+		}
 		$rating = (int) $rating;
 		$rating = min( $rating, 5 );
 		if( $rating > 0 ) {
 			for( $i = 0; $i < $rating; $i++ ) {
 				$rating_html .= '<i class="fa fa-star"></i>';
+			}
+		}
+		if( $max !== false ) {
+			for( $i = $rating; $i < $max; $i++ ) {
+				$rating_html .= '<i class="far fa-star"></i>';
 			}
 		}
 		$rating_html = '<div class="semorg-rating">' . $rating_html . '</div>';
