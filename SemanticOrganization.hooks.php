@@ -900,7 +900,11 @@ class SemanticOrganizationHooks {
 				$table_query = $query . '|template=semorg-' . $row_template . '-row';
 			}
 			$table_parameters = $parameters;
-			$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
+			if( isset( $listoptions['plainheaders'] ) ) {
+				$table_parameters['intro'] .= '{{semorg-list-intro|plaincolumns=' . $listoptions['plainheaders'] . '|tableclass=' . $tableclass . '}}';
+			} else {
+				$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
+			}
 			$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
 			
 			// apply parameters...
