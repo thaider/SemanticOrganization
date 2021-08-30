@@ -101,6 +101,14 @@
 	"semorg-invoice-due-one-month-text": "seit über einem Monat (brutto)",
 	"semorg-invoice-due-three-months-text": "davon seit über drei Monaten (brutto)",
 
+	"semorg-milestone-has-description": "Hat Detailbeschreibung",
+	"semorg-milestone-has-tools": "Hat Werkzeuge definiert",
+	"semorg-milestone-has-delivery-models": "Hat Delivery Models definiert",
+	"semorg-milestone-has-smart-network": "Hat ein Smart Network definiert",
+	"semorg-milestone-has-projects": "Hat verbundene Projekte",
+
+	"semorg-targeted-sc": "Im {{semorg-system-link|$1}} gibt es die Notwendigkeit, eine {{semorg-mapping-targeted-sc-type|$3}} {{semorg-mapping-targeted-sc-action|$2}}: $4. Das wird dazu führen, dass $5.",
+
 	"semorg-form-standard-input-save-label": "Speichern",
 	"semorg-form-notemplate": "Parameter <code>template</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
 	"semorg-form-noelements": "Parameter <code>elements</code> wurde beim Aufruf von <code>$1</code> nicht gesetzt",
@@ -193,6 +201,13 @@
 	"semorg-value-frequency-quarter": "quartalsweise",
 	"semorg-value-frequency-month": "monatlich",
 	"semorg-value-frequency-week": "wöchentlich",
+	"semorg-value-targeted-sc-type-resource": "Ressource",
+	"semorg-value-targeted-sc-type-role": "Rolle",
+	"semorg-value-targeted-sc-type-relationship": "Relation",
+	"semorg-value-targeted-sc-type-rule": "Regel",
+	"semorg-value-targeted-sc-action-add": "hinzuzufügen",
+	"semorg-value-targeted-sc-action-change": "ändern",
+	"semorg-value-targeted-sc-action-get-rid": "zu entfernen",
 
 	"semorg-up-to-date-date-none": "noch nicht kontrolliert…",
 	"semorg-up-to-date-date-to-be-checked": "zu überprüfen",
