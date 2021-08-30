@@ -125,6 +125,12 @@
 
 	"semorg-project-update-out-of-date-weeks": "10",
 
+	"semorg-milestone-has-description": "Has Detailed Description",
+	"semorg-milestone-has-tools": "Has Tools Defined",
+	"semorg-milestone-has-delivery-models": "Has Delivery Models Defined",
+	"semorg-milestone-has-smart-network": "Has Smart Network Defined",
+	"semorg-milestone-has-projects": "Has Related Projects",
+
 	"semorg-form-standard-input-save-label": "Save",
 	"semorg-form-notemplate": "Parameter <code>template</code> has not been set when calling <code>$1</code>.",
 	"semorg-form-noelements": "Parameter <code>elements</code> has not been set when calling <code>$1</code>.",
@@ -508,6 +514,7 @@
 	"semorg-field-project-outlook-parameters": "rows=2",
 	"semorg-field-project-outlook-input-type": "textarea",
 	"semorg-field-project-bmcs-name": "Business Model Canvases",
+	"semorg-field-project-milestones-name": "Related Milestones",
 	"semorg-tab-project-overview": "Overview",
 	"semorg-tab-project-details": "Details",
 	"semorg-tab-project-meetings": "Meetings",
@@ -2192,7 +2199,7 @@
 	"semorg-form-milestone-edit-title": "Edit Milestone",
 	"semorg-form-milestone-page-name": "Milestones",
 	"semorg-form-milestone-template": "milestone",
-	"semorg-form-milestone-rows": "plot,number,name,description,tools,delivery-models,smart-network",
+	"semorg-form-milestone-rows": "plot,number,name,description,tools,delivery-models,smart-network,project",
 	"semorg-formlink-milestone-add-link-text": "Add Milestone",
 	"semorg-list-milestone-headers": "milestone-milestone,milestone-plot,milestone-number,milestone-description",
 	"semorg-field-milestone-milestone-name": "Milestone",
@@ -2215,6 +2222,8 @@
 	"semorg-field-milestone-smart-network-name": "Smart Network",
 	"semorg-field-milestone-smart-network-parameters": "holds template",
 	"semorg-field-milestone-smart-network-help": "",
+	"semorg-field-milestone-project-name": "Related Projects",
+	"semorg-field-milestone-project-parameters": "input type=tokens|values from category=semorg-project|mapping property=Semorg-project-title",
 
 	"semorg-tool-template": "semorg-tool",
 	"semorg-form-tool-label": "Tools",
