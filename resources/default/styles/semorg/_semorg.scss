@@ -1,0 +1,730 @@
+a.new {
+	color:#555 !important;
+	border-bottom:1px dotted #555;
+}
+a.new:hover {
+	color:#000 !important;
+	border-bottom-style:solid;
+	text-decoration:none;
+}
+
+/* SIGNATURES */
+
+.semorg-signatures {
+	text-align:center;
+	margin-top:50px;
+}
+
+.semorg-signature {
+	margin-top:100px;
+	border-top:1px solid #ccc;
+	width:45%;
+	display:inline-block;
+	margin-right:2%;
+	margin-left:2%;
+}
+
+
+/* HEADER */
+.semorg-header {
+	text-align:center;
+	margin-bottom:50px;
+}
+
+.semorg-header-logo {
+	margin-bottom:50px;
+}
+
+.semorg-header-logo img {
+	width:100px;
+	height:125px;
+}
+
+
+/* FOOTER */
+.semorg-footer {
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%
+}
+
+
+/* SHOWEDIT */
+.semorg-showedit {
+	border:1px solid transparent !important;
+	vertical-align:middle !important;
+	width:50px;
+	background:none !important;
+}
+.semorg-showedit .fa,
+.semorg-actions .fa {
+	font-size:small;
+	color:#999;
+}
+.semorg-showedit .fa:hover,
+.semorg-actions .fa:hover {
+	color:#333;
+}
+
+/* PRINTABLE */
+.semorg-printable-edit {
+	clear:both;
+	text-align:right;
+	border-bottom:1px dashed transparent;
+	margin-bottom:20px;
+}
+.semorg-printable-edit:hover {
+	border-bottom-color:#999;
+}
+.semorg-printable-edit .fa {
+	font-size:small;
+	color:#999;
+	margin-bottom:-10px;
+	background:white;
+	padding-left:10px;
+}
+.semorg-printable-edit .fa:hover {
+	color:#333;
+}
+.semorg-printable-edit a.new {
+	border:none;
+}
+
+/* AGENDA */
+.semorg-agenda-heading {
+	margin-top:30px;
+}
+
+.semorg-agenda-details {
+	margin-top:-5px;
+	margin-bottom:10px;
+	font-style:italic;
+}
+
+.semorg-agenda-detail + .semorg-agenda-detail:before {
+	content:",";
+	padding-right: 4px;
+}
+
+.semorg-agenda-proposal-heading-text {
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+.semorg-agenda-timer-time,
+.semorg-agenda-timer {
+	color:#999;
+}
+.semorg-agenda-timer {
+	padding-right:5px;
+	cursor:pointer;
+}
+.semorg-agenda-timer-time {
+	padding-right:10px;
+}
+.mw-content-ltr .semorg-agenda-description ul, 
+.mw-content-rtl .mw-content-ltr .semorg-agenda-description ul {
+	margin: 0.3em 0 0.6em 1.6em;
+}
+
+/* TOGGLE */
+.semorg-toggle {
+	margin-bottom:10px;
+}
+.semorg-toggle-toggle {
+	display:none;
+}
+
+.semorg-process-step {
+	background:#ddf;
+	width:500px;
+	text-align:center;
+	margin:auto;
+	padding-left:15px;
+	padding-right:15px;
+}
+.semorg-process-step:first-of-type {
+	padding-top:15px;
+}
+.semorg-process-step + .semorg-process-step:before {
+	width:0;
+	height:0;
+	border-left:250px solid #ddf;
+	border-right:250px solid #ddf;
+	border-top:10px solid white;
+	content:"";
+	display:block;
+	padding-bottom:15px;
+	margin-left:-15px;
+}
+.semorg-process-step:nth-last-of-type(n+2):after {
+	width:0;
+	height:0;
+	border-left:250px solid white;
+	border-right:250px solid white;
+	border-top:10px solid #ddf;
+	content:"";
+	display:block;
+	margin-top:15px;
+	margin-left:-15px;
+}
+.semorg-process-step:last-of-type {
+	padding-bottom:15px;
+}
+
+/* timeline */
+.semorg-timeline {
+	position:absolute;
+	top:10%;
+	left:0;
+	height:80%;
+	width:100%;
+	background-color:#90c6e066;
+	padding:0 5px;
+	border-radius:2px;
+}
+.semorg-timeline:hover {
+	background-color:#90c6e0b8;
+}
+.semorg-timeline small {
+	vertical-align:top;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:inline-block;
+	width:100%;
+}
+.semorg-timeline a {
+	display:block;
+	color:#000;
+}
+.semorg-timeline a:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+/* links */
+.semorg-user-create-link {
+	font-style:italic;
+	font-size:small;
+}
+
+/* forms */
+.ui-datepicker-trigger,
+.PF_timepicker + input + button {
+	width:30px;
+	padding:0;
+	background: none;
+	border: none;
+	color: #666;
+	cursor: pointer;
+}
+.ui-datepicker-trigger:before {
+	content: "\f073";
+	font-family: "Font Awesome 5 Free";
+}
+.PF_timepicker + input + button:before {
+	content: "\f017";
+	font-family: "Font Awesome 5 Free";
+}
+.ui-datepicker-trigger img,
+.PF_timepicker + input + button img {
+	margin-left:-5px;
+	display:none;
+}
+.semorg-field-suffix {
+	margin-left:5px;
+}
+.semorg-field.pf-select2-container {
+	margin-bottom:0;
+}
+.semorg-row-field label + label {
+	margin-left:10px;
+}
+
+
+/* invoice-storno */
+.semorg-invoice-storno {
+	text-decoration: line-through;
+}
+
+/* cards */
+.semorg-card {
+	margin-bottom:20px;
+}
+
+/* detail page */
+.semorg-detail-badge {
+	position:relative
+}
+.semorg-detail-badge a {
+	color:#aaa;
+	font-size:30px;
+	position:absolute;
+	top:10px;
+	left:-30px;
+}
+.semorg-badge {
+	font-size:small;
+	font-weight:bold;
+	color:#555;
+}
+.semorg-detail-badge .badge {
+	vertical-align:middle;
+}
+#bodyContent .semorg-detail-heading {
+	margin-top:0;
+	font-size:2rem;
+	margin-bottom:1.5rem;
+}
+
+@media( max-width:620px ) {
+	.semorg-detail {
+		margin-left:30px;
+	}
+}
+
+
+/* detail table */
+.semorg-detail-table p {
+	margin:0;
+}
+
+
+/* tabs */
+.tab-content {
+	margin-top:15px;
+}
+
+
+/* CORRECTIONS */
+#bodyContent .card-body-table {
+	margin:-1.25em;
+}
+.card-body-table .table {
+	margin-bottom: 0;
+}
+/*
+.card-body-table .semorg-showedit {
+	border-top: 1px solid #dee2e6 !important;
+	border-bottom: 1px solid #dee2e6 !important;
+	width:1em;
+}
+*/
+.card-body-table .semorg-showedit {
+	max-width:0;
+	white-space:nowrap;
+}
+.card-body-table th.semorg-showedit {
+	border-bottom-width: 2px !important;
+}
+#bodyContent p {
+	max-width:unset;
+}
+
+#bodyContent .multipleTemplateWrapper p {
+	margin:0;
+}
+body .formtable .multipleTemplateWrapper td, 
+body .formtable .multipleTemplateWrapper th {
+	padding:3px;
+	border-top:none;
+}
+
+.multipleTemplateInstance:first-child {
+	margin-top:0;
+}
+
+body .formtable td.instanceAddAbove,
+body .formtable td.instanceRemove {
+	vertical-align:middle;
+}
+
+/* combobox in forms */
+#pfForm .ui-widget {
+	display:inline-block;
+}
+/* min-width of comboboxes is to big */
+.select2-choices, .select2-choice {
+	min-width:120px !important;
+}
+
+/* PRINT */
+@media print {
+	body {
+		display:block !important;
+		flex-direction:unset !important;
+	}
+	#sidebar-right {
+		display:none !important;
+	}
+
+	// wofür war das? wirklich nur für .semorg-details?
+	#contentwrapper .semorg-details .row {
+		display:unset !important;
+		flex-wrap:unset !important;
+	}
+	#maincontentwrapper {
+		flex:unset !important;
+		max-width:unset !important;
+	}
+	// macht diesen hässlichen Hack nötig
+	#contentwrapper .semorg-scj .row {
+		display:flex !important;
+		flex-wrap:wrap !important;
+	} 
+
+	.semorg-detail-badge a {
+		display:none;
+	}
+	.with-navbar.with-navbar-fixed {
+		padding-top:0 !important;
+	}
+	#bodyContent p {
+		max-width:unset;
+	}
+	.mw-parser-output a.external.text:after, .mw-parser-output a.external.autonumber:after {
+		content:'' !important;
+	}
+	.semorg-showedit,
+	.semorg-csv-download {
+		display:none;
+	}
+}
+
+
+/* hiding special fields for groups */
+.semorg-group-hidden {
+	display:none;
+}
+
+
+/* meeting-group */
+.semorg-meeting-group-header {
+	text-align:center;
+}
+.semorg-meeting-group-footer {
+	margin-top:50px;
+	page-break-inside:avoid;
+}
+
+.semorg-signatures {
+	text-align:center;
+	margin-top:100px;
+}
+
+.semorg-signature {
+	margin-top:100px;
+	border-top:1px solid #ccc;
+	width:45%;
+	display:inline-block;
+	margin-right:2%;
+	margin-left:2%;
+}
+
+.semorg-meeting-group-agenda-heading {
+	margin-top:30px;
+	margin-bottom:10px;
+	font-size:18px;
+}
+.semorg-meeting-group-agenda .tweeki-toc li {
+	list-style-type:none;
+}
+.semorg-meeting-group-agenda .tweeki-toc ul {
+	padding-left:0;
+	margin-left:0;
+}
+
+
+.semorg-agenda-proposal-tag {
+	margin:3px;
+}
+.semorg-meeting-overview {
+	font-size:small;
+}
+
+/* Placeholer select2 */
+.select2-container .select2-choice.select2-default > .select2-chosen {
+    color: #999;
+}
+
+.semorg-help .semorg-msg-edit {
+	visibility:hidden;
+}
+.semorg-help:hover .semorg-msg-edit,
+.semorg-formtable .semorg-row:hover .semorg-msg-edit {
+	visibility:visible;
+}
+.semorg-msg a.new,
+.semorg-help a.new {
+	border:none;
+}
+.semorg-msg a {
+	color:#555;
+}
+.semorg-msg a:hover {
+	color:#000;
+}
+
+.semorg-message-edit .warningbox {
+	display:none;
+}
+
+
+.grid .uls-language-block.row .three {
+	width:unset;
+}
+
+
+/* schedule */
+.table tr.semorg-schedule td {
+	vertical-align:middle;
+}
+.table td.semorg-month {
+	text-align:center;
+	vertical-align:middle;
+	font-size:small;
+	color:#999;
+	width:20px;
+	padding:1px;
+}
+.table td.semorg-role-task-hours {
+	vertical-align:middle;
+}
+.semorg-month-full {
+	text-transform: uppercase;
+	color: #fff;
+	background-color: #999;
+	border-radius: 30px;
+	display: block;
+	line-height: 25px;
+	font-size: 8px;
+	width: 25px;
+}
+.semorg-month-current .semorg-month-full {
+	background-color: #666;
+}
+
+
+/* tables */
+.table th, body .formtable th {
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: small;
+	color: #666;
+}
+
+/* filters */
+.semorg-filterbox {
+	font-size:small;
+	line-height:1;
+	color:#666;
+	padding:3px 5px;
+	margin-bottom:5px;
+	border-left:2px solid #dee2e6;
+}
+.semorg-filterbox-title {
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+/* csv download */
+.semorg-csv-download {
+	font-size:small;
+	line-height:1;
+	color:#666;
+	padding:3px 5px;
+	margin-bottom:5px;
+	border-left:2px solid #dee2e6;
+}
+
+
+/* TEMP */
+/* Löschwarnung verstecken */
+div.mw-warning-with-logexcerpt {
+	display:none;
+}
+
+
+/* TWEEKI */
+.mw-content-ltr ol.breadcrumb, 
+.mw-content-rtl .mw-content-ltr ol.breadcrumb {
+	margin:0;
+	margin-bottom: 1rem;
+	padding:.75rem 1rem;
+}
+
+
+/* PAGINATION */
+.semorg-pagination {
+	margin-top:-.7rem;
+}
+.semorg-pagination-pagination {
+	float:left;
+}
+.semorg-pagination-pagination .pagination {
+	margin:0;
+}
+.semorg-pagination-pagesize {
+	float:right;
+}
+.semorg-pagination-pagesize .pagination {
+	margin:0;
+	margin-right:50px;
+}
+.semorg-pagination .page-item.active .page-link {
+	background:none;
+	color:#000;
+}
+.semorg-pagination .page-link {
+	border:none;
+	border-left:1px dotted #dee2e6 !important;
+	border-right:1px dotted #dee2e6 !important;
+	color:#bbb;
+	font-size:.8rem;
+	line-height:1;
+}
+.semorg-pagination .page-item:first-child .page-link {
+	border-left:none !important;
+}
+.semorg-pagination .page-item:last-child .page-link {
+	border-right:none !important;
+}
+
+
+/* Action Links */
+.semorg-action-link {
+	font-size:small;
+	color:#999;
+}
+.semorg-action-link:hover {
+	color:#333;
+}
+
+
+.semorg-details {
+	margin-bottom:30px;
+}
+.semorg-details-row {
+	padding-top:5px;
+	padding-bottom:5px;
+	border-top:1px solid #edf3f9;
+}
+.semorg-details-field-name {
+	font-size:small;
+	color:#666;
+	text-transform:uppercase;
+}
+
+.semorg-list-row-details {
+	font-size:small;
+	color:#666;
+}
+.semorg-list .semorg-sums td {
+	border-color:transparent !important;
+}
+
+#bodyContent .semorg-list .semorg-detail-heading {
+	margin-bottom:5px;
+}
+.semorg-detail-help-link {
+	margin-left:10px;
+	vertical-align:top;
+	font-size:.8em;
+	color:#999;
+}
+.semorg-detail-help-link:hover {
+	color:#000;
+}
+.semorg-list-header {
+	margin-bottom:5px;
+}
+.semorg-list-title {
+	font-weight:bold;
+	font-size:20px;
+}
+.semorg-list-formlink {
+	font-size:small;
+}
+.semorg-list-formlink .btn-sm {
+	line-height:1;
+}
+.semorg-list-formlink .pfFormInput > p {
+	margin-bottom:0;
+}
+.semorg-list-formlink .forminput_button {
+	font-size:small;
+	line-height:1;
+}
+.semorg-list-links {
+	border-left:2px solid #dee2e6;
+	padding:3px 5px;
+	margin-bottom:5px;
+	font-size:small;
+}
+.semorg-list-links-title {
+	font-weight:700;
+	text-transform:uppercase;
+	color:#666;
+}
+.semorg-list-table {
+	width:100%;
+}
+.semorg-list-footer {
+	border-left:2px solid #dee2e6;
+	padding:3px 5px;
+	margin-bottom:15px;
+	font-size:small;
+	margin-top:-10px;
+}
+
+
+.card-header .btn-sm  {
+	line-height:1;
+}
+body input[type="button"].multipleTemplateAdder {
+	line-height:1;
+	font-size:small;
+}
+
+.semorg-role-inactive {
+	text-decoration:line-through;
+}
+
+.semorg-pagebreak {
+	page-break-after:always;
+}
+
+
+/* MOBILE */
+@media( max-width:768px ) {
+	.semorg-details-field-name {
+		font-size:.7em;
+	}
+	.semorg-details-row > div {
+		padding:0;
+	}
+	.semorg-detail-badge a {
+		position:unset;
+		vertical-align:middle;
+	}
+	.semorg-detail-badge .semorg-badge {
+		margin-left:5px;
+	}
+	.semorg-detail {
+		margin-left:0;
+	}
+}
+
+
+/* PROJECT UPDATES */
+.semorg-project-update-out-of-date .semorg-project-update-update {
+	opacity:.5;
+}
+
+
+/* PERSON-REF */
+.semorg-person-ref-formerly .semorg-person-ref-name {
+	text-decoration:line-through;
+}

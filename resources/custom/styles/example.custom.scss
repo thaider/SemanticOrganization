@@ -1,0 +1,22 @@
+@import "../../default/styles/semorg/variables";
+/* @import "custom/variables"; */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "../../../../../skins/Tweeki/resources/styles/tweeki/overwrites";
+
+@import "../../default/styles/semorg/fonts_opensans";
+@import "../../default/styles/semorg/content";
+@import "../../default/styles/semorg/semorg";
+@import "../../default/styles/semorg/forms";
+@import "../../default/styles/semorg/scj";
+@import "../../default/styles/semorg/dashboard";
+
+/* @import "semorg/styles"; */
+
+body {
+  position: relative;
+}

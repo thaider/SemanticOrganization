@@ -22,9 +22,12 @@ class SemanticOrganizationHooks {
 		$GLOBALS['wgTweekiSkinUseBootstrap4'] = true;
 		$GLOBALS['wgTweekiSkinUseExternallinkStyles'] = false;
 
-		if( $GLOBALS['wgSemorgUseCustomTweekiFiles'] !== false ) {
-			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.tweeki.scripts';
-			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.tweeki.styles';
+		if( $GLOBALS['wgSemorgUseCustomFiles'] === false ) {
+			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.default.scripts';
+			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.default.styles';
+		} else {
+			$GLOBALS['wgTweekiSkinCustomScriptModule'] = 'ext.semorg.custom.scripts';
+			$GLOBALS['wgTweekiSkinCustomStyleModule'] = 'ext.semorg.custom.styles';
 		}
 	}
 

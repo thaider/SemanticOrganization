@@ -1,0 +1,10 @@
+.env
+mix-manifest.json
+package-lock.json
+yarn.lock
+node_modules
+modules/custom
+resources/custom/scripts/custom.js
+resources/custom/styles/custom.scss
+resources/custom/styles/custom/*.scss
+resources/custom/fonts

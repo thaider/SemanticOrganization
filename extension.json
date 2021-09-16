@@ -23,16 +23,30 @@
 		"remoteExtPath": "SemanticOrganization/modules"
 	},
 	"ResourceModules": {
-		"ext.semorg.tweeki.styles": {
+		"ext.semorg.default.styles": {
+			"class": "ResourceLoaderSkinModule",
 			"position": "top",
 			"styles": {
-				"tweeki/css/custom.css": {}
+				"default/css/semorg.css": {}
 			}
 		},
-		"ext.semorg.tweeki.scripts": {
+		"ext.semorg.default.scripts": {
 			"position": "bottom",
 			"scripts": [
-				"tweeki/js/custom.js"
+				"default/js/semorg.js"
+			]
+		},
+		"ext.semorg.custom.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"position": "top",
+			"styles": {
+				"custom/css/semorg.css": {}
+			}
+		},
+		"ext.semorg.custom.scripts": {
+			"position": "bottom",
+			"scripts": [
+				"custom/js/semorg.js"
 			]
 		},
 		"ext.semorg": {
@@ -80,8 +94,8 @@
 		}
 	},
 	"config": {
-		"SemorgUseCustomTweekiFiles": {
-			"value": true
+		"SemorgUseCustomFiles": {
+			"value": false
 		},
 		"SemorgListLimit": {
 			"value": 20

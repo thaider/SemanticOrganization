@@ -1,0 +1,24 @@
+.semorg-dashboard .card + .card {
+	margin-top:25px;
+}
+.semorg-dashboard .card-header {
+	padding: .3rem;
+}
+.semorg-dashboard .card-header .card-header-links {
+	font-size:small;
+}
+.semorg-dashboard .card-header .btn-sm {
+	line-height:1;
+}
+.semorg-dashboard .card-header .card-header-links a + a {
+	margin-left:10px;
+}
+.semorg-dashboard .card-body {
+	padding: .75rem .3rem;
+}
+#bodyContent .semorg-dashboard .card-body-table {
+	margin: -.75rem -.3rem;
+}
+.semorg-dashboard-default {
+	padding: .75rem .3rem;
+}
