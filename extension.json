@@ -40,13 +40,13 @@
 			"class": "ResourceLoaderSkinModule",
 			"position": "top",
 			"styles": {
-				"custom/css/semorg.css": {}
+				"custom/css/custom.css": {}
 			}
 		},
 		"ext.semorg.custom.scripts": {
 			"position": "bottom",
 			"scripts": [
-				"custom/js/semorg.js"
+				"custom/js/custom.js"
 			]
 		},
 		"ext.semorg": {
