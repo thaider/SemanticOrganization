@@ -1,3 +1,4 @@
+!*.gitkeep
 .env
 mix-manifest.json
 package-lock.json
@@ -7,4 +8,4 @@ modules/custom
 resources/custom/scripts/custom.js
 resources/custom/styles/custom.scss
 resources/custom/styles/custom/*.scss
-resources/custom/fonts
+resources/custom/fonts/*
