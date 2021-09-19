@@ -30,24 +30,12 @@
 				"default/css/semorg.css": {}
 			}
 		},
-		"ext.semorg.default.scripts": {
-			"position": "bottom",
-			"scripts": [
-				"default/js/semorg.js"
-			]
-		},
 		"ext.semorg.custom.styles": {
 			"class": "ResourceLoaderSkinModule",
 			"position": "top",
 			"styles": {
 				"custom/css/custom.css": {}
 			}
-		},
-		"ext.semorg.custom.scripts": {
-			"position": "bottom",
-			"scripts": [
-				"custom/js/custom.js"
-			]
 		},
 		"ext.semorg": {
 			"position": "top",
@@ -94,7 +82,7 @@
 		}
 	},
 	"config": {
-		"SemorgUseCustomFiles": {
+		"SemorgUseCustomStyles": {
 			"value": false
 		},
 		"SemorgListLimit": {

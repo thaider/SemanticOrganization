@@ -15,8 +15,7 @@ mix.webpackConfig({
  | overwritten with any git update from the extension repository.
  |
  * /
-mix.js('resources/default/scripts/semorg.js', 'modules/default/js')
-   .sass('resources/default/styles/semorg.scss', 'modules/default/css')
+mix.sass('resources/default/styles/semorg.scss', 'modules/default/css')
    .options({
       processCssUrls: false
    })
@@ -40,8 +39,7 @@ mix.js('resources/default/scripts/semorg.js', 'modules/default/js')
  | - ./resources/styles/example.custom.scss    => ./resources/styles/custom.scss
  |
  */
-mix.js('resources/custom/scripts/custom.js', 'modules/custom/js')
-   .sass('resources/custom/styles/custom.scss', 'modules/custom/css')
+mix.sass('resources/custom/styles/custom.scss', 'modules/custom/css')
    .options({
       processCssUrls: false
    })
