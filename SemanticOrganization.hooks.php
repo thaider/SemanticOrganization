@@ -779,7 +779,7 @@ class SemanticOrganizationHooks {
 
 			// Set defaults for parameters
 			$parameters['limit'] = $wgSemorgListLimit;
-			$parameters['default'] = wfMessage('semorg-list-default');
+			$parameters['default'] = wfMessage('semorg-list-default')->parse();
 			$parameters['intro'] = '';
 			$parameters['outro'] = '';
 			
@@ -891,8 +891,73 @@ class SemanticOrganizationHooks {
 
 			// Create Map
 			if( isset( $listoptions['map-template'] ) ) {
-				$map_query = $query . '|template=' . $listoptions['map-template'] . '|format=leaflet|cluster=yes|clustermaxradius=5|height=200px|fullscreen=yes|layers=OpenStreetMap.BlackAndWhite';
+				$map_query = $query . '|template=' . $listoptions['map-template'];
 				$map_parameters = $parameters;
+
+				foreach( [
+					'format',
+					'width',
+					'height',
+					'centre',
+					'title',
+					'label',
+					'icon',
+					'lines',
+					'polygons',
+					'circles',
+					'rectangles',
+					'maxzoom',
+					'minzoom',
+					'copycoords',
+					'static',
+					'zoom',
+					'defzoom',
+					'layers',
+					'image layers',
+					'overlays',
+					'resizable',
+					'fullscreen',
+					'scrollwheelzoom',
+					'cluster',
+					'clustermaxzoom',
+					'clusterzoomonclick',
+					'clustermaxradius',
+					'clusterspiderfy',
+					'geojson',
+					'clicktarget',
+					'staticlocations',
+					'showtitle',
+					'hidenamespace',
+					'template',
+					'userparam',
+					'activeicon',
+					'pagelabel',
+					'ajaxcoordproperty',
+					'ajaxquery'
+				] as $parameter ) {
+					// explicitly set by query parameter?
+					if( !is_null( $request->getVal( 'map-' . $parameter ) ) && $request->getVal( 'map-' . $parameter ) > 0 ) {
+						$map_parameters[$parameter] = $request->getVal( 'map-' . $parameter );
+					}
+
+					// explicitly set by parser function parameter?
+					elseif( isset( $listoptions['map-' . $parameter] ) ) {
+						$map_parameters[$parameter] = $listoptions['map-' . $parameter];
+					}
+
+					// customized?
+					elseif( $custom_row_template && wfMessage( 'semorg-list-' . $row_template . '-custom-map-' . $parameter )->exists() ) {
+						$map_parameters[$parameter] = wfMessage( 'semorg-list-' . $row_template . '-custom-map-' . $parameter )->parse();
+					}
+
+					// set by a message?
+					elseif( wfMessage('semorg-list-' . $row_template . '-map-' . $parameter )->exists() ) {
+						$map_parameters[$parameter] = wfMessage('semorg-list-' . $row_template . '-map-' . $parameter )->parse();
+					}
+					elseif( wfMessage('semorg-list-default-map-' . $parameter )->exists() ) {
+						$map_parameters[$parameter] = wfMessage('semorg-list-default-map-' . $parameter )->parse();
+					}
+				}
 
 				// apply parameters...
 				foreach( $map_parameters as $parameter => $value ) {

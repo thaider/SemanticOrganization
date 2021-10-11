@@ -140,6 +140,11 @@
 
 	"semorg-list-default": "no entries so far…",
 	"semorg-list-default-all-link-text": "Show all",
+	"semorg-list-default-map-format": "leaflet",
+	"semorg-list-default-map-layers": "OpenStreetMap.BlackAndWhite",
+	"semorg-list-default-map-height": "200px",
+	"semorg-list-default-map-cluster": "yes",
+	"semorg-list-default-map-clustermaxradius": "5",
 	"semorg-list-proposal-default": "no proposals so far…",
 
 	"semorg-show-all": "Show all",
