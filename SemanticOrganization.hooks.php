@@ -887,6 +887,25 @@ class SemanticOrganizationHooks {
 				}
 			}
 
+			$list = '';
+
+			// Create Map
+			if( isset( $listoptions['map-template'] ) ) {
+				$map_query = $query . '|template=' . $listoptions['map-template'] . '|format=leaflet|cluster=yes|clustermaxradius=5|height=200px|fullscreen=yes|layers=OpenStreetMap.BlackAndWhite';
+				$map_parameters = $parameters;
+
+				// apply parameters...
+				foreach( $map_parameters as $parameter => $value ) {
+					if( $value != '' ) {
+						$map_query .= '|' . $parameter . '=' . $value;
+					}
+				}
+
+				$map_query .= '}}';
+
+				$list .= $parser->recursiveTagParse( '<div class="semorg-list-map">' . $map_query . '</div>' );
+			}
+
 			// Modification and creation dates
 			$query .= '|?Modification date#ISO=modification-date';
 			$query .= '|?Creation date#ISO=creation-date';
@@ -894,6 +913,7 @@ class SemanticOrganizationHooks {
 			$query .= '|link=none|named args=yes|format=template';
 			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
 
+			// Create Main Table
 			// Use custom template if it has been locally created
 			if( $custom_row_template ) {
 				$table_query = $query . '|template=semorg-' . $row_template . '-custom-row';
@@ -917,8 +937,9 @@ class SemanticOrganizationHooks {
 
 			$table_query .= '}}';
 
-			$list = $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div>' );
+			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div>' );
 
+			// Create Mobile Table
 			$mobile_row_template = 'semorg-default-mobile-row';
 			if( Title::newFromText( 'Template:semorg-' . $row_template . '-mobile-row' )->exists() ) {
 				$mobile_row_template = 'semorg-' . $row_template . '-mobile-row';
