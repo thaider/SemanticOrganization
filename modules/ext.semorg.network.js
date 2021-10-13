@@ -6,21 +6,34 @@ $( '.semorg-network' ).each( function() {
 		height = +svg.attr("height"),
 		radius = 5;
 
+	var g = svg.append("g")
+		.attr("class","everything");
+
+	//add zoom capabilities
+	var zoom_handler = d3.zoom()
+	    .on("zoom", zoom_actions);
+
+	zoom_handler(svg);
+
+	function zoom_actions(){
+		g.attr("transform", d3.event.transform);
+	}
+
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var simulation = d3.forceSimulation()
 		.force("link", d3.forceLink().id(function(d) { return d.id; }))
-		.force("charge", d3.forceManyBody().strength(-400).distanceMax(300).distanceMin(100))
+		.force("charge", d3.forceManyBody().strength(-100).distanceMax(150).distanceMin(50))
 		.force("center", d3.forceCenter(width / 2, height / 2));
 
-	var link = svg.append("g")
+	var link = g.append("g")
 		.attr("class", "links")
 		.selectAll("line")
 		.data(network_data.links)
 		.enter().append("line")
 		.attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-	var gnodes = svg.selectAll('g.gnode')
+	var gnodes = g.selectAll('g.gnode')
 		.data(network_data.nodes)
 		.enter()
 		.append('g')
@@ -99,7 +112,7 @@ $( '.semorg-network' ).each( function() {
 	function mousemove(d) {
 		var height = $('.network-tooltip').height();
 		tooltip
-			.text(d.id)
+			.text(d.tooltip)
 			.style("left", (d3.event.pageX - 75) + "px")
 			.style("top", (d3.event.pageY - 5 - height) + "px");
 	}

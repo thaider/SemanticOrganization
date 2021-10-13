@@ -1686,18 +1686,22 @@ class SemanticOrganizationHooks {
 			}
 			$node_category = $node_options[0];
 			$node_text_property = isset( $node_options[1] ) ?  'semorg-' . $node_options[1] : '';
+			$node_tooltip_property = isset( $node_options[3] ) ?  'semorg-' . $node_options[3] : '';
 			$node_query = $node_options[2] ?? '';
 
-			$node_query = "{{#ask:[[Category:semorg-" . $node_category . "]]" . $node_query . "|?" . $node_text_property . "|format=array|sep=<NODE>}}";
+			$node_query = "{{#ask:[[Category:semorg-" . $node_category . "]]" . $node_query . "|?" . $node_text_property . "|?" . $node_tooltip_property . "|format=array|sep=<NODE>}}";
 			$node_results = $parser->RecursiveTagParse( $node_query );
 			$node_results = explode( '&lt;NODE&gt;', $node_results );
 			foreach( $node_results as $node_result ) {
 				$node_result = explode( '&lt;PROP&gt;', $node_result );
-				$node_id = $node_text = $node_result[0];
+				$node_id = $node_text = $node_tooltip = $node_result[0];
 				if( isset( $node_result[1] ) && $node_result[1] !== '' ) {
 					$node_text = $node_result[1];
 				}
-				$network_data['nodes'][] = [ 'id' => $node_id, 'group' => $node_options[0], 'text' => $node_text, 'category' => $node_category ];
+				if( isset( $node_result[2] ) && $node_result[2] !== '' ) {
+					$node_tooltip = $node_result[2];
+				}
+				$network_data['nodes'][] = [ 'id' => $node_id, 'group' => $node_options[0], 'text' => $node_text, 'category' => $node_category, 'tooltip' => $node_tooltip ];
 			}
 		}
 
