@@ -10,6 +10,8 @@
 	"semorg-letter-footer": "",
 	"semorg-letter-address": "$1<br>$2<br>$3 $4",
 
+	"semorg-chartcolor": "",
+
 	"semorg-mail-meeting-group-link-text": "Send Invitation Email",
 	"semorg-mail-meeting-group-subject": "Invitation for $1 on $2, $3",
 
