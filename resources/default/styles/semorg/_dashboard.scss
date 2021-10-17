@@ -1,6 +1,13 @@
 .semorg-dashboard {
 	@extend .card-columns;
-	column-count:2;
+
+	@include media-breakpoint-up(sm) {
+	    column-count: 1;
+	}
+
+	@include media-breakpoint-up(lg) {
+	    column-count: 2;
+	}
 }
 .semorg-dashboard .card-header {
 	padding: .3rem;
