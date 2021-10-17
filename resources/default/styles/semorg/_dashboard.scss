@@ -1,5 +1,6 @@
-.semorg-dashboard .card + .card {
-	margin-top:25px;
+.semorg-dashboard {
+	@extend .card-columns;
+	column-count:2;
 }
 .semorg-dashboard .card-header {
 	padding: .3rem;
