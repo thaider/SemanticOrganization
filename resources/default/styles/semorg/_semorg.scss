@@ -180,12 +180,12 @@ a.new:hover {
 	left:0;
 	height:80%;
 	width:100%;
-	background-color:#90c6e066;
+	background-color:theme-color-level(primary, -8);
 	padding:0 5px;
 	border-radius:2px;
 }
 .semorg-timeline:hover {
-	background-color:#90c6e0b8;
+	background-color:theme-color-level(primary, -4);
 }
 .semorg-timeline small {
 	vertical-align:top;

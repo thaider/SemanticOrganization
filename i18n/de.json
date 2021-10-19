@@ -34,8 +34,8 @@
 	"semorg-timespan-since-until": "von {{#time:j.n.y|$1}} bis {{#time:j.n.y|$2}}",
 
 	"semorg-dashboard-title": "Meine $1",
-	"semorg-dashboard-link-all": "alle $1",
-	"semorg-dashboard-link-create": "$1 erstellen",
+	"semorg-dashboard-link-all": "<i class=\"fa fa-list\" data-toggle=\"tooltip\" title=\"alle anzeigen\"></i>",
+	"semorg-dashboard-link-create": "<i class=\"fa fa-plus\" data-toggle=\"tooltip\" title=\"neu erstellen\"></i>",
 
 	"semorg-formlink-generic-link-text": "$1 erstellen",
 	"semorg-forminput-generic-button-text": "$1 erstellen",
@@ -448,8 +448,6 @@
 	"semorg-meeting-page-name": "Treffen",
 	"semorg-meeting-past-page-name": "Vergangene Treffen",
 	"semorg-meeting-past-dashboard-title": "Letzte Protokolle",
-	"semorg-form-meeting-edit-title": "Treffen bearbeiten",
-	"semorg-form-meeting-create-title": "Treffen erstellen",
 	"semorg-form-meeting-page-name": "Treffen",
 	"semorg-list-meeting-default": "keine Treffen geplant…",
 	"semorg-list-meeting-default-past": "keine Treffen bisher…",

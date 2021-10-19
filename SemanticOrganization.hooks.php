@@ -2333,11 +2333,11 @@ class SemanticOrganizationHooks {
 		$links = '';
 		if( wfMessage( 'semorg-' . $template . '-page-name' )->exists() ) {
 			$page_name = wfMessage( 'semorg-' . $template . '-page-name' )->text();
-			$title = wfMessage( 'semorg-dashboard-title', $page_name );
-			$links .= '[[' . $page_name . '|<span class="btn btn-sm btn-secondary">' . wfMessage( 'semorg-dashboard-link-all', $page_name ) . '</span>]]';
+			$title = wfMessage( 'semorg-dashboard-title', $page_name )->text();
+			$links .= '[[' . $page_name . '|' . wfMessage( 'semorg-dashboard-link-all', $page_name )->text() . ']]';
 		}
-		if( wfMessage( 'semorg-form-' . $template . '-page-name' )->exists() ) {
-			$links .= '{{#semorg-formlink:' . $template . '|returnto={{FULLPAGENAME}}}}';
+		if( wfMessage( 'semorg-form-' . $template . '-page-name' )->exists() && wfMessage( 'semorg-form-' . $template . '-create-title' )->exists() ) {
+			$links .= '{{#semorg-formlink:' . $template . '|returnto={{FULLPAGENAME}}|link text={{int:semorg-dashboard-link-create}}|class=semorg-dashboard-formlink}}';
 		}
 		if( wfMessage( 'semorg-' . $template . '-dashboard-title' )->exists() ) {
 			$title = wfMessage( 'semorg-' . $template . '-dashboard-title' )->text();
@@ -2355,6 +2355,27 @@ class SemanticOrganizationHooks {
 		}
 		$dashboard .= '|title=' . $title;
 		$dashboard .= '|links=' . $links;
+
+		foreach( [
+			'query',
+			'sort',
+			'limit',
+			'tables',
+			'body',
+			'row-template',
+		] as $parameter ) {
+			if( !isset( $dashboardoptions[$parameter] ) && wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->exists() ) {
+				$dashboardoptions[str_replace( '-', ' ', $parameter )] = wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->text();
+			}
+		}
+
+		// parent template?
+		if( wfMessage( 'semorg-form-' . $template . '-template' )->exists() ) {
+			if( !isset( $dashboardoptions['row template'] ) ) {
+				$dashboardotions['row template'] = $template;
+			}
+			$template = wfMessage( 'semorg-form-' . $template . '-template' )->text();
+		}
 
 		if( isset( $dashboardoptions['tables'] ) ) {
 			$tables = $dashboardoptions['tables'];
