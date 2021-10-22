@@ -704,7 +704,7 @@
 	"semorg-form-meeting-rows": "group,datetimes,location,participant,excused,guest,moderator,secretary,overview",
 	"semorg-form-meeting-template": "meeting",
 	"semorg-list-meeting-headers": "meeting-meeting,meeting-date,meeting-location,meeting-moderator,meeting-secretary,meeting-participant",
-	"semorg-list-meeting-dashboard-headers": "meeting-meeting,meeting-date,meeting-location,meeting-moderator,meeting-secretary",
+	"semorg-list-meeting-dashboard-headers": "meeting-meeting,meeting-date,meeting-location,meeting-roles",
 	"semorg-list-meeting-past-dashboard-headers": "meeting-meeting,meeting-date,meeting-location,meeting-participant",
 	"semorg-list-meeting-sort": "semorg-meeting-date",
 	"semorg-list-meeting-default": "no meetings scheduled…",
@@ -789,6 +789,7 @@
 	"semorg-field-meeting-contacts-name": "Contacts",
 	"semorg-field-meeting-contacts-parameters": "holds template",
 	"semorg-field-meeting-meeting-type-name": "Type",
+	"semorg-field-meeting-roles-name": "Roles",
 
 	"semorg-meeting-group-template": "semorg-meeting-group",
 	"semorg-meeting-group-category": "semorg-meeting-group",

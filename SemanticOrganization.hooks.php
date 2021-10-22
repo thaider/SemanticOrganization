@@ -77,6 +77,7 @@ class SemanticOrganizationHooks {
 			'distinct-number' => 'renderDistinctNumber',
 			'nocache' => 'disableCache',
 			'missing-metrics' => 'renderMissingMetrics',
+			'timeline-weekends' => 'renderTimelineWeekends',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -2547,6 +2548,27 @@ class SemanticOrganizationHooks {
 		}
 
 		return [ $missing, 'noparse' => false ];
+	}
+
+
+	/**
+	 * Render weekends in a timeline
+	 */
+	static function renderTimelineWeekends( &$parser, $weeks = 4 ) {
+		$day_of_the_week = date('N');
+		$days = $weeks * 7;
+
+		$current = 7 - $day_of_the_week;
+		$width = 100 * 2 / $days;
+
+		for( $current = 7 - $day_of_the_week; $current < $days; $current += 7 ) {
+			$left = 100 * ( $days - $current ) / $days;
+			$weekends .= '<span class="semorg-timeline-weekend" style="background:#ccc;height:100%;position:absolute;top:0;width:' . $width . '%;left:' . $left . '%"></span>';
+		}
+
+
+		$weekends = '<div class="semorg-timeline-weekends">' . $weekends . '</div>';
+		return [ $weekends ];
 	}
 
 

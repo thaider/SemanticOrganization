@@ -491,6 +491,7 @@
 	"semorg-field-meeting-contact-name": "Externe Teilnehmer*innen",
 	"semorg-field-meeting-contacts-name": "Kontakte",
 	"semorg-field-meeting-meeting-type-name": "Typ",
+	"semorg-field-meeting-roles-name": "Rollen",
 
 	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
 	"semorg-meeting-group-page-name": "Besprechungen",
