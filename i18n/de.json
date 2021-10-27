@@ -208,6 +208,9 @@
 	"semorg-value-targeted-sc-action-add": "hinzuzufügen",
 	"semorg-value-targeted-sc-action-change": "zu verändern",
 	"semorg-value-targeted-sc-action-get-rid": "zu entfernen",
+	"semorg-value-scj-status-in-development": "in Entwicklung",
+	"semorg-value-scj-status-proposed": "vorgeschlagen",
+	"semorg-value-scj-status-adopted": "angenommen",
 
 	"semorg-up-to-date-date-none": "noch nicht kontrolliert…",
 	"semorg-up-to-date-date-to-be-checked": "zu überprüfen",
