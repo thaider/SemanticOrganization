@@ -208,9 +208,6 @@
 	"semorg-value-targeted-sc-action-add": "hinzuzufügen",
 	"semorg-value-targeted-sc-action-change": "zu verändern",
 	"semorg-value-targeted-sc-action-get-rid": "zu entfernen",
-	"semorg-value-scj-status-in-development": "in Entwicklung",
-	"semorg-value-scj-status-proposed": "vorgeschlagen",
-	"semorg-value-scj-status-adopted": "angenommen",
 
 	"semorg-up-to-date-date-none": "noch nicht kontrolliert…",
 	"semorg-up-to-date-date-to-be-checked": "zu überprüfen",
@@ -1187,6 +1184,7 @@
 	"semorg-field-scj-prioritisation-name": "Priorisierung",
 	"semorg-field-scj-priority-name": "Priorität",
 	"semorg-field-scj-hypothesis-name": "Hypothesen",
+	"semorg-field-scj-status-values": "in Entwicklung, vorgeschlagen, angenommen",
 
 	"semorg-plot-page-name": "Plots",
 	"semorg-plot-entity-name": "Plot",

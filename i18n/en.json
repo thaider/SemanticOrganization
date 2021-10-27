@@ -241,9 +241,6 @@
 	"semorg-value-targeted-sc-action-add": "add",
 	"semorg-value-targeted-sc-action-change": "change",
 	"semorg-value-targeted-sc-action-get-rid": "get rid of",
-	"semorg-value-scj-status-in-development": "in development",
-	"semorg-value-scj-status-proposed": "proposed",
-	"semorg-value-scj-status-adopted": "adopted",
 
 	"semorg-error-list-no-fields": "error: no fields for list defined…",
 	"semorg-error-missing-parameter": "error: missing parameter <code>$2</code> for parser function <code>$1!</code>",
@@ -2193,8 +2190,7 @@
 	"semorg-field-scj-hypothesis-parameters": "input type=tokens|values from category=semorg-hypothesis|mapping property=Semorg-hypothesis-name",
 	"semorg-field-scj-status-name": "Status",
 	"semorg-field-scj-status-input-type": "radiobutton",
-	"semorg-field-scj-status-parameters": "mapping template=semorg-mapping-scj-status",
-	"semorg-field-scj-status-values": "in-development,proposed,adopted",
+	"semorg-field-scj-status-values": "in development,proposed,adopted",
 
 	"semorg-plot-template": "semorg-plot",
 	"semorg-plot-category": "semorg-plot",
