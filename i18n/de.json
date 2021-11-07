@@ -274,6 +274,7 @@
 	"semorg-field-person-refs-name": "Verweise",
 	"semorg-field-person-contact-name": "Kontakt",
 	"semorg-field-person-projects-name": "Projekte",
+	"semorg-field-person-picture-name": "Bild",
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 

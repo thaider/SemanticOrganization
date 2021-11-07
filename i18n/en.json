@@ -354,6 +354,8 @@
 	"semorg-field-person-institutions-name": "Institutions",
 	"semorg-field-person-contact-name": "Contact",
 	"semorg-field-person-projects-name": "Projects",
+	"semorg-field-person-picture-name": "Picture",
+	"semorg-field-person-picture-parameters": "uploadable",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
