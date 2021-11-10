@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Hooks for the Semantic Organization Extension
  */
@@ -103,6 +106,28 @@ class SemanticOrganizationHooks {
 		$formEditTitle = Title::newFromText( 'Special:FormEdit' );
 		if( $out->getTitle()->equals( $formEditTitle ) || $out->getRequest()->getText('action') == 'formedit' ) {
 			$out->addModules( [ 'ext.semorg.formedit' ] );
+		}
+	}
+
+
+	/**
+	 * Customize Content of Search Results
+	 */
+	static function onShowSearchHit( $searchPage, $result, $terms, &$link, &$redirect, &$section, &$extract, &$score, &$size, &$date, &$related, &$html ) {
+		$entitites = [];
+		$categories = $result->getTitle()->getParentCategories();
+		if( count( $categories ) > 0 ) {
+			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
+			$search = $contLang->getNsText( NS_CATEGORY ) . ':';
+			foreach( $categories as $category => $article ) {
+				$category = str_replace( $search, '', $category );
+				if( wfMessage($category . '-entity-name' )->exists() ) {
+					$entities[] = wfMessage( $category . '-entity-name' )->text();
+				}
+			}
+			if( count( $entities ) > 0 ) {
+				$extract = '<div class="semorg-list-row-details">' . join( ', ', $entities ) . '</div>' . $extract;
+			}
 		}
 	}
 

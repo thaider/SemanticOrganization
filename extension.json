@@ -105,6 +105,9 @@
 		"BeforePageDisplay": [
 			"SemanticOrganizationHooks::onBeforePageDisplay"
 		],
+		"ShowSearchHit": [
+			"SemanticOrganizationHooks::onShowSearchHit"
+		],
 		"ShowSearchHitTitle": [
 			"SemanticOrganizationHooks::onShowSearchHitTitle"
 		]
