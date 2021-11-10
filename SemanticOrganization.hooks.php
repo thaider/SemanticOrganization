@@ -108,6 +108,22 @@ class SemanticOrganizationHooks {
 
 
 	/**
+	 * Customize Title of Search Results
+	 */
+	static function onShowSearchHitTitle( Title &$title, &$titleSnippet, SearchResult $result, $terms, SpecialSearch $specialSearch, array &$query, array &$attributes ) {
+		$displaytitle = PageProps::getInstance()->getProperties( $title, 'displaytitle' );
+		if( count($displaytitle) > 0 ) {
+			$titleSnippet = reset( $displaytitle );
+			foreach( $terms as $term ) {
+				$search = str_replace( '\b', '', $term );
+				$replace = '<b>' . $search . '</b>';
+				$titleSnippet = new HTMLArmor( str_replace( $search, $replace, $titleSnippet ) );
+			}
+		}
+	}
+
+
+	/**
 	 * Get name of the current user
 	 */
 	static function getUser( &$parser ) {

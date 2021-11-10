@@ -104,6 +104,9 @@
 		],
 		"BeforePageDisplay": [
 			"SemanticOrganizationHooks::onBeforePageDisplay"
+		],
+		"ShowSearchHitTitle": [
+			"SemanticOrganizationHooks::onShowSearchHitTitle"
 		]
 	},
 	"MessagesDirs": {
