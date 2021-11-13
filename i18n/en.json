@@ -2591,6 +2591,7 @@
 	"semorg-list-liquidity-planning-current-link-text": "current",
 	"semorg-list-liquidity-planning-past-link-text": "past",
 	"semorg-list-liquidity-planning-inflows-heading": "Inflows",
+	"semorg-list-liquidity-planning-inflows-potential-heading": "Potential Inflows",
 	"semorg-list-liquidity-planning-outflows-heading": "Outflows",
 	"semorg-field-liquidity-planning-end-date-name": "End date",
 	"semorg-field-liquidity-planning-end-date-input-type": "datepicker",
