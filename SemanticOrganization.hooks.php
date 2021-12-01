@@ -2052,7 +2052,7 @@ class SemanticOrganizationHooks {
 				$rating_html .= '<i class="far fa-star"></i>';
 			}
 		}
-		$rating_html = '<div class="semorg-rating">' . $rating_html . '</div>';
+		$rating_html = '<div class="semorg-rating">' . $rating_html . '&nbsp;</div>';
 		return [ $rating_html ];
 	}
 
