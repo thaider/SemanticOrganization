@@ -2554,15 +2554,15 @@ class SemanticOrganizationHooks {
 			case "quarter":
 				$lastmetric_year = $lastmetric_date->format('Y');
 				$lastmetric_month = $lastmetric_date->format('m');
-				$lastmetric_quarter = $lastmetric_year . ( str_pad( ceil( $lastmetric_month / 4 ) * 4, 2, '0', STR_PAD_LEFT ) );
+				$lastmetric_quarter = $lastmetric_year . ( str_pad( ceil( $lastmetric_month / 3 ) * 3, 2, '0', STR_PAD_LEFT ) );
 				$current_year = $now->format('Y');
 				$current_month = $now->format('m');
-				$current_quarter = $current_year . ( str_pad( ceil( $current_month / 4 ) * 4, 2, '0', STR_PAD_LEFT ) );
+				$current_quarter = $current_year . ( str_pad( ceil( $current_month / 3 ) * 3, 2, '0', STR_PAD_LEFT ) );
 				$next_quarter = ( $lastmetric_quarter % 100 == 12 ) ? ( $lastmetric_quarter + 100 - 9 ) : ( $lastmetric_quarter + 3 );
 				for( $i = $next_quarter; $i < $current_quarter; $i = $i+3 ) {
 					$last_day_of_quarter = DateTime::createFromFormat('Ymd', $i+1 . '01');
 					$last_day_of_quarter->sub(new DateInterval('P1D'));
-					$missing .= self::getMeasurementLink( $metric, $last_day_of_quarter->format('Y-m-d'), $last_day_of_quarter->format('Y') . '/' . ceil( $last_day_of_quarter->format('m') / 4 ) );
+					$missing .= self::getMeasurementLink( $metric, $last_day_of_quarter->format('Y-m-d'), $last_day_of_quarter->format('Y') . '/' . ceil( $last_day_of_quarter->format('m') / 3 ) );
 					if( $i % 100 == 12 ) {
 						$i = $i + 100 - 12;
 					}
