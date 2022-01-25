@@ -358,6 +358,10 @@
 	"semorg-field-person-projects-name": "Projects",
 	"semorg-field-person-picture-name": "Picture",
 	"semorg-field-person-picture-parameters": "uploadable",
+	"semorg-field-person-target-group-name": "Target Groups",
+	"semorg-field-person-target-group-input-type": "checkboxes",
+	"semorg-field-person-target-group-parameters": "values from category=semorg-target-group",
+	"semorg-field-person-target-group-mapping-property": "Semorg-target-group-name",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
