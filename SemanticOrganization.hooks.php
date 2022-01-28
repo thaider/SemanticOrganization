@@ -1463,6 +1463,11 @@ class SemanticOrganizationHooks {
 			$field .= '<span class="semorg-field-suffix ' . $fullelement . '-suffix">' . wfMessage($fullelement . '-suffix')->text() . '</span>';
 		}
 
+		/* should it be wrapped as alert */
+		if( !wfMessage($fullelement . '-alert')->isDisabled() ) {
+			$field = '<div class="alert alert-' . wfMessage($fullelement . '-alert')->text() . '">' . $field . '</div>';
+		}
+
 		return $field;
 	}
 
