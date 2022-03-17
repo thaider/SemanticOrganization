@@ -211,6 +211,7 @@
 	"semorg-value-contact-type-personal": "Personal Meeting",
 	"semorg-value-contact-type-unknown": "Unknown Type",
 	"semorg-value-contact-type-event": "Event",
+	"semorg-value-contact-type-meeting-project": "Project Meeting",
 	"semorg-value-membership-type-entry": "Entry",
 	"semorg-value-membership-type-increase": "Increase",
 	"semorg-value-membership-type-decrease": "Decrease",
