@@ -1,19 +1,7 @@
 @import "semorg/variables";
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-
 @import "~bootstrap/scss/bootstrap";
 
-@import "../../../../../skins/Tweeki/resources/styles/tweeki/overwrites";
+@import "../../../../../skins/Tweeki/resources/styles/tweeki/index";
 
-@import "semorg/fonts_opensans";
-@import "semorg/content";
-@import "semorg/semorg";
-@import "semorg/forms";
-@import "semorg/scj";
-@import "semorg/dashboard";
-
-body {
-  position: relative;
-}
+@import "semorg/index";

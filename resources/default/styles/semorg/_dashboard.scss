@@ -8,25 +8,59 @@
 	@include media-breakpoint-up(lg) {
 	    column-count: 2;
 	}
+
+	.card {
+	    border:none;
+	    border-left: 2px solid $primary;
+	    border-radius:0;
+	    padding-left:0;
+	    padding-right:20px;
+	}
+
+	.card-header {
+		padding: .3rem;
+	    background-color:$primary;
+	    color:white;
+	    border-radius:0;
+	    font-size:small;
+	    text-transform:uppercase;
+	    font-weight:bold;
+	    padding-right:10px;
+
+		.card-header-links {
+			font-size:small;
+
+			a {
+			    color:white;
+			    opacity:.5;
+			    text-decoration:none;
+
+			    &:hover,
+			    &:active,
+			    &:focus {
+			            opacity:1;
+			    }
+			}
+		}
+
+		.btn-sm {
+			line-height:1;
+		}
+
+		.card-header-links a + a {
+			margin-left:10px;
+		}
+	}
+
+	.card-body {
+		padding: .75rem .3rem;
+	}
 }
-.semorg-dashboard .card-header {
-	padding: .3rem;
-}
-.semorg-dashboard .card-header .card-header-links {
-	font-size:small;
-}
-.semorg-dashboard .card-header .btn-sm {
-	line-height:1;
-}
-.semorg-dashboard .card-header .card-header-links a + a {
-	margin-left:10px;
-}
-.semorg-dashboard .card-body {
-	padding: .75rem .3rem;
-}
+
 #bodyContent .semorg-dashboard .card-body-table {
 	margin: -.75rem -.3rem;
 }
+
 .semorg-dashboard-default {
 	padding: .75rem .3rem;
 }
