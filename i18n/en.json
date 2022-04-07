@@ -142,6 +142,7 @@
 	"semorg-form-freestyle-legend": "Freestyle",
 
 	"semorg-list-default": "no entries so far…",
+	"semorg-list-default-tableclass": "table table-sm table-bordered sortable",
 	"semorg-list-default-all-link-text": "Show all",
 	"semorg-list-default-map-format": "leaflet",
 	"semorg-list-default-map-layers": "OpenStreetMap",

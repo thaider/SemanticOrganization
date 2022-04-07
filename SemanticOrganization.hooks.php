@@ -757,7 +757,7 @@ class SemanticOrganizationHooks {
 			} elseif( wfMessage('semorg-list-' . $template . '-tableclass' )->exists() ) {
 				$tableclass = wfMessage('semorg-list-' . $template . '-tableclass' )->text();
 			} else {
-				$tableclass = 'table table-sm table-bordered sortable';
+				$tableclass = wfMessage('semorg-list-default-tableclass')->text();
 			}
 
 			$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
