@@ -1159,6 +1159,15 @@ class SemanticOrganizationHooks {
 		// Footer
 		if( isset( $listoptions['footer'] ) ) {
 			$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( $listoptions['footer'] ) . '</div>';
+		} elseif( isset( $listoptions['all url'] ) ) {
+			if( $count > $limit ) {
+				if( wfMessage( 'semorg-list-' . $template . '-all-link-text' )->exists() ) {
+					$all_link_text = wfMessage( 'semorg-list-' . $template . '-all-link-text', $count )->text();
+				} else {
+					$all_link_text = wfMessage( 'semorg-list-default-all-link-text' )->text();
+				}
+				$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( '[' . $listoptions['all url'] . ' ' . $all_link_text . ']' ) . '</div';
+			}
 		}
 
 		// Pagination
@@ -1246,7 +1255,7 @@ class SemanticOrganizationHooks {
 		/* current meetings */
 		$meetings .= '<div class="semorg-meetings-current mt-4 mb-4">{{#semorg-list:meeting
 		  |title={{int:semorg-list-meeting-current-heading|' . $meetings_page_name . '}}
-	      |formlink=' . $links . '
+		  |formlink=' . $links . '
 		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
@@ -1260,6 +1269,7 @@ class SemanticOrganizationHooks {
 		if( !isset( $options['only current'] ) || $options['only current'] != true ) {
 			$past_query = $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]';
 			$past_count = $parser->recursiveTagParse( '{{#ask:' . $past_query . '|format=count}}' );
+			$past_limit = 10;
 			$show_all_link = '[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text|' . $past_count . '}}]';
 			$meetings .= '<div class="semorg-meetings-past">{{#semorg-list:meeting
 			  |title={{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}
@@ -1269,9 +1279,9 @@ class SemanticOrganizationHooks {
 			  |sort=Semorg-meeting-date
 			  |order=desc
 			  |default={{int:semorg-list-meeting-default-past}}
-			  |limit=10
+			  |limit=' . $past_limit . '
 			  |nopagination
-			  |footer={{#ifexpr:' . $past_count . ' > 10|' . $show_all_link . '}}
+			  |footer={{#ifexpr:' . $past_count . ' > ' . $past_limit . '|' . $show_all_link . '}}
 			}}</div>';
 		}
 

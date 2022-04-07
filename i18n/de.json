@@ -993,6 +993,7 @@
 	"semorg-form-contact-edit-title": "Kontakt bearbeiten",
 	"semorg-form-contact-page-name": "Kontakthistorie",
 	"semorg-list-contact-heading": "Kontakthistorie",
+	"semorg-list-contact-all-link-text": "Alle $1 Einträge anzeigen",
 	"semorg-field-contact-entry-name": "Kontakt",
 	"semorg-field-contact-participant-name": "Interne Teilnehmer*innen",
 	"semorg-field-contact-subject-name": "Betreff",

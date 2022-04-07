@@ -1823,6 +1823,7 @@
 	"semorg-form-contact-rows": "type, datetime, location, participant, contact, subject, details, ref",
 	"semorg-list-contact-headers": "contact-entry, contact-subject, contact-participant, contact-contact",
 	"semorg-list-contact-heading": "Contact History",
+	"semorg-list-contact-all-link-text": "Show all $1 entries",
 	"semorg-field-contact-entry-name": "Contact",
 	"semorg-field-contact-participant-name": "Internal Participants",
 	"semorg-field-contact-participant-parameters": "input type=tokens|list|values from category=semorg-person-user|mapping property=Semorg-person-name|default={{#semorg-user:}}",
