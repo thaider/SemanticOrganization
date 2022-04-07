@@ -58,4 +58,5 @@ $magicWords['en'] = array(
 	'semorg-nocache' => array( 0, 'semorg-nocache' ),
 	'semorg-missing-metrics' => array( 0, 'semorg-missing-metrics' ),
 	'semorg-timeline-weekends' => array( 0, 'semorg-timeline-weekends' ),
+	'semorg-collapse' => array( 0, 'semorg-collapse' ),
 );

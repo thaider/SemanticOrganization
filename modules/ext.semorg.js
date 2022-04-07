@@ -7,6 +7,11 @@
 	mw.semorg = {
 	};
 
+	/* semorg-collapse */
+	$( '.semorg-collapse' ).click(function(e) {
+		$(this).find('.fa').toggleClass('fa-chevron-down fa-chevron-up')
+	});
+
 	$( '.semorg-toggle button' ).click( function(e) {
 		$(this).parent().find( '.semorg-toggle-toggle, .semorg-toggle-original' ).toggle();
 		var target = $(this).parent().data('semorg-toggle');

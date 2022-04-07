@@ -81,10 +81,20 @@ class SemanticOrganizationHooks {
 			'nocache' => 'disableCache',
 			'missing-metrics' => 'renderMissingMetrics',
 			'timeline-weekends' => 'renderTimelineWeekends',
+			'collapse' => 'renderCollapse',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
 		}
+	}
+
+
+	/**
+	 * Render Collapse Button
+	 */
+	static function renderCollapse( &$parser, $target ) {
+		$collapse = '<a	class="semorg-collapse" data-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '"><span class="fa fa-chevron-down"></a>';
+		return [ $collapse, 'noparse' => true, 'isHTML' => true ];
 	}
 
 
