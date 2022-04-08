@@ -2442,6 +2442,7 @@ class SemanticOrganizationHooks {
 			'tables',
 			'body',
 			'row-template',
+			'category',
 		] as $parameter ) {
 			if( !isset( $dashboardoptions[$parameter] ) && wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->exists() ) {
 				$dashboardoptions[str_replace( '-', ' ', $parameter )] = wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->text();
