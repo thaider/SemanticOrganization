@@ -374,10 +374,10 @@
 	"semorg-field-project-outlook-name": "Ausblick",
 	"semorg-tab-project-overview": "Übersicht",
 	"semorg-tab-project-details": "Details",
-	"semorg-tab-project-meetings": "Projektbesprechungen",
+	"semorg-tab-project-meetings": "Projektbesprechungen <small>({{#ask:[[semorg-meeting-project::{{FULLPAGENAME}}]]|format=count}})</small>",
 	"semorg-tab-project-grants": "Förderungen",
-	"semorg-tab-project-contact": "Kontaktgeschichte",
-	"semorg-tab-project-agenda": "Agenda",
+	"semorg-tab-project-contact": "Kontaktgeschichte <small>({{#ask:[[semorg-contact-ref::{{FULLPAGENAME}}]]|format=count}})</small>",
+	"semorg-tab-project-agenda": "Agenda <small>({{#ask:[[semorg-agenda-project::{{FULLPAGENAME}}]]|format=count}})</small>",
 	"semorg-tab-project-openproject": "OpenProject",
 
 	"semorg-project-research-page-name": "Forschungsprojekte",
@@ -403,6 +403,7 @@
 	"semorg-field-task-responsible-person-name-name": "verantwortlich",
 
 	"semorg-project-subpage-page-name": "Projektunterseiten",
+	"semorg-project-subpage-archived-page-name": "Archivierte Projektunterseiten",
 	"semorg-project-subpage-entity-name": "Projektunterseite",
 	"semorg-form-project-subpage-create-title": "Projektunterseite erstellen",
 	"semorg-form-project-subpage-edit-title": "Projektunterseite bearbeiten",
@@ -411,6 +412,7 @@
 	"semorg-field-project-subpage-project-name": "Projekt",
 	"semorg-field-project-subpage-subpage-name": "Unterseite",
 	"semorg-field-project-subpage-description-name": "Beschreibung",
+	"semorg-field-project-subpage-archived-label": "archiviert",
 
 	"semorg-field-project-team-project-name": "Projekt",
 	"semorg-field-project-team-team-external-name": "Team (extern)",

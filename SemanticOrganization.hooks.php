@@ -1054,7 +1054,14 @@ class SemanticOrganizationHooks {
 
 			$table_query .= '}}';
 
-			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div>' );
+			$list_table_class = '';
+			$list_table_id = '';
+			if( isset( $listoptions['title'] ) && isset( $listoptions['collapsed'] ) ) {
+				$list_table_id = 'id="semorg-collapse-' . $listoptions['collapsed'] . '" ';
+				$list_table_class .= ' collapse';
+			}
+
+			$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div></div>' );
 
 			// Create Mobile Table
 			$mobile_row_template = 'semorg-default-mobile-row';
@@ -1077,7 +1084,7 @@ class SemanticOrganizationHooks {
 
 			$mobile_query .= '}}';
 
-			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div>' );
+			$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div></div>' );
 
 
 			if( isset( $listoptions['csv'] ) ) {
@@ -1121,7 +1128,12 @@ class SemanticOrganizationHooks {
 
 			// Title
 			if( isset( $listoptions['title'] ) ) {
-				$list_header .= '<div class="semorg-list-title">' . $parser->recursiveTagParse( $listoptions['title'] ) . '</div>';
+				$list_header .= '<div class="semorg-list-title">';
+				if( isset( $listoptions['collapsed'] ) ) {
+					$list_header .= '<small class="mr-2">' . $parser->recursiveTagParse( '{{#semorg-collapse:semorg-collapse-' . $listoptions['collapsed'] . '}}' ). '</small>';
+				}
+				$list_header .= $parser->recursiveTagParse( $listoptions['title'] );
+				$list_header .= '</div>';
 			}
 
 			// Formlink
