@@ -757,7 +757,7 @@ class SemanticOrganizationHooks {
 			} elseif( wfMessage('semorg-list-' . $template . '-tableclass' )->exists() ) {
 				$tableclass = wfMessage('semorg-list-' . $template . '-tableclass' )->text();
 			} else {
-				$tableclass = 'table table-sm table-bordered sortable';
+				$tableclass = wfMessage('semorg-list-default-tableclass')->text();
 			}
 
 			$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
@@ -1054,7 +1054,14 @@ class SemanticOrganizationHooks {
 
 			$table_query .= '}}';
 
-			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div>' );
+			$list_table_class = '';
+			$list_table_id = '';
+			if( isset( $listoptions['title'] ) && isset( $listoptions['collapsed'] ) ) {
+				$list_table_id = 'id="semorg-collapse-' . $listoptions['collapsed'] . '" ';
+				$list_table_class .= ' collapse';
+			}
+
+			$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div></div>' );
 
 			// Create Mobile Table
 			$mobile_row_template = 'semorg-default-mobile-row';
@@ -1077,7 +1084,7 @@ class SemanticOrganizationHooks {
 
 			$mobile_query .= '}}';
 
-			$list .= $parser->recursiveTagParse( '<div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div>' );
+			$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div></div>' );
 
 
 			if( isset( $listoptions['csv'] ) ) {
@@ -1121,7 +1128,12 @@ class SemanticOrganizationHooks {
 
 			// Title
 			if( isset( $listoptions['title'] ) ) {
-				$list_header .= '<div class="semorg-list-title">' . $parser->recursiveTagParse( $listoptions['title'] ) . '</div>';
+				$list_header .= '<div class="semorg-list-title">';
+				if( isset( $listoptions['collapsed'] ) ) {
+					$list_header .= '<small class="mr-2">' . $parser->recursiveTagParse( '{{#semorg-collapse:semorg-collapse-' . $listoptions['collapsed'] . '}}' ). '</small>';
+				}
+				$list_header .= $parser->recursiveTagParse( $listoptions['title'] );
+				$list_header .= '</div>';
 			}
 
 			// Formlink
@@ -1159,6 +1171,15 @@ class SemanticOrganizationHooks {
 		// Footer
 		if( isset( $listoptions['footer'] ) ) {
 			$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( $listoptions['footer'] ) . '</div>';
+		} elseif( isset( $listoptions['all url'] ) ) {
+			if( $count > $limit ) {
+				if( wfMessage( 'semorg-list-' . $template . '-all-link-text' )->exists() ) {
+					$all_link_text = wfMessage( 'semorg-list-' . $template . '-all-link-text', $count )->text();
+				} else {
+					$all_link_text = wfMessage( 'semorg-list-default-all-link-text' )->text();
+				}
+				$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( '[' . $listoptions['all url'] . ' ' . $all_link_text . ']' ) . '</div';
+			}
 		}
 
 		// Pagination
@@ -1246,7 +1267,7 @@ class SemanticOrganizationHooks {
 		/* current meetings */
 		$meetings .= '<div class="semorg-meetings-current mt-4 mb-4">{{#semorg-list:meeting
 		  |title={{int:semorg-list-meeting-current-heading|' . $meetings_page_name . '}}
-	      |formlink=' . $links . '
+		  |formlink=' . $links . '
 		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
 		  |category=semorg-meeting-' . $template . '
 		  |row template=meeting-' . $template . '
@@ -1260,6 +1281,7 @@ class SemanticOrganizationHooks {
 		if( !isset( $options['only current'] ) || $options['only current'] != true ) {
 			$past_query = $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]';
 			$past_count = $parser->recursiveTagParse( '{{#ask:' . $past_query . '|format=count}}' );
+			$past_limit = 10;
 			$show_all_link = '[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text|' . $past_count . '}}]';
 			$meetings .= '<div class="semorg-meetings-past">{{#semorg-list:meeting
 			  |title={{int:semorg-list-meeting-past-heading|' . $meetings_page_name . '}}
@@ -1269,9 +1291,9 @@ class SemanticOrganizationHooks {
 			  |sort=Semorg-meeting-date
 			  |order=desc
 			  |default={{int:semorg-list-meeting-default-past}}
-			  |limit=10
+			  |limit=' . $past_limit . '
 			  |nopagination
-			  |footer={{#ifexpr:' . $past_count . ' > 10|' . $show_all_link . '}}
+			  |footer={{#ifexpr:' . $past_count . ' > ' . $past_limit . '|' . $show_all_link . '}}
 			}}</div>';
 		}
 
@@ -2420,6 +2442,7 @@ class SemanticOrganizationHooks {
 			'tables',
 			'body',
 			'row-template',
+			'category',
 		] as $parameter ) {
 			if( !isset( $dashboardoptions[$parameter] ) && wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->exists() ) {
 				$dashboardoptions[str_replace( '-', ' ', $parameter )] = wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->text();
