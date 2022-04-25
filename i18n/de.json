@@ -437,7 +437,7 @@
 	"semorg-field-project-partner-lead-partner-label": "Lead",
 	"semorg-field-project-partner-project-name": "Projekt",
 
-	"semorg-project-update-displaytitle": "Projektupdate for $1, {{#time:j. F Y|$2}}",
+	"semorg-project-update-displaytitle": "Projektupdate für $1, {{#time:j. F Y|$2}}",
 	"semorg-project-update-page-name": "Projektupdates",
 	"semorg-project-update-entity-name": "Projektupdate",
 	"semorg-project-update-dashboard-title": "Letzte Projektupdates",
