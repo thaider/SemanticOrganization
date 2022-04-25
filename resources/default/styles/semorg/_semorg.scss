@@ -676,66 +676,69 @@ div.mw-warning-with-logexcerpt {
 .semorg-list-table {
 	width:100%;
 }
-.semorg-list-footer {
-	border-left:2px solid #dee2e6;
-	padding:3px 5px;
-	margin-bottom:15px;
-	font-size:small;
-	margin-top:-10px;
+.semorg-list-highlight td {
+	background-color:lighten($primary, 40%);
 }
-
-
-.card-header .btn-sm  {
-	line-height:1;
-}
-body input[type="button"].multipleTemplateAdder {
-	line-height:1;
-	font-size:small;
-}
-
-.semorg-role-inactive {
-	text-decoration:line-through;
-}
-
-.semorg-pagebreak {
-	page-break-after:always;
-}
-
-
-/* MOBILE */
-@media( max-width:768px ) {
-	.semorg-details-field-name {
-		font-size:.7em;
+	.semorg-list-footer {
+		border-left:2px solid #dee2e6;
+		padding:3px 5px;
+		margin-bottom:15px;
+		font-size:small;
+		margin-top:-10px;
 	}
-	.semorg-details-row > div {
-		padding:0;
+
+
+	.card-header .btn-sm  {
+		line-height:1;
 	}
-	.semorg-detail-badge a {
-		position:unset;
-		vertical-align:middle;
+	body input[type="button"].multipleTemplateAdder {
+		line-height:1;
+		font-size:small;
 	}
-	.semorg-detail-badge .semorg-badge {
-		margin-left:5px;
+
+	.semorg-role-inactive {
+		text-decoration:line-through;
 	}
-	.semorg-detail {
-		margin-left:0;
+
+	.semorg-pagebreak {
+		page-break-after:always;
 	}
-}
 
 
-/* PROJECT UPDATES */
-.semorg-project-update-out-of-date .semorg-project-update-update {
-	opacity:.5;
-}
+	/* MOBILE */
+	@media( max-width:768px ) {
+		.semorg-details-field-name {
+			font-size:.7em;
+		}
+		.semorg-details-row > div {
+			padding:0;
+		}
+		.semorg-detail-badge a {
+			position:unset;
+			vertical-align:middle;
+		}
+		.semorg-detail-badge .semorg-badge {
+			margin-left:5px;
+		}
+		.semorg-detail {
+			margin-left:0;
+		}
+	}
 
 
-/* PERSON-REF */
-.semorg-person-ref-formerly .semorg-person-ref-name {
-	text-decoration:line-through;
-}
+	/* PROJECT UPDATES */
+	.semorg-project-update-out-of-date .semorg-project-update-update {
+		opacity:.5;
+	}
 
 
-/* MAPS */
-.semorg-list-map {
+	/* PERSON-REF */
+	.semorg-person-ref-formerly .semorg-person-ref-name {
+		text-decoration:line-through;
+	}
+
+
+	/* MAPS */
+	.semorg-list-map {
 	margin-bottom:5px;
 }

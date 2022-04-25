@@ -82,6 +82,7 @@ class SemanticOrganizationHooks {
 			'missing-metrics' => 'renderMissingMetrics',
 			'timeline-weekends' => 'renderTimelineWeekends',
 			'collapse' => 'renderCollapse',
+			'query' => 'renderQuery',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -95,6 +96,16 @@ class SemanticOrganizationHooks {
 	static function renderCollapse( &$parser, $target ) {
 		$collapse = '<a	class="semorg-collapse" data-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '"><span class="fa fa-chevron-down"></a>';
 		return [ $collapse, 'noparse' => true, 'isHTML' => true ];
+	}
+
+
+	/**
+	 * Get Query Value
+	 */
+	static function renderQuery( &$parser, $param ) {
+		$parser->getOutput()->updateCacheExpiry(0);
+		$val = RequestContext::getMain()->getRequest()->getVal($param);
+		return [ $val ];
 	}
 
 
@@ -1161,6 +1172,11 @@ class SemanticOrganizationHooks {
 				$help_link = '<btn class="semorg-detail-help-link" wrapper="" title="' . $help_page . '" data-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
 			}
 			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . $help_link . '</div>';
+
+			if( isset( $listoptions['subheading'] ) ) {
+				$heading .= '<div class="semorg-detail-subheading">' . $listoptions['subheading'] . '</div>';
+			}
+
 			$heading = '<div class="semorg-detail">' . $heading . '</div>';
 
 			$heading .= '{{#tweekiHide:firstHeading}}';

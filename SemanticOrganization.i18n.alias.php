@@ -59,4 +59,5 @@ $magicWords['en'] = array(
 	'semorg-missing-metrics' => array( 0, 'semorg-missing-metrics' ),
 	'semorg-timeline-weekends' => array( 0, 'semorg-timeline-weekends' ),
 	'semorg-collapse' => array( 0, 'semorg-collapse' ),
+	'semorg-query' => array( 0, 'semorg-query' ),
 );
