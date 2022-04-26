@@ -163,7 +163,7 @@ class SemanticOrganizationHooks {
 			foreach( $terms as $term ) {
 				$search = str_replace( '\b', '', $term );
 				$replace = '<b>' . $search . '</b>';
-				$titleSnippet = str_replace( $search, $replace, $titleSnippet );
+				$titleSnippet = str_ireplace( $search, $replace, $titleSnippet );
 			}
 			$titleSnippet = new HtmlArmor( $titleSnippet );
 		}
