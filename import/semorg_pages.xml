@@ -1084,17 +1084,17 @@
     <ns>10</ns>
     <id>34</id>
     <revision>
-      <id>1385</id>
-      <parentid>897</parentid>
-      <timestamp>2018-11-22T14:25:42Z</timestamp>
+      <id>5648</id>
+      <parentid>1385</parentid>
+      <timestamp>2022-04-26T13:06:10Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <origin>1385</origin>
+      <origin>5648</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="556" sha1="p3bvwv8nyck4cu7ic3vxxq3sxjkx08n" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#subobject:
+      <text bytes="746" sha1="6c1gizis0zjoo10y7a3979as5t0zbbp" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{#subobject:
   |Semorg-generator-field-template={{FULLPAGENAME}}
   |Semorg-generator-field-id={{{id|}}}
   |Semorg-generator-field-property-id={{{property-id|}}}
@@ -1105,8 +1105,12 @@
   |Semorg-generator-field-suffix={{{suffix|}}}
   |Semorg-generator-field-fields={{{fields|}}}
   |Semorg-generator-field-help={{{help|}}}
+  |Semorg-generator-field-input-type={{{input-type|}}}
+  |Semorg-generator-field-label={{{label|}}}
+  |Semorg-generator-field-values={{{values|}}}
+  |Semorg-generator-field-size={{{size|}}}
 }}&lt;/includeonly&gt;</text>
-      <sha1>p3bvwv8nyck4cu7ic3vxxq3sxjkx08n</sha1>
+      <sha1>6c1gizis0zjoo10y7a3979as5t0zbbp</sha1>
     </revision>
   </page>
   <page>
@@ -1114,75 +1118,29 @@
     <ns>106</ns>
     <id>29</id>
     <revision>
-      <id>2898</id>
-      <parentid>2897</parentid>
-      <timestamp>2020-02-11T06:09:07Z</timestamp>
+      <id>5645</id>
+      <parentid>2898</parentid>
+      <timestamp>2022-04-26T13:05:06Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <origin>2898</origin>
+      <origin>5645</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="2230" sha1="15ik3t7lschg97tj71aypoj65hcspef" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;
-{{{for template|Semorg-generator}}}
-{| class="formtable"
-! template-id: 
-| {{{field|template-id|size=2}}}
-|-
-! page-name:
-| {{{field|page-name}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Title to be used for the overview page.&lt;/small&gt;
-|-
-! entity-name:
-| {{{field|entity-name}}} erstellen/bearbeiten
-&lt;small class="form-text text-muted semorg-help"&gt;Titel der in Formularen bzw. für Links verwendet werden soll.&lt;/small&gt;
-|-
-! form-add-button-text:
-| {{{field|form-add-button-text}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Falls es sich um multiple instance form handelt.&lt;/small&gt;
-|-
-! form-page-name:
-| {{{field|form-page-name}}} {{{field|form-unique-number|input type=checkbox}}} &lt;code&gt;/&lt;unique number;start=1&gt;&lt;/code&gt;
-&lt;small class="form-text text-muted semorg-help"&gt;If the page name should be created automatically with incrementing number this is the part in front of &lt;code&gt;/&lt;unique number;start=1&gt;&lt;/code&gt;&lt;/small&gt;
-|-
-! placeholder
-| {{{field|placeholder}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Placeholder that is shown if page name is chosen in input field.&lt;/small&gt;
-|-
-! custom overview list
-| {{{field|custom-overview-list|input type=textarea|autogrow|rows=1|cols=60}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Use &lt;code&gt;&lt;no&lt;nowiki&gt;&lt;/nowiki&gt;wiki&gt;&lt;/code&gt; tags!&lt;/small&gt;
-|-
-! display title
-| {{{field|display-title}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Use &lt;code&gt;&lt;no&lt;nowiki&gt;&lt;/nowiki&gt;wiki&gt;&lt;/code&gt; tags!&lt;/small&gt;
-|-
-! display title message
-| {{{field|display-title-message}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Use &lt;code&gt;&lt;no&lt;nowiki&gt;&lt;/nowiki&gt;wiki&gt;&lt;/code&gt; tags!&lt;/small&gt;
-|-
-! form-rows:
-| {{{field|rows}}}
-&lt;small class="form-text text-muted semorg-help"&gt;Rows to be shown in the form.&lt;/small&gt;
-|-
-! form-template:
-| {{{field|form-template}}}
-&lt;small class="form-text text-muted semorg-help"&gt;If there is a parent template that should be used.&lt;/small&gt;
-|-
-! list-headers:
-| {{{field|list-headers}}}
-|-
-! fields:
-| {{{field|template-fields|holds template}}}
-|}
-{{{end template}}}
+      <text bytes="461" sha1="rd47wbon7ucpdcqw4z8l6nbosexqk4t" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+   |create title={{int:semorg-form-generator-create-title}}&lt;span class="d-none"&gt;: &lt;page name&gt;&lt;/span&gt;
+   |edit title={{int:semorg-form-generator-edit-title}}&lt;span class="d-none"&gt;: &lt;page name&gt;&lt;/span&gt;
+   |page name=
+}}}
 
-{{semorg-form-template-embed|generator-field|Semorg-generator[template-fields]}}
+{{semorg-form-template|generator}}
 
-{{{standard input|save}}} {{{standard input|cancel}}}
+{{semorg-form-template-embed|generator-field|{{int:semorg-generator-template}}[template-fields]}}
+ 
+{{semorg-form-standard-inputs}}
 &lt;/includeonly&gt;</text>
-      <sha1>15ik3t7lschg97tj71aypoj65hcspef</sha1>
+      <sha1>rd47wbon7ucpdcqw4z8l6nbosexqk4t</sha1>
     </revision>
   </page>
   <page>
@@ -1190,17 +1148,17 @@
     <ns>10</ns>
     <id>21</id>
     <revision>
-      <id>5525</id>
-      <parentid>5524</parentid>
-      <timestamp>2021-11-10T11:11:55Z</timestamp>
+      <id>5647</id>
+      <parentid>5525</parentid>
+      <timestamp>2022-04-26T13:05:48Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <origin>5525</origin>
+      <origin>5647</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="7700" sha1="k7u1xlxemi0t9ppecpkztn6fmhjiroy" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:Semorg-generator-category}}]]{{#semorg-set:generator
+      <text bytes="7890" sha1="0re79ddcusbul752db5x3fkund5u2du" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;[[Category:{{int:Semorg-generator-category}}]]{{#semorg-set:generator
   |template-name={{lc:{{FULLPAGENAME}}}}
   |template-id={{{template-id|}}}
 }}
@@ -1257,6 +1215,10 @@
   |?Semorg-generator-field-prefix=field-prefix
   |?Semorg-generator-field-suffix=field-suffix
   |?Semorg-generator-field-help=field-help
+  |?Semorg-generator-field-input-type=field-input-type
+  |?Semorg-generator-field-label=field-label
+  |?Semorg-generator-field-values=field-values
+  |?Semorg-generator-field-size=field-size
   |?Semorg-generator-field-template.Semorg-generator-template-id=template-id
   |?Semorg-generator-field-template.Semorg-generator-template-name=template-name
   |format=template
@@ -1394,7 +1356,7 @@ Add the following line to &lt;code&gt;LocalSettings.php&lt;/code&gt;:
        }} &lt;nowiki&gt;]&lt;/nowiki&gt; &lt;nowiki&gt;]&lt;/nowiki&gt;;
 
 &lt;/includeonly&gt;</text>
-      <sha1>k7u1xlxemi0t9ppecpkztn6fmhjiroy</sha1>
+      <sha1>0re79ddcusbul752db5x3fkund5u2du</sha1>
     </revision>
   </page>
   <page>
@@ -1467,29 +1429,30 @@ Add the following line to &lt;code&gt;LocalSettings.php&lt;/code&gt;:
     <ns>10</ns>
     <id>39</id>
     <revision>
-      <id>5087</id>
-      <parentid>4400</parentid>
-      <timestamp>2021-04-19T20:17:02Z</timestamp>
+      <id>5646</id>
+      <parentid>5087</parentid>
+      <timestamp>2022-04-26T13:05:35Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <minor/>
-      <comment>Text replacement - "{{{?" to "{{{"</comment>
-      <origin>5087</origin>
+      <origin>5646</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="747" sha1="lrllvxgr1kkwus40vbosdcfsy0q3ulq" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;
+      <text bytes="602" sha1="ipblqngywseykg3wsgxx5k686en8xt6" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;
  "semorg-field-{{{template-name|}}}-{{{field-id|}}}-name": "{{{field-name|}}}",{{#if:{{{field-fields|}}}
    |&amp;nbsp;
  "semorg-field-{{{template-name|}}}-{{{field-id|}}}-fields": "{{{field-fields}}}",
    |&amp;nbsp;
- "semorg-field-{{{template-name|}}}-{{{field-id|}}}-parameters": "{{#arraymap:{{{field-parameters|}}}|,|xxx|xxx|{{!}}}}",{{#if:{{{field-prefix|}}}|&amp;nbsp;
- "semorg-field-{{{template-name|}}}-{{{field-id|}}}-prefix": "{{{field-prefix}}}",}}{{#if:{{{field-suffix|}}}|&amp;nbsp;
- "semorg-field-{{{template-name|}}}-{{{field-id|}}}-suffix": "{{{field-suffix}}}",}}{{#if:{{{field-help|}}}|&amp;nbsp;
- "semorg-field-{{{template-name|}}}-{{{field-id|}}}-help": "{{{field-help}}}",}}
+ "semorg-field-{{{template-name|}}}-{{{field-id|}}}-parameters": "{{#arraymap:{{{field-parameters|}}}|,|xxx|xxx|{{!}}}}",{{#arraymap:prefix,suffix,help,input-type,values,label,size
+    |,
+    |xxx
+    |{{#if:{{{field-xxx|}}}|&amp;nbsp;
+ "semorg-field-{{{template-name|}}}-{{{field-id|}}}-xxx": "{{{field-xxx}}}",}}
+    |
+  }}
 }}&lt;/includeonly&gt;</text>
-      <sha1>lrllvxgr1kkwus40vbosdcfsy0q3ulq</sha1>
+      <sha1>ipblqngywseykg3wsgxx5k686en8xt6</sha1>
     </revision>
   </page>
   <page>
@@ -8135,20 +8098,23 @@ Dies ist die Vorlage „{{PAGENAME}}“.
     <ns>106</ns>
     <id>600</id>
     <revision>
-      <id>3707</id>
-      <parentid>3706</parentid>
-      <timestamp>2020-07-17T13:58:39Z</timestamp>
+      <id>5643</id>
+      <parentid>3707</parentid>
+      <timestamp>2022-04-26T12:46:59Z</timestamp>
       <contributor>
         <username>Admin</username>
         <id>1</id>
       </contributor>
-      <origin>3707</origin>
+      <origin>5643</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="271" sha1="hcd6b727qsa5i69q81i31019xf370s0" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{DISPLAYTITLE:{{int:semorg-msg-edit-displaytitle}}}}{{#tweekibodyclass:semorg-message-edit}}{{{standard input|free text|autogrow|default={{#semorg-int:{{PAGENAME}} }} }}}
+      <text bytes="417" sha1="cuv669qd9c4wb0scelx663cho28gubu" xml:space="preserve">&lt;noinclude&gt;{{semorg-bundle}}&lt;/noinclude&gt;&lt;includeonly&gt;{{{info
+   |create title={{int:semorg-msg-edit-displaytitle}}&lt;span class="d-none"&gt;: &lt;page name&gt;&lt;/span&gt;
+   |edit title={{int:semorg-msg-edit-displaytitle}}&lt;span class="d-none"&gt;: &lt;page name&gt;&lt;/span&gt;
+}}}{{#tweekibodyclass:semorg-message-edit}}{{{standard input|free text|autogrow|default={{#semorg-int:{{PAGENAME}} }} }}}
 
 {{semorg-form-standard-inputs}}&lt;/includeonly&gt;</text>
-      <sha1>hcd6b727qsa5i69q81i31019xf370s0</sha1>
+      <sha1>cuv669qd9c4wb0scelx663cho28gubu</sha1>
     </revision>
   </page>
   <page>

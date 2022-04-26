@@ -457,7 +457,7 @@ body .formtable td.instanceRemove {
 	visibility:hidden;
 }
 .semorg-help:hover .semorg-msg-edit,
-.semorg-formtable .semorg-row:hover .semorg-msg-edit {
+.semorg-formtable .semorg-row:hover > .semorg-row-field > .semorg-help .semorg-msg-edit {
 	visibility:visible;
 }
 .semorg-msg a.new,

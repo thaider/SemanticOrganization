@@ -135,7 +135,7 @@ class SemanticOrganizationHooks {
 	 * Customize Content of Search Results
 	 */
 	static function onShowSearchHit( $searchPage, $result, $terms, &$link, &$redirect, &$section, &$extract, &$score, &$size, &$date, &$related, &$html ) {
-		$entitites = [];
+		$entities = [];
 		$categories = $result->getTitle()->getParentCategories();
 		if( count( $categories ) > 0 ) {
 			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
