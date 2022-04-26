@@ -162,8 +162,8 @@ class SemanticOrganizationHooks {
 			$titleSnippet = reset( $displaytitle );
 			foreach( $terms as $term ) {
 				$search = str_replace( '\b', '', $term );
-				$replace = '<b>' . $search . '</b>';
-				$titleSnippet = str_ireplace( $search, $replace, $titleSnippet );
+				$replace = '<b>\1</b>';
+				$titleSnippet = preg_replace( '/(' . $search . ')/i', $replace, $titleSnippet );
 			}
 			$titleSnippet = new HtmlArmor( $titleSnippet );
 		}
