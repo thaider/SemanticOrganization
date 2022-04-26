@@ -1588,6 +1588,8 @@
 	"semorg-field-generator-display-title-message-name": "Display Title Message",
 	"semorg-field-generator-display-title-message-help": "Use <code><no<nowiki></nowiki>wiki></code> tags!",
 	"semorg-field-generator-rows-name": "Form Rows",
+	"semorg-field-generator-rows-input-type": "textarea",
+	"semorg-field-generator-rows-parameters": "rows=1",
 	"semorg-field-generator-rows-help": "Rows to be shown in the form.",
 	"semorg-field-generator-form-template-name": "Form Template",
 	"semorg-field-generator-form-template-help": "If there is a parent template that should be used.",
