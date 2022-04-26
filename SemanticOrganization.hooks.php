@@ -163,7 +163,7 @@ class SemanticOrganizationHooks {
 			foreach( $terms as $term ) {
 				$search = str_replace( '\b', '', $term );
 				$replace = '<b>' . $search . '</b>';
-				$titleSnippet = new HTMLArmor( str_replace( $search, $replace, $titleSnippet ) );
+				$titleSnippet = new HtmlArmor( str_replace( $search, $replace, $titleSnippet ) );
 			}
 		}
 	}
@@ -1175,6 +1175,10 @@ class SemanticOrganizationHooks {
 
 			if( isset( $listoptions['subheading'] ) ) {
 				$heading .= '<div class="semorg-detail-subheading">' . $listoptions['subheading'] . '</div>';
+			}
+
+			if( isset( $listoptions['list intro'] ) ) {
+				$heading .= '<div class="semorg-detail-intro">' . $listoptions['list intro'] . '</div>';
 			}
 
 			$heading = '<div class="semorg-detail">' . $heading . '</div>';
