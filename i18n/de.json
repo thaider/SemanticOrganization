@@ -189,6 +189,7 @@
 	"semorg-value-salary-type-exit": "Kündigung",
 	"semorg-value-status-open": "laufend",
 	"semorg-value-status-closed": "abgeschlossen",
+	"semorg-value-status-closed-since": "abgeschlossen seit {{semorg-date|$1|short}}",
 	"semorg-value-status-archived": "archiviert",
 	"semorg-value-status-inactive": "nicht mehr aktiv",
 	"semorg-value-status-current": "aktuell",
