@@ -350,6 +350,8 @@
 	"semorg-field-project-budget-name": "Budget",
 	"semorg-field-project-closed-name": "",
 	"semorg-field-project-closed-label": "abgeschlossen",
+	"semorg-field-project-closed-date-name": "abgeschlossen am",
+	"semorg-field-project-closed-date-prefix": "abgeschlossen am&nbsp;",
 	"semorg-field-project-status-name": "Projektende",
 	"semorg-field-project-budget-name": "Budget",
 	"semorg-field-project-short-title-name": "Kurztitel",
