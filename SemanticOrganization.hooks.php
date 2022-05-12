@@ -2092,23 +2092,26 @@ class SemanticOrganizationHooks {
 	 * Render a rating from 1 to x with stars
 	 *
 	 * @param Integer $rating Rating
-	 * @param Integer $max maximum number of stars
 	 */
-	static function renderRating( &$parser, $rating, $max = false ) {
+	static function renderRating( &$parser, $rating ) {
+		$options = self::extractOptions( array_slice(func_get_args(), 2) );
+
+		$icon = $options['icon'] ?? 'star';
+
 		$rating_html = '';
 		if( $rating == '' ) {
 			return [ '' ];
 		}
 		$rating = (int) $rating;
-		$rating = min( $rating, $max ?? 5 );
+		$rating = min( $rating, isset( $options['max'] ) ? $options['max'] : 5 );
 		if( $rating > 0 ) {
 			for( $i = 0; $i < $rating; $i++ ) {
-				$rating_html .= '<i class="fa fa-star"></i>';
+				$rating_html .= '<i class="fa fa-' . $icon . '"></i>';
 			}
 		}
-		if( $max !== false ) {
-			for( $i = $rating; $i < $max; $i++ ) {
-				$rating_html .= '<i class="far fa-star"></i>';
+		if( isset( $options['max'] ) ) {
+			for( $i = $rating; $i < $options['max']; $i++ ) {
+				$rating_html .= '<i class="far fa-' . $icon . '"></i>';
 			}
 		}
 		$rating_html = '<div class="semorg-rating">' . $rating_html . '&nbsp;</div>';
