@@ -1030,7 +1030,7 @@ class SemanticOrganizationHooks {
 					}
 				}
 
-				$map_query .= '}}';
+				$map_query .= '|limit=1000}}';
 
 				$list .= $parser->recursiveTagParse( '<div class="semorg-list-map">' . $map_query . '</div>' );
 			}
