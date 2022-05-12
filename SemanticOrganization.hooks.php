@@ -1042,61 +1042,88 @@ class SemanticOrganizationHooks {
 			$query .= '|link=none|named args=yes|format=template';
 			$query .= '|searchlabel=' . ( $listoptions['searchlabel'] ?? '' );
 
-			// Create Main Table
-			// Use custom template if it has been locally created
-			if( $custom_row_template ) {
-				$table_query = $query . '|template=semorg-' . $row_template . '-custom-row';
-			} else {
-				$table_query = $query . '|template=semorg-' . $row_template . '-row';
-			}
-			$table_parameters = $parameters;
-			if( isset( $listoptions['plainheaders'] ) ) {
-				$table_parameters['intro'] .= '{{semorg-list-intro|plaincolumns=' . $listoptions['plainheaders'] . '|tableclass=' . $tableclass . '}}';
-			} else {
-				$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
-			}
-			$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
-			
-			// apply parameters...
-			foreach( $table_parameters as $parameter => $value ) {
-				if( $value != '' ) {
-					$table_query .= '|' . $parameter . '=' . $value;
+			if( !isset( $listoptions['card template'] ) ) {
+				// Create Main Table
+				// Use custom template if it has been locally created
+				if( $custom_row_template ) {
+					$table_query = $query . '|template=semorg-' . $row_template . '-custom-row';
+				} else {
+					$table_query = $query . '|template=semorg-' . $row_template . '-row';
 				}
-			}
-
-			$table_query .= '}}';
-
-			$list_table_class = '';
-			$list_table_id = '';
-			if( isset( $listoptions['title'] ) && isset( $listoptions['collapsed'] ) ) {
-				$list_table_id = 'id="semorg-collapse-' . $listoptions['collapsed'] . '" ';
-				$list_table_class .= ' collapse';
-			}
-
-			$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div></div>' );
-
-			// Create Mobile Table
-			$mobile_row_template = 'semorg-default-mobile-row';
-			if( Title::newFromText( 'Template:semorg-' . $row_template . '-mobile-row' )->exists() ) {
-				$mobile_row_template = 'semorg-' . $row_template . '-mobile-row';
-			} elseif( Title::newFromText( 'Template:semorg-' . $template . '-mobile-row' )->exists() ) {
-				$mobile_row_template = 'semorg-' . $template . '-mobile-row';
-			}
-			$mobile_query = $query . '|template=' . $mobile_row_template;
-			$mobile_parameters = $parameters;
-			$mobile_parameters['intro'] .= '{{semorg-list-intro|columns=-|tableclass=' . $tableclass . '}}';
-			$mobile_parameters['outro'] = '{{semorg-list-outro}}' . $parameters['outro'];
-			
-			// apply parameters...
-			foreach( $mobile_parameters as $parameter => $value ) {
-				if( $value != '' ) {
-					$mobile_query .= '|' . $parameter . '=' . $value;
+				$table_parameters = $parameters;
+				if( isset( $listoptions['plainheaders'] ) ) {
+					$table_parameters['intro'] .= '{{semorg-list-intro|plaincolumns=' . $listoptions['plainheaders'] . '|tableclass=' . $tableclass . '}}';
+				} else {
+					$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
 				}
+				$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
+
+				// apply parameters...
+				foreach( $table_parameters as $parameter => $value ) {
+					if( $value != '' ) {
+						$table_query .= '|' . $parameter . '=' . $value;
+					}
+				}
+
+				$table_query .= '}}';
+
+				$list_table_class = '';
+				$list_table_id = '';
+				if( isset( $listoptions['title'] ) && isset( $listoptions['collapsed'] ) ) {
+					$list_table_id = 'id="semorg-collapse-' . $listoptions['collapsed'] . '" ';
+					$list_table_class .= ' collapse';
+				}
+
+				$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-none d-print-table d-lg-table">' . $table_query . '</div></div>' );
+
+				// Create Mobile Table
+				$mobile_row_template = 'semorg-default-mobile-row';
+				if( Title::newFromText( 'Template:semorg-' . $row_template . '-mobile-row' )->exists() ) {
+					$mobile_row_template = 'semorg-' . $row_template . '-mobile-row';
+				} elseif( Title::newFromText( 'Template:semorg-' . $template . '-mobile-row' )->exists() ) {
+					$mobile_row_template = 'semorg-' . $template . '-mobile-row';
+				}
+				$mobile_query = $query . '|template=' . $mobile_row_template;
+				$mobile_parameters = $parameters;
+				$mobile_parameters['intro'] .= '{{semorg-list-intro|columns=-|tableclass=' . $tableclass . '}}';
+				$mobile_parameters['outro'] = '{{semorg-list-outro}}' . $parameters['outro'];
+
+				// apply parameters...
+				foreach( $mobile_parameters as $parameter => $value ) {
+					if( $value != '' ) {
+						$mobile_query .= '|' . $parameter . '=' . $value;
+					}
+				}
+
+				$mobile_query .= '}}';
+
+				$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div></div>' );
+			} else {
+				// Create Cards
+				$card_query = $query . '|template=semorg-' . $listoptions['card template'] . '-card';
+
+				$card_parameters = $parameters;
+				$card_parameters['intro'] .= '<div class="card-columns">';
+				$card_parameters['outro'] = $sums . '</div>' . $parameters['outro'];
+
+				// apply parameters...
+				foreach( $card_parameters as $parameter => $value ) {
+					if( $value != '' ) {
+						$card_query .= '|' . $parameter . '=' . $value;
+					}
+				}
+
+				$card_query .= '}}';
+
+				$list_card_class = '';
+				$list_card_id = '';
+				if( isset( $listoptions['title'] ) && isset( $listoptions['collapsed'] ) ) {
+					$list_card_id = 'id="semorg-collapse-' . $listoptions['collapsed'] . '" ';
+					$list_card_class .= ' collapse';
+				}
+
+				$list .= $parser->recursiveTagParse( '<div ' . $list_card_id . 'class="' . $list_card_class . '><div class="semorg-list-cards d-none d-print-block d-lg-block">' . $card_query . '</div></div>' );
 			}
-
-			$mobile_query .= '}}';
-
-			$list .= $parser->recursiveTagParse( '<div ' . $list_table_id . 'class="' . $list_table_class . '><div class="semorg-list-table d-lg-none d-print-none">' . $mobile_query . '</div></div>' );
 
 
 			if( isset( $listoptions['csv'] ) ) {
