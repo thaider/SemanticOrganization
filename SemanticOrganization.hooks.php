@@ -1122,7 +1122,7 @@ class SemanticOrganizationHooks {
 					$list_card_class .= ' collapse';
 				}
 
-				$list .= $parser->recursiveTagParse( '<div ' . $list_card_id . 'class="' . $list_card_class . '><div class="semorg-list-cards d-none d-print-block d-lg-block">' . $card_query . '</div></div>' );
+				$list .= $parser->recursiveTagParse( '<div ' . $list_card_id . 'class="' . $list_card_class . '><div class="semorg-list-cards">' . $card_query . '</div></div>' );
 			}
 
 
