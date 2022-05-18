@@ -237,6 +237,9 @@ a.new:hover {
 	margin-left:-5px;
 	display:none;
 }
+.semorg-field-prefix {
+	margin-right:5px;
+}
 .semorg-field-suffix {
 	margin-left:5px;
 }
@@ -245,6 +248,9 @@ a.new:hover {
 }
 .semorg-row-field label + label {
 	margin-left:10px;
+}
+.semorg-row-field label t {
+	margin-left:5px;
 }
 
 

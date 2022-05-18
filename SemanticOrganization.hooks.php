@@ -1557,36 +1557,59 @@ class SemanticOrganizationHooks {
 	 */
 	static function getFieldRow( &$parser, $template, $element ) {
 		$user = $parser->getUser();
+		$editinterface = $user->isAllowed( 'editinterface' );
 		$fullelement = 'semorg-field-' . $template . '-' . $element;
 		$heading = '';
+		$intro = false;
 		$help = '';
 		$row_class = '';
+
+		/* restricted to user with certain rights? */
+		if( wfMessage($fullelement . '-rights')->exists ) {
+			return '';
+		}
 
 		/* get the heading if it exists */
 		if( !wfMessage($fullelement . '-name')->isDisabled() ) {
 			$heading = wfMessage($fullelement . '-name')->text();
 		}
 
+		/* create section heading if the input-typ is set to section */
+		if( wfMessage($fullelement . '-input-type')->text() == 'section' ) {
+			return '<tr><td colspan="2" class="border-0"><h5 class="semorg-form-section">' . $heading . '</h5></td></tr>';
+		}
+
+		/* get the intro if it exists */
+		if( !wfMessage($fullelement . '-intro')->isDisabled() ) {
+			$intro = '<div class="semorg-field-intro mb-2">' . wfMessage($fullelement . '-intro')->text() . '</div>';
+		}
+
 		/* show create/edit links for help messages only for users with editinterface permission */
-		if( $user->isAllowed( 'editinterface' ) ) {
-			/* get the help message if it exists */
-			if( !wfMessage($fullelement . '-help')->isDisabled() ) {
+		/* get the help message if it exists */
+		if( !wfMessage($fullelement . '-help')->isDisabled() ) {
+			if( $editinterface ) {	
 				$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
 				$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '}}';
-				$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
+			} else {
+				$help = wfMessage($fullelement . '-help')->text();
+			}
+			$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
 
-			/* get inline help message if it exists */
-			} elseif( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
+		/* get inline help message if it exists */
+		} elseif( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
+			if( $editinterface ) {
 				$help_tooltip = wfMessage( 'semorg-msg-help-edit-tooltip' )->plain();
 				$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help-inline|tooltip=' . $help_tooltip . '}}';
-				$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
-
-			/* show help message create link */
 			} else {
-				$help_tooltip = wfMessage( 'semorg-msg-help-create-tooltip' )->plain();
-				$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '|icon=question}}';
-				$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
+				$help = wfMessage($fullelement . '-help-inline')->text();
 			}
+			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
+
+		/* show help message create link */
+		} elseif( $editinterface ) {
+			$help_tooltip = wfMessage( 'semorg-msg-help-create-tooltip' )->plain();
+			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '|icon=question}}';
+			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
 		}
 
 
@@ -1598,11 +1621,37 @@ class SemanticOrganizationHooks {
 		/* is this a single field or a group of fields? */
 		if( !wfMessage($fullelement . '-fields')->isDisabled() ) {
 			$fields = explode( ',', wfMessage($fullelement . '-fields')->text() );
-			foreach( $fields as &$field ) {
+			$fields_rendered = [];
+			foreach( $fields as $field ) {
 				$field = trim( $field );
-				$field = self::getField( $template, $field );
+				if( $field == '' ) {
+					$fields_rendered[] = '</div><div class="semorg-form-fields mt-3">';
+				} else {
+					/* check if the field is restricted */
+					if( wfMessage('semorg-field-' . $template . '-' . $field . '-rights')->exists() ) {
+						$rights = explode( ',', wfMessage('semorg-field-' . $template . '-' . $field . '-rights')->plain() );
+						$restricted_field = true;
+						foreach( $rights as $right ) {
+							if( $user->isAllowed($right) ) {
+								$restricted_field = false;
+							}
+						}
+						if( $restricted_field )  {
+							$field = '';
+							continue;
+						}
+					}
+
+					/* get the field intro if it exists */
+					$field_intro = '';
+					if( !wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->isDisabled() ) {
+						$field_intro = $field_intro . '<div class="semorg-field-intro mb-2">' . wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->text() . '</div>';
+					}
+
+					$fields_rendered[] = $field_intro . self::getField( $template, $field );
+				}
 			}
-			$items = implode( ' ', $fields );
+			$items = implode( ' ', $fields_rendered );
 
 			/* Text before and after the field */
 			if( !wfMessage($fullelement . '-prefix')->isDisabled() ) {
@@ -1611,6 +1660,7 @@ class SemanticOrganizationHooks {
 			if( !wfMessage($fullelement . '-suffix')->isDisabled() ) {
 				$items .= '<span class="semorg-field-suffix ' . $fullelement . '-suffix">' . wfMessage($fullelement . '-suffix')->text() . '</span>';
 			}
+			$items = '<div class="semorg-form-fields">' . $items . '</div>';
 		} else {
 			$items = self::getField( $template, $element );
 
@@ -1621,12 +1671,12 @@ class SemanticOrganizationHooks {
 		}
 
 		if( !wfMessage($fullelement . '-name')->exists() || wfMessage($fullelement . '-name')->plain() != '-' ) {
-			$row = '<th class="semorg-row-name">' . $heading . '</th><td class="semorg-row-field">' . $items . $help . '</td>';
+			$row = '<th class="semorg-row-name">' . $heading . '</th><td class="semorg-row-field">' . $intro . $items . $help . '</td>';
 		} else {
-			$row = '<td colspan="2" class="semorg-row-field">' . $items . $help . '</td>';
+			$row = '<td colspan="2" class="semorg-row-field">' . $intro . $items . $help . '</td>';
 		}
 			
-		return '<tr class="semorg-row semorg-row-' . $template . '-' . $element . ' ' . $row_class . '">' . $row . '</tr>';
+		return '<tr id="semorg-row-' . $template . '-' . $element . '" class="semorg-row ' . $row_class . '">' . $row . '</tr>';
 	}
 
 
