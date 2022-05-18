@@ -1513,7 +1513,8 @@ class SemanticOrganizationHooks {
 			'mapping-property',
 			'default',
 			'label',
-			'size'
+			'size',
+			'message',
 		] as $parameter ) {
 			if( !wfMessage($fullelement . '-' . $parameter)->isDisabled() ) {
 				$field .= '|' . str_replace('-', ' ', $parameter) . '=' . wfMessage($fullelement . '-' . $parameter)->text();
@@ -1660,7 +1661,7 @@ class SemanticOrganizationHooks {
 			if( !wfMessage($fullelement . '-suffix')->isDisabled() ) {
 				$items .= '<span class="semorg-field-suffix ' . $fullelement . '-suffix">' . wfMessage($fullelement . '-suffix')->text() . '</span>';
 			}
-			$items = '<div class="semorg-form-fields">' . $items . '</div>';
+			$row = '<div class="semorg-row-field semorg-form-fields">' . $intro . $items . $help . '</div>';
 		} else {
 			$items = self::getField( $template, $element );
 
@@ -1668,15 +1669,14 @@ class SemanticOrganizationHooks {
 			if( !wfMessage($fullelement . '-parameters')->isDisabled() && wfMessage($fullelement . '-parameters')->text() == 'hidden' ) {
 				return $items;
 			}
+			$row = '<div class="semorg-row-field semorg-form-single-field">' . $intro . $items . $help . '</div>';
 		}
 
 		if( !wfMessage($fullelement . '-name')->exists() || wfMessage($fullelement . '-name')->plain() != '-' ) {
-			$row = '<th class="semorg-row-name">' . $heading . '</th><td class="semorg-row-field">' . $intro . $items . $help . '</td>';
-		} else {
-			$row = '<td colspan="2" class="semorg-row-field">' . $intro . $items . $help . '</td>';
+			$row = '<div class="semorg-row-name">' . $heading . '</div>' . $row;
 		}
 			
-		return '<tr id="semorg-row-' . $template . '-' . $element . '" class="semorg-row ' . $row_class . '">' . $row . '</tr>';
+		return '<div id="semorg-row-' . $template . '-' . $element . '" class="semorg-row ' . $row_class . '">' . $row . '</div>';
 	}
 
 

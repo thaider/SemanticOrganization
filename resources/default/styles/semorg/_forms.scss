@@ -5,3 +5,81 @@
 .pfDatePicker.oo-ui-textInputWidget {
 	width:200px;
 }
+
+.semorg-row-name {
+	margin-bottom:10px;
+}
+.semorg-row + .semorg-row {
+	margin-top:30px;
+}
+
+.multipleTemplateWrapper {
+	.semorg-row-name {
+		margin-bottom:0px;
+	}
+	.semorg-row + .semorg-row {
+		margin-top:10px;
+	}
+
+	.semorg-row {
+		@extend .row;
+	}
+	.semorg-row-name {
+		@extend .col-md-3;
+		@extend .col-lg-2;
+	}
+	.semorg-row-field {
+		@extend .col-md-9;
+		@extend .col-lg-10;
+	}
+}
+
+#pfForm .semorg-form-single-field {
+	> span {
+		> .createboxInput.semorg-field:not([size]),
+		> .createboxInput.semorg-field[size="35"] {
+			width:95% !important;
+		}
+	}
+
+	> .comboboxSpan,
+	> .inputSpan {
+		> .select2-container { // obsolet mit oo-ui
+			width:95% !important;
+
+			> .selection,
+			> .selection .select2-selection {
+				width:100%;
+			}
+		}
+
+		> .oo-ui-comboBoxInputWidget {
+			width:95% !important;
+		}
+	}
+}
+
+#pfForm .semorg-form {
+	.createboxInput, 
+	.mandatoryField, 
+	textarea,
+	.mw-widget-dateInputWidget-handle {
+		border-radius: $input-border-radius;
+		border-color: $input-border-color;
+	}
+
+	input.createboxInput,
+	input.mandatoryField,
+	.mw-widget-dateInputWidget-handle {
+		height: calc(1.5em + .75rem + 2px);
+	}
+	
+	.oo-ui-textInputWidget {
+		max-width:100%;
+	}
+
+	.oo-ui-comboBoxInputWidget-field,
+	.mw-widget-dateInputWidget-handle {
+		margin-top:-3px;
+	}
+}
