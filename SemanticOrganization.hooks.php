@@ -2739,11 +2739,20 @@ class SemanticOrganizationHooks {
 		$day_of_the_week = date('N');
 		$days = $weeks * 7;
 
-		$current = 7 - $day_of_the_week;
-		$width = 100 * 2 / $days;
-
-		for( $current = 7 - $day_of_the_week; $current < $days; $current += 7 ) {
-			$left = 100 * ( $days - $current ) / $days;
+		for( $current = 6 - $day_of_the_week; $current < $days; $current += 7 ) {
+			$left = 100 * ( $current ) / $days;
+			$width = 100 * 2 / $days;
+			if( $current == -1 ) {
+				$left = 0;
+				$width = 100 / $days;
+			}
+			if( $current == -2 ) {
+				continue;
+			}
+			if( ( $days - $current ) == 1 ) {
+				$width = 100 / $days;
+			}
+			//die(var_dump( $left ) );
 			$weekends .= '<span class="semorg-timeline-weekend" style="background:#ccc;height:100%;position:absolute;top:0;width:' . $width . '%;left:' . $left . '%"></span>';
 		}
 
