@@ -1115,14 +1115,14 @@ class SemanticOrganizationHooks {
 
 				$card_query .= '}}';
 
-				$list_card_class = '';
+				$list_card_class = 'mt-3';
 				$list_card_id = '';
 				if( isset( $listoptions['title'] ) && isset( $listoptions['collapsed'] ) ) {
 					$list_card_id = 'id="semorg-collapse-' . $listoptions['collapsed'] . '" ';
 					$list_card_class .= ' collapse';
 				}
 
-				$list .= $parser->recursiveTagParse( '<div ' . $list_card_id . 'class="' . $list_card_class . '><div class="semorg-list-cards">' . $card_query . '</div></div>' );
+				$list .= $parser->recursiveTagParse( '<div ' . $list_card_id . 'class="semorg-list-cards ' . $list_card_class . '>' . $card_query . '</div>' );
 			}
 
 
@@ -2449,6 +2449,10 @@ class SemanticOrganizationHooks {
 			if( $parser->getUser()->getRequest()->getInt( 'limit' ) > 0 ) {
 				$filters_to_apply['limit'] = $parser->getUser()->getRequest()->getInt( 'limit' );
 			}
+		}
+
+		if( $parser->getUser()->getRequest()->getCheck('highlight') ) {
+			$filters_to_apply['highlight'] = $parser->getUser()->getRequest()->getText('highlight');
 		}
 
 		// Add filters to query string for URL

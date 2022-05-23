@@ -570,6 +570,9 @@ div.mw-warning-with-logexcerpt {
 .semorg-pagination {
 	margin-top:-.7rem;
 }
+.semorg-list-cards + .semorg-pagination {
+	margin-top:0;
+}
 .semorg-pagination-pagination {
 	float:left;
 }
@@ -600,6 +603,13 @@ div.mw-warning-with-logexcerpt {
 }
 .semorg-pagination .page-item:last-child .page-link {
 	border-right:none !important;
+}
+
+.tweeki-user-anon,
+.semorg-list-cards + .semorg-pagination {
+	.semorg-pagination-pagesize .pagination {
+		margin: 0;
+	}
 }
 
 
@@ -682,7 +692,8 @@ div.mw-warning-with-logexcerpt {
 .semorg-list-table {
 	width:100%;
 }
-.semorg-list-highlight td {
+.semorg-list-highlight td,
+.semorg-card-highlight {
 	background-color:lighten($primary, 40%);
 }
 	.semorg-list-footer {
