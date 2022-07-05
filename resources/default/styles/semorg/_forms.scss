@@ -6,11 +6,31 @@
 	width:200px;
 }
 
+.oo-ui-checkboxInputWidget + t {
+	margin-left:8px;
+}
+
+// ugly hack: without it, checkboxes are only partly clickable
+.oo-ui-checkboxInputWidget {
+	width: 1.42857143em;
+}
+#maincontentwrapper #pfForm select, 
+#maincontentwrapper #pfForm input[type="checkbox"] {
+	width: 100% !important;
+}
+
 .semorg-row-name {
 	margin-bottom:10px;
 }
+.semorg-row-name:empty {
+	margin-bottom:0;
+}
 .semorg-row + .semorg-row {
 	margin-top:30px;
+
+	&.semorg-row-hidden {
+		margin-top:0;
+	}
 }
 
 .multipleTemplateWrapper {
@@ -19,19 +39,34 @@
 	}
 	.semorg-row + .semorg-row {
 		margin-top:10px;
+
+		&.semorg-row-hidden {
+			margin-top:0;
+		}
 	}
 
 	.semorg-row {
 		@extend .row;
+		@extend .no-gutters;
 	}
 	.semorg-row-name {
 		@extend .col-md-3;
-		@extend .col-lg-2;
+		padding-left:0;
+		padding-right:0;
 	}
 	.semorg-row-field {
-		@extend .col-md-9;
-		@extend .col-lg-10;
+		@extend .col-md-12;
+		padding-left:0;
+		padding-right:0;
 	}
+	.semorg-row-name + .semorg-row-field {
+		@extend .col-md-9;
+		padding-left:0;
+		padding-right:0;
+	}
+}
+.multipleTemplateInstance {
+	background-color:$light !important;
 }
 
 #pfForm .semorg-form-single-field {
@@ -54,6 +89,14 @@
 		}
 
 		> .oo-ui-comboBoxInputWidget {
+			//width:95% !important;
+		}
+	}
+}
+
+#pfForm .semorg-form-fields {
+	> span {
+		> textarea.createboxInput.semorg-field {
 			width:95% !important;
 		}
 	}
@@ -75,11 +118,22 @@
 	}
 	
 	.oo-ui-textInputWidget {
-		max-width:100%;
+		//max-width:100%;
 	}
 
 	.oo-ui-comboBoxInputWidget-field,
 	.mw-widget-dateInputWidget-handle {
 		margin-top:-3px;
+	}
+}
+
+.semorg-restricted {
+	color: $primary;
+
+	input,
+	textarea {
+		color: $primary !important;
+		border-color: $primary !important;
+		background-color: theme-color-level( primary, -12 ) !important;
 	}
 }

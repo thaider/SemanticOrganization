@@ -1495,11 +1495,19 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 * Formularfeld erstellen
+	 * Create form field
+	 *
+	 * @param String $template Template
+	 * @param String $field Field
+	 * @param Boolean $restricted Is it restricted?
+	 * @param Boolean $restricted Is it hidden because of a restriction?
 	 */
-	static function getField( $template, $element ) {
-		$fullelement = 'semorg-field-' . $template . '-' . $element;
-		$field = $element;
+	static function getField( $template, $field, $restricted, $hidden ) {
+		$fullelement = 'semorg-field-' . $template . '-' . $field;
+
+		if( $hidden ) {
+			return '<nowiki>{{{field|' . $field . '|hidden}}}</nowiki>';
+		}
 
 		/* Construct the field */
 		if( !wfMessage($fullelement . '-parameters')->isDisabled() ) {
@@ -1528,11 +1536,15 @@ class SemanticOrganizationHooks {
 			}
 		}
 
-		/* special class? */
-		$class = !wfMessage($fullelement . '-class')->isDisabled() ? ( ' ' . wfMessage($fullelement . '-class')->text() ) : '';
-
-		/* Apply standard classes */
-		$field .= '|class=semorg-field ' . $fullelement . $class;
+		/* classes */
+		$classes = [
+			'semorg-field',
+			$fullelement,
+		];
+		if( !wfMessage($fullelement . '-class')->isDisabled() ) {
+			$classes[] = wfMessage($fullelement . '-class')->text();
+		}
+		$field .= '|class=' . join( ' ', $classes );
 
 		$field = '<nowiki>{{{field|' . $field . '}}}</nowiki>';
 
@@ -1566,8 +1578,14 @@ class SemanticOrganizationHooks {
 		$row_class = '';
 
 		/* restricted to user with certain rights? */
-		if( wfMessage($fullelement . '-rights')->exists ) {
-			return '';
+		$restricted_field = false;
+		$restricted_field_hidden = false;
+		if( wfMessage($fullelement . '-rights')->exists() ) {
+			$rights = explode( ',', wfMessage( $fullelement . '-rights')->plain() );
+			if( $rights !== '' ) {
+				$restricted_field = true;
+				$restricted_field_hidden = !$user->isAllowedAny(...$rights);
+			}
 		}
 
 		/* get the heading if it exists */
@@ -1629,27 +1647,23 @@ class SemanticOrganizationHooks {
 					$fields_rendered[] = '</div><div class="semorg-form-fields mt-3">';
 				} else {
 					/* check if the field is restricted */
+					$restricted_subfield = false;
+					$restricted_subfield_hidden = false;
 					if( wfMessage('semorg-field-' . $template . '-' . $field . '-rights')->exists() ) {
 						$rights = explode( ',', wfMessage('semorg-field-' . $template . '-' . $field . '-rights')->plain() );
-						$restricted_field = true;
-						foreach( $rights as $right ) {
-							if( $user->isAllowed($right) ) {
-								$restricted_field = false;
-							}
-						}
-						if( $restricted_field )  {
-							$field = '';
-							continue;
+						if( $rights !== '' ) {
+							$restricted_subfield = true;
+							$restricted_subfield_hidden = !$user->isAllowedAny(...$rights);
 						}
 					}
 
 					/* get the field intro if it exists */
 					$field_intro = '';
-					if( !wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->isDisabled() ) {
+					if( !wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->isDisabled() && !$restricted_hidden) {
 						$field_intro = $field_intro . '<div class="semorg-field-intro mb-2">' . wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->text() . '</div>';
 					}
 
-					$fields_rendered[] = $field_intro . self::getField( $template, $field );
+					$fields_rendered[] = '<span id="semorg-field-' . $template . '-' . $field . '"' . ( $restricted_subfield ? ' class="semorg-restricted"' : '' ) . '>' . $field_intro . self::getField( $template, $field, $restricted_subfield, $restricted_subfield_hidden ) . '</span>';;
 				}
 			}
 			$items = implode( ' ', $fields_rendered );
@@ -1663,17 +1677,27 @@ class SemanticOrganizationHooks {
 			}
 			$row = '<div class="semorg-row-field semorg-form-fields">' . $intro . $items . $help . '</div>';
 		} else {
-			$items = self::getField( $template, $element );
+			$item = self::getField( $template, $element, $restricted_field, $restricted_field_hidden );
 
-			/* is it a hidden field? */
-			if( !wfMessage($fullelement . '-parameters')->isDisabled() && wfMessage($fullelement . '-parameters')->text() == 'hidden' ) {
-				return $items;
+			/* is it a hidden field (by type or restriction)? */
+			if( 
+				( !wfMessage($fullelement . '-parameters')->isDisabled() && wfMessage($fullelement . '-parameters')->text() == 'hidden' ) 
+				|| $restricted_field_hidden
+			) {
+				return '<div class="semorg-row semorg-row-hidden">' . $item . '</div>';
 			}
-			$row = '<div class="semorg-row-field semorg-form-single-field">' . $intro . $items . $help . '</div>';
+			$row = '<div class="semorg-row-field semorg-form-single-field">' . $intro . $item . $help . '</div>';
 		}
 
 		if( !wfMessage($fullelement . '-name')->exists() || wfMessage($fullelement . '-name')->plain() != '-' ) {
+			if( wfMessage($fullelement . '-info')->exists() ) {
+				$heading .= ' {{#info:' . wfMessage($fullelement . '-info')->text() . '|note}}';
+			}
 			$row = '<div class="semorg-row-name">' . $heading . '</div>' . $row;
+		}
+
+		if( $restricted_field ) {
+			$row_class .= ' semorg-restricted';
 		}
 			
 		return '<div id="semorg-row-' . $template . '-' . $element . '" class="semorg-row ' . $row_class . '">' . $row . '</div>';

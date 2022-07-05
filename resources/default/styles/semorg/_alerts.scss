@@ -1,0 +1,33 @@
+.semorg-alert {
+	border-left: 3px transparent solid;
+	color: $text-muted;
+	padding: $spacer * .25 $spacer * .5;
+	margin-bottom: $spacer;
+}
+
+.semorg-alert + .semorg-alert {
+	margin-top: -$spacer * .8;
+}
+
+.semorg-alert-primary {
+	border-color:$primary;
+}
+.semorg-alert-secondary {
+	border-color:$secondary;
+}
+.semorg-alert-info {
+	border-color:$info;
+}
+.semorg-alert-warning {
+	border-color:$warning;
+}
+.semorg-alert-danger {
+	border-color:$danger;
+}
+.semorg-alert-success {
+	border-color:$success;
+}
+
+.semorg-alert p:last-child {
+	margin-bottom:0;
+}
