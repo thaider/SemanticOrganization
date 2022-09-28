@@ -93,8 +93,13 @@ class SemanticOrganizationHooks {
 	/**
 	 * Render Collapse Button
 	 */
-	static function renderCollapse( &$parser, $target ) {
-		$collapse = '<a	class="semorg-collapse" data-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '"><span class="fa fa-chevron-down"></a>';
+	static function renderCollapse( &$parser, $target, $tooltip = null ) {
+		$linktext = '<span class="fa fa-chevron-down"';
+		if( !is_null( $tooltip ) ) {
+			$linktext .= 'data-toggle="tooltip" title="' . $tooltip . '"';
+		}
+		$linktext .= '>';
+		$collapse = '<a	class="semorg-collapse" data-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '">' . $linktext . '</a>';
 		return [ $collapse, 'noparse' => true, 'isHTML' => true ];
 	}
 
@@ -2780,8 +2785,7 @@ class SemanticOrganizationHooks {
 			if( ( $days - $current ) == 1 ) {
 				$width = 100 / $days;
 			}
-			//die(var_dump( $left ) );
-			$weekends .= '<span class="semorg-timeline-weekend" style="background:#ccc;height:100%;position:absolute;top:0;width:' . $width . '%;left:' . $left . '%"></span>';
+			$weekends .= '<span class="semorg-timeline-weekend" style="top:0;width:' . $width . '%;left:' . $left . '%"></span>';
 		}
 
 
