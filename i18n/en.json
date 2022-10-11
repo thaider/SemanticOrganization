@@ -1385,6 +1385,7 @@
 	"semorg-field-process-involved-name": "Involved roles",
 	"semorg-field-process-groups-name": "Involved groups",
 
+	"semorg-working-time-template": "semorg-working-time",
 	"semorg-working-time-page-name": "Working Times",
 	"semorg-working-time-intro-text": "To enter or change your core working times [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} edit your user page].",
 	"semorg-form-working-time-add-button-text": "Add working time",
