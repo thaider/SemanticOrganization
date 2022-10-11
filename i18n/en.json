@@ -369,6 +369,8 @@
 	"semorg-field-person-target-group-input-type": "checkboxes",
 	"semorg-field-person-target-group-parameters": "values from category=semorg-target-group",
 	"semorg-field-person-target-group-mapping-property": "Semorg-target-group-name",
+	"semorg-field-person-working-times-name": "Working Times",
+	"semorg-field-person-working-times-parameters": "holds template",
 
 	"semorg-user-create-link-text": "Create \"$1\" user account",
 
@@ -1385,6 +1387,9 @@
 
 	"semorg-working-time-page-name": "Working Times",
 	"semorg-working-time-intro-text": "To enter or change your core working times [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} edit your user page].",
+	"semorg-form-working-time-add-button-text": "Add working time",
+	"semorg-form-working-time-rows": "day,time,note",
+	"semorg-form-working-time-template": "working-time",
 	"semorg-field-working-time-person-name": "Name",
 	"semorg-field-working-time-person-parameters": "hidden",
 	"semorg-field-working-time-day-name": "Day",

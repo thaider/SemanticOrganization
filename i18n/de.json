@@ -281,6 +281,7 @@
 	"semorg-field-person-projects-name": "Projekte",
 	"semorg-field-person-picture-name": "Bild",
 	"semorg-field-person-target-group-name": "Zielgruppen",
+	"semorg-field-person-working-times-name": "Kernarbeitszeiten",
 
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
@@ -783,6 +784,7 @@
 
 	"semorg-working-time-page-name": "Kernarbeitszeiten",
 	"semorg-working-time-intro-text": "Um deine eigenen Kernarbeitszeiten einzutragen, [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} bearbeite deine Benutzer*innenseite].",
+	"semorg-form-working-time-add-button-text": "Kernarbeitszeit hinzufügen",
 	"semorg-field-working-time-person-name": "Name",
 	"semorg-field-working-time-day-name": "Tag",
 	"semorg-field-working-time-time-name": "Uhrzeit",
