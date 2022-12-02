@@ -1628,7 +1628,7 @@ class SemanticOrganizationHooks {
 
 		/* create section heading if the input-typ is set to section */
 		if( wfMessage($fullelement . '-input-type')->text() == 'section' ) {
-			return '<tr><td colspan="2" class="border-0"><h5 class="semorg-form-section">' . $heading . '</h5></td></tr>';
+			return '<h5 class="semorg-form-section">' . $heading . '</h5>';
 		}
 
 		/* get the intro if it exists */
