@@ -60,4 +60,5 @@ $magicWords['en'] = array(
 	'semorg-timeline-weekends' => array( 0, 'semorg-timeline-weekends' ),
 	'semorg-collapse' => array( 0, 'semorg-collapse' ),
 	'semorg-query' => array( 0, 'semorg-query' ),
+	'semorg-phone' => array( 0, 'semorg-phone' ),
 );

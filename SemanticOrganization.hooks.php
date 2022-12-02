@@ -83,6 +83,7 @@ class SemanticOrganizationHooks {
 			'timeline-weekends' => 'renderTimelineWeekends',
 			'collapse' => 'renderCollapse',
 			'query' => 'renderQuery',
+			'phone' => 'renderPhone',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -111,6 +112,33 @@ class SemanticOrganizationHooks {
 		$parser->getOutput()->updateCacheExpiry(0);
 		$val = RequestContext::getMain()->getRequest()->getVal($param);
 		return [ $val ];
+	}
+
+
+	/**
+	 * Render phone number in Semantic MediaWiki format
+	 *
+	 * @param String $phone Phone number(s)
+	 *
+	 * @return String Sanitized phone number(s)
+	 */
+	static function renderPhone( &$parser, $phone ) {
+		$country_code = wfMessage( 'semorg-default-country-code' )->text();
+		$phone = explode(',', $phone);
+		foreach( $phone as &$number ) {
+			$number = trim( $number );
+			$number = preg_replace('/[^\d\+-]/', '-', $number);
+			$number = preg_replace('/--+/', '-', $number);
+			if( substr( $number, 0, 1 ) !== '+' ) {
+				if( substr( $number, 0, 2 ) == '00' ) {
+					$number = '+' . substr( $number, 2 );
+				} elseif( substr( $number, 0, 1 ) == '0' ) {
+					$number = $country_code . '-' . substr( $number, 1 );
+				}
+			}
+		}
+		$phone = join( ',', $phone );
+		return [ $phone ];
 	}
 
 

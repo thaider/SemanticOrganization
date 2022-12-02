@@ -81,6 +81,8 @@
 
 	"semorg-currency-symbol": "€",
 
+	"semorg-default-country-code": "+1",
+
 	"semorg-net-text": "net",
 
 	"semorg-vcard-link-text": "<i class='fa fa-download'></i> Download as vcard",

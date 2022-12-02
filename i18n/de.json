@@ -76,6 +76,8 @@
 	"semorg-agenda-times": "(Agenda: {{#semorg-hours:$1}}h gesamt, {{#semorg-hours:$2}}h $4)",
 	"semorg-agenda-times-planned": "geplant",
 
+	"semorg-default-country-code": "+49",
+
 	"semorg-process-step-done": "<span class='fa fa-check'></span> erledigt am $1",
 	"semorg-process-step-do": "als erledigt markieren",
 	"semorg-process-step-do-tooltip": "als erledigt markieren",
