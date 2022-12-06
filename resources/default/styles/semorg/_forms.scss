@@ -32,6 +32,9 @@
 		margin-top:0;
 	}
 }
+.semorg-form-info {
+	margin-top:30px;
+}
 
 .multipleTemplateWrapper {
 	.semorg-row-name {
@@ -141,4 +144,12 @@
 		border-color: $primary !important;
 		background-color: theme-color-level( primary, -12 ) !important;
 	}
+}
+
+.semorg-row + .semorg-form-section {
+  margin-top: 50px;
+}
+
+.semorg-form-section {
+  font-weight: 700;
 }

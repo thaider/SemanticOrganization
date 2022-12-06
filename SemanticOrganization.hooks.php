@@ -1626,9 +1626,14 @@ class SemanticOrganizationHooks {
 			$heading = wfMessage($fullelement . '-name')->text();
 		}
 
-		/* create section heading if the input-typ is set to section */
+		/* create section heading if the input-type is set to section */
 		if( wfMessage($fullelement . '-input-type')->text() == 'section' ) {
 			return '<h5 class="semorg-form-section">' . $heading . '</h5>';
+		}
+
+		/* create text output if the input-type is set to info */
+		if( wfMessage($fullelement . '-input-type')->text() == 'info' ) {
+			return '<div class="semorg-form-info">' . $heading . '</div>';
 		}
 
 		/* get the intro if it exists */
@@ -1658,7 +1663,7 @@ class SemanticOrganizationHooks {
 			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
 
 		/* show help message create link */
-		} elseif( $editinterface ) {
+		} elseif( $editinterface && !( wfMessage($fullelement . '-help')->isDisabled() && !wfMessage($fullelement . '-help')->isBlank() ) ) {
 			$help_tooltip = wfMessage( 'semorg-msg-help-create-tooltip' )->plain();
 			$help = '{{#semorg-msg:field-' . $template . '-' . $element . '-help|tooltip=' . $help_tooltip . '|icon=question}}';
 			$help = '<small class="text-muted ml-2 semorg-help">' . $help . '</small>';
