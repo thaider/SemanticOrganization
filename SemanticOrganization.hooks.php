@@ -1633,7 +1633,7 @@ class SemanticOrganizationHooks {
 
 		/* create text output if the input-type is set to info */
 		if( wfMessage($fullelement . '-input-type')->text() == 'info' ) {
-			return '<div class="semorg-form-info">' . $heading . '</div>';
+			return '<div class="semorg-row semorg-form-info">' . $heading . '</div>';
 		}
 
 		/* get the intro if it exists */
