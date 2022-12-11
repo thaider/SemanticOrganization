@@ -806,6 +806,22 @@ class SemanticOrganizationHooks {
 			}
 
 			$fields = SemanticOrganizationProperties::getPropertiesForTemplate( $template );
+
+			if( isset( $listoptions['fields'] ) ) {
+				$field_subset = $listoptions['fields'];
+			} elseif( $custom_row_template && wfMessage( 'semorg-list-' . $row_template . '-custom-fields' )->exists() ) {
+				$field_subset = wfMessage( 'semorg-list-' . $row_template . '-custom-fields' )->parse();
+			} elseif( $row_template != $template && wfMessage('semorg-list-' . $row_template . '-fields' )->exists() ) {
+				$field_subset = wfMessage('semorg-list-' . $row_template . '-fields' )->text();
+			} elseif( wfMessage('semorg-list-' . $template . '-fields' )->exists() ) {
+				$field_subset = wfMessage('semorg-list-' . $template . '-fields' )->text();
+			}
+			if( isset( $field_subset ) ) {
+				$field_subset = explode( ',', $field_subset );
+				$field_subset = array_map( 'trim', $field_subset );
+				$fields = array_intersect_key( $fields, array_flip( $field_subset ) );
+			}
+
 			if( $fields === false) {
 				return [ wfMessage( 'semorg-error-list-no-fields' )->text(), 'noparse' => true ];
 			}
