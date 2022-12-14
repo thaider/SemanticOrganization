@@ -633,7 +633,7 @@ class SemanticOrganizationHooks {
 		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
 		$badge = '<div class="semorg-detail-badge">[[' . $overview_page . '|<i class="fa fa-angle-left"></i>]]<span class="semorg-badge">' . strtoupper( $entity_name ) . '</span></div>';
 
-		$header = '<div class="semorg-detail-heading">' . $heading . '</div>';
+		$header = '<h1 class="semorg-detail-heading">' . $heading . '</h1>';
 		$card = '<div class="semorg-detail">' . $badge . $header . '</div>';
 
 		$card .= '{{#tweekiHide:firstHeading}}';
@@ -846,6 +846,10 @@ class SemanticOrganizationHooks {
 			// Get implicit filters (filter links)
 			if( isset( $listoptions['filter links'] ) ) {
 				$filter_links = explode( ',', $listoptions['filter links'] );
+				foreach( $filter_links as &$filter ) {
+					$filter = trim( $filter );
+				}
+				unset( $filter );
 			}
 
 			// Filters
@@ -856,6 +860,10 @@ class SemanticOrganizationHooks {
 				$filter_string = '';
 				if( isset( $listoptions['filters'] ) ) {
 					$filters = explode(',', $listoptions['filters']);
+					foreach( $filters as &$filter ) {
+						$filter = trim( $filter );
+					}
+					unset( $filter );
 				}
 				// add filters that have implicitly been set with filter links
 				if( isset( $filter_links ) ) {
@@ -865,6 +873,7 @@ class SemanticOrganizationHooks {
 					$filter_value = false;
 					$filter = explode( '=', $filter );
 					$filter_property = $filter[0];
+					$filter_property = explode( ':', $filter_property )[0];
 
 					// had the filter been set explicitly in the query string?
 					if( $request->getCheck( $filter_property ) ) {
@@ -1191,16 +1200,22 @@ class SemanticOrganizationHooks {
 			// Filterbox
 			if( isset( $filter_links ) ) {
 				$filter_links_values = [];
+				$filter_customs = [];
 				foreach( $filter_links as $filter ) {
 					$filter = explode( '=', $filter );
 					$filter_property = $filter[0];
+					$filter_custom = explode( ':', $filter_property, 2 )[1];
+					if( !is_null( $filter_custom ) ) {
+						$filter_property = explode( ':', $filter_property )[0];
+						$filter_customs[$filter_property] = $filter_custom;
+					}
 
 					// get all existing values
 					$filter_values = array_unique( array_map( 'trim', explode( ',', self::getValues( $parser, $filter_property, $query_string ) ) ) );
 					sort( $filter_values );
 					$filter_links_values[$filter_property] = $filter_values;
 				}
-				$filterbox = self::getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults );
+				$filterbox = self::getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults, $filter_customs );
 				$list = $parser->recursiveTagParse( $filterbox ) . $list;
 			}
 		}
@@ -2351,12 +2366,13 @@ class SemanticOrganizationHooks {
 	 * @param Array $filter_links_values List of filters and their values
 	 * @param Array $applied_filters List of applied filters and the applied value
 	 * @param Array $filter_defaults List of filters with default value applied
+	 * @param Array $filter_customs List of filters with custom names
 	 *
 	 * @return string HTML code for filterbox
 	 *
 	 * @todo: implement limits and offsetting
 	 */
-	static function getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults ) {
+	static function getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults, $filter_customs ) {
 		$filterbox = '';
 		// add invisible filters that have been applied in order to make them dropable
 		foreach( $applied_filters as $filter_property => $value ) {
@@ -2368,12 +2384,16 @@ class SemanticOrganizationHooks {
 			$filterbox .= '<div class="semorg-filterbox-filter">';
 			$filter_properties = explode( '.', $filter_property );
 
-			// allow costumization for nested property names via 'semorg-feature-field-feature-field-name'
-			$filter_name_msg = 'semorg-field-' . str_replace( '.semorg', '', $filter_property ) . '-name';
-			if( !wfMessage( $filter_name_msg )->exists() ) {
-				$filter_name_msg = 'semorg-field-' . str_replace( 'semorg-', '', end( $filter_properties  ) ) . '-name';
+			if( isset( $filter_customs[$filter_property] ) ) {
+				$filter_name = $filter_customs[$filter_property];
+			} else {
+				// allow costumization for nested property names via 'semorg-feature-field-feature-field-name'
+				$filter_name_msg = 'semorg-field-' . str_replace( '.semorg', '', $filter_property ) . '-name';
+				if( !wfMessage( $filter_name_msg )->exists() ) {
+					$filter_name_msg = 'semorg-field-' . str_replace( 'semorg-', '', end( $filter_properties  ) ) . '-name';
+				}
+				$filter_name = wfMessage( $filter_name_msg );
 			}
-			$filter_name = wfMessage( $filter_name_msg );
 			$filterbox .= '<span class="semorg-filterbox-filter-name">' . $filter_name . ': </span>';
 
 			// remove empty values
