@@ -1147,7 +1147,7 @@
 	"semorg-field-manual-role-name": "Verantwortliche Rolle",
 	"semorg-field-manual-up-to-date-date-name": "zuletzt überprüft",
 	"semorg-field-manual-checked-name": "überprüft",
-	"semorg-field-manual-archived-name": "archiviert",
+	"semorg-field-manual-archived-label": "archiviert",
 
 	"semorg-knowledge-feature-name": "Wissensdatenbank und Anleitungen",
 	"semorg-knowledge-feature-description": "*das Wissen der Organization dokumentieren und einfach zugänglich machen",
@@ -1166,7 +1166,7 @@
 	"semorg-field-knowledge-role-name": "Verantwortliche Rolle",
 	"semorg-field-knowledge-up-to-date-date-name": "zuletzt überprüft",
 	"semorg-field-knowledge-checked-name": "überprüft",
-	"semorg-field-knowledge-archived-name": "archiviert",
+	"semorg-field-knowledge-archived-label": "archiviert",
 
 	"semorg-system-page-name": "Systeme",
 	"semorg-system-entity-name": "System",
