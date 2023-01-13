@@ -70,6 +70,11 @@ a.new:hover {
 .semorg-actions .fa:hover {
 	color:#333;
 }
+.tweeki-user-anon .semorg-actions, 
+.tweeki-user-anon .semorg-list-formlink, 
+.tweeki-user-anon .semorg-showedit {
+    display: none;
+}
 
 /* PRINTABLE */
 .semorg-printable-edit {
