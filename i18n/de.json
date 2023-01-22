@@ -519,6 +519,14 @@
 	"semorg-form-meeting-group-edit-title": "Treffen bearbeiten",
 	"semorg-form-meeting-group-page-name": "Treffen",
 
+	"semorg-meeting-role-displaytitle": "{{#show:$1|?semorg-role-name}}-Rollenbesprechung vom {{#timel:j. F Y|$2}}",
+	"semorg-meeting-role-page-name": "Rollenbesprechungen",
+	"semorg-meeting-role-past-page-name": "Vergangene Rollenbesprechungen",
+	"semorg-meeting-role-entity-name": "Rollenbesprechung",
+	"semorg-form-meeting-role-create-title": "Rollenbesprechung erstellen",
+	"semorg-form-meeting-role-edit-title": "Rollenbesprechung bearbeiten",
+	"semorg-form-meeting-role-page-name": "Rollenbesprechungen",
+
 	"semorg-meeting-project-displaytitle": "$1-Projektbesprechung vom {{#timel:j. F Y|$2}}",
 	"semorg-meeting-project-page-name": "Projektbesprechungen",
 	"semorg-meeting-project-past-page-name": "Vergangene Projektbesprechungen",
