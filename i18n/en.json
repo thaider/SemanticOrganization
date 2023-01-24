@@ -2064,6 +2064,7 @@
 	"semorg-field-expense-vat-parameters": "size=5",
 	"semorg-field-expense-type-name": "Type",
 	"semorg-field-expense-type-parameters": "",
+	"semorg-field-expense-oneline-name": "-",
 	"semorg-field-expense-oneline-fields": "date,description,amount-gross,amount-net",
 
 	"semorg-task-feature-name": "Tasks",

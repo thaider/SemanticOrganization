@@ -33,6 +33,14 @@
 	}
 }
 
+// Sections
+.semorg-form .semorg-form-section {
+        font-weight:bold;
+}
+.semorg-row + .semorg-form-section {
+        margin-top:50px;
+}
+
 .multipleTemplateWrapper {
 	.semorg-row-name {
 		margin-bottom:0px;
