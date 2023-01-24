@@ -1714,7 +1714,7 @@
 	"semorg-form-role-edit-title": "Edit role",
 	"semorg-form-role-page-name": "Roles",
 	"semorg-form-role-template": "role",
-	"semorg-form-role-rows": "name, group, status, tasks, holders",
+	"semorg-form-role-rows": "name, purpose, group, status, tasks, holders",
 	"semorg-list-role-headers": "role-name, role-hours, role-tasks, role-group, role-holders",
 	"semorg-list-role-active-link-text": "active",
 	"semorg-list-role-inactive-link-text": "inactive",
@@ -1746,6 +1746,9 @@
 	"semorg-field-role-short-staffed-parameters": "",
 	"semorg-field-role-short-staffed-input-type": "checkbox",
 	"semorg-field-role-short-staffed-label": "this role is short-staffed and needs new people",
+	"semorg-field-role-purpose-name": "Purpose",
+	"semorg-field-role-purpose-parameters": "rows=1",
+	"semorg-field-role-purpose-input-type": "textarea",
 
 	"semorg-role-task-template": "semorg-role-task",
 	"semorg-role-task-page-name": "Schedule",
