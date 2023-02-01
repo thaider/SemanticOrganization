@@ -704,6 +704,10 @@ div.mw-warning-with-logexcerpt {
 }
 .semorg-list-table {
 	width:100%;
+
+	td ul {
+		margin-top:0;
+	}
 }
 .semorg-list-highlight td,
 .semorg-card-highlight {
@@ -771,4 +775,48 @@ div.mw-warning-with-logexcerpt {
 	/* MAPS */
 	.semorg-list-map {
 	margin-bottom:5px;
+}
+
+
+// LETTER
+.semorg-letter-subject {
+	font-weight:bold;
+}
+
+// INVOICE
+.semorg-invoice-items {
+	margin:50px 0;
+
+	td:last-child {
+		text-align:right;
+	}
+
+	.semorg-invoice-subtotal {
+		font-style:italic;
+
+		td {
+			border-top: 1px solid black;
+
+			&:first-child {
+				padding-left:100px;
+			}
+		}
+	}
+	.semorg-invoice-vat td {
+		border-top:none;
+
+		&:first-child {
+			padding-left:100px;
+		}
+	}
+	
+	.semorg-invoice-total td {
+		border-top: 1px solid black;
+		font-weight:bold;
+	}
+}
+
+// CURRENCY
+.semorg-currency {
+	white-space:nowrap;
 }

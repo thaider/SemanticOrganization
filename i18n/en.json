@@ -9,6 +9,7 @@
 	"semorg-letter-header": "",
 	"semorg-letter-footer": "",
 	"semorg-letter-address": "$1<br>$2<br>$3 $4",
+	"semorg-invoice-footer": "",
 
 	"semorg-chartcolor": "",
 
@@ -1269,6 +1270,7 @@
 	"semorg-field-invoice-recipient-parameters": "input type=combobox|values from property=semorg-invoice-recipient",
 	"semorg-field-invoice-issuer-name": "Issuer",
 	"semorg-field-invoice-issuer-parameters": "input type=combobox|values from category=semorg-person-user|mapping property=Semorg-person-name",
+	"semorg-field-invoice-issuer-default": "{{#semorg-user:}}",
 	"semorg-field-invoice-number-name": "Invoice Number",
 	"semorg-field-invoice-number-short-name": "Nr",
 	"semorg-field-invoice-number-parameters": "input size=3",
@@ -1316,6 +1318,9 @@
 	"semorg-field-invoice-outro-name": "Outro",
 	"semorg-field-invoice-outro-parameters": "rows=1",
 	"semorg-field-invoice-outro-input-type": "textarea",
+	"semorg-field-invoice-intro-name": "Intro Text",
+	"semorg-field-invoice-intro-parameters": "rows=1",
+	"semorg-field-invoice-intro-input-type": "textarea",
 	"semorg-field-invoice-template-name-name": "Template's Name",
 	"semorg-field-invoice-template-name-parameters": "mandatory",
 
