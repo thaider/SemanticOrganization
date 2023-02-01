@@ -633,7 +633,7 @@ class SemanticOrganizationHooks {
 		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
 		$badge = '<div class="semorg-detail-badge">[[' . $overview_page . '|<i class="fa fa-angle-left"></i>]]<span class="semorg-badge">' . strtoupper( $entity_name ) . '</span></div>';
 
-		$header = '<h1 class="semorg-detail-heading">' . $heading . '</h1>';
+		$header = '<div class="semorg-detail-heading">' . $heading . '</div>';
 		$card = '<div class="semorg-detail">' . $badge . $header . '</div>';
 
 		$card .= '{{#tweekiHide:firstHeading}}';
