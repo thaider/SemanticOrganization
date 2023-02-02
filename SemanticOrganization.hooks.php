@@ -1320,9 +1320,13 @@ class SemanticOrganizationHooks {
 		$csv = '{{#ask:' . $query_string;
 		$csv .= '|mainlabel=-';
 		foreach( explode( ',', $csv_fields ) as $field ) {
-			$field = trim( $field );
+			$def = explode( '=', $field );
+			$field = trim( $def[0] );
 			if( isset( $fields[$field] ) ) {
-				$title = wfMessage( 'semorg-field-' . $template . '-' . $field . '-name' )->plain();
+				$title = $def[1] ?? wfMessage( 'semorg-field-' . $template . '-' . $field . '-name' )->plain();
+				if( trim( $title ) == '' ) {
+					$title = $field;
+				}
 				if( $fields[$field]['type'] = 'dat' ) {
 					$csv .= '|?semorg-' . $template . '-' . $field . '#ISO=' . $title;
 				} else {
