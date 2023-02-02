@@ -1657,19 +1657,19 @@ class SemanticOrganizationHooks {
 			$heading = wfMessage($fullelement . '-name')->text();
 		}
 
+		/* get the intro if it exists */
+		if( !wfMessage($fullelement . '-intro')->isDisabled() ) {
+			$intro = '<div class="semorg-field-intro mb-2">' . wfMessage($fullelement . '-intro')->text() . '</div>';
+		}
+
 		/* create section heading if the input-type is set to section */
 		if( wfMessage($fullelement . '-input-type')->text() == 'section' ) {
-			return '<h5 class="semorg-form-section">' . $heading . '</h5>';
+			return '<h5 class="semorg-form-section">' . $heading . '</h5>' . $intro;
 		}
 
 		/* create text output if the input-type is set to info */
 		if( wfMessage($fullelement . '-input-type')->text() == 'info' ) {
 			return '<div class="semorg-row semorg-form-info">' . $heading . '</div>';
-		}
-
-		/* get the intro if it exists */
-		if( !wfMessage($fullelement . '-intro')->isDisabled() ) {
-			$intro = '<div class="semorg-field-intro mb-2">' . wfMessage($fullelement . '-intro')->text() . '</div>';
 		}
 
 		/* show create/edit links for help messages only for users with editinterface permission */

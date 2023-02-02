@@ -18,6 +18,9 @@
 #maincontentwrapper #pfForm input[type="checkbox"] {
 	width: 100% !important;
 }
+#maincontentwrapper #pfForm input[type="checkbox"] {
+	left:40px;
+}
 
 .semorg-row-name {
 	margin-bottom:10px;
@@ -99,6 +102,11 @@
 		> .oo-ui-comboBoxInputWidget {
 			//width:95% !important;
 		}
+	}
+
+	> label {
+		text-indent: -40px;
+		margin-left:40px;
 	}
 }
 
