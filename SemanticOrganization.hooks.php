@@ -152,7 +152,7 @@ class SemanticOrganizationHooks {
 	 * @return Integer Number of entries
 	 */
 	static function renderCount( &$parser, $list, $separator=',' ) {
-		$array = array_unique( array_map( 'trim', explode( $separator, $list ) ) );
+		$array = array_filter( array_unique( array_map( 'trim', explode( $separator, $list ) ) ), 'strlen' );
 		return count( $array );
 	}
 
