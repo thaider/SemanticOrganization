@@ -84,6 +84,7 @@ class SemanticOrganizationHooks {
 			'collapse' => 'renderCollapse',
 			'query' => 'renderQuery',
 			'phone' => 'renderPhone',
+			'count' => 'renderCount',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -139,6 +140,20 @@ class SemanticOrganizationHooks {
 		}
 		$phone = join( ',', $phone );
 		return [ $phone ];
+	}
+
+
+	/**
+	 * Return number of array entries (using explode)
+	 *
+	 * @param String $list List of entries as string
+	 * @param String $separator Separator to use with explode
+	 *
+	 * @return Integer Number of entries
+	 */
+	static function renderCount( &$parser, $list, $separator=',' ) {
+		$array = array_unique( array_map( 'trim', explode( $separator, $list ) ) );
+		return count( $array );
 	}
 
 
