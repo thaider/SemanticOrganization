@@ -1663,12 +1663,25 @@ class SemanticOrganizationHooks {
 
 		/* get the intro if it exists */
 		if( !wfMessage($fullelement . '-intro')->isDisabled() ) {
-			$intro = '<div class="semorg-field-intro mb-2">' . wfMessage($fullelement . '-intro')->text() . '</div>';
+			$intro_class = "semorg-field-intro mb-2";
+			if( $restricted_field_hidden ) {
+				return '';
+			} elseif( $restricted_field ) {
+				$intro_class .= ' semorg-restricted';
+			}
+			$intro = '<div class="' . $intro_class . '">' . wfMessage($fullelement . '-intro')->text() . '</div>';
 		}
 
 		/* create section heading if the input-type is set to section */
 		if( wfMessage($fullelement . '-input-type')->text() == 'section' ) {
-			return '<h5 class="semorg-form-section">' . $heading . '</h5>' . $intro;
+			$section_class = "semorg-form-section";
+			if( $restricted_field_hidden ) {
+				return '';
+			} elseif( $restricted_field ) {
+				$section_class .= ' semorg-restricted';
+			}
+			$section_id = 'semorg-section-' . $template . '-' . $element;
+			return '<h5 class="' . $section_class . '" id="' . $section_id . '">' . $heading . '</h5>' . $intro;
 		}
 
 		/* create text output if the input-type is set to info */

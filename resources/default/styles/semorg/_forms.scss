@@ -18,9 +18,6 @@
 #maincontentwrapper #pfForm input[type="checkbox"] {
 	width: 100% !important;
 }
-#maincontentwrapper #pfForm input[type="checkbox"] {
-	left:40px;
-}
 
 .semorg-row-name {
 	margin-bottom:10px;
@@ -107,6 +104,10 @@
 	> label {
 		text-indent: -40px;
 		margin-left:40px;
+	}
+
+	input[type="checkbox"] {
+		left:40px;
 	}
 }
 
