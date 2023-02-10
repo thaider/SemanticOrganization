@@ -85,6 +85,7 @@ class SemanticOrganizationHooks {
 			'query' => 'renderQuery',
 			'phone' => 'renderPhone',
 			'count' => 'renderCount',
+			'hash' => 'renderHash',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -154,6 +155,18 @@ class SemanticOrganizationHooks {
 	static function renderCount( &$parser, $list, $separator=',' ) {
 		$array = array_filter( array_unique( array_map( 'trim', explode( $separator, $list ) ) ), 'strlen' );
 		return count( $array );
+	}
+
+
+	/**
+	 * Return md5-Hash for given string
+	 *
+	 * @param String $string
+	 *
+	 * @return String Hash
+	 */
+	static function renderHash( &$parser, $string ) {
+		return md5($string);
 	}
 
 
@@ -1757,6 +1770,7 @@ class SemanticOrganizationHooks {
 							$restricted_subfield_hidden = !$user->isAllowedAny(...$rights);
 						}
 					}
+					$restricted_subfield_hidden = $restricted_subfield_hidden || $restricted_field_hidden;
 
 					/* get the field intro if it exists */
 					$field_intro = '';
@@ -1799,6 +1813,9 @@ class SemanticOrganizationHooks {
 
 		if( $restricted_field ) {
 			$row_class .= ' semorg-restricted';
+		}
+		if( $restricted_field_hidden ) {
+			$row_class .= ' semorg-row-hidden';
 		}
 			
 		return '<div id="semorg-row-' . $template . '-' . $element . '" class="semorg-row ' . $row_class . '">' . $row . '</div>';

@@ -30,6 +30,7 @@
 
 	&.semorg-row-hidden {
 		margin-top:0;
+		padding:0;
 	}
 }
 
@@ -166,4 +167,9 @@
 
 .semorg-form-section {
   font-weight: 700;
+}
+
+// empty labels create white space for coordinates input
+.semorg-form label:empty {
+	display:none;
 }
