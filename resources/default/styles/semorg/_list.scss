@@ -1,0 +1,94 @@
+.semorg-list {
+	+ .semorg-list {
+		margin-top:30px;
+	}
+
+	&-row-details {
+		font-size:small;
+		color:#666;
+	}
+
+	.semorg-sums td {
+		border-color:transparent !important;
+	}
+
+	&-header {
+		margin-bottom:5px;
+	}
+
+	&-title {
+		font-weight:bold;
+		font-size:20px;
+	}
+
+	&-formlink {
+		font-size:small;
+
+		.btn-sm {
+			line-height:1;
+		}
+
+		.pfFormInput {
+			margin-top: -20px;
+
+			> p {
+				margin-bottom:0;
+			}
+		}
+
+		.forminput_button {
+			font-size:small;
+			line-height:1;
+		}
+	}
+
+	&-links {
+		border-left:2px solid #dee2e6;
+		padding:3px 5px;
+		margin-bottom:5px;
+		font-size:small;
+		line-height:1.2;
+	}
+
+	&-links-title {
+		font-weight:700;
+		text-transform:uppercase;
+		color:#666;
+	}
+
+	&-table {
+		width:100%;
+
+		td ul {
+			margin-top:0;
+		}
+	}
+
+	&-footer {
+		border-left:2px solid #dee2e6;
+		padding:3px 5px;
+		margin-bottom:15px;
+		font-size:small;
+		margin-top:-10px;
+	}
+}
+
+.semorg-list-highlight td,
+.semorg-card-highlight {
+	background-color:lighten($primary, 40%);
+}
+
+#bodyContent .semorg-list .semorg-detail-heading {
+	margin-bottom:5px;
+}
+
+.semorg-detail-help-link {
+	margin-left:10px;
+	vertical-align:top;
+	font-size:.8em;
+	color:#999;
+	
+	&:hover {
+		color:#000;
+	}
+}

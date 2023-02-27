@@ -650,130 +650,60 @@ div.mw-warning-with-logexcerpt {
 	text-transform:uppercase;
 }
 
-.semorg-list-row-details {
-	font-size:small;
-	color:#666;
-}
-.semorg-list .semorg-sums td {
-	border-color:transparent !important;
-}
 
-#bodyContent .semorg-list .semorg-detail-heading {
-	margin-bottom:5px;
-}
-.semorg-detail-help-link {
-	margin-left:10px;
-	vertical-align:top;
-	font-size:.8em;
-	color:#999;
-}
-.semorg-detail-help-link:hover {
-	color:#000;
-}
-.semorg-list-header {
-	margin-bottom:5px;
-}
-.semorg-list-title {
-	font-weight:bold;
-	font-size:20px;
-}
-.semorg-list-formlink {
-	font-size:small;
-}
-.semorg-list-formlink .btn-sm {
+
+.card-header .btn-sm  {
 	line-height:1;
 }
-.semorg-list-formlink .pfFormInput > p {
-	margin-bottom:0;
-}
-.semorg-list-formlink .forminput_button {
-	font-size:small;
+body input[type="button"].multipleTemplateAdder {
 	line-height:1;
-}
-.semorg-list-links {
-	border-left:2px solid #dee2e6;
-	padding:3px 5px;
-	margin-bottom:5px;
 	font-size:small;
-	line-height:1.2;
 }
-.semorg-list-links-title {
-	font-weight:700;
-	text-transform:uppercase;
-	color:#666;
+
+.semorg-role-inactive {
+	text-decoration:line-through;
 }
-.semorg-list-table {
-	width:100%;
 
-	td ul {
-		margin-top:0;
+.semorg-pagebreak {
+	page-break-after:always;
+}
+
+
+/* MOBILE */
+@media( max-width:768px ) {
+	.semorg-details-field-name {
+		font-size:.7em;
+	}
+	.semorg-details-row > div {
+		padding:0;
+	}
+	.semorg-detail-badge a {
+		position:unset;
+		vertical-align:middle;
+	}
+	.semorg-detail-badge .semorg-badge {
+		margin-left:5px;
+	}
+	.semorg-detail {
+		margin-left:0;
 	}
 }
-.semorg-list-highlight td,
-.semorg-card-highlight {
-	background-color:lighten($primary, 40%);
+
+
+/* PROJECT UPDATES */
+.semorg-project-update-out-of-date .semorg-project-update-update {
+	opacity:.5;
 }
-	.semorg-list-footer {
-		border-left:2px solid #dee2e6;
-		padding:3px 5px;
-		margin-bottom:15px;
-		font-size:small;
-		margin-top:-10px;
-	}
 
 
-	.card-header .btn-sm  {
-		line-height:1;
-	}
-	body input[type="button"].multipleTemplateAdder {
-		line-height:1;
-		font-size:small;
-	}
-
-	.semorg-role-inactive {
-		text-decoration:line-through;
-	}
-
-	.semorg-pagebreak {
-		page-break-after:always;
-	}
+/* PERSON-REF */
+.semorg-person-ref-formerly .semorg-person-ref-name {
+	text-decoration:line-through;
+}
 
 
-	/* MOBILE */
-	@media( max-width:768px ) {
-		.semorg-details-field-name {
-			font-size:.7em;
-		}
-		.semorg-details-row > div {
-			padding:0;
-		}
-		.semorg-detail-badge a {
-			position:unset;
-			vertical-align:middle;
-		}
-		.semorg-detail-badge .semorg-badge {
-			margin-left:5px;
-		}
-		.semorg-detail {
-			margin-left:0;
-		}
-	}
-
-
-	/* PROJECT UPDATES */
-	.semorg-project-update-out-of-date .semorg-project-update-update {
-		opacity:.5;
-	}
-
-
-	/* PERSON-REF */
-	.semorg-person-ref-formerly .semorg-person-ref-name {
-		text-decoration:line-through;
-	}
-
-
-	/* MAPS */
-	.semorg-list-map {
+/* MAPS */
+.semorg-list-map {
 	margin-bottom:5px;
 }
 
@@ -820,3 +750,63 @@ div.mw-warning-with-logexcerpt {
 .semorg-currency {
 	white-space:nowrap;
 }
+
+// STAKEHOLDER
+.semorg-stakeholder-milestones {
+	font-size:.7em;
+	line-height:1.2;
+	text-align:center;
+}
+
+.semorg-stakeholder-milestone {
+	background-color:#ccc;
+	margin:1px;
+
+	&:hover {
+		background-color:#aaa;
+	}
+
+	.semorg-stakeholder-milestone a {
+		color:#666;
+		display:block;
+
+		&:hover {
+			color:#000;
+			text-decoration:none;
+		}
+	}
+
+	&-empty {
+		background-color:#f5f5f5;
+		margin:1px;
+	}
+}
+
+
+// RATING
+.semorg-rating {
+	color:#999;
+	font-size:small;
+}
+
+.semorg-plot .semorg-rating {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+
+// SCJ
+.semorg-scj-targeted-sc > div {
+	margin:auto;
+}
+
+
+// COLLAPSE
+.semorg-collapse .fa {
+	color:#999;
+
+	&:hover {
+		color:#333;
+	}
+}
+
