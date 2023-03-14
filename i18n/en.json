@@ -2794,6 +2794,7 @@
 	"semorg-form-recipe-ingredient-add-button-text": "Add Ingredient",
 	"semorg-form-recipe-ingredient-template": "recipe-ingredient",
 	"semorg-form-recipe-ingredient-rows": "ingredient-combined",
+	"semorg-form-recipe-ingredient-displayed-fields-when-minimized": "amount,ingredient,note",
 	"semorg-list-recipe-ingredient-headers": "recipe-ingredient-amount, recipe-ingredient-ingredient, recipe-ingredient-recipe",
 	"semorg-field-recipe-ingredient-amount-name": "Amount",
 	"semorg-field-recipe-ingredient-amount-parameters": "",
@@ -2806,8 +2807,10 @@
 	"semorg-field-recipe-ingredient-ingredient-size": "80",
 	"semorg-field-recipe-ingredient-recipe-name": "Recipe",
 	"semorg-field-recipe-ingredient-recipe-parameters": "",
+	"semorg-field-recipe-ingredient-note-name": "Note",
+	"semorg-field-recipe-ingredient-note-placeholder": "Note",
 	"semorg-field-recipe-ingredient-ingredient-combined-name": "-",
-	"semorg-field-recipe-ingredient-ingredient-combined-fields": "amount,ingredient",
+	"semorg-field-recipe-ingredient-ingredient-combined-fields": "amount,ingredient,note",
 
 	"end": "end"
 }

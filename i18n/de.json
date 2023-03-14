@@ -1463,5 +1463,26 @@
 	"semorg-field-liquidity-planning-amount-prefix": "€ ",
 	"semorg-field-liquidity-planning-recurrent-name": "wiederkehrend",
 
+	"semorg-recipe-page-name": "Rezepte",
+	"semorg-recipe-entity-name": "Rezept",
+	"semorg-form-recipe-create-title": "Rezept erstellen",
+	"semorg-form-recipe-edit-title": "Rezept bearbeiten",
+	"semorg-field-recipe-category-name": "Rezeptkategorie",
+	"semorg-field-recipe-ingredient-name": "Zutaten",
+	"semorg-field-recipe-ingredients-name": "Zutaten",
+	"semorg-field-recipe-name-name": "Name",
+	"semorg-field-recipe-preparation-name": "Zubereitung",
+	"semorg-field-recipe-source-name": "Quelle",
+	"semorg-field-recipe-time-name": "Zubereitungszeit",
+
+	"semorg-form-recipe-ingredient-add-button-text": "Zutat hinzufügen",
+	"semorg-field-recipe-ingredient-amount-name": "Menge",
+	"semorg-field-recipe-ingredient-amount-placeholder": "Menge",
+	"semorg-field-recipe-ingredient-ingredient-name": "Zutat",
+	"semorg-field-recipe-ingredient-ingredient-placeholder": "Zutat",
+	"semorg-field-recipe-ingredient-recipe-name": "Rezept",
+	"semorg-field-recipe-ingredient-note-name": "Anmerkung",
+	"semorg-field-recipe-ingredient-note-placeholder": "Anmerkung",
+
 	"end": "Ende"
 }
