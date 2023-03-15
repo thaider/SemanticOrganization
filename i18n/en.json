@@ -2789,6 +2789,9 @@
 	"semorg-field-recipe-time-parameters": "",
 	"semorg-field-recipe-time-suffix": "min",
 	"semorg-field-recipe-time-size": "5",
+	"semorg-field-recipe-rating-name": "Rating",
+	"semorg-field-recipe-rating-parameters": "",
+	"semorg-field-recipe-rating-input-type": "rating",
 
 	"semorg-recipe-ingredient-template": "semorg-recipe-ingredient",
 	"semorg-form-recipe-ingredient-add-button-text": "Add Ingredient",

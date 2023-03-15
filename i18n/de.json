@@ -1474,6 +1474,7 @@
 	"semorg-field-recipe-preparation-name": "Zubereitung",
 	"semorg-field-recipe-source-name": "Quelle",
 	"semorg-field-recipe-time-name": "Zubereitungszeit",
+	"semorg-field-recipe-rating-name": "Bewertung",
 
 	"semorg-form-recipe-ingredient-add-button-text": "Zutat hinzufügen",
 	"semorg-field-recipe-ingredient-amount-name": "Menge",

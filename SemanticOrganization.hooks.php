@@ -662,14 +662,18 @@ class SemanticOrganizationHooks {
 		$badge = '<div class="semorg-detail-badge">[[' . $overview_page . '|<i class="fa fa-angle-left"></i>]]<span class="semorg-badge">' . strtoupper( $entity_name ) . '</span></div>';
 
 		$header = '<div class="semorg-detail-heading">' . $heading . '</div>';
-		$card = '<div class="semorg-detail">' . $badge . $header . '</div>';
+		$rating = '';
+		if( $detailoptions['rating'] ) {
+			$rating = '<div class="semorg-detail-rating">{{#semorg-rating:' . $detailoptions['rating'] . '}}</div>';
+		}
+		$detail = '<div class="semorg-detail">' . $badge . $header . $rating . '</div>';
 
-		$card .= '{{#tweekiHide:firstHeading}}';
+		$detail .= '{{#tweekiHide:firstHeading}}';
 		if( isset( $detailoptions['heading'] ) ) {
-			$card .= '{{DISPLAYTITLE:' . $detailoptions['heading'] . '}}';
+			$detail .= '{{DISPLAYTITLE:' . $detailoptions['heading'] . '}}';
 		}
 
-		return [ $card, 'noparse' => false ];
+		return [ $detail, 'noparse' => false ];
 	}
 
 
