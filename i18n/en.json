@@ -2768,6 +2768,7 @@
 	"semorg-form-recipe-create-title": "Create Recipe",
 	"semorg-form-recipe-edit-title": "Edit Recipe",
 	"semorg-form-recipe-template": "recipe",
+	"semorg-form-recipe-page-name": "Recipes",
 	"semorg-form-recipe-rows": "name,category,time,ingredients,preparation,source",
 	"semorg-list-recipe-headers": "recipe-name,recipe-category",
 	"semorg-field-recipe-category-name": "Category",
