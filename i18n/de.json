@@ -960,6 +960,18 @@
 	"semorg-field-role-short-staffed-label": "diese Rolle ist unterbesetzt und braucht neue Leute",
 	"semorg-field-role-purpose-name": "Purpose",
 
+	"semorg-role-subpage-page-name": "Rollenunterseiten",
+	"semorg-role-subpage-archived-page-name": "Archivierte Rollenunterseiten",
+	"semorg-role-subpage-entity-name": "Rollenunterseite",
+	"semorg-form-role-subpage-create-title": "Rollenunterseite erstellen",
+	"semorg-form-role-subpage-edit-title": "Rollenunterseite bearbeiten",
+	"semorg-forminput-role-subpage-button-text": "Unterseite erstellen",
+	"semorg-forminput-role-subpage-placeholder": "Name der Unterseite",
+	"semorg-field-role-subpage-role-name": "Rolle",
+	"semorg-field-role-subpage-subpage-name": "Unterseite",
+	"semorg-field-role-subpage-description-name": "Beschreibung",
+	"semorg-field-role-subpage-archived-label": "archiviert",
+
 	"semorg-role-task-page-name": "Jahreskreis",
 	"semorg-role-task-dashboard-title": "Meine Rollen und ihre aktuellen Tasks",
 	"semorg-form-role-task-add-button-text": "Aufgabe hinzufügen",
