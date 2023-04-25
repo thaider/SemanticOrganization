@@ -428,11 +428,24 @@ class SemanticOrganizationHooks {
 	static function renderDetailTable( &$parser ) {
 		$template = func_get_args()[1];
 		$keyvalues = self::extractOptions( array_slice(func_get_args(), 2) );
+		$user = $parser->getUser();
 
 		$table = '';
 
 		foreach( $keyvalues as $key => $value ) {
 			$fullelement = $template . '-' . $key;
+
+			// check, if line should only be shown for users with specific rights
+			if( 
+				wfMessage('semorg-table-' . $fullelement . '-rights')->exists() 
+			) {
+				$rights = explode( ',', wfMessage( 'semorg-table-' . $fullelement . '-rights')->plain() );
+				if( !$user->isAllowedAny(...$rights) ) {
+					$parser->getOutput()->updateCacheExpiry(0);
+					continue;
+				}
+			}
+
 			$table .= '<div class="row semorg-details-row">';
 			$table .= '<div class="col-lg-4 semorg-details-field-name">{{semorg-field-name|' . $fullelement . '}}</div>';
 			$table .= '<div class="col-lg-8">
