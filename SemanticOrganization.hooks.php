@@ -1710,7 +1710,7 @@ class SemanticOrganizationHooks {
 		if( !wfMessage($fullelement . '-intro')->isDisabled() ) {
 			$intro_class = "semorg-field-intro mb-2";
 			if( $restricted_field_hidden ) {
-				return '';
+				$intro_class .= ' semorg-row-hidden';
 			} elseif( $restricted_field ) {
 				$intro_class .= ' semorg-restricted';
 			}
@@ -1787,11 +1787,12 @@ class SemanticOrganizationHooks {
 							$restricted_subfield_hidden = !$user->isAllowedAny(...$rights);
 						}
 					}
+					$restricted_subfield = $restricted_subfield || $restricted_field;
 					$restricted_subfield_hidden = $restricted_subfield_hidden || $restricted_field_hidden;
 
 					/* get the field intro if it exists */
 					$field_intro = '';
-					if( !wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->isDisabled() && !$restricted_hidden) {
+					if( !wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->isDisabled() && !$restricted_subfield_hidden) {
 						$field_intro = $field_intro . '<div class="semorg-field-intro mb-2">' . wfMessage('semorg-field-' . $template . '-' . $field . '-intro')->text() . '</div>';
 					}
 
