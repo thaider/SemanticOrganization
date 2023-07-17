@@ -235,7 +235,7 @@ class SemanticOrganizationHooks {
 	 * Get name of the current user
 	 */
 	static function getUser( &$parser ) {
-		return $parser->getUser()->getUserPage()->getFullText();
+		return $parser->getUserIdentity()->getUserPage()->getFullText();
 	}
 
 
@@ -428,7 +428,7 @@ class SemanticOrganizationHooks {
 	static function renderDetailTable( &$parser ) {
 		$template = func_get_args()[1];
 		$keyvalues = self::extractOptions( array_slice(func_get_args(), 2) );
-		$user = $parser->getUser();
+		$user = $parser->getUserIdentity();
 
 		$table = '';
 
@@ -813,7 +813,7 @@ class SemanticOrganizationHooks {
 		$list = '';
 		$template = func_get_args()[1];
 		$listoptions = self::extractOptions( array_slice(func_get_args(), 2) );
-		$request = $parser->getUser()->getRequest();
+		$request = $parser->getUserIdentity()->getRequest();
 		if( $template != '' ) {
 			$parameters = [];
 			$row_template = $template;
@@ -1682,7 +1682,7 @@ class SemanticOrganizationHooks {
 	 * Create a row for the form
 	 */
 	static function getFieldRow( &$parser, $template, $element ) {
-		$user = $parser->getUser();
+		$user = $parser->getUserIdentity();
 		$editinterface = $user->isAllowed( 'editinterface' );
 		$fullelement = 'semorg-field-' . $template . '-' . $element;
 		$heading = '';
@@ -2611,13 +2611,13 @@ class SemanticOrganizationHooks {
 		} else {
 
 			// use request query if available and limit hasn't been explicitly set
-			if( $parser->getUser()->getRequest()->getInt( 'limit' ) > 0 ) {
-				$filters_to_apply['limit'] = $parser->getUser()->getRequest()->getInt( 'limit' );
+			if( $parser->getUserIdentity()->getRequest()->getInt( 'limit' ) > 0 ) {
+				$filters_to_apply['limit'] = $parser->getUserIdentity()->getRequest()->getInt( 'limit' );
 			}
 		}
 
-		if( $parser->getUser()->getRequest()->getCheck('highlight') ) {
-			$filters_to_apply['highlight'] = $parser->getUser()->getRequest()->getText('highlight');
+		if( $parser->getUserIdentity()->getRequest()->getCheck('highlight') ) {
+			$filters_to_apply['highlight'] = $parser->getUserIdentity()->getRequest()->getText('highlight');
 		}
 
 		// Add filters to query string for URL
