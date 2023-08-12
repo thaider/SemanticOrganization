@@ -438,7 +438,7 @@
 	"semorg-form-person-ref-rows": "person-ref",
 	"semorg-form-person-ref-add-button-text": "Add Contact",
 	"semorg-form-person-ref-displayed-fields-when-minimized": "name,role",
-	"semorg-field-person-ref-person-ref-name": "",
+	"semorg-field-person-ref-person-ref-name": "-",
 	"semorg-field-person-ref-person-ref-fields": "name,role,tag",
 	"semorg-field-person-ref-name-name": "Name",
 	"semorg-field-person-ref-name-parameters": "input type=combobox|values from category=semorg-person|mapping property=Semorg-person-name|size=50",
