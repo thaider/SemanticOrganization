@@ -130,6 +130,7 @@
 	"semorg-knowledge-out-of-date-weeks": "52",
 
 	"semorg-project-update-out-of-date-weeks": "10",
+	"semorg-project-status-overdue": "overdue",
 
 	"semorg-milestone-has-description": "Has Detailed Description",
 	"semorg-milestone-has-tools": "Has Tools Defined",

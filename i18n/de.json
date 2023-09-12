@@ -103,6 +103,8 @@
 	"semorg-invoice-due-one-month-text": "seit über einem Monat (brutto)",
 	"semorg-invoice-due-three-months-text": "davon seit über drei Monaten (brutto)",
 
+	"semorg-project-status-overdue": "überfällig",
+
 	"semorg-milestone-has-description": "Hat Detailbeschreibung",
 	"semorg-milestone-has-tools": "Hat Werkzeuge definiert",
 	"semorg-milestone-has-delivery-models": "Hat Delivery Models definiert",
