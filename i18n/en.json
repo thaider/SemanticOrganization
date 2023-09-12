@@ -472,7 +472,7 @@
 	"semorg-forminput-project-button-text": "Create project",
 	"semorg-forminput-project-placeholder": "Project Name",
 	"semorg-form-project-template": "project",
-	"semorg-form-project-rows": "title,short-title,run-time,contact-person,description,team,budget,closed-date,active",
+	"semorg-form-project-rows": "title,short-title,run-time,contact-person,description,team,budget,closed-date",
 	"semorg-form-project-page-name": "Projects",
 	"semorg-list-project-row-template": "project-team-members",
 	"semorg-list-project-headers": "project-title, project-start, project-end, project-contact-person",
