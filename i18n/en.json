@@ -1401,7 +1401,7 @@
 
 	"semorg-working-time-template": "semorg-working-time",
 	"semorg-working-time-page-name": "Working Times",
-	"semorg-working-time-intro-text": "To enter or change your core working times [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} edit your user page].",
+	"semorg-working-time-intro-text": "To enter or change your core working times [{{fullurl:{{#semorg-user:}}|action=formedit&returnto={{FULLPAGENAMEE}}}} edit your user page].",
 	"semorg-form-working-time-add-button-text": "Add working time",
 	"semorg-form-working-time-rows": "day,time,note",
 	"semorg-form-working-time-template": "working-time",

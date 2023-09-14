@@ -799,7 +799,7 @@
 	"semorg-field-process-groups-name": "Beteiligte Gremien",
 
 	"semorg-working-time-page-name": "Kernarbeitszeiten",
-	"semorg-working-time-intro-text": "Um deine eigenen Kernarbeitszeiten einzutragen, [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} bearbeite deine Benutzer*innenseite].",
+	"semorg-working-time-intro-text": "Um deine eigenen Kernarbeitszeiten einzutragen, [{{fullurl:{{#semorg-user:}}|action=formedit&returnto={{FULLPAGENAMEE}}}} bearbeite deine Benutzer*innenseite].",
 	"semorg-form-working-time-add-button-text": "Kernarbeitszeit hinzufügen",
 	"semorg-field-working-time-person-name": "Name",
 	"semorg-field-working-time-day-name": "Tag",
