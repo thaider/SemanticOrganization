@@ -1504,5 +1504,33 @@
 	"semorg-field-recipe-ingredient-note-name": "Anmerkung",
 	"semorg-field-recipe-ingredient-note-placeholder": "Anmerkung",
 
+	"semorg-systemic-consensing-decision-page-name": "Systemisches Konsensieren",
+	"semorg-systemic-consensing-decision-entity-name": "Systemisches Konsensieren",
+	"semorg-form-systemic-consensing-decision-create-title": "Systemisches Konsensieren erstellen",
+	"semorg-form-systemic-consensing-decision-edit-title": "Systemisches Konsensieren bearbeiten",
+	"semorg-form-systemic-consensing-decision-page-name": "Systemisches Konsensieren",
+	"semorg-field-systemic-consensing-decision-description-name": "Beschreibung",
+	"semorg-field-systemic-consensing-decision-end-date-name": "Enddatum",
+	"semorg-field-systemic-consensing-decision-start-date-name": "Startdatum",
+	"semorg-field-systemic-consensing-decision-title-name": "Titel",
+
+	"semorg-systemic-consensing-option-entity-name": "Option für Systemisches Konsensieren",
+	"semorg-form-systemic-consensing-option-create-title": "Option hinzufügen",
+	"semorg-form-systemic-consensing-option-edit-title": "Option bearbeiten",
+	"semorg-form-systemic-consensing-option-page-name": "Optionen",
+	"semorg-field-systemic-consensing-option-code-name": "Code",
+	"semorg-field-systemic-consensing-option-decision-name": "Entscheidung",
+	"semorg-field-systemic-consensing-option-description-name": "Beschreibung",
+
+	"semorg-systemic-consensing-score-entity-name": "Systemisches Konsensieren - Widerstandsmessung",
+	"semorg-form-systemic-consensing-score-create-title": "Widerstandsmessung anlegen",
+	"semorg-form-systemic-consensing-score-edit-title": "Widerstandsmessung bearbeiten",
+	"semorg-form-systemic-consensing-score-page-name": "Widerstandsmessungen",
+	"semorg-field-systemic-consensing-score-comment-name": "Kommentar",
+	"semorg-field-systemic-consensing-score-option-name": "Option",
+	"semorg-field-systemic-consensing-score-score-name": "Widerstandspunkte",
+	"semorg-field-systemic-consensing-score-score-help": "Mehr Punkte bedeuten höheren Widerstand. Null Punkte heißt überhaupt kein Widerstand, 10 Punkte entsprechen einem Vet",
+	"semorg-field-systemic-consensing-score-user-name": "Benutzer*in",
+
 	"end": "Ende"
 }
