@@ -1825,6 +1825,7 @@
 	"semorg-field-role-holder-start-date-name": "from",
 	"semorg-field-role-holder-start-date-prefix": "from ",
 	"semorg-field-role-holder-start-date-input-type": "datepicker",
+	"semorg-field-role-holder-start-date-default": "{{#time:Y/m/d}}",
 	"semorg-field-role-holder-end-date-name": "until",
 	"semorg-field-role-holder-end-date-prefix": "until ",
 	"semorg-field-role-holder-end-date-input-type": "datepicker",
