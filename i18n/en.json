@@ -651,6 +651,7 @@
 	"semorg-field-project-team-role-parameters": "",
 	"semorg-field-project-team-role-placeholder": "Role in the project",
 	"semorg-field-project-team-start-date-name": "Start date",
+	"semorg-field-project-team-start-date-default": "{{#time:Y/m/d}}",
 	"semorg-field-project-team-start-date-input-type": "datepicker",
 	"semorg-field-project-team-end-date-name": "End date",
 	"semorg-field-project-team-end-date-input-type": "datepicker",
