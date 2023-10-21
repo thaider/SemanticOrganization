@@ -713,6 +713,19 @@ body input[type="button"].multipleTemplateAdder {
 	font-weight:bold;
 }
 
+.semorg-letter-recipient {
+	margin-bottom:50px;
+
+	.semorg-letter-recipient-vat-number {
+		margin-top:15px;
+	}
+}
+
+.semorg-letter-date {
+	margin-bottom:50px;
+}
+
+
 // INVOICE
 .semorg-invoice-items {
 	margin:50px 0;

@@ -9,6 +9,7 @@
 	"semorg-letter-header": "",
 	"semorg-letter-footer": "",
 	"semorg-letter-address": "$1<br>$2<br>$3 $4",
+	"semorg-letter-vat-number": "UID: $1",
 	"semorg-invoice-footer": "",
 
 	"semorg-chartcolor": "",
