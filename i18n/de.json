@@ -103,6 +103,9 @@
 	"semorg-invoice-due-one-month-text": "seit über einem Monat (brutto)",
 	"semorg-invoice-due-three-months-text": "davon seit über drei Monaten (brutto)",
 
+	"semorg-expense-report-pay-tooltip": "als ausbezahlt markieren",
+	"semorg-expense-report-pay-summary": "als ausbezahlt markiert",
+
 	"semorg-project-status-overdue": "überfällig",
 
 	"semorg-milestone-has-description": "Hat Detailbeschreibung",
