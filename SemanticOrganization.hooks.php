@@ -1135,7 +1135,7 @@ class SemanticOrganizationHooks {
 
 				$map_query .= '|limit=1000}}';
 
-				$list .= $parser->recursiveTagParse( '<div class="semorg-list-map">' . $map_query . '</div>' );
+				$list .= $parser->recursiveTagParse( '<div class="semorg-list-map navigation-not-searchable">' . $map_query . '</div>' );
 			}
 
 			// Modification and creation dates
@@ -1239,7 +1239,7 @@ class SemanticOrganizationHooks {
 					}
 				}
 				$download = self::getDownload( $parser, $query_string, $template, $listoptions['csv'], $filename );
-				$list = '<div class="semorg-csv-download">' . $parser->recursiveTagParse( $download ) . '</div>' . $list;
+				$list = '<div class="semorg-csv-download navigation-not-searchable">' . $parser->recursiveTagParse( $download ) . '</div>' . $list;
 			}
 
 			// Filterbox
@@ -1267,7 +1267,7 @@ class SemanticOrganizationHooks {
 
 		// Links
 		if( isset( $listoptions['links'] ) ) {
-			$list = '<div class="semorg-list-links">' . $parser->recursiveTagParse( $listoptions['links'] ) . '</div>' . $list;
+			$list = '<div class="semorg-list-links navigation-not-searchable">' . $parser->recursiveTagParse( $listoptions['links'] ) . '</div>' . $list;
 		}
 
 		// Header
@@ -1286,7 +1286,7 @@ class SemanticOrganizationHooks {
 
 			// Formlink
 			if( isset( $listoptions['formlink'] ) ) {
-				$list_header .= '<div class="semorg-list-formlink">' . $listoptions['formlink'] . '</div>';
+				$list_header .= '<div class="semorg-list-formlink navigation-not-searchable">' . $listoptions['formlink'] . '</div>';
 			}
 
 			$list = '<div class="semorg-list-header">' . $list_header . '</div>' . $list;
@@ -1306,7 +1306,7 @@ class SemanticOrganizationHooks {
 				}
 			}
 			if( $help_page != '' ) {
-				$help_link = '<btn class="semorg-detail-help-link" wrapper="" title="' . $help_page . '" data-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
+				$help_link = '<btn class="semorg-detail-help-link navigation-not-searchable" wrapper="" title="' . $help_page . '" data-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
 			}
 			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . $help_link . '</div>';
 
@@ -1327,7 +1327,7 @@ class SemanticOrganizationHooks {
 
 		// Footer
 		if( isset( $listoptions['footer'] ) ) {
-			$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( $listoptions['footer'] ) . '</div>';
+			$list .= '<div class="semorg-list-footer navigation-not-searchable">' . $parser->recursiveTagParse( $listoptions['footer'] ) . '</div>';
 		} elseif( isset( $listoptions['all url'] ) ) {
 			if( $count > $limit ) {
 				if( wfMessage( 'semorg-list-' . $template . '-all-link-text' )->exists() ) {
@@ -1335,13 +1335,13 @@ class SemanticOrganizationHooks {
 				} else {
 					$all_link_text = wfMessage( 'semorg-list-default-all-link-text' )->text();
 				}
-				$list .= '<div class="semorg-list-footer">' . $parser->recursiveTagParse( '[' . $listoptions['all url'] . ' ' . $all_link_text . ']' ) . '</div';
+				$list .= '<div class="semorg-list-footer navigation-not-searchable">' . $parser->recursiveTagParse( '[' . $listoptions['all url'] . ' ' . $all_link_text . ']' ) . '</div';
 			}
 		}
 
 		// Pagination
 		if( $template != '' && !isset( $listoptions['nopagination'] ) ) {
-			$list .= '<div class="semorg-pagination d-print-none clearfix">';
+			$list .= '<div class="semorg-pagination d-print-none clearfix navigation-not-searchable">';
 			if( $page > 1 || $count > $limit ) {
 				$list .= self::getPagination( $parser, $applied_filters, $count, $limit, $page );
 			}
@@ -2494,7 +2494,7 @@ class SemanticOrganizationHooks {
 			$filterbox .= '</div>';
 		}
 		$filterbox_title = '<div class="semorg-filterbox-title">' . wfMessage( 'semorg-filterbox-title' ) . '</div>';
-		$filterbox = '<div class="semorg-filterbox">' . $filterbox_title . $filterbox . '</div>';
+		$filterbox = '<div class="semorg-filterbox navigation-not-searchable">' . $filterbox_title . $filterbox . '</div>';
 		return $filterbox;
 	}
 
