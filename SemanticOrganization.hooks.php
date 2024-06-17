@@ -86,6 +86,7 @@ class SemanticOrganizationHooks {
 			'phone' => 'renderPhone',
 			'count' => 'renderCount',
 			'hash' => 'renderHash',
+			'overview' => 'renderOverview',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -803,7 +804,7 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 * Liste anzeigen
+	 * Show list
 	 */
 	static function renderList( &$parser ) {
 		global $wgSemorgListLimit;
@@ -1352,6 +1353,106 @@ class SemanticOrganizationHooks {
 		$list = '<div class="semorg-list">' . $list . '</div>';
 
 		return [ $list, 'noparse' => true, 'isHTML' => true ];
+	}
+
+
+	/**
+	 * Show a feature's overview page
+	 */
+	static function renderOverview( &$parser ) {
+		$feature = func_get_args()[1];
+		$options = self::extractOptions( array_slice(func_get_args(), 2) );
+		if( isset( $options['feature'] ) ) {
+			$feature = $options['feature'];
+		}
+		if( $feature == '' ) {
+			return wfMessage( 'semorg-error-missing-parameter', 'semorg-overview', 'feature' );
+		}
+
+		$parameters = [];
+		$request = $parser->getUserIdentity()->getRequest();
+
+		// get options
+		foreach( [
+			'heading', 
+			'links-title',
+			'links',
+			'formlink',
+			'query',
+			'sort',
+			'order',
+			'limit',
+			'filter-links',
+			'filters',
+			'category',
+			'headers',
+			'row-template',
+			'tableclass',
+			'title',
+			'sums',
+			'csv',
+			'default',
+			'returnto',
+			'help',
+			'extra-fields',
+		] as $parameter ) {
+			// explicitly set by query parameter?
+			if( !is_null( $request->getVal( 'overview-' . $parameter ) ) && $request->getVal( 'overview-' . $parameter ) > 0 ) {
+				$parameters[str_replace('-', ' ', $parameter)] = $request->getVal( 'overview-' . $parameter );
+			}
+
+			// explicitly set by parser function parameter?
+			elseif( isset( $options[str_replace( '-', ' ', $parameter )] ) ) {
+				$parameters[str_replace( '-', ' ', $parameter )] = $options[$parameter];
+			}
+
+			// set by a message?
+			elseif( wfMessage( 'semorg-overview-' . $feature . '-' . $parameter )->exists() ) {
+				$parameters[str_replace( '-', ' ', $parameter )] = wfMessage( 'semorg-overview-' . $feature . '-' . $parameter )->plain();
+			}
+		}
+		if( !isset( $parameters['links'] ) ) {
+			$parameters['links'] = '{{#ifexist:Template:semorg-' . $feature . '-custom-links|{{semorg-' . $feature . '-custom-links}}|{{#ifexist:Template:semorg-' . $feature . '-links|{{semorg-' . $feature . '-links}}}}}}';
+		} else {
+			$links = '';
+			$links .= '<span class="semorg-list-links-title">' . ( $parameters['links-title'] ?? '{{int:semorg-' . $feature . '-page-name}}' ) . ':</span> ';
+			$link_array = [];
+			foreach( explode( ',', $parameters['links'] ) as $link ) {
+				list($target,$title) = explode( '|', $link );
+				if( is_null($title) ) {
+					$title = $target;
+				}
+				$link_array[] = '[[{{int:semorg-' . $target . '}}|{{int:semorg-' . $title . '}}]]';
+			}
+			$links .= join( ' · ', $link_array );
+			$parameters['links'] = $links;
+		}
+		if( !isset( $parameters['heading'] ) ) {
+			if( wfMessage( 'semorg-' . $feature . '-page-name' )->exists() ) {
+				$parameters['heading'] = wfMessage( 'semorg-' . $feature . '-page-name' )->parse();
+			}
+		}
+		if( !isset( $parameters['formlink'] ) || $parameters['formlink'] == '' ) {
+			$parameters['formlink'] = '{{#semorg-formlink:' . $feature . '}}';
+		} elseif( $parameters['formlink'] == '-' ) {
+			unset( $parameters['formlink'] );
+		}
+
+		$overview = '{{#semorg-list:';
+		if( wfMessage( 'semorg-overview-' . $feature . '-parent-feature' )->exists() ) {
+			$overview .= wfMessage( 'semorg-overview-' . $feature . '-parent-feature' )->parse();
+		} else {
+			$overview .= $feature;
+		}
+		if( isset( $parameters['extra-fields'] ) ) {
+			$overview .= $parameters['extra-fields'];
+			unset( $parameters['extra-fields'] );
+		}
+		foreach( $parameters as $parameter => $value ) {
+			$overview .= '|' . $parameter . '=' . $value;
+		}
+		$overview .= '}}';
+		return [ $overview, 'noparse' => false ];
 	}
 
 
