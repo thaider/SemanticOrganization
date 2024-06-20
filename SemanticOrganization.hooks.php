@@ -113,7 +113,7 @@ class SemanticOrganizationHooks {
 	 */
 	static function renderQuery( &$parser, $param ) {
 		$parser->getOutput()->updateCacheExpiry(0);
-		$val = RequestContext::getMain()->getRequest()->getVal($param);
+		$val = RequestContext::getMain()->getRequest()->getText($param);
 		return [ $val ];
 	}
 

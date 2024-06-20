@@ -103,6 +103,11 @@
 	"semorg-invoice-due-one-month-text": "seit über einem Monat (brutto)",
 	"semorg-invoice-due-three-months-text": "davon seit über drei Monaten (brutto)",
 
+	"semorg-expense-report-pay-tooltip": "als ausbezahlt markieren",
+	"semorg-expense-report-pay-summary": "als ausbezahlt markiert",
+
+	"semorg-project-status-overdue": "überfällig",
+
 	"semorg-milestone-has-description": "Hat Detailbeschreibung",
 	"semorg-milestone-has-tools": "Hat Werkzeuge definiert",
 	"semorg-milestone-has-delivery-models": "Hat Delivery Models definiert",
@@ -327,6 +332,7 @@
 	"semorg-project-feature-name": "Projektübersicht",
 	"semorg-project-feature-description": "*Dokumentation, wer an welchen Projekten beteiligt ist",
 	"semorg-project-page-name": "Projekte",
+	"semorg-project-inactive-page-name": "Inaktive Projekte",
 	"semorg-project-closed-page-name": "Abgeschlossene Projekte",
 	"semorg-project-inactive-page-name": "Inaktive Projekte",
 	"semorg-project-target-group-page-name": "Projekte nach Zielgruppen",
@@ -339,6 +345,7 @@
 	"semorg-forminput-project-button-text": "Projekt erstellen",
 	"semorg-forminput-project-placeholder": "Projektname",
 	"semorg-list-project-current-link-text": "aktuell",
+	"semorg-list-project-inactive-link-text": "inaktiv",
 	"semorg-list-project-closed-link-text": "abgeschlossen",
 	"semorg-list-project-inactive-link-text": "inaktiv",
 	"semorg-list-project-update-link-text": "Updates",
@@ -353,6 +360,8 @@
 	"semorg-field-project-description-name": "Kurzbeschreibung",
 	"semorg-field-project-team-name": "Teammitglieder",
 	"semorg-field-project-budget-name": "Budget",
+	"semorg-field-project-active-name": "",
+	"semorg-field-project-active-label": "aktiv",
 	"semorg-field-project-closed-name": "",
 	"semorg-field-project-closed-label": "abgeschlossen",
 	"semorg-field-project-closed-date-name": "abgeschlossen am",
@@ -802,7 +811,7 @@
 	"semorg-field-process-groups-name": "Beteiligte Gremien",
 
 	"semorg-working-time-page-name": "Kernarbeitszeiten",
-	"semorg-working-time-intro-text": "Um deine eigenen Kernarbeitszeiten einzutragen, [{{fullurl:Special:MyPage|action=formedit&returnto={{FULLPAGENAMEE}}}} bearbeite deine Benutzer*innenseite].",
+	"semorg-working-time-intro-text": "Um deine eigenen Kernarbeitszeiten einzutragen, [{{fullurl:{{#semorg-user:}}|action=formedit&returnto={{FULLPAGENAMEE}}}} bearbeite deine Benutzer*innenseite].",
 	"semorg-form-working-time-add-button-text": "Kernarbeitszeit hinzufügen",
 	"semorg-field-working-time-person-name": "Name",
 	"semorg-field-working-time-day-name": "Tag",
@@ -1509,6 +1518,34 @@
 	"semorg-field-recipe-ingredient-recipe-name": "Rezept",
 	"semorg-field-recipe-ingredient-note-name": "Anmerkung",
 	"semorg-field-recipe-ingredient-note-placeholder": "Anmerkung",
+
+	"semorg-systemic-consensing-decision-page-name": "Systemisches Konsensieren",
+	"semorg-systemic-consensing-decision-entity-name": "Systemisches Konsensieren",
+	"semorg-form-systemic-consensing-decision-create-title": "Systemisches Konsensieren erstellen",
+	"semorg-form-systemic-consensing-decision-edit-title": "Systemisches Konsensieren bearbeiten",
+	"semorg-form-systemic-consensing-decision-page-name": "Systemisches Konsensieren",
+	"semorg-field-systemic-consensing-decision-description-name": "Beschreibung",
+	"semorg-field-systemic-consensing-decision-end-date-name": "Enddatum",
+	"semorg-field-systemic-consensing-decision-start-date-name": "Startdatum",
+	"semorg-field-systemic-consensing-decision-title-name": "Titel",
+
+	"semorg-systemic-consensing-option-entity-name": "Option für Systemisches Konsensieren",
+	"semorg-form-systemic-consensing-option-create-title": "Option hinzufügen",
+	"semorg-form-systemic-consensing-option-edit-title": "Option bearbeiten",
+	"semorg-form-systemic-consensing-option-page-name": "Optionen",
+	"semorg-field-systemic-consensing-option-code-name": "Code",
+	"semorg-field-systemic-consensing-option-decision-name": "Entscheidung",
+	"semorg-field-systemic-consensing-option-description-name": "Beschreibung",
+
+	"semorg-systemic-consensing-score-entity-name": "Systemisches Konsensieren - Widerstandsmessung",
+	"semorg-form-systemic-consensing-score-create-title": "Widerstandsmessung anlegen",
+	"semorg-form-systemic-consensing-score-edit-title": "Widerstandsmessung bearbeiten",
+	"semorg-form-systemic-consensing-score-page-name": "Widerstandsmessungen",
+	"semorg-field-systemic-consensing-score-comment-name": "Kommentar",
+	"semorg-field-systemic-consensing-score-option-name": "Option",
+	"semorg-field-systemic-consensing-score-score-name": "Widerstandspunkte",
+	"semorg-field-systemic-consensing-score-score-help": "Mehr Punkte bedeuten höheren Widerstand. Null Punkte heißt überhaupt kein Widerstand, 10 Punkte entsprechen einem Vet",
+	"semorg-field-systemic-consensing-score-user-name": "Benutzer*in",
 
 	"end": "Ende"
 }
