@@ -1533,6 +1533,7 @@
 	"semorg-form-systemic-consensing-option-create-title": "Option hinzufügen",
 	"semorg-form-systemic-consensing-option-edit-title": "Option bearbeiten",
 	"semorg-form-systemic-consensing-option-page-name": "Optionen",
+	"semorg-field-systemic-consensing-option-active-label": "aktiv",
 	"semorg-field-systemic-consensing-option-code-name": "Code",
 	"semorg-field-systemic-consensing-option-decision-name": "Entscheidung",
 	"semorg-field-systemic-consensing-option-description-name": "Beschreibung",
