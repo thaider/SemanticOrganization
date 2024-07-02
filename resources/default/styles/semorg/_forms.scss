@@ -1,24 +1,3 @@
-// datepicker
-.pfPickerWrapper {
-	display: inline-block;
-}
-.pfDatePicker.oo-ui-textInputWidget {
-	width:200px;
-}
-
-.oo-ui-checkboxInputWidget + t {
-	margin-left:8px;
-}
-
-// ugly hack: without it, checkboxes are only partly clickable
-.oo-ui-checkboxInputWidget {
-	width: 1.42857143em;
-}
-#maincontentwrapper #pfForm select, 
-#maincontentwrapper #pfForm input[type="checkbox"] {
-	width: 100% !important;
-}
-
 .semorg-row-name {
 	margin-bottom:10px;
 }
@@ -56,7 +35,7 @@
 
 	.semorg-row {
 		@extend .row;
-		@extend .no-gutters;
+		@extend .g-0;
 	}
 	.semorg-row-name {
 		@extend .col-md-3;
@@ -73,9 +52,6 @@
 		padding-left:0;
 		padding-right:0;
 	}
-}
-.multipleTemplateInstance {
-	background-color:$light !important;
 }
 
 #maincontentwrapper #pfForm .semorg-form-single-field {
@@ -154,10 +130,10 @@
 
 	input,
 	textarea,
-        select {
+	select {
 		color: $primary !important;
 		border-color: $primary !important;
-		background-color: theme-color-level( primary, -12 ) !important;
+		background-color: tint-color( $primary, 90% ) !important;
 	}
 }
 

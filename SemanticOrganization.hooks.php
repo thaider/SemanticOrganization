@@ -100,10 +100,10 @@ class SemanticOrganizationHooks {
 	static function renderCollapse( &$parser, $target, $tooltip = null ) {
 		$linktext = '<span class="fa fa-chevron-down"';
 		if( !is_null( $tooltip ) ) {
-			$linktext .= 'data-toggle="tooltip" title="' . $tooltip . '"';
+			$linktext .= 'data-bs-toggle="tooltip" title="' . $tooltip . '"';
 		}
 		$linktext .= '>';
-		$collapse = '<a	class="semorg-collapse" data-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '">' . $linktext . '</a>';
+		$collapse = '<a	class="semorg-collapse" data-bs-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '">' . $linktext . '</a>';
 		return [ $collapse, 'noparse' => true, 'isHTML' => true ];
 	}
 
@@ -767,7 +767,7 @@ class SemanticOrganizationHooks {
 		foreach( $taboptions as $id => $content ) {
 			if( substr( $id, 0, 1 ) === '?' ) {
 				$id = substr( $id, 1 );
-				$tabbtn = '<btn data-toggle="tab" class="nav-link' . ($first ? ' active' : '') . '" role="tab" id="' . $id . '-label" aria-controls="' . $id . '" aria-selected="' . ($first ? 'true' : 'false') . '">#' . $id . '|' . wfMessage( 'semorg-tab-' . $template . '-' . $id ) . '</btn>';
+				$tabbtn = '<btn data-bs-toggle="tab" class="nav-link' . ($first ? ' active' : '') . '" role="tab" id="' . $id . '-label" aria-controls="' . $id . '" aria-selected="' . ($first ? 'true' : 'false') . '">#' . $id . '|' . wfMessage( 'semorg-tab-' . $template . '-' . $id ) . '</btn>';
 				$tablinks .= '<li class="nav-item">' . $tabbtn . '</li>';
 				$first = false;
 			}
@@ -1272,7 +1272,7 @@ class SemanticOrganizationHooks {
 		}
 
 		// Header
-		if( isset( $listoptions['title'] ) || isset( $listoptions['formlink'] ) ) {
+		if( isset( $listoptions['title'] ) || isset( $listoptions['formlink'] ) || isset( $listoptions['forminput'] ) ) {
 			$list_header = '';
 
 			// Title
@@ -1285,8 +1285,12 @@ class SemanticOrganizationHooks {
 				$list_header .= '</div>';
 			}
 
+			// Forminput
+			if( isset( $listoptions['forminput'] ) ) {
+				$list_header .= '<div class="semorg-list-forminput navigation-not-searchable">' . $listoptions['forminput'] . '</div>';
+
 			// Formlink
-			if( isset( $listoptions['formlink'] ) ) {
+			} else if( isset( $listoptions['formlink'] ) ) {
 				$list_header .= '<div class="semorg-list-formlink navigation-not-searchable">' . $listoptions['formlink'] . '</div>';
 			}
 
@@ -1307,7 +1311,7 @@ class SemanticOrganizationHooks {
 				}
 			}
 			if( $help_page != '' ) {
-				$help_link = '<btn class="semorg-detail-help-link navigation-not-searchable" wrapper="" title="' . $help_page . '" data-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
+				$help_link = '<btn class="semorg-detail-help-link navigation-not-searchable" wrapper="" title="' . $help_page . '" data-bs-toggle="tooltip">' . $help_page . '|<i class="far fa-question-circle"></i></btn>';
 			}
 			$heading = '<div class="semorg-detail-heading">' . $listoptions['heading'] . $help_link . '</div>';
 
@@ -1369,6 +1373,11 @@ class SemanticOrganizationHooks {
 			return wfMessage( 'semorg-error-missing-parameter', 'semorg-overview', 'feature' );
 		}
 
+		$parent_feature = false;
+		if( wfMessage( 'semorg-overview-' . $feature . '-parent-feature' )->exists() ) {
+			$parent_feature .= wfMessage( 'semorg-overview-' . $feature . '-parent-feature' )->parse();
+		}
+
 		$parameters = [];
 		$request = $parser->getUserIdentity()->getRequest();
 
@@ -1378,6 +1387,7 @@ class SemanticOrganizationHooks {
 			'links-title',
 			'links',
 			'formlink',
+			'forminput',
 			'query',
 			'sort',
 			'order',
@@ -1411,11 +1421,16 @@ class SemanticOrganizationHooks {
 				$parameters[str_replace( '-', ' ', $parameter )] = wfMessage( 'semorg-overview-' . $feature . '-' . $parameter )->plain();
 			}
 		}
+
+		// for backwards compatibility – @todo: all link templates should be replaced by messages
+		if( !isset( $parameters['link'] ) && $parent_feature && wfMessage( 'semorg-overview-' . $parent_feature . '-links' )->exists() ) {
+			$parameters['links'] = wfMessage( 'semorg-overview-' . $parent_feature . '-links' )->plain();
+		}
 		if( !isset( $parameters['links'] ) ) {
 			$parameters['links'] = '{{#ifexist:Template:semorg-' . $feature . '-custom-links|{{semorg-' . $feature . '-custom-links}}|{{#ifexist:Template:semorg-' . $feature . '-links|{{semorg-' . $feature . '-links}}}}}}';
 		} else {
 			$links = '';
-			$links .= '<span class="semorg-list-links-title">' . ( $parameters['links-title'] ?? '{{int:semorg-' . $feature . '-page-name}}' ) . ':</span> ';
+			$links .= '<span class="semorg-list-links-title">' . ( $parameters['links-title'] ?? '{{int:semorg-' . ( $parent_feature ?: $feature ) . '-page-name}}' ) . ':</span> ';
 			$link_array = [];
 			foreach( explode( ',', $parameters['links'] ) as $link ) {
 				list($target,$title) = explode( '|', $link );
@@ -1438,12 +1453,7 @@ class SemanticOrganizationHooks {
 			unset( $parameters['formlink'] );
 		}
 
-		$overview = '{{#semorg-list:';
-		if( wfMessage( 'semorg-overview-' . $feature . '-parent-feature' )->exists() ) {
-			$overview .= wfMessage( 'semorg-overview-' . $feature . '-parent-feature' )->parse();
-		} else {
-			$overview .= $feature;
-		}
+		$overview = '{{#semorg-list:' . ( $parent_feature ?: $feature );
 		if( isset( $parameters['extra-fields'] ) ) {
 			$overview .= $parameters['extra-fields'];
 			unset( $parameters['extra-fields'] );
@@ -1844,7 +1854,7 @@ class SemanticOrganizationHooks {
 			} else {
 				$help = wfMessage($fullelement . '-help')->text();
 			}
-			$help = '<small class="form-text text-muted semorg-help">' . $help . '</small>';
+			$help = '<div class="form-text semorg-help">' . $help . '</div>';
 
 		/* get inline help message if it exists */
 		} elseif( !wfMessage($fullelement . '-help-inline')->isDisabled() ) {
@@ -2414,7 +2424,7 @@ class SemanticOrganizationHooks {
 			}
 			foreach( $milestones as $milestone ) {
 				if( $milestone[3] == $scj_milestone[2] && $milestone[4] == $scj_milestone[3] ) {
-					$viz .= '<div class="col px-0 text-center"><div class="semorg-stakeholder-milestone" data-toggle="tooltip" title="' . $milestone[5] . '">[[' . $scj_milestone[0] . '|' . $scj_milestone[2] . '.' . $scj_milestone[3] . ']]</div></div>';
+					$viz .= '<div class="col px-0 text-center"><div class="semorg-stakeholder-milestone" data-bs-toggle="tooltip" title="' . $milestone[5] . '">[[' . $scj_milestone[0] . '|' . $scj_milestone[2] . '.' . $scj_milestone[3] . ']]</div></div>';
 					$old_plot = $scj_milestone[2];
 					continue 2;
 				}
@@ -2472,7 +2482,7 @@ class SemanticOrganizationHooks {
 
 		$msg_html = '<span class="semorg-msg">' . $msg_content . '<small class="semorg-msg-edit d-print-none"> {{#formlink:form=semorg-message
 		  |returnto={{FULLPAGENAME}}
-		  |link text=<span data-toggle="tooltip" title="' . $msg_tooltip . '" class="fa fa-' . $msg_icon . '"></span>
+		  |link text=<span data-bs-toggle="tooltip" title="' . $msg_tooltip . '" class="fa fa-' . $msg_icon . '"></span>
 		  |target=MediaWiki:semorg-' . $msg . '
 		  |preload=' . $msg_preload . '
 		}}</small></span>';
@@ -2575,7 +2585,7 @@ class SemanticOrganizationHooks {
 						} else {
 							$drop_filter_url = self::getFilterURL( $parser, array_diff_key( $applied_filters, [ $filter_property => $value ] ) );
 						}
-						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
+						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-bs-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
 						$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $value . ' ' . $drop_filter_link . '</span>';
 					} else {
 						$filter_url = self::getFilterURL( $parser, array_merge( $applied_filters, [ $filter_property => $value ] ) );
@@ -2586,7 +2596,7 @@ class SemanticOrganizationHooks {
 					// if there are no results it might be because of default value - needs to be dropable
 					if( isset( $filter_defaults[$filter_property] ) ) {
 						$drop_filter_url = self::getFilterURL( $parser, array_merge( array_diff_key( $applied_filters, [ $filter_property => $value ] ), [ $filter_property => '' ] ) );
-						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
+						$drop_filter_link = '<span title="' . wfMessage('semorg-filterbox-drop-filter')->plain() . '" data-bs-toggle="tooltip">[' . $drop_filter_url . ' &times;]</span>';
 						$value = '<span class="semorg-filterbox-filter-value semorg-filterbox-filter-value-applied">' . $applied_filters[$filter_property] . ' ' . $drop_filter_link . '</span>';
 					}
 				}
@@ -2916,7 +2926,7 @@ class SemanticOrganizationHooks {
 					} else {
 						$newlink_tooltip = wfMessage('semorg-formlink-generic-link-text')->params( wfMessage('semorg-role-entity-name')->text() )->text();
 					}
-					return [ '<a href="' . $newlink . '" class="new" data-toggle="tooltip" title="' . $newlink_tooltip . '">' . htmlentities( $parameter ) . '</a>', 'noparse' => true, 'isHTML' => true ];
+					return [ '<a href="' . $newlink . '" class="new" data-bs-toggle="tooltip" title="' . $newlink_tooltip . '">' . htmlentities( $parameter ) . '</a>', 'noparse' => true, 'isHTML' => true ];
 				}
 			}
 		}

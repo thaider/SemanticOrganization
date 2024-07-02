@@ -1,5 +1,5 @@
 .semorg-dashboard {
-	@extend .card-columns;
+	//@extend .card-columns;
 
 	@include media-breakpoint-up(sm) {
 	    column-count: 1;

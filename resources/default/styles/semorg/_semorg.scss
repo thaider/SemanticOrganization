@@ -12,6 +12,13 @@ a.new:hover {
 	text-decoration:none;
 }
 
+#content {
+	.mw-parser-output a.external, .link-mailto, .link-ftp, .link-irc, .link-audio, .link-video, .link-document {
+		background: none;
+		padding-right: 0;
+	}
+}
+
 /* SIGNATURES */
 
 .semorg-signatures {
@@ -189,12 +196,16 @@ a.new:hover {
 	left:0;
 	height:80%;
 	width:100%;
-	background-color:theme-color-level(primary, -8);
+	background-color:tint-color($primary, 80%);
 	padding:0 5px;
 	border-radius:2px;
+
+	a:hover {
+		text-decoration:none !important;
+	}
 }
 .semorg-timeline:hover {
-	background-color:theme-color-level(primary, -4);
+	background-color:tint-color($primary, 50%);
 }
 .semorg-timeline small {
 	vertical-align:top;
@@ -822,4 +833,3 @@ body input[type="button"].multipleTemplateAdder {
 		color:#333;
 	}
 }
-

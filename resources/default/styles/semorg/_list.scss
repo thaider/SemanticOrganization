@@ -8,8 +8,12 @@
 		color:#666;
 	}
 
-	.semorg-sums td {
-		border-color:transparent !important;
+	.semorg-sums {
+		border:none;
+
+		td {
+			border-color:transparent !important;
+		}
 	}
 
 	&-header {

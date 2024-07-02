@@ -34,8 +34,8 @@
 	"semorg-timespan-since-until": "von {{#time:j.n.y|$1}} bis {{#time:j.n.y|$2}}",
 
 	"semorg-dashboard-title": "Meine $1",
-	"semorg-dashboard-link-all": "<i class=\"fa fa-list\" data-toggle=\"tooltip\" title=\"alle anzeigen\"></i>",
-	"semorg-dashboard-link-create": "<i class=\"fa fa-plus\" data-toggle=\"tooltip\" title=\"neu erstellen\"></i>",
+	"semorg-dashboard-link-all": "<i class=\"fa fa-list\" data-bs-toggle=\"tooltip\" title=\"alle anzeigen\"></i>",
+	"semorg-dashboard-link-create": "<i class=\"fa fa-plus\" data-bs-toggle=\"tooltip\" title=\"neu erstellen\"></i>",
 
 	"semorg-formlink-generic-link-text": "$1 erstellen",
 	"semorg-forminput-generic-button-text": "$1 erstellen",
@@ -293,10 +293,10 @@
 	"semorg-user-create-link-text": "Benutzeraccount \"$1\" anlegen",
 
 	"semorg-person-user-feature-name": "Mitgliederverwaltung",
-	"semorg-person-user-feature-description": "*Benutzer*in verwalten",
+	"semorg-person-user-feature-description": "*Benutzer*innen verwalten",
 	"semorg-person-user-personnel-feature-name": "Personalverwaltung",
 	"semorg-person-user-personnel-feature-description": "*Daten, Verträge und Gehaltsänderungen für Personal verwalten",
-	"semorg-person-user-page-name": "Benutzer*in",
+	"semorg-person-user-page-name": "Benutzer*innen",
 	"semorg-person-user-entity-name": "Benutzer*in",
 	"semorg-form-person-user-create-title": "Benutzer*in erstellen",
 	"semorg-form-person-user-edit-title": "Benutzer*in bearbeiten",
@@ -825,6 +825,7 @@
 	"semorg-vacation-dashboard-title": "nächste Abwesenheiten",
 	"semorg-form-vacation-create-title": "Abwesenheit erstellen",
 	"semorg-form-vacation-edit-title": "Abwesenheit bearbeiten",
+	"semorg-form-vacation-page-name": "Abwesenheiten",
 	"semorg-field-vacation-person-name": "Name",
 	"semorg-field-vacation-start-date-name": "von",
 	"semorg-field-vacation-end-date-name": "bis",
