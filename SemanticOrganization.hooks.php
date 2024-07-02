@@ -677,7 +677,7 @@ class SemanticOrganizationHooks {
 
 		$header = '<div class="semorg-detail-heading">' . $heading . '</div>';
 		$rating = '';
-		if( $detailoptions['rating'] ) {
+		if( isset( $detailoptions['rating'] ) ) {
 			$rating = '<div class="semorg-detail-rating">{{#semorg-rating:' . $detailoptions['rating'] . '}}</div>';
 		}
 		$detail = '<div class="semorg-detail">' . $badge . $header . $rating . '</div>';
@@ -1250,10 +1250,10 @@ class SemanticOrganizationHooks {
 				foreach( $filter_links as $filter ) {
 					$filter = explode( '=', $filter );
 					$filter_property = $filter[0];
-					$filter_custom = explode( ':', $filter_property, 2 )[1];
-					if( !is_null( $filter_custom ) ) {
-						$filter_property = explode( ':', $filter_property )[0];
-						$filter_customs[$filter_property] = $filter_custom;
+					$filter_custom = explode( ':', $filter_property, 2 );
+					if( isset( $filter_custom[1] ) ) {
+						$filter_property = $filter_custom[0];
+						$filter_customs[$filter_property] = $filter_custom[1];
 					}
 
 					// get all existing values

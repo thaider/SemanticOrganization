@@ -1531,7 +1531,7 @@
 
 	"semorg-group-feature-name": "Commitees/Working groups",
 	"semorg-group-feature-description": "* Create permanent or temporary working groups\n* Document the group's responsibilities and members\n* Inspired by Sociocracy's working groups",
-	"semorg-group-feature-pages": "group,meeting-group,meeting-group-past",
+	"semorg-group-feature-pages": "group,group-inactive,meeting-group,meeting-group-past",
 	"semorg-group-template": "semorg-group",
 	"semorg-group-category": "semorg-group",
 	"semorg-group-form": "semorg-group",
