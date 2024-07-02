@@ -1,13 +1,13 @@
 {
 	"name": "Semantic Organization",
-	"version": "0.1.0-beta",
+	"version": "1.0.2",
 	"author": [
 		"Tobias Haider"
 	],
 	"descriptionmsg": "semorg-desc",
 	"license-name": "GPL-3.0",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"type": "semantic",
 	"url": "https://www.mediawiki.org/wiki/Extension:SemanticOrganization",
