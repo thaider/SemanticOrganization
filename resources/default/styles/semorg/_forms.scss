@@ -195,3 +195,17 @@
 div.pfPageNameWithoutNamespace {
 	width:350px !important;
 }
+
+
+// forminput
+body #contentwrapper #maincontentwrapper {
+	.semorg-list-formlink {
+		.oo-ui-buttonElement-button {
+			@extend .btn-secondary;
+			@extend .btn-sm;
+		}
+		.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+			@extend .form-control-sm;
+		}
+	}
+}

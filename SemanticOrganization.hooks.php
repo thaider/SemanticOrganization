@@ -1207,7 +1207,7 @@ class SemanticOrganizationHooks {
 				$card_query = $query . '|template=semorg-' . $listoptions['card template'] . '-card';
 
 				$card_parameters = $parameters;
-				$card_parameters['intro'] .= '<div class="card-columns">';
+				$card_parameters['intro'] .= '<div class="row" data-masonry=\'{"percentPosition": true }\'>';
 				$card_parameters['outro'] = $sums . '</div>' . $parameters['outro'];
 
 				// apply parameters...
@@ -1405,6 +1405,8 @@ class SemanticOrganizationHooks {
 			'returnto',
 			'help',
 			'extra-fields',
+			'map-template',
+			'card-template',
 		] as $parameter ) {
 			// explicitly set by query parameter?
 			if( !is_null( $request->getVal( 'overview-' . $parameter ) ) && $request->getVal( 'overview-' . $parameter ) > 0 ) {
@@ -1413,7 +1415,7 @@ class SemanticOrganizationHooks {
 
 			// explicitly set by parser function parameter?
 			elseif( isset( $options[str_replace( '-', ' ', $parameter )] ) ) {
-				$parameters[str_replace( '-', ' ', $parameter )] = $options[$parameter];
+				$parameters[str_replace( '-', ' ', $parameter )] = $options[str_replace( '-', ' ', $parameter )];
 			}
 
 			// set by a message?
