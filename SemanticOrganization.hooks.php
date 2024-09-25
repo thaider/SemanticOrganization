@@ -1432,7 +1432,7 @@ class SemanticOrganizationHooks {
 			$parameters['links'] = '{{#ifexist:Template:semorg-' . $feature . '-custom-links|{{semorg-' . $feature . '-custom-links}}|{{#ifexist:Template:semorg-' . $feature . '-links|{{semorg-' . $feature . '-links}}}}}}';
 		} else {
 			$links = '';
-			$links .= '<span class="semorg-list-links-title">' . ( $parameters['links-title'] ?? '{{int:semorg-' . ( $parent_feature ?: $feature ) . '-page-name}}' ) . ':</span> ';
+			$links .= '<span class="semorg-list-links-title">' . ( $parameters['links title'] ?? '{{int:semorg-' . ( $parent_feature ?: $feature ) . '-page-name}}' ) . ':</span> ';
 			$link_array = [];
 			foreach( explode( ',', $parameters['links'] ) as $link ) {
 				list($target,$title) = explode( '|', $link );
