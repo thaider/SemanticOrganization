@@ -948,16 +948,12 @@ class SemanticOrganizationHooks {
 			// Set defaults for parameters
 			$parameters['limit'] = $wgSemorgListLimit;
 			$parameters['default'] = wfMessage('semorg-list-default')->parse();
-			$parameters['intro'] = '';
-			$parameters['outro'] = '';
 			
-			// Parameters for sorting, ordering, default (queries without results), intro, outro, limit, userparam
+			// Parameters for sorting, ordering, default (queries without results), limit, userparam
 			foreach( [
 				'sort', 
 				'order', 
 				'default', 
-				'intro', 
-				'outro', 
 				'limit', 
 				'userparam'
 			] as $parameter ) {
@@ -1267,7 +1263,7 @@ class SemanticOrganizationHooks {
 		}
 
 		// Links
-		if( isset( $listoptions['links'] ) ) {
+		if( isset( $listoptions['links'] ) && $listoptions['links'] != '' ) {
 			$list = '<div class="semorg-list-links navigation-not-searchable">' . $parser->recursiveTagParse( $listoptions['links'] ) . '</div>' . $list;
 		}
 
@@ -1396,6 +1392,7 @@ class SemanticOrganizationHooks {
 			'filters',
 			'category',
 			'headers',
+			'plainheaders',
 			'row-template',
 			'tableclass',
 			'title',
@@ -1407,6 +1404,8 @@ class SemanticOrganizationHooks {
 			'extra-fields',
 			'map-template',
 			'card-template',
+			'list-intro',
+			'userparam',
 		] as $parameter ) {
 			// explicitly set by query parameter?
 			if( !is_null( $request->getVal( 'overview-' . $parameter ) ) && $request->getVal( 'overview-' . $parameter ) > 0 ) {
@@ -1430,7 +1429,7 @@ class SemanticOrganizationHooks {
 		}
 		if( !isset( $parameters['links'] ) ) {
 			$parameters['links'] = '{{#ifexist:Template:semorg-' . $feature . '-custom-links|{{semorg-' . $feature . '-custom-links}}|{{#ifexist:Template:semorg-' . $feature . '-links|{{semorg-' . $feature . '-links}}}}}}';
-		} else {
+		} elseif( $parameters['links'] != '' ) {
 			$links = '';
 			$links .= '<span class="semorg-list-links-title">' . ( $parameters['links title'] ?? '{{int:semorg-' . ( $parent_feature ?: $feature ) . '-page-name}}' ) . ':</span> ';
 			$link_array = [];
@@ -1439,7 +1438,9 @@ class SemanticOrganizationHooks {
 				if( is_null($title) ) {
 					$title = $target;
 				}
-				$link_array[] = '[[{{int:semorg-' . $target . '}}|{{int:semorg-' . $title . '}}]]';
+				if( $target != '' ) {
+					$link_array[] = '[[{{int:semorg-' . $target . '}}|{{int:semorg-' . $title . '}}]]';
+				}
 			}
 			$links .= join( ' · ', $link_array );
 			$parameters['links'] = $links;

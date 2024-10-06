@@ -397,6 +397,7 @@
 	"semorg-tab-project-contact": "Kontaktgeschichte <small>({{#ask:[[semorg-contact-ref::{{FULLPAGENAME}}]]|format=count}})</small>",
 	"semorg-tab-project-agenda": "Agenda <small>({{#ask:[[semorg-agenda-project::{{FULLPAGENAME}}]]|format=count}})</small>",
 	"semorg-tab-project-openproject": "OpenProject",
+	"semorg-field-project-picture-name": "Bild",
 
 	"semorg-project-research-page-name": "Forschungsprojekte",
 	"semorg-project-research-entity-name": "Forschungsprojekt",
@@ -525,6 +526,9 @@
 	"semorg-field-meeting-contacts-name": "Kontakte",
 	"semorg-field-meeting-meeting-type-name": "Typ",
 	"semorg-field-meeting-roles-name": "Rollen",
+	"semorg-field-meeting-coordinates-name": "Koordinaten",
+	"semorg-field-meeting-picture-name": "Bild",
+	"semorg-field-meeting-topic-name": "Themen",
 
 	"semorg-meeting-group-displaytitle": "$1 vom {{#timel:j. F. Y|$2}}",
 	"semorg-meeting-group-page-name": "Besprechungen",
