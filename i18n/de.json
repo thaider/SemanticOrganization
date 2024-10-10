@@ -862,6 +862,8 @@
 	"semorg-tab-group-schedule": "Jahreskreis",
 	"semorg-tab-group-tasks": "Todos",
 	"semorg-tab-group-meetings": "Treffen",
+	"semorg-field-group-domain-name": "Domain",
+	"semorg-field-group-goals-name": "Ziele/Angebote",
 
 	"semorg-form-group-member-add-button-text": "Mitglied hinzufügen",
 	"semorg-field-group-member-group-name": "Gremium",

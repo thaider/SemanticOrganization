@@ -1586,6 +1586,12 @@
 	"semorg-tab-group-roles": "Roles",
 	"semorg-tab-group-schedule": "Schedule",
 	"semorg-tab-group-tasks": "Tasks",
+	"semorg-field-group-domain-name": "Domain",
+	"semorg-field-group-domain-parameters": "rows=2",
+	"semorg-field-group-domain-input-type": "textarea",
+	"semorg-field-group-goals-name": "Goals/Offers",
+	"semorg-field-group-goals-parameters": "rows=2",
+	"semorg-field-group-goals-input-type": "textarea",
 
 	"semorg-group-member-template": "semorg-group-member",
 	"semorg-group-member-category": "semorg-group-member",
