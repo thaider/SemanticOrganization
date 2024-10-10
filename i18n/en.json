@@ -1869,6 +1869,10 @@
 	"semorg-field-role-purpose-name": "Purpose",
 	"semorg-field-role-purpose-parameters": "rows=1",
 	"semorg-field-role-purpose-input-type": "textarea",
+	"semorg-field-role-trainees-welcome-name": "", 
+	"semorg-field-role-trainees-welcome-parameters": "", 
+	"semorg-field-role-trainees-welcome-input-type": "checkbox", 
+	"semorg-field-role-trainees-welcome-label": "this role welcomes new people",
 
 	"semorg-role-subpage-template": "semorg-role-subpage",
 	"semorg-role-subpage-category": "semorg-role-subpage",
