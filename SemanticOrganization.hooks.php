@@ -1097,7 +1097,8 @@ class SemanticOrganizationHooks {
 					'activeicon',
 					'pagelabel',
 					'ajaxcoordproperty',
-					'ajaxquery'
+					'ajaxquery',
+					'position',
 				] as $parameter ) {
 					// explicitly set by query parameter?
 					if( !is_null( $request->getVal( 'map-' . $parameter ) ) && $request->getVal( 'map-' . $parameter ) > 0 ) {
@@ -1132,7 +1133,10 @@ class SemanticOrganizationHooks {
 
 				$map_query .= '|limit=1000}}';
 
-				$list .= $parser->recursiveTagParse( '<div class="semorg-list-map navigation-not-searchable">' . $map_query . '</div>' );
+				$map = $parser->recursiveTagParse( '<div class="semorg-list-map navigation-not-searchable">' . $map_query . '</div>' );
+				if( !isset( $map_parameters['position'] ) || $map_parameters['position'] == 'below' ) {
+					$list .= $map;
+				}
 			}
 
 			// Modification and creation dates
@@ -1259,6 +1263,9 @@ class SemanticOrganizationHooks {
 				}
 				$filterbox = self::getFilterbox( $parser, $filter_links_values, $applied_filters, $filter_defaults, $filter_customs );
 				$list = $parser->recursiveTagParse( $filterbox ) . $list;
+				if( isset( $map_parameters['position'] ) && $map_parameters['position'] == 'above' ) {
+					$list = $map . $list;
+				}
 			}
 		}
 
