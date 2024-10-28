@@ -19,6 +19,7 @@
 
 	"semorg-prompt-save-text": "You haven't been saving for $1 {{plural:$1|minute|minutes}}!",
 	"semorg-prompt-save-button-text": "Save Now",
+	"semorg-prompt-save-delay": "10",
 
 	"semorg-filterbox-title": "Filter",
 	"semorg-filterbox-drop-filter": "Drop filter",

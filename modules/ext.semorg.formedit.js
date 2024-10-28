@@ -1,7 +1,7 @@
 ( function ( mw ) {
 	var prompt;
 	var last = new Date();
-	var timer = 10*60*1000;
+	var timer = ( isNaN(mw.message( 'semorg-prompt-save-delay' ) ) ? 10 : mw.message( 'semorg-prompt-save-delay' ) ) *60*1000;
 
 	// show prompt
 	function showPrompt() {
@@ -26,10 +26,15 @@
 		let data = $('#pfForm').serialize() + '&wpSave=Save';
 		$.post( url, data )
 			.done(function(data, textStatus, jqXHR) {
-				prompt.hide();
-				$('#semorg-prompt-save-button').removeClass( 'disabled' );
+				if( timer > 0 ) {
+					prompt.hide();
+				}
 				last = new Date();
-				window.setTimeout( showPrompt, timer );
+				updateTime();
+				$('#semorg-prompt-save-button').removeClass( 'disabled' );
+				if( timer > 0 ) {
+					window.setTimeout( showPrompt, timer );
+				}
 			})
 			.fail(function() {
 				// TODO: implement error message

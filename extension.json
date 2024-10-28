@@ -77,7 +77,8 @@
 			],
 			"messages": [
 				"semorg-prompt-save-text",
-				"semorg-prompt-save-button-text"
+				"semorg-prompt-save-button-text",
+				"semorg-prompt-save-delay"
 			]
 		}
 	},
