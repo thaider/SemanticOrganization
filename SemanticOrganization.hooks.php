@@ -16,6 +16,7 @@ class SemanticOrganizationHooks {
 		'topic',
 	];
 	static $milestones = [];
+	static $counter = 1;
 
 
 	/**
@@ -87,6 +88,7 @@ class SemanticOrganizationHooks {
 			'count' => 'renderCount',
 			'hash' => 'renderHash',
 			'overview' => 'renderOverview',
+			'counter' => 'renderCounter',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -105,6 +107,14 @@ class SemanticOrganizationHooks {
 		$linktext .= '>';
 		$collapse = '<a	class="semorg-collapse" data-bs-toggle="collapse" href="#' . $target . '" role="button" aria-expanded="false" aria-controls="' . $target . '">' . $linktext . '</a>';
 		return [ $collapse, 'noparse' => true, 'isHTML' => true ];
+	}
+
+
+	/**
+	 * Return incrementing ID
+	 */
+	static function renderCounter( &$parser ) {
+		return self::$counter++;
 	}
 
 
@@ -680,7 +690,11 @@ class SemanticOrganizationHooks {
 		if( isset( $detailoptions['rating'] ) ) {
 			$rating = '<div class="semorg-detail-rating">{{#semorg-rating:' . $detailoptions['rating'] . '}}</div>';
 		}
-		$detail = '<div class="semorg-detail">' . $badge . $header . $rating . '</div>';
+		$intro = '';
+		if( isset( $detailoptions['detail-intro'] ) ) {
+			$intro = '<div class="semorg-detail-intro">' . $detailoptions['detail-intro'] . '</div>';
+		}
+		$detail = '<div class="semorg-detail">' . $badge . $header . $rating . $intro . '</div>';
 
 		$detail .= '{{#tweekiHide:firstHeading}}';
 		if( isset( $detailoptions['heading'] ) ) {
