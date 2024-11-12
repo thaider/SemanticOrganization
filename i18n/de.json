@@ -309,6 +309,8 @@
 	"semorg-tab-person-user-schedule": "Jahreskreis",
 	"semorg-tab-person-user-tasks": "Todos",
 
+	"semorg-person-contact-feature-name": "Kontaktverwaltung",
+	"semorg-person-contact-feature-description": "* Kontakte (Personen und Institutionen) verwalten",
 	"semorg-person-contact-page-name": "Kontakte",
 	"semorg-person-contact-entity-name": "Kontakt",
 	"semorg-form-person-contact-create-title": "Person erstellen",

@@ -414,6 +414,9 @@
 	"semorg-tab-person-user-schedule": "Schedule",
 	"semorg-tab-person-user-tasks": "Tasks",
 
+	"semorg-person-contact-feature-name": "Contact management",
+	"semorg-person-contact-feature-description": "* Manage contacts (people and institutions)",
+	"semorg-person-contact-feature-pages": "person-contact, person-legal, contact",
 	"semorg-person-contact-template": "semorg-person-contact",
 	"semorg-person-contact-category": "semorg-person-contact",
 	"semorg-person-contact-form": "semorg-person-contact",
