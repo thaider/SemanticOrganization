@@ -33,6 +33,10 @@
 				opacity:.5;
 				text-decoration:none;
 
+				&:visited {
+					color:#000;
+				}
+
 				&:hover,
 				&:active,
 				&:focus {
