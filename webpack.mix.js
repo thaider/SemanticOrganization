@@ -14,7 +14,7 @@ mix.webpackConfig({
  | overwirte the default semorg assets. Those files will also be
  | overwritten with any git update from the extension repository.
  |
- */
+ * /
 mix.sass('resources/default/styles/semorg.scss', 'modules/default/css')
    .options({
       processCssUrls: false
@@ -38,7 +38,7 @@ mix.sass('resources/default/styles/semorg.scss', 'modules/default/css')
  | - ./resources/scripts/example.custom.js     => ./resources/scripts/custom.js
  | - ./resources/styles/example.custom.scss    => ./resources/styles/custom.scss
  |
- * /
+ */
 mix.sass('resources/custom/styles/custom.scss', 'modules/custom/css')
    .options({
       processCssUrls: false
