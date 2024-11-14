@@ -1,45 +1,43 @@
 .semorg-dashboard {
-	//@extend .card-columns;
-
 	@include media-breakpoint-up(sm) {
-	    column-count: 1;
+		column-count: 1;
 	}
 
 	@include media-breakpoint-up(lg) {
-	    column-count: 2;
+		column-count: 2;
 	}
 
 	.card {
-	    border:none;
-	    border-left: 2px solid $primary;
-	    border-radius:0;
-	    padding-left:0;
-	    padding-right:20px;
+		border:none;
+		border-left: 2px solid var(--bs-gray-200);
+		border-radius:0;
+		padding-left:0;
+		padding-right:20px;
+		margin-bottom:1rem;
 	}
 
 	.card-header {
-		padding: .3rem;
-	    background-color:$primary;
-	    color:white;
-	    border-radius:0;
-	    font-size:small;
-	    text-transform:uppercase;
-	    font-weight:bold;
-	    padding-right:10px;
+		background-color:var(--bs-gray-200);
+		border-radius:0;
+		font-size:small;
+		text-transform:uppercase;
+		font-weight:bold;
+		padding:10px;
+		padding-right:15px;
 
 		.card-header-links {
 			font-size:small;
 
 			a {
-			    color:white;
-			    opacity:.5;
-			    text-decoration:none;
+				color:#000;
+				opacity:.5;
+				text-decoration:none;
 
-			    &:hover,
-			    &:active,
-			    &:focus {
-			            opacity:1;
-			    }
+				&:hover,
+				&:active,
+				&:focus {
+					opacity:1;
+				}
 			}
 		}
 
