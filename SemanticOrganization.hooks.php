@@ -133,7 +133,7 @@ class SemanticOrganizationHooks {
 			if( !isset( self::$sums[$id] ) ) {
 				self::$sums[$id] = 0;
 			}
-			self::$sums[$id] += $amount;
+			self::$sums[$id] += (float) $amount;
 			return false;
 		}
 	}
