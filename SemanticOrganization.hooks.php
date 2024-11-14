@@ -17,6 +17,7 @@ class SemanticOrganizationHooks {
 	];
 	static $milestones = [];
 	static $counter = 1;
+	static $sums = [];
 
 
 	/**
@@ -89,6 +90,7 @@ class SemanticOrganizationHooks {
 			'hash' => 'renderHash',
 			'overview' => 'renderOverview',
 			'counter' => 'renderCounter',
+			'sum' => 'renderSum',
 		];
 		foreach( $parserfunctions as $key => $method ) {
 			$parser->setFunctionHook( 'semorg-' . $key, 'SemanticOrganizationHooks::' . $method );
@@ -115,6 +117,25 @@ class SemanticOrganizationHooks {
 	 */
 	static function renderCounter( &$parser ) {
 		return self::$counter++;
+	}
+
+
+	/**
+	 * Return sum
+	 */
+	static function renderSum( &$parser, $id = null, $amount = null ) {
+		if( is_null( $id) ) {
+			return false;
+		}
+		if( is_null( $amount ) ) {
+			return self::$sums[$id];
+		} else {
+			if( !isset( self::$sums[$id] ) ) {
+				self::$sums[$id] = 0;
+			}
+			self::$sums[$id] += $amount;
+			return false;
+		}
 	}
 
 

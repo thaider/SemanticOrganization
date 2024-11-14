@@ -65,4 +65,5 @@ $magicWords['en'] = array(
 	'semorg-hash' => array( 0, 'semorg-hash' ),
 	'semorg-overview' => array( 0, 'semorg-overview' ),
 	'semorg-counter' => array( 0, 'semorg-counter' ),
+	'semorg-sum' => array( 0, 'semorg-sum' ),
 );
