@@ -741,7 +741,7 @@ class SemanticOrganizationHooks {
 
 		$overview_page = wfMessage( 'Semorg-' . $template . '-page-name' )->plain();
 		$entity_name = wfMessage( 'semorg-' . $template . '-entity-name' )->plain();
-		$badge = '[[' . $overview_page . '|<span class="badge badge-secondary">' . $entity_name . '</span>]]';
+		$badge = '[[' . $overview_page . '|<span class="badge text-bg-secondary">' . $entity_name . '</span>]]';
 
 		$header = '<h3>' . $heading . '</h3>';
 		$card = $badge . '<div class="card semorg-card"><div class="card-header">' . $header . $tabs['tablinks'] . '</div></div>' . $tabs['tabcontents'];
@@ -3050,7 +3050,7 @@ class SemanticOrganizationHooks {
 				//$missing = wfMessage( 'semorg-error-missing-data', 'semorg-missing-metrics', 'frequency' )->plain();
 		}
 		if( $missing != '' ) {
-			$missing = '<div class="semorg-missing-metrics pt-3"><span class="badge badge-warning">Missing Metrics:</span> ' . $missing . '</div>';
+			$missing = '<div class="semorg-missing-metrics pt-3"><span class="badge text-bg--warning">Missing Metrics:</span> ' . $missing . '</div>';
 		}
 
 		return [ $missing, 'noparse' => false ];
