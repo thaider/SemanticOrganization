@@ -165,6 +165,8 @@
 
 	"semorg-show-further-actions": "Show further actions",
 
+	"semorg-person-link-text": "{{#show:$1|?semorg-person-name}}",
+
 	"semorg-feature-heading": "Features",
 	"semorg-feature-name-heading": "Features",
 	"semorg-feature-pages-heading": "Pages",
