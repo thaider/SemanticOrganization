@@ -215,7 +215,8 @@ a.new:hover {
 	display:inline-block;
 	width:100%;
 }
-.semorg-timeline a {
+.semorg-timeline a,
+.semorg-timeline a.external {
 	display:block;
 	color:#000;
 }
