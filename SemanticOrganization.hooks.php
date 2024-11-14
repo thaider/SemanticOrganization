@@ -1506,7 +1506,7 @@ class SemanticOrganizationHooks {
 		foreach( $parameters as $parameter => $value ) {
 			$overview .= '|' . $parameter . '=' . $value;
 		}
-		$overview .= '}}';
+		$overview .= '}}{{#tweekihide:sidebar-right}}';
 		return [ $overview, 'noparse' => false ];
 	}
 
