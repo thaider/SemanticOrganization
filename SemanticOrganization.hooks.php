@@ -18,6 +18,7 @@ class SemanticOrganizationHooks {
 	static $milestones = [];
 	static $counter = 1;
 	static $sums = [];
+	static $user;
 
 
 	/**
@@ -267,7 +268,10 @@ class SemanticOrganizationHooks {
 	 * Get name of the current user
 	 */
 	static function getUser( &$parser ) {
-		return $parser->getUserIdentity()->getUserPage()->getFullText();
+		if( !isset( self::$user ) ) {
+			self::$user = $parser->getUserIdentity()->getUserPage()->getFullText();
+		}
+		return self::$user;
 	}
 
 
@@ -2851,6 +2855,25 @@ class SemanticOrganizationHooks {
 		if( isset( $dashboardoptions['title'] ) ) {
 			$title = $dashboardoptions['title'];
 		}
+
+		$user = $dashboardoptions['user'] ?: '{{#semorg-user:}}';
+		unset( $dashboardoptions['user'] );
+
+		foreach( [
+			'query',
+			'tables',
+			'sort',
+			'limit',
+			'body',
+			'row-template',
+			'category',
+			'links',
+		] as $parameter ) {
+			if( !isset( $dashboardoptions[str_replace( '-', ' ', $parameter )] ) && wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->exists() ) {
+				$dashboardoptions[str_replace( '-', ' ', $parameter )] = wfMessage('semorg-' . $template . '-dashboard-' . $parameter, $user )->plain();
+			}
+		}
+
 		if( isset( $dashboardoptions['links'] ) ) {
 			// explicit unsetting
 			if( $dashboardoptions['links'] == '-' ) {
@@ -2859,30 +2882,13 @@ class SemanticOrganizationHooks {
 				$links = $dashboardoptions['links'];
 			}
 		}
+
 		$dashboard .= '|title=' . $title;
 		$dashboard .= '|links=' . $links;
 
-		foreach( [
-			'query',
-			'sort',
-			'limit',
-			'tables',
-			'body',
-			'row-template',
-			'category',
-		] as $parameter ) {
-			if( !isset( $dashboardoptions[$parameter] ) && wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->exists() ) {
-				$dashboardoptions[str_replace( '-', ' ', $parameter )] = wfMessage('semorg-' . $template . '-dashboard-' . $parameter )->text();
-			}
-		}
-
-		// parent template?
-		if( wfMessage( 'semorg-form-' . $template . '-template' )->exists() ) {
-			if( !isset( $dashboardoptions['row template'] ) ) {
-				$dashboardotions['row template'] = $template;
-			}
-			$template = wfMessage( 'semorg-form-' . $template . '-template' )->text();
-		}
+		// do not use title and links for both dashboard and list
+		unset( $dashboardoptions['title'] );
+		unset( $dashboardoptions['links'] );
 
 		if( isset( $dashboardoptions['tables'] ) ) {
 			$tables = $dashboardoptions['tables'];
@@ -2897,14 +2903,6 @@ class SemanticOrganizationHooks {
 
 			$tableparameters = '';
 
-			// do not use title and links for both dashboard and list
-			unset( $dashboardoptions['title'] );
-			unset( $dashboardoptions['links'] );
-
-			foreach( $dashboardoptions as $option => $value ) {
-				$tableparameters .= '|' . $option . '=' . $value;
-			}
-
 			// switch off pagination by default
 			if( !isset( $dashboardoptions['pagination'] ) ) {
 				$tableparameters .= '|nopagination';
@@ -2914,9 +2912,22 @@ class SemanticOrganizationHooks {
 			if( !isset( $dashboardoptions['row template'] ) ) {
 				$rowtemplatetitle = Title::newFromText( 'Template:semorg-' . $template . '-dashboard-row' );
 				if( $rowtemplatetitle->exists() ) {
-					$tableparameters .= '|row template=' . $template . '-dashboard';
+					$dashboardoptions['row template'] = $template . '-dashboard';
 				}
 			}
+
+			// parent template?
+			if( wfMessage( 'semorg-form-' . $template . '-template' )->exists() ) {
+				if( !isset( $dashboardoptions['row template'] ) ) {
+					$dashboardoptions['row template'] = $template;
+				}
+				$template = wfMessage( 'semorg-form-' . $template . '-template' )->text();
+			}
+
+			foreach( $dashboardoptions as $option => $value ) {
+				$tableparameters .= '|' . $option . '=' . $value;
+			}
+
 			$tables = '{{#semorg-list:' . $template . $tableparameters . '}}';
 		}
 
@@ -3050,7 +3061,7 @@ class SemanticOrganizationHooks {
 				//$missing = wfMessage( 'semorg-error-missing-data', 'semorg-missing-metrics', 'frequency' )->plain();
 		}
 		if( $missing != '' ) {
-			$missing = '<div class="semorg-missing-metrics pt-3"><span class="badge text-bg--warning">Missing Metrics:</span> ' . $missing . '</div>';
+			$missing = '<div class="semorg-missing-metrics pt-3"><span class="badge text-bg-warning">Missing Metrics:</span> ' . $missing . '</div>';
 		}
 
 		return [ $missing, 'noparse' => false ];
