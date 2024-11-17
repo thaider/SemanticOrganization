@@ -2844,7 +2844,16 @@ class SemanticOrganizationHooks {
 		if( wfMessage( 'semorg-' . $template . '-page-name' )->exists() ) {
 			$page_name = wfMessage( 'semorg-' . $template . '-page-name' )->text();
 			$title = wfMessage( 'semorg-dashboard-title', $page_name )->text();
-			$links .= '[[' . $page_name . '|' . wfMessage( 'semorg-dashboard-link-all', $page_name )->text() . ']]';
+			$fulllistquery = '';
+			if( isset( $dashboardoptions['full list query'] ) ) {
+				$fulllistquery = $dashboardoptions['full list query'];
+			} elseif( wfMessage( 'semorg-' . $template . '-dashboard-full-list-query' )->exists() ) {
+				$fulllistquery = wfMessage( 'semorg-' . $template . '-dashboard-full-list-query' )->plain();
+			}
+			if( $fulllistquery != '' ) {
+				$page_name .= '|' . $fulllistquery;
+			}
+			$links .= '[{{fullurl:' . $page_name . '}} ' . wfMessage( 'semorg-dashboard-link-all', $page_name )->text() . ']';
 		}
 		if( wfMessage( 'semorg-form-' . $template . '-page-name' )->exists() && wfMessage( 'semorg-form-' . $template . '-create-title' )->exists() ) {
 			$links .= '{{#semorg-formlink:' . $template . '|returnto={{FULLPAGENAME}}|link text={{int:semorg-dashboard-link-create}}|class=semorg-dashboard-formlink}}';
@@ -2863,6 +2872,7 @@ class SemanticOrganizationHooks {
 			'query',
 			'tables',
 			'sort',
+			'order',
 			'limit',
 			'body',
 			'row-template',
@@ -2935,7 +2945,7 @@ class SemanticOrganizationHooks {
 			$dashboard .= '|tables=' . $tables;
 		}
 
-		if( isset( $dashboardoptions['body'] ) ) {
+		if( isset( $dashboardoptions['body'] ) && $dashboardoptions['body'] != '-' ) {
 			$dashboard .= '|body=' . $dashboardoptions['body'];
 		}
 
