@@ -60,6 +60,7 @@ class SemanticOrganizationHooks {
 			'formlink' => 'renderFormlink',
 			'forminput' => 'renderForminput',
 			'meetings' => 'renderMeetings',
+			'meetings-dashboard' => 'renderMeetingsDashboard',
 			'properties' => 'renderProperties',
 			'values' => 'renderValues',
 			'tabs' => 'renderTabs',
@@ -1616,6 +1617,87 @@ class SemanticOrganizationHooks {
 			  |nopagination
 			  |footer={{#ifexpr:' . $past_count . ' > ' . $past_limit . '|' . $show_all_link . '}}
 			}}</div>';
+		}
+
+		return [ $meetings, 'noparse' => false ];
+	}
+
+
+	/**
+	 * Show a link to create a new meeting and the lists of planned and past meetings
+	 *
+	 * @todo: für Subvarianten von Meetings konfigurierbar machen (Parameter category und row template)
+	 */
+	static function renderMeetingsDashboard( &$parser ) {
+		$template = func_get_args()[1];
+		$options = self::extractOptions( array_slice(func_get_args(), 2) );
+		
+		$group = '{{FULLPAGENAME}}';
+		if( isset( $options['group'] ) ) {
+			$group = $options['group'];
+		}
+		$query = '[[semorg-meeting-' . $template . '::' . $group . ']]';
+		$meetings_page_name = wfMessage( 'semorg-meeting-' . $template . '-page-name' )->text();
+
+		$meetings = '';
+
+		$title = $options['title'] ?? $meetings_page_name;
+		$links = '[{{fullurl:{{int:semorg-meeting-' . $template . '-page-name}}|';
+		switch( $template ) {
+			case 'group':
+				$links .= 'meeting-group.semorg-group-name={{urlencode:{{{name|{{FULLPAGENAME}}}}}|QUERY}}}}';
+				break;
+			default:
+				$links .= '';
+		}	
+		$links .= ' {{int:semorg-dashboard-link-all}}]';
+		$links .= '{{#semorg-formlink:meeting-' . $template;
+		if( $group != '+' ) {
+			$links .= '|query string=semorg-meeting-' . $template . '[' . $template . ']=' . $group;
+		}
+		$default_agenda = Title::newFromText( $parser->getTitle()->getPrefixedText() . '/' . wfMessage( 'semorg-form-default-agenda-page-name' )->text() );
+		if( $default_agenda->exists() ) {
+			$links .= '|preload=' . $default_agenda->getPrefixedText();
+		}
+		$links .= '|link text={{int:semorg-dashboard-link-create}}|class=semorg-dashboard-formlink
+		}}';
+		$links .= '{{semorg-formlink-default-agenda-dashboard}}';
+		if( isset( $options['links'] ) ) {
+			$links .= ' ' . $options['links'];
+		}
+
+		$limit = $options['limit'] ?? 1000;
+
+		/* current meetings */
+		$meetings .= '{{#semorg-list:meeting
+		  |query=' . $query . '[[Semorg-meeting-date::≥{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]
+		  |category=semorg-meeting-' . $template . '
+		  |row template=meeting-' . $template . '
+		  |sort=Semorg-meeting-date
+		  |default=<div class="ms-1 my-2">{{int:semorg-list-meeting-default}}</div>
+		  |limit=' . $limit .'
+		  |nopagination
+		}}';
+
+		$meetings = '{{semorg-card|title=' . wfMessage( 'semorg-list-meeting-current-heading', $meetings_page_name )->text() . '|links=' . $links . '|tables=' . $meetings . '}}';
+
+		/* past meetings */
+		if( !isset( $options['only current'] ) || $options['only current'] != true ) {
+			$past_query = $query . '[[Semorg-meeting-date::<<{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}]]';
+			$past_count = $parser->recursiveTagParse( '{{#ask:' . $past_query . '|format=count}}' );
+			$past_limit = 5;
+			$show_all_link = '[{{fullurl:{{int:semorg-meeting-' . $template . '-past-page-name}}|meeting-' . $template . '={{urlencode:' . $group . '}}}} {{int:semorg-list-meeting-all-link-text|' . $past_count . '}}]';
+			$meetings .= '{{semorg-card|title=' . wfMessage( 'semorg-list-meeting-past-heading', $meetings_page_name )->text() . '|tables={{#semorg-list:meeting
+			  |query=' . $past_query . '
+			  |category=semorg-meeting-' . $template . '
+			  |row template=meeting-past-dashboard
+			  |sort=Semorg-meeting-date
+			  |order=desc
+			  |default={{int:semorg-list-meeting-default-past}}
+			  |limit=' . $past_limit . '
+			  |nopagination
+			  |footer={{#ifexpr:' . $past_count . ' > ' . $past_limit . '|' . $show_all_link . '}}
+			}}}}';
 		}
 
 		return [ $meetings, 'noparse' => false ];
