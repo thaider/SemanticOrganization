@@ -400,6 +400,7 @@
 	"semorg-tab-project-agenda": "Agenda <small>({{#ask:[[semorg-agenda-project::{{FULLPAGENAME}}]]|format=count}})</small>",
 	"semorg-tab-project-openproject": "OpenProject",
 	"semorg-field-project-picture-name": "Bild",
+	"semorg-field-project-description-long-name": "Detailbeschreibung",
 
 	"semorg-project-research-page-name": "Forschungsprojekte",
 	"semorg-project-research-entity-name": "Forschungsprojekt",

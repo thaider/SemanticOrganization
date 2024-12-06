@@ -611,6 +611,9 @@
 	"semorg-field-project-picture-name": "Picture",
 	"semorg-field-project-picture-parameters": "uploadable",
 	"semorg-field-project-picture-size": "50",
+	"semorg-field-project-description-long-name": "Long Description",
+	"semorg-field-project-description-long-parameters": "rows=2",
+	"semorg-field-project-description-long-input-type": "textarea",
 
 	"semorg-project-research-template": "semorg-project-research",
 	"semorg-project-research-category": "semorg-project-research",
