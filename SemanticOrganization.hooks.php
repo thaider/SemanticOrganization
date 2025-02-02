@@ -1195,12 +1195,13 @@ class SemanticOrganizationHooks {
 					$table_query = $query . '|template=semorg-' . $row_template . '-row';
 				}
 				$table_parameters = $parameters;
+				$table_parameters['intro'] = $table_parameters['intro'] ?? '';
 				if( isset( $listoptions['plainheaders'] ) ) {
 					$table_parameters['intro'] .= '{{semorg-list-intro|plaincolumns=' . $listoptions['plainheaders'] . '|tableclass=' . $tableclass . '}}';
 				} else {
 					$table_parameters['intro'] .= '{{semorg-list-intro|columns=' . $headers . '|tableclass=' . $tableclass . '}}';
 				}
-				$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . $parameters['outro'];
+				$table_parameters['outro'] = $sums . '{{semorg-list-outro}}' . ( $parameters['outro'] ?? '' );
 
 				// apply parameters...
 				foreach( $table_parameters as $parameter => $value ) {
@@ -1229,8 +1230,9 @@ class SemanticOrganizationHooks {
 				}
 				$mobile_query = $query . '|template=' . $mobile_row_template;
 				$mobile_parameters = $parameters;
+				$mobile_parameters['intro'] = $mobile_parameters['intro'] ?? '';
 				$mobile_parameters['intro'] .= '{{semorg-list-intro|columns=-|tableclass=' . $tableclass . '}}';
-				$mobile_parameters['outro'] = '{{semorg-list-outro}}' . $parameters['outro'];
+				$mobile_parameters['outro'] = '{{semorg-list-outro}}' . ( $parameters['outro'] ?? '' );
 
 				// apply parameters...
 				foreach( $mobile_parameters as $parameter => $value ) {
@@ -1247,8 +1249,9 @@ class SemanticOrganizationHooks {
 				$card_query = $query . '|template=semorg-' . $listoptions['card template'] . '-card';
 
 				$card_parameters = $parameters;
+				$card_parameters['intro'] = $card_parameters['intro'] ?? '';
 				$card_parameters['intro'] .= '<div class="row" data-masonry=\'{"percentPosition": true }\'>';
-				$card_parameters['outro'] = $sums . '</div>' . $parameters['outro'];
+				$card_parameters['outro'] = $sums . '</div>' . ( $parameters['outro'] ?? '' );
 
 				// apply parameters...
 				foreach( $card_parameters as $parameter => $value ) {
