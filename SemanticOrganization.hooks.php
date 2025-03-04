@@ -66,6 +66,7 @@ class SemanticOrganizationHooks {
 			'tabs' => 'renderTabs',
 			'tabs-card' => 'renderTabsCard',
 			'user' => 'getUser',
+			'group' => 'hasGroup',
 			'true' => 'isTrue',
 			'detail' => 'renderDetail',
 			'documentation' => 'renderDocumentation',
@@ -411,6 +412,35 @@ class SemanticOrganizationHooks {
 		$rounded = round( func_get_arg( 1 ), $precision );
 
 		return $rounded;
+	}
+
+
+	/**
+	 * Test whether user is in the group provided by the first parameter;
+	 * return second argument if true, third argument if false
+	 */
+	static function hasGroup( &$parser ) {
+		if( func_num_args() < 1 ) {
+			return '';
+		}
+		$group = func_get_arg( 1 );
+		$user = $parser->getUserIdentity();
+		$ugm = MediaWikiServices::getInstance()->getUserGroupManager();
+		if( !$user->isRegistered() ) {
+			return '';
+		}
+		$usergroups = $ugm->getUserGroups($user);
+		$return = '';
+		if( in_array( $group, $usergroups ) ) {
+			if( func_num_args() > 2 ) {
+				$return = func_get_arg( 2 );
+			}
+		} else {
+			if( func_num_args() > 3 ) {
+				$return = func_get_arg( 3 );
+			}
+		}
+		return $return;
 	}
 
 
