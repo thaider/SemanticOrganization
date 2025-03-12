@@ -426,10 +426,7 @@ class SemanticOrganizationHooks {
 		$group = func_get_arg( 1 );
 		$user = $parser->getUserIdentity();
 		$ugm = MediaWikiServices::getInstance()->getUserGroupManager();
-		if( !$user->isRegistered() ) {
-			return '';
-		}
-		$usergroups = $ugm->getUserGroups($user);
+		$usergroups = $user->isRegistered ? $ugm->getUserGroups($user) : [];
 		$return = '';
 		if( in_array( $group, $usergroups ) ) {
 			if( func_num_args() > 2 ) {
