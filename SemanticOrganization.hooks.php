@@ -421,12 +421,12 @@ class SemanticOrganizationHooks {
 	 */
 	static function hasGroup( &$parser ) {
 		if( func_num_args() < 1 ) {
-			return '';
+			return 'missing arguments';
 		}
 		$group = func_get_arg( 1 );
 		$user = $parser->getUserIdentity();
 		$ugm = MediaWikiServices::getInstance()->getUserGroupManager();
-		$usergroups = $user->isRegistered ? $ugm->getUserGroups($user) : [];
+		$usergroups = $user->isRegistered() ? $ugm->getUserGroups($user) : [];
 		$return = '';
 		if( in_array( $group, $usergroups ) ) {
 			if( func_num_args() > 2 ) {
