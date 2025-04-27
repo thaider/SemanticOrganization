@@ -1459,6 +1459,8 @@ class SemanticOrganizationHooks {
 			'heading', 
 			'links-title',
 			'links',
+			'links-prefix',
+			'links-suffix',
 			'formlink',
 			'forminput',
 			'query',
@@ -1520,6 +1522,13 @@ class SemanticOrganizationHooks {
 				}
 			}
 			$links .= join( ' · ', $link_array );
+			$links = '<div class="semorg-list-links-row">' . $links . '</div>';
+			if( isset( $parameters['links prefix'] ) ) {
+				$links = '<div class="semorg-list-links-row">' . $parameters['links prefix'] . '</div>' . $links;
+			}
+			if( isset( $parameters['links suffix'] ) ) {
+				$links = $links . '<div class="semorg-list-links-row">' . $parameters['links suffix'] . '</div>';
+			}
 			$parameters['links'] = $links;
 		}
 		if( !isset( $parameters['heading'] ) ) {
