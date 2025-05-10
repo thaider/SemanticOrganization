@@ -328,6 +328,8 @@
 	"semorg-form-person-legal-create-title": "Institution erstellen",
 	"semorg-form-person-legal-edit-title": "Institution bearbeiten",
 	"semorg-forminput-person-legal-button-text": "Institution erstellen",
+	"semorg-tab-person-legal-details": "Details",
+	"semorg-tab-person-legal-contact": "Kontaktgeschichte",
 
 	"semorg-form-person-ref-add-button-text": "Kontakt hinzufügen",
 	"semorg-field-person-ref-name-name": "Name",
