@@ -410,6 +410,7 @@ body .formtable td.instanceRemove {
 	#maincontentwrapper {
 		flex:unset !important;
 		max-width:unset !important;
+		margin-left:0;
 	}
 	// macht diesen hässlichen Hack nötig
 	#contentwrapper .semorg-scj .row {
