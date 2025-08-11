@@ -24,14 +24,12 @@
 	},
 	"ResourceModules": {
 		"ext.semorg.default.styles": {
-			"class": "ResourceLoaderSkinModule",
 			"position": "top",
 			"styles": {
 				"default/css/semorg.css": {}
 			}
 		},
 		"ext.semorg.custom.styles": {
-			"class": "ResourceLoaderSkinModule",
 			"position": "top",
 			"styles": {
 				"custom/css/custom.css": {}

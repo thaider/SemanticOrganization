@@ -22,10 +22,9 @@ class SemanticOrganizationHooks {
 
 
 	/**
-	 *  Enforce use of Bootstrap 4, apply custom styles
+	 *  Apply custom styles
 	 */
-	static function onBeforeInitialize( \Title &$title, \Article &$article = null, \OutputPage &$output, \User &$user, \WebRequest $request, \MediaWiki $mediaWiki ) {
-		$GLOBALS['wgTweekiSkinUseBootstrap4'] = true;
+	static function onBeforeInitialize( &$title, &$article = null, &$output, &$user, $request, $mediaWiki ) {
 		$GLOBALS['wgTweekiSkinUseExternallinkStyles'] = false;
 
 		if( $GLOBALS['wgSemorgUseCustomStyles'] === false ) {
