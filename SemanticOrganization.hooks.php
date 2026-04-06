@@ -341,6 +341,9 @@ class SemanticOrganizationHooks {
 	 * @todo: proper error handling if missing parameter or if datetimes cannot be parsed
 	 */
 	static function getDateDiff( &$parser ) {
+		if( func_num_args() < 3 ) {
+			return;
+		}
 		$start = new Datetime( func_get_arg( 1 ) );
 		$end = new Datetime( func_get_arg( 2 ) );
 
