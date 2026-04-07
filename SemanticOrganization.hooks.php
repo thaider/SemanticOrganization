@@ -127,16 +127,23 @@ class SemanticOrganizationHooks {
 	 * Return sum
 	 */
 	static function renderSum( &$parser, $id = null, $amount = null ) {
+		$page_id = $parser->getTitle()->getId();
 		if( is_null( $id) ) {
 			return false;
 		}
 		if( is_null( $amount ) ) {
-			return self::$sums[$id];
-		} else {
-			if( !isset( self::$sums[$id] ) ) {
-				self::$sums[$id] = 0;
+			if( !isset( self::$sums[$page_id][$id] ) ) {
+				return false;
 			}
-			self::$sums[$id] += (float) $amount;
+			return self::$sums[$page_id][$id];
+		} else {
+			if( !isset( self::$sums[$page_id] ) ) {
+				self::$sums[$page_id] = [];
+			}
+			if( !isset( self::$sums[$page_id][$id] ) ) {
+				self::$sums[$page_id][$id] = 0;
+			}
+			self::$sums[$page_id][$id] += (float) $amount;
 			return false;
 		}
 	}
