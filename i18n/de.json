@@ -556,7 +556,7 @@
 	"semorg-form-meeting-role-edit-title": "Rollenbesprechung bearbeiten",
 	"semorg-form-meeting-role-page-name": "Rollenbesprechungen",
 
-	"semorg-meeting-project-displaytitle": "$1-Projektbesprechung vom {{#timel:j. F Y|$2}}",
+	"semorg-meeting-project-displaytitle": "{{#show:$1|?semorg-project-title}}-Projektbesprechung vom {{#timel:j. F Y|$2}}",
 	"semorg-meeting-project-page-name": "Projektbesprechungen",
 	"semorg-meeting-project-past-page-name": "Vergangene Projektbesprechungen",
 	"semorg-meeting-project-entity-name": "Projektbesprechung",
