@@ -873,6 +873,11 @@
 	"semorg-tab-group-meetings": "Treffen",
 	"semorg-field-group-domain-name": "Domain",
 	"semorg-field-group-goals-name": "Ziele/Angebote",
+	"semorg-field-group-all-members-prefix": "Sind alle Benutzer*innen Mitglieder dieser Gruppe:",
+	"semorg-field-group-all-members-values": "ja,nein",
+	"semorg-field-group-all-members-default": "nein",
+	"semorg-field-group-all-members-input-type": "radiobutton",
+	"semorg-field-group-all-members-parameters": "mandatory|show on select=nein=>semorg-row-group-members",
 
 	"semorg-form-group-member-add-button-text": "Mitglied hinzufügen",
 	"semorg-field-group-member-group-name": "Gremium",
