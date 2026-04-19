@@ -1131,8 +1131,8 @@ class SemanticOrganizationHooks {
 			$list = '';
 
 			// Create Map
-			if( isset( $listoptions['map-template'] ) ) {
-				$map_query = $query . '|template=' . $listoptions['map-template'];
+			if( isset( $listoptions['map template'] ) ) {
+				$map_query = $query . '|template=' . $listoptions['map template'];
 				$map_parameters = $parameters;
 
 				foreach( [
@@ -1183,8 +1183,8 @@ class SemanticOrganizationHooks {
 					}
 
 					// explicitly set by parser function parameter?
-					elseif( isset( $listoptions['map-' . $parameter] ) ) {
-						$map_parameters[$parameter] = $listoptions['map-' . $parameter];
+					elseif( isset( $listoptions['map ' . $parameter] ) ) {
+						$map_parameters[$parameter] = $listoptions['map ' . $parameter];
 					}
 
 					// customized?
@@ -1492,6 +1492,46 @@ class SemanticOrganizationHooks {
 			'help',
 			'extra-fields',
 			'map-template',
+			'map-format',
+			'map-width',
+			'map-height',
+			'map-centre',
+			'map-title',
+			'map-label',
+			'map-icon',
+			'map-lines',
+			'map-polygons',
+			'map-circles',
+			'map-rectangles',
+			'map-maxzoom',
+			'map-minzoom',
+			'map-copycoords',
+			'map-static',
+			'map-zoom',
+			'map-defzoom',
+			'map-layers',
+			'map-imagelayers',
+			'map-overlays',
+			'map-resizable',
+			'map-fullscreen',
+			'map-scrollwheelzoom',
+			'map-cluster',
+			'map-clustermaxzoom',
+			'map-clusterzoomonclick',
+			'map-clustermaxradius',
+			'map-clusterspiderfy',
+			'map-geojson',
+			'map-clicktarget',
+			'map-staticlocations',
+			'map-showtitle',
+			'map-hidenamespace',
+			'map-template',
+			'map-userparam',
+			'map-activeicon',
+			'map-pagelabel',
+			'map-ajaxcoordproperty',
+			'map-ajaxquery',
+			'map-position',
 			'card-template',
 			'list-intro',
 			'userparam',
