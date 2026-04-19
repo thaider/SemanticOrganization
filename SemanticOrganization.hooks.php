@@ -1587,7 +1587,8 @@ class SemanticOrganizationHooks {
 			}
 		}
 		if( !isset( $parameters['formlink'] ) || $parameters['formlink'] == '' ) {
-			$parameters['formlink'] = '{{#semorg-formlink:' . $feature . '}}';
+			$returnto = isset( $parameters['returnto'] ) ? ( '|returnto=' . $parameters['returnto'] ) : '';
+			$parameters['formlink'] = '{{#semorg-formlink:' . $feature . $returnto . '}}';
 		} elseif( $parameters['formlink'] == '-' ) {
 			unset( $parameters['formlink'] );
 		}
