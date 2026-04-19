@@ -1588,7 +1588,7 @@
 	"semorg-group-page-name": "Groups",
 	"semorg-group-inactive-page-name": "Inactive Groups",
 	"semorg-group-entity-name": "Group",
-	"semorg-group-dashboard-query": "[[-semorg-group-member-group.semorg-group-member-member::$1]][[semorg-group-active::true]]",
+	"semorg-group-dashboard-query": "[[-semorg-group-member-group.semorg-group-member-member::$1]][[semorg-group-active::true]] || [[semorg-group-all-members::true]][[semorg-group-active::true]]",
 	"semorg-form-group-create-title": "Create group",
 	"semorg-form-group-edit-title": "Edit group",
 	"semorg-form-group-page-name": "Groups",
