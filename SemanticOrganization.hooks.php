@@ -126,16 +126,23 @@ class SemanticOrganizationHooks {
 	 * Return sum
 	 */
 	static function renderSum( &$parser, $id = null, $amount = null ) {
+		$page_id = $parser->getTitle()->getId();
 		if( is_null( $id) ) {
 			return false;
 		}
 		if( is_null( $amount ) ) {
-			return self::$sums[$id];
-		} else {
-			if( !isset( self::$sums[$id] ) ) {
-				self::$sums[$id] = 0;
+			if( !isset( self::$sums[$page_id][$id] ) ) {
+				return false;
 			}
-			self::$sums[$id] += (float) $amount;
+			return self::$sums[$page_id][$id];
+		} else {
+			if( !isset( self::$sums[$page_id] ) ) {
+				self::$sums[$page_id] = [];
+			}
+			if( !isset( self::$sums[$page_id][$id] ) ) {
+				self::$sums[$page_id][$id] = 0;
+			}
+			self::$sums[$page_id][$id] += (float) $amount;
 			return false;
 		}
 	}
@@ -340,6 +347,9 @@ class SemanticOrganizationHooks {
 	 * @todo: proper error handling if missing parameter or if datetimes cannot be parsed
 	 */
 	static function getDateDiff( &$parser ) {
+		if( func_num_args() < 3 ) {
+			return;
+		}
 		$start = new Datetime( func_get_arg( 1 ) );
 		$end = new Datetime( func_get_arg( 2 ) );
 
@@ -1120,8 +1130,8 @@ class SemanticOrganizationHooks {
 			$list = '';
 
 			// Create Map
-			if( isset( $listoptions['map-template'] ) ) {
-				$map_query = $query . '|template=' . $listoptions['map-template'];
+			if( isset( $listoptions['map template'] ) ) {
+				$map_query = $query . '|template=' . $listoptions['map template'];
 				$map_parameters = $parameters;
 
 				foreach( [
@@ -1172,8 +1182,8 @@ class SemanticOrganizationHooks {
 					}
 
 					// explicitly set by parser function parameter?
-					elseif( isset( $listoptions['map-' . $parameter] ) ) {
-						$map_parameters[$parameter] = $listoptions['map-' . $parameter];
+					elseif( isset( $listoptions['map ' . $parameter] ) ) {
+						$map_parameters[$parameter] = $listoptions['map ' . $parameter];
 					}
 
 					// customized?
@@ -1481,6 +1491,46 @@ class SemanticOrganizationHooks {
 			'help',
 			'extra-fields',
 			'map-template',
+			'map-format',
+			'map-width',
+			'map-height',
+			'map-centre',
+			'map-title',
+			'map-label',
+			'map-icon',
+			'map-lines',
+			'map-polygons',
+			'map-circles',
+			'map-rectangles',
+			'map-maxzoom',
+			'map-minzoom',
+			'map-copycoords',
+			'map-static',
+			'map-zoom',
+			'map-defzoom',
+			'map-layers',
+			'map-imagelayers',
+			'map-overlays',
+			'map-resizable',
+			'map-fullscreen',
+			'map-scrollwheelzoom',
+			'map-cluster',
+			'map-clustermaxzoom',
+			'map-clusterzoomonclick',
+			'map-clustermaxradius',
+			'map-clusterspiderfy',
+			'map-geojson',
+			'map-clicktarget',
+			'map-staticlocations',
+			'map-showtitle',
+			'map-hidenamespace',
+			'map-template',
+			'map-userparam',
+			'map-activeicon',
+			'map-pagelabel',
+			'map-ajaxcoordproperty',
+			'map-ajaxquery',
+			'map-position',
 			'card-template',
 			'list-intro',
 			'userparam',
@@ -1536,7 +1586,8 @@ class SemanticOrganizationHooks {
 			}
 		}
 		if( !isset( $parameters['formlink'] ) || $parameters['formlink'] == '' ) {
-			$parameters['formlink'] = '{{#semorg-formlink:' . $feature . '}}';
+			$returnto = isset( $parameters['returnto'] ) ? ( '|returnto=' . $parameters['returnto'] ) : '';
+			$parameters['formlink'] = '{{#semorg-formlink:' . $feature . $returnto . '}}';
 		} elseif( $parameters['formlink'] == '-' ) {
 			unset( $parameters['formlink'] );
 		}
