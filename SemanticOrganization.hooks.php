@@ -3137,7 +3137,8 @@ class SemanticOrganizationHooks {
 			$parametertitle = Title::newFromText( $parameter );
 
 			if( $parametertitle->exists() ) {
-				$parameterpage = WikiPage::factory( $parametertitle );
+				$wpf = MediaWikiServices::getInstance()->getWikiPageFactory();
+				$parameterpage = $wpf->newFromTitle( $parametertitle );
 				foreach( $parameterpage->getCategories() as $cat ) {
 					if( lcfirst( $cat->getText() ) === wfMessage('semorg-role-category')->text() ) {
 						$isRoleTitle = true;
