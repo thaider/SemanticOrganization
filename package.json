@@ -22,5 +22,8 @@
     },
     "dependencies": {
         "autoprefixer": "10.4.5"
+    },
+    "overrides": {
+        "webpackbar": "^7.0.0"
     }
 }
