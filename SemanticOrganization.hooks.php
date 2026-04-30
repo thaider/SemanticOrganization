@@ -259,7 +259,8 @@ class SemanticOrganizationHooks {
 	 * Customize Title of Search Results
 	 */
 	static function onShowSearchHitTitle( Title &$title, &$titleSnippet, SearchResult $result, $terms, SpecialSearch $specialSearch, array &$query, array &$attributes ) {
-		$displaytitle = PageProps::getInstance()->getProperties( $title, 'displaytitle' );
+		$pp = MediaWikiServices::getInstance()->getPageProps();
+		$displaytitle = $pp->getProperties( $title, 'displaytitle' );
 		if( count($displaytitle) > 0 ) {
 			$titleSnippet = reset( $displaytitle );
 			foreach( $terms as $term ) {
@@ -546,7 +547,9 @@ class SemanticOrganizationHooks {
 		$title = Title::newFromText( $usertitle, NS_USER );
 		$username = $title->getText();
 
-		if( is_null( $user = User::idFromName( $username ) ) ) {
+		$uf = MediaWiki\MediaWikiServices::getInstance()->getUserFactory();
+		$user = $uf->newFromname( $username );
+		if( !$user->isRegistered() ) {
 			$linktext = wfMessage( 'semorg-user-create-link-text', $username )->plain();
 			$link = '<div class="semorg-user-create-link">[{{fullurl:Special:CreateAccount|wpName=' . urlencode( $username ) . '&wpCreateaccountMail=true&email={{#show:' . $title . '|?semorg-person-email#}}}} ' . $linktext . ']</div>';
 			return [ $link, 'noparse' => false ];
