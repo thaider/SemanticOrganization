@@ -1034,7 +1034,8 @@ class SemanticOrganizationHooks {
 				'order', 
 				'default', 
 				'limit', 
-				'userparam'
+				'userparam',
+				'intro',
 			] as $parameter ) {
 
 				// set by a message?
@@ -1555,7 +1556,7 @@ class SemanticOrganizationHooks {
 		}
 
 		// for backwards compatibility – @todo: all link templates should be replaced by messages
-		if( !isset( $parameters['link'] ) && $parent_feature && wfMessage( 'semorg-overview-' . $parent_feature . '-links' )->exists() ) {
+		if( !isset( $parameters['links'] ) && $parent_feature && wfMessage( 'semorg-overview-' . $parent_feature . '-links' )->exists() ) {
 			$parameters['links'] = wfMessage( 'semorg-overview-' . $parent_feature . '-links' )->plain();
 		}
 		if( !isset( $parameters['links'] ) ) {
