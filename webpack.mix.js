@@ -46,6 +46,4 @@ mix.sass('resources/custom/styles/custom.scss', 'modules/custom/css')
    .copyDirectory('resources/default/fonts', 'modules/custom/fonts')
    .copyDirectory('resources/custom/fonts', 'modules/custom/fonts');
 
-mix.browserSync({ proxy: process.env.MIX_LOCAL_PROXY_URL });
-
 /**/
