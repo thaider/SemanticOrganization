@@ -19,6 +19,6 @@
         "webpack": "5.93.0"
     },
     "resolutions": {
-        "webpack": "5.93.0" // fix from https://laracasts.com/discuss/channels/elixir/laravel-mix-is-breaking
+        "webpack": "5.93.0"
     }
 }
