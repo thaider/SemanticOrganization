@@ -223,6 +223,9 @@
 	"semorg-value-hypothesis-status-confirmed": "confirmed",
 	"semorg-value-hypothesis-status-falsified": "falsified",
 	"semorg-value-hypothesis-status-archived": "archived",
+	"semorg-value-milestone-status-planned": "geplant",
+	"semorg-value-milestone-status-ongoing": "in Umsetzung",
+	"semorg-value-milestone-status-done": "abgeschlossen",
 
 	"semorg-up-to-date-date-none": "noch nicht kontrolliert…",
 	"semorg-up-to-date-date-to-be-checked": "zu überprüfen",
@@ -1345,6 +1348,7 @@
 	"semorg-field-milestone-scj-name": "System Change Journey",
 	"semorg-field-milestone-tools-name": "Werkzeuge",
 	"semorg-field-milestone-delivery-models-name": "Vertriebswege",
+	"semorg-field-milestone-status-name": "Status",
 	"semorg-field-milestone-team-name": "Teammitglieder",
 	"semorg-field-milestone-team-internal-name": "Team (intern)",
 	"semorg-field-milestone-team-external-name": "Team (extern)",
