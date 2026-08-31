@@ -1308,6 +1308,24 @@
 	"semorg-field-scj-priority-name": "Priorität",
 	"semorg-field-scj-hypothesis-name": "Hypothesen",
 	"semorg-field-scj-status-values": "in Entwicklung, vorgeschlagen, angenommen",
+	"semorg-field-scj-team-name": "Teammitglieder",
+	"semorg-field-scj-team-internal-name": "Team (intern)",
+	"semorg-field-scj-team-external-name": "Team (extern)",
+
+	"semorg-field-scj-team-end-date-name": "Enddatum",
+	"semorg-field-scj-team-main-responsible-name": "hauptverantwortlich",
+	"semorg-field-scj-team-main-responsible-label": "hauptverantwortlich",
+	"semorg-field-scj-team-role-name": "Rolle",
+	"semorg-field-scj-team-role-placeholder": "Rolle",
+	"semorg-field-scj-team-scj-name": "System Change Journey",
+	"semorg-field-scj-team-start-date-name": "Startdatum",
+	"semorg-field-scj-team-team-name": "Team",
+	"semorg-field-scj-team-team-external-name": "Team (extern)",
+	"semorg-field-scj-team-team-internal-name": "Team (intern)",
+
+	"semorg-form-scj-team-internal-add-button-text": "Internes SCJ-Teammitglied hinzufügen",
+
+	"semorg-form-scj-team-external-add-button-text": "Externes SCJ-Teammitglied hinzufügen",
 
 	"semorg-plot-page-name": "Plots",
 	"semorg-plot-entity-name": "Plot",
