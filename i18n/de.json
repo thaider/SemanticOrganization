@@ -1308,24 +1308,6 @@
 	"semorg-field-scj-priority-name": "Priorität",
 	"semorg-field-scj-hypothesis-name": "Hypothesen",
 	"semorg-field-scj-status-values": "in Entwicklung, vorgeschlagen, angenommen",
-	"semorg-field-scj-team-name": "Teammitglieder",
-	"semorg-field-scj-team-internal-name": "Team (intern)",
-	"semorg-field-scj-team-external-name": "Team (extern)",
-
-	"semorg-field-scj-team-end-date-name": "Enddatum",
-	"semorg-field-scj-team-main-responsible-name": "hauptverantwortlich",
-	"semorg-field-scj-team-main-responsible-label": "hauptverantwortlich",
-	"semorg-field-scj-team-role-name": "Rolle",
-	"semorg-field-scj-team-role-placeholder": "Rolle",
-	"semorg-field-scj-team-scj-name": "System Change Journey",
-	"semorg-field-scj-team-start-date-name": "Startdatum",
-	"semorg-field-scj-team-team-name": "Team",
-	"semorg-field-scj-team-team-external-name": "Team (extern)",
-	"semorg-field-scj-team-team-internal-name": "Team (intern)",
-
-	"semorg-form-scj-team-internal-add-button-text": "Internes SCJ-Teammitglied hinzufügen",
-
-	"semorg-form-scj-team-external-add-button-text": "Externes SCJ-Teammitglied hinzufügen",
 
 	"semorg-plot-page-name": "Plots",
 	"semorg-plot-entity-name": "Plot",
@@ -1363,6 +1345,24 @@
 	"semorg-field-milestone-scj-name": "System Change Journey",
 	"semorg-field-milestone-tools-name": "Werkzeuge",
 	"semorg-field-milestone-delivery-models-name": "Vertriebswege",
+	"semorg-field-milestone-team-name": "Teammitglieder",
+	"semorg-field-milestone-team-internal-name": "Team (intern)",
+	"semorg-field-milestone-team-external-name": "Team (extern)",
+
+	"semorg-field-milestone-team-end-date-name": "Enddatum",
+	"semorg-field-milestone-team-main-responsible-name": "hauptverantwortlich",
+	"semorg-field-milestone-team-main-responsible-label": "hauptverantwortlich",
+	"semorg-field-milestone-team-role-name": "Rolle",
+	"semorg-field-milestone-team-role-placeholder": "Rolle",
+	"semorg-field-milestone-team-milestone-name": "Meilenstein",
+	"semorg-field-milestone-team-start-date-name": "Startdatum",
+	"semorg-field-milestone-team-team-name": "Team",
+	"semorg-field-milestone-team-team-external-name": "Team (extern)",
+	"semorg-field-milestone-team-team-internal-name": "Team (intern)",
+
+	"semorg-form-milestone-team-internal-add-button-text": "Internes Teammitglied hinzufügen",
+
+	"semorg-form-milestone-team-external-add-button-text": "Externes Teammitglied hinzufügen",
 
 	"semorg-form-tool-label": "Werkzeuge",
 	"semorg-form-tool-add-button-text": "Werkzeug hinzufügen",
