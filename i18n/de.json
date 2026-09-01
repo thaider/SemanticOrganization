@@ -1060,6 +1060,7 @@
 	"semorg-field-role-metric-frequency-name": "Häufigkeit",
 	"semorg-field-role-metric-measurements-name": "Messungen",
 	"semorg-field-role-metric-role-role-group-group-name-name": "Gremium",
+	"semorg-field-role-metric-tag-name": "Tags",
 
 	"semorg-role-metric-measurement-entity-name": "Messung",
 	"semorg-form-role-metric-measurement-create-title": "Messung erstellen",

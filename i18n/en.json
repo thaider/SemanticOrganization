@@ -2040,6 +2040,9 @@
 	"semorg-field-role-metric-frequency-name": "Frequency",
 	"semorg-field-role-metric-frequency-parameters": "mandatory|input type=radiobutton|existing values only|values=year,month,quarter,week|mapping template=semorg-mapping-frequency",
 	"semorg-field-role-metric-frequency-default": "year",
+	"semorg-field-role-metric-tag-name": "Tags",
+	"semorg-field-role-metric-tag-parameters": "values from property=semorg-role-metric-tag",
+	"semorg-field-role-metric-tag-input-type": "tokens",
 	"semorg-field-role-metric-measurements-name": "Measurements",
 	"semorg-field-role-metric-role-role-group-group-name-name": "Group",
 
