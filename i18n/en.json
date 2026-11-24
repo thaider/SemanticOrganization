@@ -2071,6 +2071,8 @@
 	"semorg-field-role-metric-measurement-note-name": "Note",
 	"semorg-field-role-metric-measurement-note-parameters": "rows=1",
 	"semorg-field-role-metric-measurement-note-input-type": "textarea",
+	"semorg-field-role-metric-target-value-name": "Target Value",
+	"semorg-field-role-metric-target-value-parameters": "",
 
 	"semorg-account-template": "semorg-account",
 	"semorg-account-category": "semorg-account",
